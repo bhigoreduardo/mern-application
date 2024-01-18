@@ -25,6 +25,16 @@ export const categories = [
   },
 ]
 
+export const brands = [
+  {
+    _id: '',
+    name: 'Castor',
+    slug: 'castor',
+    description: '',
+    image: '',
+  },
+]
+
 export const product = {
   _id: '',
   name: '',

@@ -2,6 +2,7 @@
 import { mergeClassName } from '../../../../../utils/format'
 
 export default function Text({
+  type,
   name,
   id,
   placeholder,
@@ -17,7 +18,7 @@ export default function Text({
       )}
     >
       <input
-        type="text"
+        type={type || 'text'}
         name={name}
         id={id}
         placeholder={placeholder}
