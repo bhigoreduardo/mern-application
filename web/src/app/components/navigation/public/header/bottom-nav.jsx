@@ -1,22 +1,12 @@
 import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import {
-  CaretUp,
-  CaretDown,
-  House,
-  Storefront,
-  MapPinLine,
-  ArrowsCounterClockwise,
-  Headphones,
-  Note,
-  PhoneCall,
-  List,
-} from 'phosphor-react'
+import { CaretUp, CaretDown, PhoneCall, List } from 'phosphor-react'
 
 import { comparePathname } from '../../../../../utils/format'
 import { phoneMask } from '../../../../../utils/mask'
 import Container from '../../../ui/common/container'
 import Button from '../../../ui/buttons/button'
+import { pages } from '../../../../../utils/contants/public'
 
 export default function BottomNav() {
   const [activeButton, setActiveButton] = useState(false)
@@ -47,30 +37,12 @@ export default function BottomNav() {
           </button>
 
           <div className="hidden lg:flex items-center gap-6">
-            <Link to="/" className={getClassName('/')}>
-              <House size={16} weight="duotone" />
-              Início
-            </Link>
-            <Link to="/produtos" className={getClassName('/produtos')}>
-              <Storefront size={16} weight="duotone" />
-              Produtos
-            </Link>
-            <Link to="/rastrear" className={getClassName('/rastrear')}>
-              <MapPinLine size={16} weight="duotone" />
-              Rastrear
-            </Link>
-            <Link to="/compare" className={getClassName('/compare')}>
-              <ArrowsCounterClockwise size={16} weight="duotone" />
-              Compare
-            </Link>
-            <Link to="/contato" className={getClassName('/contato')}>
-              <Headphones size={16} weight="duotone" />
-              Contato
-            </Link>
-            <Link to="/sobre" className={getClassName('/sobre')}>
-              <Note size={16} weight="duotone" />
-              Sobre
-            </Link>
+            {pages.map((item, i) => (
+              <Link key={i} to={item.slug} className={getClassName(item.slug)}>
+                {item.icon}
+                {item.name}
+              </Link>
+            ))}
           </div>
         </nav>
 

@@ -1,6 +1,6 @@
 import { ArrowRight } from 'phosphor-react'
 
-import { categories } from '../../../../../utils/contants/public'
+import { categories } from '../../../../../utils/mocks/public'
 import Button from '../../../ui/buttons/button'
 import FooterLink from '../../../ui/buttons/footer-link'
 
