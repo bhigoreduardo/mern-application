@@ -4,3 +4,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.control-dots {
+  @apply absolute lg:!left-6 lg:!bottom-6 flex items-center gap-2;
+}

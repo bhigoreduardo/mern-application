@@ -5,6 +5,9 @@ import {
   ArrowsCounterClockwise,
   Headphones,
   Note,
+  Package,
+  Trophy,
+  CreditCard,
 } from 'phosphor-react'
 
 export const pages = [
@@ -37,5 +40,28 @@ export const pages = [
     name: 'Sobre',
     slug: '/sobre',
     icon: <Note size={16} weight="duotone" />,
+  },
+]
+
+export const features = [
+  {
+    icon: <Package size={40} weight="duotone" className="text-gray-900" />,
+    title: 'Entrega rápida',
+    description: 'Entrega em 24h',
+  },
+  {
+    icon: <Trophy size={40} weight="duotone" className="text-gray-900" />,
+    title: 'Qualidade',
+    description: 'Qualidade a preço justo',
+  },
+  {
+    icon: <CreditCard size={40} weight="duotone" className="text-gray-900" />,
+    title: 'Facilidade Pagamento',
+    description: 'Encontra a melhor forma',
+  },
+  {
+    icon: <Headphones size={40} weight="duotone" className="text-gray-900" />,
+    title: 'Suporte',
+    description: 'Suporte para contato',
   },
 ]

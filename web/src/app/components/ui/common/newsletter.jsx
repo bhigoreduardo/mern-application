@@ -1,5 +1,7 @@
+// import { brands } from '../../../../utils/mocks/public'
 import Container from './container'
 import NewsletterForm from '../../form/public/newsletter'
+// import Carousel from '../carousel'
 
 export default function Newsletter() {
   return (
@@ -16,6 +18,21 @@ export default function Newsletter() {
         </div>
 
         <NewsletterForm />
+
+        {/* <Carousel>
+          {({ onSwipe }) =>
+            brands.map((item, i) => (
+              <img
+                key={i}
+                src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+                  item.image
+                }`}
+                alt={item.name}
+                className="h-[15px] w-fit"
+              />
+            ))
+          }
+        </Carousel> */}
       </Container>
     </section>
   )
