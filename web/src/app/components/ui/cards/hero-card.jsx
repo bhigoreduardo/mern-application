@@ -73,7 +73,7 @@ export default function HeroCard({
           </span>
         )}
         <Link to={href}>
-          <Button className="bg-orange-500 text-white hover:bg-orange-600">
+          <Button className="bg-orange-500 text-white hover:bg-orange-600 uppercase">
             Comprar
             <ArrowRight size={20} className="text-white" />
           </Button>
@@ -81,7 +81,7 @@ export default function HeroCard({
       </div>
       {/* IMAGE */}
       <img
-        src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/products/${image}`}
+        src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${image}`}
         alt={name}
         className={`${smallCard ? '!max-w-[170px]' : 'sm:!max-w-[350px] !max-w-[250px]'}`}
       />

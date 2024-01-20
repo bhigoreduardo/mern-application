@@ -41,14 +41,14 @@ export default function ProductCard({
       <div className="group relative flex items-center justify-center h-[240px] w-full overflow-hidden mb-3">
         {/* IMAGES */}
         <img
-          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/products/${cover}`}
+          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${cover}`}
           alt={name}
           className="absolute left-0 group-hover:-left-[100%] h-full w-full object-cover duration-300 ease-in-out"
         />
         <img
           src={`${
             import.meta.env.VITE_SERVER_PUBLIC_IMAGES
-          }/products/${backCover}`}
+          }/${backCover}`}
           alt={name}
           className="absolute -right-[100%] group-hover:right-0 h-full w-full object-cover duration-300 ease-in-out"
         />
@@ -126,7 +126,7 @@ export default function ProductCard({
             </Button>
             <Button
               title="Visualizar"
-              className="bg-orange-500 hover:bg-orange-600 text-white !w-full"
+              className="bg-orange-500 hover:bg-orange-600 text-white !w-full uppercase"
             >
               <ShoppingCartSimple size={16} /> Comprar
             </Button>

@@ -14,7 +14,7 @@ export const categories = [
     slug: 'mesas',
     description:
       "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'mesas.jpg',
+    image: 'categories/mesas.jpg',
     products: [],
     spotlights: [],
     store: null,
@@ -33,7 +33,7 @@ export const categories = [
     slug: 'cadeiras',
     description:
       "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'cadeiras.jpg',
+    image: 'categories/cadeiras.jpg',
     products: [],
     spotlights: [],
     store: null,
@@ -52,7 +52,7 @@ export const categories = [
     slug: 'sofas',
     description:
       "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'sofas.jpg',
+    image: 'categories/sofas.jpg',
     products: [],
     spotlights: [],
     store: null,
@@ -71,7 +71,7 @@ export const categories = [
     slug: 'poltronas',
     description:
       "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'poltronas.jpg',
+    image: 'categories/poltronas.jpg',
     products: [],
     spotlights: [],
     store: null,
@@ -90,7 +90,7 @@ export const categories = [
     slug: 'armarios',
     description:
       "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'armarios.jpg',
+    image: 'categories/armarios.jpg',
     products: [],
     spotlights: [],
     store: null,
@@ -109,7 +109,7 @@ export const categories = [
     slug: 'estantes',
     description:
       "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'estantes.jpg',
+    image: 'categories/estantes.jpg',
     products: [],
     spotlights: [],
     store: null,
@@ -128,7 +128,7 @@ export const categories = [
     slug: 'decoracoes',
     description:
       "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'decoracoes.jpg',
+    image: 'categories/decoracoes.jpg',
     products: [],
     spotlights: [],
     store: null,
@@ -210,7 +210,7 @@ export const customer = {
   name: 'John Doe',
   email: 'email@email.com',
   whatsApp: '11999768890',
-  image: 'customer.webp',
+  image: 'users/customer.webp',
   address: {
     street: 'Avenida Walter Banho',
     neighborhood: 'Universidade',
@@ -278,15 +278,15 @@ export const product = {
   ],
   productData: {
     media: {
-      cover: 'cover.png',
-      backCover: 'backCover.jpg',
+      cover: 'products/cover.png',
+      backCover: 'products/backCover.jpg',
       gallery: [
-        'gallery-1.jpg',
-        'gallery-2.jpg',
-        'gallery-3.jpg',
-        'gallery-4.jpg',
-        'gallery-5.jpg',
-        'gallery-6.jpg',
+        'products/gallery-1.jpg',
+        'products/gallery-2.jpg',
+        'products/gallery-3.jpg',
+        'products/gallery-4.jpg',
+        'products/gallery-5.jpg',
+        'products/gallery-6.jpg',
       ],
       video: '',
     },
@@ -404,7 +404,7 @@ export const hero = {
       product: {
         _id: '659edb43f26a45ceed256d3a',
         name: 'Lorem Ipsum is simply dummy',
-        cover: 'cover.png',
+        cover: 'products/cover.png',
         price: 550,
         offer: 350,
       },
@@ -416,7 +416,7 @@ export const hero = {
       product: {
         _id: '659edb43f26a45ceed256d3a',
         name: 'Lorem Ipsum is simply dummy',
-        cover: 'cover.png',
+        cover: 'products/cover.png',
         price: 550,
         offer: 350,
       },
@@ -428,7 +428,7 @@ export const hero = {
       product: {
         _id: '659edb43f26a45ceed256d3a',
         name: 'Lorem Ipsum is simply dummy',
-        cover: 'cover.png',
+        cover: 'products/cover.png',
         price: 550,
         offer: 350,
       },
@@ -439,7 +439,7 @@ export const hero = {
       product: {
         _id: '659edb43f26a45ceed256d3a',
         name: 'Lorem Ipsum is simply dummy',
-        cover: 'cover.png',
+        cover: 'products/cover.png',
         price: 550,
         offer: 350,
       },
