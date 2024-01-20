@@ -6,6 +6,7 @@ import Button from '../../../ui/buttons/button'
 import Container from '../../../ui/common/container'
 import Heading from '../../../ui/common/heading'
 import ProductCard from '../../../ui/cards/product-card'
+import ProductGrid from '../../../ui/common/product-grid'
 
 export default function BestSeller() {
   return (
@@ -33,19 +34,7 @@ export default function BestSeller() {
             />
           </div>
           {/* PRODUCTS GRID */}
-          <div className="flex-grow grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1">
-            {Array.from({ length: 8 }).map((_, i) => (
-              <ProductCard
-                key={i}
-                badge={BadgeEnum.Offer}
-                badgeValue="18"
-                cover={product?.productData?.media?.cover}
-                backCover={product?.productData?.media?.backCover}
-                name={product.name}
-                rangePrice={product.rangePrice}
-              />
-            ))}
-          </div>
+          <ProductGrid products={new Array(8).fill(product)} />
         </div>
       </Container>
     </section>
