@@ -84,10 +84,11 @@ export default function ProductCard({
           </div>
         )}
       </div>
-      {/* REVIEWS */}
-      {/* CONTENT */}
       <div className="flex flex-col justify-between gap-9">
         <div className="flex flex-col gap-2">
+          {/* REVIEWS */}
+          <span className="text-xs text-gray-400">Sem avaliações</span>
+          {/* CONTENT */}
           <h3 className="font-semibold text-sm text-gray-900 line-clamp-2">
             {name}
           </h3>
