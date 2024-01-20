@@ -279,7 +279,7 @@ export const product = {
   productData: {
     media: {
       cover: 'cover.png',
-      backCover: 'backcover.png',
+      backCover: 'backCover.jpg',
       gallery: [
         'gallery-1.jpg',
         'gallery-2.jpg',

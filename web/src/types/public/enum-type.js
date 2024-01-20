@@ -22,3 +22,11 @@ export const OfferEnum = {
   Percentage: 'percentage',
   Money: 'money',
 }
+
+export const BadgeEnum = {
+  Offer: 'offer',
+  Saller: 'saller',
+  Out: 'out',
+  Hot: 'hot',
+  Discount: 'discount',
+}
