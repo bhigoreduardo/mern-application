@@ -1,30 +1,59 @@
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Pagination } from 'swiper/modules'
+/* eslint-disable react/prop-types */
+import { useState } from 'react'
+import { ArrowLeft } from 'phosphor-react'
+import Slick from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 
-// Import Swiper styles
-import 'swiper/css'
-import 'swiper/css/pagination'
+export default function Carousel({ children, autoplay = false }) {
+  const [onSwipe, setOnSwipe] = useState(false)
+  const settings = {
+    infinite: true,
+    swipe: false,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    dots: false,
+    prevArrow: (
+      <div className="flex items-center justify-center">
+        <ArrowLeft size={20} />
+      </div>
+    ),
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  }
 
-export default function Carousel() {
   return (
-    <Swiper
-      slidesPerView={3}
-      spaceBetween={30}
-      pagination={{
-        clickable: true,
-      }}
-      modules={[Pagination]}
-      className="mySwiper"
+    <Slick
+      autoplay={autoplay}
+      autoplaySpeed={5000}
+      onSwipe={() => setOnSwipe(true)}
+      afterChange={() => setOnSwipe(false)}
+      slidesToShow={1}
+      slidesToScroll={1}
+      {...settings}
     >
-      <SwiperSlide>Slide 1</SwiperSlide>
-      <SwiperSlide>Slide 2</SwiperSlide>
-      <SwiperSlide>Slide 3</SwiperSlide>
-      <SwiperSlide>Slide 4</SwiperSlide>
-      <SwiperSlide>Slide 5</SwiperSlide>
-      <SwiperSlide>Slide 6</SwiperSlide>
-      <SwiperSlide>Slide 7</SwiperSlide>
-      <SwiperSlide>Slide 8</SwiperSlide>
-      <SwiperSlide>Slide 9</SwiperSlide>
-    </Swiper>
+      {children && children(onSwipe)}
+    </Slick>
   )
 }

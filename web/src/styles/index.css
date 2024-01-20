@@ -8,3 +8,12 @@
 .control-dots {
   @apply absolute lg:!left-6 lg:!bottom-6 flex items-center gap-1;
 }
+
+.slick-prev::before {
+  /* content: ''; */
+  /* background-color: 'black'; */
+}
+
+.slick-prev {
+  @apply -left-[15px] bg-orange-500 p-1 rounded-full border border-white hover:bg-orange-600 duration-300 ease-in-out z-10;
+}

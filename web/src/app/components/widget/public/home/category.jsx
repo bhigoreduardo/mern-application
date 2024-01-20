@@ -1,6 +1,5 @@
-// import { categories } from '../../../../../utils/mocks/public'
-// import Carousel from '../../../ui/carousel'
-// import Carousel from '../../../ui/carousel-old'
+import { categories } from '../../../../../utils/mocks/public'
+import Carousel from '../../../ui/carousel'
 import Container from '../../../ui/common/container'
 import Heading from '../../../ui/common/heading'
 
@@ -11,11 +10,27 @@ export default function Category() {
         {/* HEADING */}
         <Heading title="Categorias" className="!justify-center" />
         {/* CATEGORIES */}
-        {/* <Carousel />
-        {categories.map((item, i) => (
-          <Carousel key={i}>{() => <div>{item.name}</div>}</Carousel>
-        ))} */}
-        <p className="text-center">Work in progress</p>
+        <Carousel autoplay>
+          {() =>
+            categories.map((item, i) => (
+              <div
+                key={i}
+                className="flex flex-col py-3 border border-gray-100"
+              >
+                <img
+                  src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+                    item.image
+                  }`}
+                  alt={item.name}
+                  className="block max-h-[150px] w-auto mx-auto mb-2"
+                />
+                <span className="block font-semibold text-base text-gray-900 text-center">
+                  {item.name}
+                </span>
+              </div>
+            ))
+          }
+        </Carousel>
       </Container>
     </section>
   )
