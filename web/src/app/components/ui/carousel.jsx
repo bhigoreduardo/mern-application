@@ -1,50 +1,30 @@
-/* eslint-disable react/prop-types */
-import { useState } from 'react'
-import Slick from 'react-slick'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Pagination } from 'swiper/modules'
 
-export default function Carousel({ children }) {
-  const [onSwipe, setOnSwipe] = useState(false)
-  const settings = {
-    infinite: true,
-    swipe: false,
-    slidesToShow: 5,
-    slidesToScroll: 5,
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 4,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  }
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/pagination'
 
+export default function Carousel() {
   return (
-    <Slick
-      autoplay={false}
-      autoplaySpeed={5000}
-      onSwipe={() => setOnSwipe(true)}
-      afterChange={() => setOnSwipe(false)}
-      slidesToShow={1}
-      slidesToScroll={1}
-      {...settings}
+    <Swiper
+      slidesPerView={3}
+      spaceBetween={30}
+      pagination={{
+        clickable: true,
+      }}
+      modules={[Pagination]}
+      className="mySwiper"
     >
-      {children && children(onSwipe)}
-    </Slick>
+      <SwiperSlide>Slide 1</SwiperSlide>
+      <SwiperSlide>Slide 2</SwiperSlide>
+      <SwiperSlide>Slide 3</SwiperSlide>
+      <SwiperSlide>Slide 4</SwiperSlide>
+      <SwiperSlide>Slide 5</SwiperSlide>
+      <SwiperSlide>Slide 6</SwiperSlide>
+      <SwiperSlide>Slide 7</SwiperSlide>
+      <SwiperSlide>Slide 8</SwiperSlide>
+      <SwiperSlide>Slide 9</SwiperSlide>
+    </Swiper>
   )
 }
