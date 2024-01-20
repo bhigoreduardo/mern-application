@@ -4,12 +4,30 @@ import { CaretUp, CaretDown, PhoneCall, List } from 'phosphor-react'
 
 import { comparePathname } from '../../../../../utils/format'
 import { phoneMask } from '../../../../../utils/mask'
+import { pages } from '../../../../../utils/contants/public'
 import Container from '../../../ui/common/container'
 import Button from '../../../ui/buttons/button'
-import { pages } from '../../../../../utils/contants/public'
+import Dropdown from '../../../ui/dropdown'
+
+const CategoriesButton = () => {
+  const [openDropdown, setOpenDropdown] = useState(false)
+
+  return (
+    <div className="flex items-center">
+      <button
+        type="button"
+        className="group flex items-center justify-between gap-2 font-semibold text-gray-900 text-sm px-6 py-3 bg-gray-50 rounded-sm hover:bg-orange-500 hover:text-white"
+        onClick={() => setOpenDropdown((prevState) => !prevState)}
+      >
+        Todos produtos
+        {openDropdown ? <CaretUp size={16} /> : <CaretDown size={16} />}
+      </button>
+      {openDropdown && <Dropdown />}
+    </div>
+  )
+}
 
 export default function BottomNav() {
-  const [activeButton, setActiveButton] = useState(false)
   const { pathname } = useLocation()
   const getClassName = (curr) =>
     `flex items-center gap-1 text-sm ${
@@ -18,7 +36,7 @@ export default function BottomNav() {
 
   return (
     <div className="bg-white border border-gray-300">
-      <Container className="flex flex-col sm:flex-row gap-2 items-center justify-between py-2">
+      <Container className="relative flex flex-col sm:flex-row gap-2 items-center justify-between py-2">
         <nav className="flex items-center gap-6">
           <Button
             type="button"
@@ -27,14 +45,7 @@ export default function BottomNav() {
             <List size={20} />
           </Button>
 
-          <button
-            type="button"
-            className="group flex items-center justify-between gap-2 font-semibold text-gray-900 text-sm px-6 py-3 bg-gray-50 rounded-sm hover:bg-orange-500 hover:text-white"
-            onClick={() => setActiveButton((prevState) => !prevState)}
-          >
-            Todos produtos
-            {activeButton ? <CaretUp size={16} /> : <CaretDown size={16} />}
-          </button>
+          <CategoriesButton />
 
           <div className="hidden lg:flex items-center gap-6">
             {pages.map((item, i) => (

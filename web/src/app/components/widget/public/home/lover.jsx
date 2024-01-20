@@ -39,6 +39,7 @@ export default function Lover() {
               offer={299.99}
               image="products/cover.png"
               smallBanner
+              className="h-full"
             />
             <OfferCard
               badge="Oferta relâmpago"
