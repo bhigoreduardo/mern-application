@@ -1,14 +1,13 @@
 /* eslint-disable react/prop-types */
+import Password from '.'
 import { mergeClassName } from '../../../../../utils/format'
-import Text from '.'
 
 export default function Label({
-  type,
   name,
   id,
   placeholder,
   label,
-  icon,
+  btn,
   error,
   className,
   inputClassName,
@@ -16,17 +15,20 @@ export default function Label({
 }) {
   return (
     <div className={mergeClassName('flex flex-col gap-2', className)}>
-      {label && (
-        <label htmlFor={id} className="text-sm text-gray-900">
-          {label}
-        </label>
+      {(label || btn) && (
+        <div className="flex items-center justify-between">
+          {label && (
+            <label htmlFor={id} className="text-sm text-gray-900">
+              {label}
+            </label>
+          )}
+          {btn && btn}
+        </div>
       )}
-      <Text
-        type={type}
+      <Password
         name={name}
         id={id}
         placeholder={placeholder}
-        icon={icon}
         className={`${inputClassName} ${error && 'border-red-500'}`}
         {...props}
       />

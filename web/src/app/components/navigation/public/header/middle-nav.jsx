@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   MagnifyingGlass,
   Heart,
@@ -5,9 +6,12 @@ import {
   User,
 } from 'phosphor-react'
 
+import useApp from '../../../../../hooks/use-app'
 import Container from '../../../ui/common/container'
 import Logo from '../../../ui/common/logo'
 import Text from '../../../ui/inputs/text'
+import AuthCard from '../../../form/public/auth/card'
+import CartCard from '../../../ui/cards/cart-card'
 
 const SearchIcon = () => {
   return (
@@ -21,13 +25,45 @@ const SearchIcon = () => {
 }
 
 const CartButton = () => {
+  const [openCard, setOpenCard] = useState(false)
+  const { cartItems } = useApp()
+
   return (
-    <button type="button" className="relative">
-      <span className="absolute -top-2 left-3 flex items-center justify-center font-semibold text-blue-900 text-xs h-4 w-4 rounded-full bg-white border border-blue-900">
-        2
-      </span>
-      <ShoppingCartSimple size={20} weight="duotone" className="text-white" />
-    </button>
+    <div className="relative flex items-center">
+      <button
+        type="button"
+        className="relative"
+        onClick={() =>
+          cartItems?.length > 0 && setOpenCard((prevState) => !prevState)
+        }
+      >
+        {cartItems?.length > 0 && (
+          <span className="absolute -top-2 left-3 flex items-center justify-center font-semibold text-blue-900 text-xs h-4 w-4 rounded-full bg-white border border-blue-900">
+            {cartItems.length}
+          </span>
+        )}
+        <ShoppingCartSimple size={20} weight="duotone" className="text-white" />
+      </button>
+      {openCard && cartItems?.length > 0 && (
+        <CartCard cartItems={cartItems} setOpenCard={setOpenCard} />
+      )}
+    </div>
+  )
+}
+
+const UserButton = () => {
+  const [openCard, setOpenCard] = useState(false)
+
+  return (
+    <div className="relative flex items-center">
+      <button
+        type="button"
+        onClick={() => setOpenCard((prevState) => !prevState)}
+      >
+        <User size={20} weight="duotone" className="text-white" />
+      </button>
+      {openCard && <AuthCard setOpenCard={setOpenCard} />}
+    </div>
   )
 }
 
@@ -48,9 +84,7 @@ export default function MiddleNav() {
           <button type="button">
             <Heart size={20} weight="duotone" className="text-white" />
           </button>
-          <button type="button">
-            <User size={20} weight="duotone" className="text-white" />
-          </button>
+          <UserButton />
         </div>
       </Container>
     </div>
