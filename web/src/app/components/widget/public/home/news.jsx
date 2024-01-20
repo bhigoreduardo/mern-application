@@ -11,8 +11,7 @@ import BannerCard from '../../../ui/cards/banner-card'
 export default function News() {
   return (
     <section className="py-16">
-      <Container className="flex flex-col gap-6">
-        {/* PRODUCTS */}
+      <Container>
         <div className="flex lg:flex-row flex-col gap-6">
           {/* BANNER */}
           <div className="lg:w-[400px]">

@@ -1,9 +1,53 @@
+import { ArrowRight } from 'phosphor-react'
+
+import { categories, product } from '../../../../../utils/mocks/public'
+import Button from '../../../ui/buttons/button'
 import Container from '../../../ui/common/container'
+import Heading from '../../../ui/common/heading'
+import HeadingOptions from '../../../ui/common/heading-options'
+import ProductGrid from '../../../ui/common/product-grid'
+import BannerCard from '../../../ui/cards/banner-card'
+import OfferCard from '../../../ui/cards/offer-card'
 
 export default function Lover() {
   return (
-    <section>
-      <Container>Lover</Container>
+    <section className="py-16">
+      <Container>
+        <div className="flex lg:flex-row flex-col gap-6">
+          <div className="flex flex-col gap-6 w-full">
+            {/* HEADING */}
+            <Heading title="Queridinhos" className="md:flex-row flex-col">
+              <div className="flex items-center justify-center flex-wrap gap-4">
+                <HeadingOptions options={categories} max={5} />
+                <Button className="text-orange-500 hover:bg-orange-500 hover:text-white !p-2 !gap-1">
+                  Vê todos
+                  <ArrowRight size={16} />
+                </Button>
+              </div>
+            </Heading>
+            {/* PRODUCTS GRID */}
+            <ProductGrid
+              products={new Array(8).fill(product)}
+              className="gap-4"
+            />
+          </div>
+          {/* BANNER */}
+          <div className="lg:w-[400px] flex flex-col gap-6">
+            <BannerCard
+              title="Sofá Reclinável Minas"
+              description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
+              offer={299.99}
+              image="products/cover.png"
+              smallBanner
+            />
+            <OfferCard
+              badge="Oferta relâmpago"
+              title="37% desconto"
+              category="Queridinhos"
+            />
+          </div>
+        </div>
+      </Container>
     </section>
   )
 }
