@@ -32,6 +32,7 @@ export default function Hero() {
             {hero?.banner?.map((item, i) => (
               <HeroCard
                 key={i}
+                darkCard={i === 0}
                 subTitle={item.subTitle}
                 name={item?.product?.name}
                 image={item?.product?.cover}

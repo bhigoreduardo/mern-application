@@ -17,15 +17,17 @@ export default function HeroCard({
   badge,
   price,
   smallCard = false,
+  bannerCard = false,
+  darkCard = false,
   first = false,
   className,
 }) {
   return (
     <article
       className={mergeClassName(
-        `!text-start relative flex items-center justify-between gap-9 w-full ${
+        `!text-start relative flex items-center justify-between gap-9 w-full bg-gray-50 rounded-md ${
           smallCard ? 'p-6' : 'lg:p-14 md:p-8 p-6'
-        } bg-gray-50 rounded-md`,
+        }`,
         className
       )}
     >
@@ -37,8 +39,12 @@ export default function HeroCard({
           </span>
         </div>
       )}
-      {smallCard && badge && (
-        <Badge className="absolute top-6 right-6 font-semibold text-black uppercase bg-yellow-400">
+      {badge && (
+        <Badge
+          className={`absolute top-6 font-semibold text-black uppercase bg-yellow-400 ${
+            smallCard ? 'right-6' : 'left-6'
+          }`}
+        >
           {badge}
         </Badge>
       )}
@@ -58,13 +64,21 @@ export default function HeroCard({
           </span>
         )}
         <h3
-          className={`font-semibold line-clamp-2 ${smallCard ? 'text-xl' : 'xl:text-5xl text-3xl'} ${
-            first ? 'text-white' : 'text-gray-900'
-          }`}
+          className={`font-semibold line-clamp-2 ${
+            smallCard
+              ? 'text-xl'
+              : bannerCard
+              ? 'text-3xl'
+              : 'xl:text-5xl text-3xl'
+          } ${darkCard ? 'text-white' : 'text-gray-900'}`}
         >
           {name}
         </h3>
-        <p className="font-thin xl:text-lg text-base text-gray-700 line-clamp-2">
+        <p
+          className={`font-thin xl:text-lg text-base line-clamp-2 ${
+            darkCard ? 'text-gray-400' : 'text-gray-700'
+          }`}
+        >
           {description}
         </p>
         {smallCard && price && !first && (
@@ -83,7 +97,9 @@ export default function HeroCard({
       <img
         src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${image}`}
         alt={name}
-        className={`${smallCard ? '!max-w-[170px]' : 'sm:!max-w-[350px] !max-w-[250px]'}`}
+        className={`${
+          smallCard ? '!max-w-[170px]' : 'sm:!max-w-[350px] !max-w-[250px]'
+        }`}
       />
     </article>
   )
