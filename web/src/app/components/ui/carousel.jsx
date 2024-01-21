@@ -1,56 +1,83 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
-import { ArrowLeft } from 'phosphor-react'
 import Slick from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 
-export default function Carousel({ children, autoplay = false }) {
+function PrevArrow(props) {
+  const { className, style, onClick } = props
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        left: 0,
+        backgroundColor: '#f97316',
+        borderRadius: '50%',
+        paddingTop: 4,
+        width: 30,
+        height: 30,
+        zIndex: 10,
+      }}
+      onClick={onClick}
+    />
+  )
+}
+
+function NextArrow(props) {
+  const { className, style, onClick } = props
+  return (
+    <div
+      className={className}
+      style={{
+        ...style,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        right: 0,
+        backgroundColor: '#f97316',
+        borderRadius: '50%',
+        paddingTop: 4,
+        width: 30,
+        height: 30,
+        zIndex: 10,
+      }}
+      onClick={onClick}
+    />
+  )
+}
+
+export default function Carousel({
+  autoplay = false,
+  swipe = true,
+  slidesToShow = 5,
+  autoplaySpeed = 5000,
+  responsive,
+  children,
+}) {
   const [onSwipe, setOnSwipe] = useState(false)
   const settings = {
+    autoplay,
+    swipe,
+    slidesToShow,
+    autoplaySpeed,
     infinite: true,
-    swipe: false,
-    slidesToShow: 5,
-    slidesToScroll: 1,
+    centerPadding: '60px',
+    swipeToSlide: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     dots: false,
-    prevArrow: (
-      <div className="flex items-center justify-center">
-        <ArrowLeft size={20} />
-      </div>
-    ),
-    responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+    slidesToScroll: 1,
+    responsive,
   }
 
   return (
     <Slick
-      autoplay={autoplay}
-      autoplaySpeed={5000}
       onSwipe={() => setOnSwipe(true)}
       afterChange={() => setOnSwipe(false)}
-      slidesToShow={1}
-      slidesToScroll={1}
       {...settings}
     >
       {children && children(onSwipe)}

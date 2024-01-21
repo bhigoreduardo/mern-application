@@ -4,13 +4,43 @@ import Container from '../../../ui/common/container'
 import Heading from '../../../ui/common/heading'
 
 export default function Category() {
+  const responsive = [
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ]
   return (
     <section>
       <Container className="flex flex-col gap-6">
         {/* HEADING */}
         <Heading title="Categorias" className="!justify-center" />
         {/* CATEGORIES */}
-        <Carousel autoplay>
+        <Carousel autoplay responsive={responsive}>
           {() =>
             categories.map((item, i) => (
               <div
