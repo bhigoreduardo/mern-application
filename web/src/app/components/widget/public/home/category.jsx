@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { categories } from '../../../../../utils/mocks/public'
 import Carousel from '../../../ui/carousel'
 import Container from '../../../ui/common/container'
@@ -34,6 +36,7 @@ export default function Category() {
       },
     },
   ]
+
   return (
     <section>
       <Container className="flex flex-col gap-6">
@@ -43,7 +46,7 @@ export default function Category() {
         <Carousel autoplay responsive={responsive}>
           {() =>
             categories.map((item, i) => (
-              <div
+              <Link
                 key={i}
                 className="flex flex-col py-3 border border-gray-100"
               >
@@ -57,7 +60,7 @@ export default function Category() {
                 <span className="block font-semibold text-base text-gray-900 text-center">
                   {item.name}
                 </span>
-              </div>
+              </Link>
             ))
           }
         </Carousel>

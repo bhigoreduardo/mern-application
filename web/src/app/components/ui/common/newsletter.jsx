@@ -1,12 +1,25 @@
-// import { brands } from '../../../../utils/mocks/public'
+import { Link } from 'react-router-dom'
+
+import { brands } from '../../../../utils/mocks/public'
 import Container from './container'
 import NewsletterForm from '../../form/public/newsletter'
-// import Carousel from '../carousel'
+import Carousel from '../carousel'
 
 export default function Newsletter() {
+  const responsive = [
+    {
+      breakpoint: 640,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ]
+
   return (
     <section className="bg-blue-900">
       <Container className="flex flex-col items-center gap-8 py-16">
+        {/* CONTENT */}
         <div className="flex flex-col gap-3 text-center text-white w-full max-w-[500px]">
           <h5 className="font-semibold text-3xl">
             Inscreva-se para receber ofertas
@@ -16,23 +29,31 @@ export default function Newsletter() {
             industry is simply dummy text and typesetting industry.
           </p>
         </div>
-
+        {/* FORM */}
         <NewsletterForm />
-
-        {/* <Carousel>
-          {({ onSwipe }) =>
-            brands.map((item, i) => (
-              <img
-                key={i}
-                src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
-                  item.image
-                }`}
-                alt={item.name}
-                className="h-[15px] w-fit"
-              />
-            ))
-          }
-        </Carousel> */}
+        {/* BRANDS */}
+        <div className="sm:max-w-[500px] max-w-[200px] mx-auto">
+          <Carousel
+            autoplay
+            isNonRenderArrow
+            responsive={responsive}
+            slidesToShow={3}
+          >
+            {() =>
+              brands.map((item, i) => (
+                <Link key={i} className="px-5">
+                  <img
+                    src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+                      item.image
+                    }`}
+                    alt={item.name}
+                    className="block max-h-[50px] w-auto mx-auto"
+                  />
+                </Link>
+              ))
+            }
+          </Carousel>
+        </div>
       </Container>
     </section>
   )

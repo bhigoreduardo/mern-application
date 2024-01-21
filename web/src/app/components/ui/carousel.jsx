@@ -11,7 +11,7 @@ function PrevArrow(props) {
       className={className}
       style={{
         ...style,
-        display: 'flex',
+        display: props.isNonRenderArrow ? 'none' :'flex',
         justifyContent: 'center',
         alignItems: 'center',
         left: 0,
@@ -34,7 +34,7 @@ function NextArrow(props) {
       className={className}
       style={{
         ...style,
-        display: 'flex',
+        display: props.isNonRenderArrow ? 'none' :'flex',
         justifyContent: 'center',
         alignItems: 'center',
         right: 0,
@@ -56,6 +56,7 @@ export default function Carousel({
   slidesToShow = 5,
   autoplaySpeed = 5000,
   responsive,
+  isNonRenderArrow = false,
   children,
 }) {
   const [onSwipe, setOnSwipe] = useState(false)
@@ -67,8 +68,8 @@ export default function Carousel({
     infinite: true,
     centerPadding: '60px',
     swipeToSlide: true,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
+    nextArrow: <NextArrow isNonRenderArrow={isNonRenderArrow} />,
+    prevArrow: <PrevArrow isNonRenderArrow={isNonRenderArrow} />,
     dots: false,
     slidesToScroll: 1,
     responsive,
