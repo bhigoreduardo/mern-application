@@ -5,13 +5,10 @@ import {
   ArrowsCounterClockwise,
 } from 'phosphor-react'
 
-import {
-  currencyPrice,
-  getBadgeClassName,
-  translateBadge,
-} from '../../../../utils/format'
+import { getBadgeClassName, translateBadge } from '../../../../utils/format'
 import Button from '../buttons/button'
 import Badge from '../common/badge'
+import Price from '../common/price'
 
 export default function ProductCard({
   badge,
@@ -46,9 +43,7 @@ export default function ProductCard({
           className="absolute left-0 group-hover:-left-[100%] h-full w-full object-cover duration-300 ease-in-out"
         />
         <img
-          src={`${
-            import.meta.env.VITE_SERVER_PUBLIC_IMAGES
-          }/${backCover}`}
+          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${backCover}`}
           alt={name}
           className="absolute -right-[100%] group-hover:right-0 h-full w-full object-cover duration-300 ease-in-out"
         />
@@ -92,22 +87,7 @@ export default function ProductCard({
           <h3 className="font-semibold text-sm text-gray-900 line-clamp-2">
             {name}
           </h3>
-          <div className="flex items-center gap-1">
-            <span
-              className={`text-sm ${
-                rangePrice?.max !== rangePrice?.min
-                  ? 'text-gray-400 line-through'
-                  : 'text-blue-500'
-              } `}
-            >
-              {currencyPrice.format(rangePrice?.max)}
-            </span>
-            {rangePrice?.max !== rangePrice?.min && (
-              <span className="text-sm text-blue-500">
-                {currencyPrice.format(rangePrice?.min)}
-              </span>
-            )}
-          </div>
+          <Price rangePrice={rangePrice} />
           {isBanner && description && (
             <p className="text-sm text-gray-800 line-clamp-3">{description}</p>
           )}
