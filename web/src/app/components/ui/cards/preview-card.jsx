@@ -2,10 +2,12 @@
 import { Fragment } from 'react'
 import { ShoppingCartSimple, Heart, ArrowsClockwise } from 'phosphor-react'
 
+import { product } from '../../../../utils/mocks/public'
 import Container from '../common/container'
 import Price from '../common/price'
 import Count from '../buttons/count'
 import Button from '../buttons/button'
+import Carousel from '../carousel'
 
 export default function PreviewCard({
   name,
@@ -19,11 +21,45 @@ export default function PreviewCard({
   const isCompare = false
   const handleDecrease = () => {}
   const handleIncrease = () => {}
+  function customPaging(i) {
+    return (
+      <a className="flex items-center justify-center h-20 w-20 p-1 border rounded-sm duration-300 ease-in-out border-gray-100">
+        <img
+          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/products/gallery-${
+            i + 1
+          }.jpg`}
+          className="w-full h-full object-cover"
+        />
+      </a>
+    )
+  }
 
   return (
-    <Container className="grid grid-cols-2 gap-10 max-w-[1400px]">
+    <Container className="grid xl:grid-cols-2 grid-cols-1 gap-10 max-w-[1400px] xl:mb-[90px]">
       {/* IMAGES */}
-      <div className="flex flex-col gap-4"></div>
+      <div className="flex flex-col gap-4 h-[calc(100%+90px)] xl:mb-0 mb-[90px]">
+        <Carousel
+          customPaging={customPaging}
+          dots
+          dotsClass="slick-dots slick-thumb"
+          slidesToShow={1}
+          responsive={[]}
+        >
+          {() =>
+            product.productData.media.gallery.map((item, i) => (
+              <div
+                key={i}
+                className="w-full h-[450px] p-2 border border-gray-100 rounded-sm"
+              >
+                <img
+                  src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${item}`}
+                  className="w-ful h-full object-contain"
+                />
+              </div>
+            ))
+          }
+        </Carousel>
+      </div>
       {/* CONTENT */}
       <div className="flex-1 flex flex-col gap-6 justify-between">
         {/* TITLE */}
@@ -70,7 +106,7 @@ export default function PreviewCard({
         />
         {/* COLORS */}
         {/* BUTTONS */}
-        <div className="flex gap-4">
+        <div className="flex sm:flex-row flex-col gap-4">
           <Count
             handleDecrease={handleDecrease}
             handleIncrease={handleIncrease}
@@ -83,7 +119,7 @@ export default function PreviewCard({
           </Button>
         </div>
         {/* FAVORITS */}
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex items-center justify-center sm:flex-row flex-col gap-4">
           <button
             type="button"
             className={`${
