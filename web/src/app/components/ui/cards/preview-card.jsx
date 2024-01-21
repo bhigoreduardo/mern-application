@@ -164,9 +164,9 @@ export default function PreviewCard({
         <div className="flex flex-col gap-3 border border-gray-100 p-5">
           <span className="text-sm text-gray-900">Formas de pagamento</span>
           <div className="flex items-center gap-1">
-            {payment?.map((item) => (
+            {payment?.map((item, i) => (
               <div
-                key={item._id}
+                key={i}
                 title={item.method}
                 className="group relative h-7 w-10 p-1 bg-white border border-gray-200 rounded-sm cursor-pointer"
               >

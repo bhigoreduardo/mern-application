@@ -14,9 +14,9 @@ export default function Group({
     <div className="flex flex-col gap-2">
       <label className="text-sm text-gray-900">{label}</label>
       <div className="flex gap-1">
-        {data?.map((item) => (
+        {data?.map((item, i) => (
           <Radio
-            key={item.value}
+            key={i}
             name={name}
             value={item.value}
             border={border}
