@@ -2,7 +2,7 @@
 import { Fragment } from 'react'
 import { ShoppingCartSimple, Heart, ArrowsClockwise } from 'phosphor-react'
 
-import { colors, product } from '../../../../utils/mocks/public'
+import { colors, product, payment } from '../../../../utils/mocks/public'
 import Container from '../common/container'
 import Price from '../common/price'
 import Count from '../buttons/count'
@@ -163,6 +163,41 @@ export default function PreviewCard({
         {/* PAYMENTS */}
         <div className="flex flex-col gap-3 border border-gray-100 p-5">
           <span className="text-sm text-gray-900">Formas de pagamento</span>
+          <div className="flex items-center gap-1">
+            {payment?.map((item) => (
+              <div
+                key={item._id}
+                title={item.method}
+                className="group relative h-7 w-10 p-1 bg-white border border-gray-200 rounded-sm cursor-pointer"
+              >
+                <img
+                  src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+                    item.image
+                  }`}
+                  className="w-full h-full object-contain"
+                />
+                <div className="hidden absolute top-[calc(100%+10px)] left-0 p-1 bg-white border border-gray-200 group-hover:flex flex-col text-xs text-gray-600">
+                  {item?.availableInstallments ? (
+                    item.infoInstallments.map((item, i) => (
+                      <span
+                        key={i}
+                        className="inline-block w-[100px]"
+                      >
+                        {item.installments}x{' '}
+                        {Number(item.fee) !== 0
+                          ? `+ ${item.fee}%a.m.`
+                          : 'sem juros'}
+                      </span>
+                    ))
+                  ) : (
+                    <span className="inline-block w-[50px] text-center">
+                      à vista
+                    </span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </Container>

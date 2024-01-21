@@ -447,3 +447,40 @@ export const hero = {
     },
   ],
 }
+
+// STORE
+export const payment = [
+  {
+    _id: '659edb43f26a45ceed256d5a',
+    image: 'payments/transferencia-bancaria.png',
+    method: 'Transferência bancária - Débito',
+    availableGateway: false,
+    availableInstallments: false,
+    infoInstallments: [],
+  },
+  {
+    _id: '659edb43f26a45ceef256d5a',
+    image: 'payments/visa.png',
+    method: 'Cartão de Crédito - VISA',
+    availableGateway: true,
+    availableInstallments: true,
+    infoInstallments: [
+      {
+        installments: 3,
+        fee: 0,
+      },
+      {
+        installments: 6,
+        fee: 1,
+      },
+      {
+        installments: 9,
+        fee: 1.25,
+      },
+      {
+        installments: 12,
+        fee: 1.5,
+      },
+    ],
+  },
+]
