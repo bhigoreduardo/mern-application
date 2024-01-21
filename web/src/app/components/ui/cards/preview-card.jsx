@@ -2,12 +2,13 @@
 import { Fragment } from 'react'
 import { ShoppingCartSimple, Heart, ArrowsClockwise } from 'phosphor-react'
 
-import { product } from '../../../../utils/mocks/public'
+import { colors, product } from '../../../../utils/mocks/public'
 import Container from '../common/container'
 import Price from '../common/price'
 import Count from '../buttons/count'
 import Button from '../buttons/button'
 import Carousel from '../carousel'
+import RadioGroup from '../inputs/radio/group'
 
 export default function PreviewCard({
   name,
@@ -19,6 +20,7 @@ export default function PreviewCard({
 }) {
   const isFavorite = true
   const isCompare = false
+  const stock = 10
   const handleDecrease = () => {}
   const handleIncrease = () => {}
   function customPaging(i) {
@@ -105,6 +107,25 @@ export default function PreviewCard({
           className="border-b border-gray-200 pb-4"
         />
         {/* COLORS */}
+        <div className="flex flex-col gap-2">
+          <RadioGroup
+            label="Cor"
+            name="color"
+            data={colors}
+            // error={formik.touched?.color && formik.errors?.color}
+            // onChange={({ target: { value } }) => {
+            //   const color = parsedColor?.find((item) => item.value === value)
+            //   formik.setFieldValue('color', value)
+            //   formik.setFieldValue('bg', color?.color)
+            //   formik.setFieldValue('colorName', color?.label)
+            // }}
+            // selectedValue={formik.values.color}
+            // onBlur={formik.handleBlur}
+          />
+          <p className="text-xs text-gray-600">
+            <span className="font-semibold">Unidades:</span> {stock}
+          </p>
+        </div>
         {/* BUTTONS */}
         <div className="flex sm:flex-row flex-col gap-4">
           <Count
