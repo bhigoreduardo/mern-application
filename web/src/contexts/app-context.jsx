@@ -5,11 +5,13 @@ import useLocalStorage from '../hooks/use-localStorage'
 
 export const AppContext = createContext({
   isLoading: false,
+  isModal: false,
   cartItems: [],
 })
 
 export default function AppContextProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false)
+  const [isModal, setIsModal] = useState(false)
   const { value: cartItems, handleUpdate: handleCartItems } = useLocalStorage(
     'cart-items',
     []
@@ -17,7 +19,14 @@ export default function AppContextProvider({ children }) {
 
   return (
     <AppContext.Provider
-      value={{ isLoading, setIsLoading, cartItems, handleCartItems }}
+      value={{
+        isLoading,
+        setIsLoading,
+        isModal,
+        setIsModal,
+        cartItems,
+        handleCartItems,
+      }}
     >
       {children}
     </AppContext.Provider>

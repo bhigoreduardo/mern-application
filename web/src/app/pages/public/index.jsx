@@ -1,5 +1,3 @@
-import { product } from '../../../utils/mocks/public'
-import PreviewCard from '../../components/ui/cards/preview-card'
 import Newsletter from '../../components/ui/common/newsletter'
 import Banner from '../../components/widget/public/home/banner'
 import BestSeller from '../../components/widget/public/home/best-seller'
@@ -26,14 +24,6 @@ export default function Home() {
         offer={1999}
       />
       <Newsletter />
-      <PreviewCard
-        name={product.name}
-        sku={product.sku}
-        productStatus={product.status}
-        brand={product.brand?.name}
-        category={product.category}
-        rangePrice={product.rangePrice}
-      />
     </section>
   )
 }
