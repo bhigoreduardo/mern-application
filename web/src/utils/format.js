@@ -1,3 +1,6 @@
+import DOMPurify from 'dompurify'
+import truncHtml from 'trunc-html'
+
 import { BadgeEnum } from '../types/public/enum-type'
 
 export const mergeClassName = (first, last) => `${first} ${last}`
@@ -50,3 +53,22 @@ export const parsedSelectData = (arr, value, label, otherProps) =>
     ...(otherProps !== undefined &&
       otherProps.map((i) => ({ [i]: item?.[i] })))[0],
   }))
+
+export function createMarkup(html, limit) {
+  if (limit) {
+    return {
+      __html: DOMPurify.sanitize(truncHtml(html, limit).html),
+    }
+  }
+
+  return {
+    __html: DOMPurify.sanitize(html),
+  }
+}
+
+export const optionsFullLocaleDate = (isWeek = true) => ({
+  ...(!isWeek ? '' : { weekday: 'long' }),
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+})

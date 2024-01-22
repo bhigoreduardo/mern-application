@@ -37,7 +37,7 @@ export default function PreviewCard({
   }
 
   return (
-    <Container className="grid xl:grid-cols-2 grid-cols-1 gap-10 max-w-[1400px] xl:mb-[90px]">
+    <Container className="grid xl:grid-cols-2 grid-cols-1 gap-10 xl:mb-[90px]">
       {/* IMAGES */}
       <div className="flex flex-col gap-4 h-[calc(100%+90px)] xl:mb-0 mb-[90px]">
         <Carousel

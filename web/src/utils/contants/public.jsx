@@ -65,3 +65,41 @@ export const features = [
     description: 'Suporte para contato',
   },
 ]
+
+export const productInformationItems = [
+  {
+    label: 'Descrição',
+    value: 'description',
+  },
+  {
+    label: 'Informações adicionais',
+    value: 'additional',
+  },
+  {
+    label: 'Especificações',
+    value: 'specification',
+  },
+  {
+    label: 'Avaliações',
+    value: 'reviews',
+  },
+]
+
+export const productRelatedItems = [
+  {
+    label: 'Produtos relacionados',
+    value: 'related',
+  },
+  {
+    label: 'Mais vendidos',
+    value: 'saller',
+  },
+  {
+    label: 'Veja também',
+    value: 'random',
+  },
+  {
+    label: 'Novidades',
+    value: 'news',
+  },
+]
