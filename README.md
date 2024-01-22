@@ -8,3 +8,6 @@ TODO:
 
   - app/components/form/order:
     -> Consertar responsividade da tabela de produtos do carrinho
+
+  - app/components/form/public/auth:
+    -> TextLabel está com problema de controle de valores

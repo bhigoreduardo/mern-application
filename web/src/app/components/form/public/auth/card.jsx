@@ -4,8 +4,8 @@ import { useFormik } from 'formik'
 import { ArrowRight } from 'phosphor-react'
 
 import {
-  authCardInitialValues,
-  authCardValidationSchema,
+  signIninitialValues,
+  signInValidationSchema,
 } from '../../../../../types/public/form-type'
 import TextLabel from '../../../ui/inputs/text/label'
 import PasswordLabel from '../../../ui/inputs/password/label'
@@ -14,8 +14,8 @@ import Button from '../../../ui/buttons/button'
 export default function Card({ setOpenCard }) {
   const formik = useFormik({
     enableReinitialize: true,
-    initialValues: authCardInitialValues,
-    validationSchema: authCardValidationSchema,
+    initialValues: signIninitialValues,
+    validationSchema: signInValidationSchema,
     onSubmit: (values) => handleSubmit(values),
   })
   const handleSubmit = async (values) => console.log(values)
@@ -70,7 +70,9 @@ export default function Card({ setOpenCard }) {
           <ArrowRight size={20} className="text-white" />
         </Button>
         <div className="flex flex-col gap-3">
-          <span className="text-xs text-gray-600 text-center">Não possui uma conta?</span>
+          <span className="text-xs text-gray-600 text-center">
+            Não possui uma conta?
+          </span>
           <Button
             onClick={() => {
               // navigate('/entrar')
