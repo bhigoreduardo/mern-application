@@ -361,6 +361,8 @@ export const product = {
 
 export const compare = { ...product }
 
+export const wishlist = { ...product }
+
 // HOME
 export const hero = {
   slider: [

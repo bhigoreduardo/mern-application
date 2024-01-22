@@ -267,6 +267,89 @@ export const compareColumns = (handleProduct, favorits) => [
   },
 ]
 
+export const wishlistColumns = (handleProduct) => [
+  {
+    accessorKey: 'product',
+    header: 'Produto',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-3">
+        <img
+          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+            row?.original?.productData?.media?.cover
+          }`}
+          alt={row?.original?.name}
+          className="w-16 h-16 object-cover"
+        />
+        <p className="flex flex-col">
+          <span className="font-normal text-sm text-blue-500">
+            {row?.original?.name}
+          </span>
+          <span className="text-xs">
+            Categoria:{' '}
+            {row?.original?.category?.map((item, i) => (
+              <Fragment key={item._id}>
+                {item.name}
+                {row?.original?.category?.length === i + 1 ? '' : '/'}
+              </Fragment>
+            ))}
+          </span>
+        </p>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'price',
+    header: 'Preço',
+    cell: ({ row }) => (
+      <div className="flex flex-col">
+        <div className="flex items-center gap-1">
+          <span className="text-gray-400 line-through">
+            {currencyPrice.format(row?.original?.rangePrice?.max)}
+          </span>
+          <span className="text-blue-500">
+            {currencyPrice.format(row?.original?.rangePrice?.min)}
+          </span>
+        </div>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'status',
+    header: 'Disponibilidade',
+    cell: ({ row }) => (
+      <span
+        className={`font-semibold uppercase text-sm ${
+          row?.original?.status ? 'text-green-500' : 'text-red-500'
+        }`}
+      >
+        {row?.original?.status ? 'Em estoque' : 'Fora de estoque'}
+      </span>
+    ),
+  },
+  {
+    accessorKey: 'actions',
+    header: 'Ações',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-1">
+        <Link
+          to={`/produto/${row.original?._id}`}
+          title="Comprar"
+          className="flex items-center gap-1 font-semibold text-sm text-white bg-orange-500 hover:bg-orange-600 duration-300 ease-in-out py-2 px-3 uppercase rounded-sm"
+        >
+          Comprar <ShoppingCartSimple size={14} />
+        </Link>
+        <Button
+          title="Remover favorito"
+          className="text-gray-400 hover:text-red-500 !p-0 flex-row-reverse"
+          onClick={() => handleProduct(row?.original?._id)}
+        >
+          <XCircle size={20} weight="duotone" />
+        </Button>
+      </div>
+    ),
+  },
+]
+
 // ORDER
 export const orderStatusIconItems = [
   {

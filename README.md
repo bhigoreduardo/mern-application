@@ -11,3 +11,6 @@ TODO:
 
   - app/components/form/public/auth:
     -> TextLabel está com problema de controle de valores
+
+  - app/componensts/ui/table/data:
+    -> Consertar o responsivo da slider da tabela

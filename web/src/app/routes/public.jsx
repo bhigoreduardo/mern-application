@@ -6,6 +6,7 @@ import Compare from '../pages/public/compare'
 import Product from '../pages/public/product'
 import Store from '../pages/public/store'
 import Tracker from '../pages/public/tracker'
+import Wishlist from '../pages/public/wishlist'
 
 const router = [
   {
@@ -31,6 +32,10 @@ const router = [
       {
         path: '/compare',
         element: <Compare />,
+      },
+      {
+        path: '/favoritos',
+        element: <Wishlist />,
       },
       {
         path: '/entrar',
