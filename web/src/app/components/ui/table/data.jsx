@@ -25,6 +25,7 @@ export default function Data({
   total,
   pages,
   isColumn,
+  isHeader = true,
   className,
 }) {
   const table = useReactTable({
@@ -43,32 +44,34 @@ export default function Data({
     >
       {title && <Heading title={title} btn={btn} />}
       <Table className={`${isColumn && 'flex'}`}>
-        <TableHeader>
-          {table.getHeaderGroups()?.map((item, i) => (
-            <TableRow
-              key={i}
-              className={`${isColumn && 'flex flex-col  h-full !items-start'}`}
-            >
-              {item.headers?.map((value, key) => (
-                <TableHead
-                  key={key}
-                  // className={`${isColumn && 'first-of-type:py-[190px]'}`}
-                  className={`${
-                    isColumn &&
-                    'first-of-type:flex-grow first-of-type:flex first-of-type:items-center flex-none text-sm h-[20px]'
-                  }`}
-                >
-                  {value.isPlaceholder
-                    ? null
-                    : flexRender(
-                        value.column.columnDef.header,
-                        value.getContext()
-                      )}
-                </TableHead>
-              ))}
-            </TableRow>
-          ))}
-        </TableHeader>
+        {isHeader && (
+          <TableHeader>
+            {table.getHeaderGroups()?.map((item, i) => (
+              <TableRow
+                key={i}
+                className={`${isColumn && 'flex flex-col h-full !items-start'}`}
+              >
+                {item.headers?.map((value, key) => (
+                  <TableHead
+                    key={key}
+                    // className={`${isColumn && 'first-of-type:py-[190px]'}`}
+                    className={`${
+                      isColumn &&
+                      'first-of-type:flex-grow first-of-type:flex first-of-type:items-center flex-none text-sm h-[20px]'
+                    }`}
+                  >
+                    {value.isPlaceholder
+                      ? null
+                      : flexRender(
+                          value.column.columnDef.header,
+                          value.getContext()
+                        )}
+                  </TableHead>
+                ))}
+              </TableRow>
+            ))}
+          </TableHeader>
+        )}
         <TableBody className={`${isColumn && 'flex overflow-x-auto'}`}>
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((item, i) => (

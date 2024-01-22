@@ -1,4 +1,6 @@
 import ReactStars from 'react-rating-stars-component'
+import { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 import {
   House,
   Storefront,
@@ -14,11 +16,15 @@ import {
   CheckCircle,
   Truck,
   Handshake,
+  XCircle,
+  ShoppingCartSimple,
+  Heart,
 } from 'phosphor-react'
 
 import { currencyPrice } from '../format'
-import Button from '../../app/components/ui/buttons/button'
 import { OrderStatusEnum } from '../../types/public/enum-type'
+import Button from '../../app/components/ui/buttons/button'
+import ReviewStar from '../../app/components/ui/common/review-star'
 
 // HOME
 export const pages = [
@@ -113,6 +119,151 @@ export const productRelatedItems = [
   {
     label: 'Novidades',
     value: 'news',
+  },
+]
+
+export const compareColumns = (handleProduct, favorits) => [
+  {
+    accessorKey: 'product',
+    header: 'Produto',
+    cell: ({ row }) => (
+      <div className="flex flex-col gap-3">
+        <Button
+          className="text-gray-400 hover:text-red-500 !p-0 flex-row-reverse"
+          onClick={() =>
+            handleProduct('/customers/toggle-compare', row?.original?._id)
+          }
+        >
+          <XCircle size={20} weight="duotone" />
+        </Button>
+        <img
+          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+            row?.original?.productData?.media?.cover
+          }`}
+          alt={row?.original?.name}
+          className="w-64 h-64 object-cover"
+        />
+        <p className="flex flex-col">
+          <span className="font-semibold text-base text-gray-900">
+            {row?.original?.name}
+          </span>
+          <span className="text-xs">
+            Categoria:{' '}
+            {row?.original?.category?.map((item, i) => (
+              <Fragment key={item._id}>
+                {item.name}
+                {row?.original?.category?.length === i + 1 ? '' : '/'}
+              </Fragment>
+            ))}
+          </span>
+        </p>
+        <div className="flex items-center gap-1">
+          <Link
+            to={`/produto/${row.original?._id}`}
+            title="Comprar"
+            className="w-full flex items-center justify-center gap-2 font-semibold text-sm text-white bg-orange-500 hover:bg-orange-600 duration-300 ease-in-out py-2 px-3 uppercase rounded-sm"
+          >
+            Comprar <ShoppingCartSimple size={18} />
+          </Link>
+          <Button
+            title="Favoritar"
+            className={`hover:text-white hover:bg-orange-500 h-9 !px-2 border-[2px] hover:!border-orange-500 ${
+              favorits.includes(row?.original?._id)
+                ? 'text-white bg-orange-500 !border-orange-500'
+                : 'text-orange-500 !border-orange-200'
+            }`}
+            onClick={() =>
+              handleProduct('/customers/toggle-favorite', row?.original?._id)
+            }
+          >
+            <Heart size={20} weight="duotone" />
+          </Button>
+        </div>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'reviews',
+    header: 'Avaliações',
+    cell: ({ row }) => (
+      <ReviewStar
+        reviewsAvg={row?.original?.reviewsAvg}
+        reviews={row?.original?.reviews}
+      />
+    ),
+  },
+  {
+    accessorKey: 'price',
+    header: 'Preço',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-1">
+        <span className="text-gray-400 line-through">
+          {currencyPrice.format(row?.original?.rangePrice?.max)}
+        </span>
+        <span className="text-blue-500">
+          {currencyPrice.format(row?.original?.rangePrice?.min)}
+        </span>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'createdAt',
+    header: 'Ano publicação',
+    cell: ({ row }) => new Date(row?.original?.createdAt).getFullYear(),
+  },
+  {
+    accessorKey: 'brand',
+    header: 'Marca',
+    cell: ({ row }) => row?.original?.brand?.name,
+  },
+  {
+    accessorKey: 'status',
+    header: 'Disponibilidade',
+    cell: ({ row }) => (
+      <span
+        className={`font-semibold uppercase text-sm ${
+          row?.original?.status ? 'text-green-500' : 'text-red-500'
+        }`}
+      >
+        {row?.original?.status ? 'Em estoque' : 'Fora de estoque'}
+      </span>
+    ),
+  },
+  {
+    accessorKey: 'size',
+    header: 'Dimensões',
+    cell: ({ row }) => (
+      <span>
+        {row?.original?.productData?.shippingInfo?.height} x{' '}
+        {row?.original?.productData?.shippingInfo?.length} x{' '}
+        {row?.original?.productData?.shippingInfo?.width} cm
+      </span>
+    ),
+  },
+  {
+    accessorKey: 'weight',
+    header: 'Peso',
+    cell: ({ row }) => (
+      <span>{row?.original?.productData?.shippingInfo?.weight} kg</span>
+    ),
+  },
+  {
+    accessorKey: 'timeDelivery',
+    header: 'Entrega',
+    cell: ({ row }) => (
+      <span>{row?.original?.productData?.shippingInfo?.timeDelivery} dias</span>
+    ),
+  },
+  {
+    accessorKey: 'fee',
+    header: 'Frete',
+    cell: ({ row }) => (
+      <span>
+        {row?.original?.productData?.shippingInfo?.isFree
+          ? 'Frete grátis'
+          : currencyPrice.format(row?.original?.productData?.shippingInfo?.fee)}
+      </span>
+    ),
   },
 ]
 

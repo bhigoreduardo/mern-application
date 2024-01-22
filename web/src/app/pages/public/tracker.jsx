@@ -5,11 +5,13 @@ import FormOrder from '../../components/form/order'
 
 export default function Tracker() {
   const className = `flex items-center py-16 ${order && 'justify-center'}`
-  
+
   return (
-    <Container className={className}>
-      {/* <FormTracker /> */}
-      <FormOrder data={order} />
-    </Container>
+    <section>
+      <Container className={className}>
+        {/* <FormTracker /> */}
+        <FormOrder data={order} />
+      </Container>
+    </section>
   )
 }

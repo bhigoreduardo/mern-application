@@ -2,6 +2,7 @@ import Layout from '../layouts/public'
 
 import Home from '../pages/public'
 import Auth from '../pages/public/auth'
+import Compare from '../pages/public/compare'
 import Product from '../pages/public/product'
 import Store from '../pages/public/store'
 import Tracker from '../pages/public/tracker'
@@ -26,6 +27,10 @@ const router = [
       {
         path: '/rastrear',
         element: <Tracker />,
+      },
+      {
+        path: '/compare',
+        element: <Compare />,
       },
       {
         path: '/entrar',
