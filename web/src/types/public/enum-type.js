@@ -30,3 +30,14 @@ export const BadgeEnum = {
   Hot: 'hot',
   Discount: 'discount',
 }
+
+// ORDER
+export const OrderStatusEnum = {
+  Created: 'created',
+  Pending: 'pending',
+  Paid: 'paid',
+  Progress: 'progress',
+  Traffic: 'traffic',
+  Delivered: 'delivered',
+  Canceled: 'canceled',
+}

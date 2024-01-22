@@ -72,3 +72,11 @@ export const optionsFullLocaleDate = (isWeek = true) => ({
   month: 'long',
   day: 'numeric',
 })
+
+export const optionsShortLocaleDate = {
+  year: 'numeric',
+  month: 'numeric',
+  day: 'numeric',
+  hour: 'numeric',
+  minute: 'numeric',
+}

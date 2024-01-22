@@ -1,5 +1,6 @@
 import {
   OfferEnum,
+  OrderStatusEnum,
   StepEnum,
   UserEnum,
   VisibilityEnum,
@@ -244,6 +245,20 @@ export const customer = {
   amountSpend: 1000,
 }
 
+export const reviews = [
+  {
+    customer: {
+      _id: '659edc43f26a45ceed256d3c',
+      name: 'John Doe',
+      image: 'customer.webp',
+    },
+    stars: 5,
+    description:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
+    createdAt: '10 Jan 2021',
+  },
+]
+
 export const product = {
   _id: '659edb43f26a45ceed256d3a',
   name: 'Lorem Ipsum is simply dummy',
@@ -369,19 +384,7 @@ export const product = {
   status: true,
   sales: 10,
   amountSales: 5500,
-  reviews: [
-    {
-      customer: {
-        _id: '659edc43f26a45ceed256d3c',
-        name: 'John Doe',
-        image: 'customer.webp',
-      },
-      stars: 5,
-      description:
-        "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-      createdAt: '10 Jan 2021',
-    },
-  ],
+  reviews,
   reviewsAvg: {
     amount: 6,
     avg: 5,
@@ -485,3 +488,58 @@ export const payment = [
     ],
   },
 ]
+
+// ORDER
+export const order = {
+  customer: {
+    user: {
+      _id: '659edc43f26a45ceed256d3c',
+      image: 'users/customer.webp',
+    },
+    name: 'John Doe',
+    email: 'email@email.com',
+    whatsApp: '11999768890',
+  },
+  code: '4fafc201-1fb5',
+  address: {
+    street: 'Avenida Walter Banho',
+    neighborhood: 'Universidade',
+    city: 'Macapá',
+    state: 'AP',
+    number: '837',
+    zipCode: '68903516',
+    complement: '',
+  },
+  cart: [
+    {
+      product,
+      color: colors[0],
+      background: colors[0].color,
+      colorName: colors[0].name,
+      name: product.name,
+      cover: 'products/cover.png',
+      price: 299,
+      regularPrice: 280,
+      fee: 12,
+      timeDelivery: 2,
+      quantity: 3,
+      subAmount: 690,
+      review: reviews[0],
+      reviewd: false,
+    },
+  ],
+  payment: {
+    method: {},
+    fee: 10,
+    amount: 459.99,
+    cartQuantity: 5,
+  },
+  status: [
+    {
+      history: OrderStatusEnum.Created,
+      dateTime: Date.now(),
+    },
+  ],
+  obs: '',
+  createdAt: '10 Jan 2020',
+}
