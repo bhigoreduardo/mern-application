@@ -27,3 +27,19 @@ export const authCardInitialValues = {
   email: '',
   password: '',
 }
+
+// TRACKER
+export const trackerValidationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .matches(/\S+@\S+\.\S+/, 'Informe email válido')
+    .required('Email é obrigatório'),
+  code: yup
+    .string()
+    .length(8, 'Número do pedido possui 8 caracteres')
+    .required('Número do pedido é obrigatório'),
+})
+export const trackerInitialValues = {
+  email: '',
+  code: '',
+}

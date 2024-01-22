@@ -3,6 +3,7 @@ import Layout from '../layouts/public'
 import Home from '../pages/public'
 import Product from '../pages/public/product'
 import Store from '../pages/public/store'
+import Tracker from '../pages/public/tracker'
 
 const router = [
   {
@@ -20,6 +21,10 @@ const router = [
       {
         path: '/produto/:id',
         element: <Product />,
+      },
+      {
+        path: '/rastrear',
+        element: <Tracker />,
       },
     ],
   },

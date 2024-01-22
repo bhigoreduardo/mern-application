@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { mergeClassName } from '../../../../../utils/format'
 import Text from '.'
+import HintIcon from '../../icons/hint-icon'
 
 export default function Label({
   type,
@@ -8,6 +9,7 @@ export default function Label({
   id,
   placeholder,
   label,
+  hint,
   icon,
   error,
   className,
@@ -16,10 +18,15 @@ export default function Label({
 }) {
   return (
     <div className={mergeClassName('flex flex-col gap-2', className)}>
-      {label && (
-        <label htmlFor={id} className="text-sm text-gray-900">
-          {label}
-        </label>
+      {(label || hint) && (
+        <div className="flex items-center gap-1 relative">
+          {label && (
+            <label htmlFor={id} className="text-sm text-gray-900">
+              {label}
+            </label>
+          )}
+          {hint && <HintIcon>{hint}</HintIcon>}
+        </div>
       )}
       <Text
         type={type}
