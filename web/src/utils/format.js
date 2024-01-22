@@ -42,3 +42,11 @@ export const translateBadge = (badge, value) => {
       return null
   }
 }
+
+export const parsedSelectData = (arr, value, label, otherProps) =>
+  arr.map((item) => ({
+    value: item?.[value],
+    label: item?.[label],
+    ...(otherProps !== undefined &&
+      otherProps.map((i) => ({ [i]: item?.[i] })))[0],
+  }))
