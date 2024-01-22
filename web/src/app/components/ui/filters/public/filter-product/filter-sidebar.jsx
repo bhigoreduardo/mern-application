@@ -7,6 +7,7 @@ import CheckLabel from '../../../inputs/check/label'
 import Text from '../../../inputs/text'
 import { prices } from '../../../../../../types/filter-type'
 import SliderPrice from '../../../slider-price'
+import AdvertisingCard from '../../../cards/advertising-card'
 
 export default function FilterSidebar() {
   const { isFilterSidebar, setIsFilterSidebar } = useApp()
@@ -110,7 +111,14 @@ export default function FilterSidebar() {
           ))}
         </div>
       </div>
-      {/* BANNER */}
+      {/* BANNER ADVERTISING */}
+      <AdvertisingCard
+        name="Lorem Ipsum is simply dummy text"
+        image="products/cover.png"
+        brandName="Castor"
+        imageBrand="brands/castor.webp"
+        offer={299}
+      />
     </aside>
   )
 }
