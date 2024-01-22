@@ -33,7 +33,7 @@ export default function Tracker() {
         </p>
       </div>
 
-      <div className="flex gap-4">
+      <div className="flex sm:flex-row flex-col gap-4">
         <TextLabel
           id="code"
           label="Número do pedido"
