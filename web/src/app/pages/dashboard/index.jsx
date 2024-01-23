@@ -1,19 +1,46 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'phosphor-react'
 
-import { customer, order } from '../../../utils/mocks/public'
+import { customer, order, product } from '../../../utils/mocks/public'
 import { latested, orderColumns } from '../../../utils/contants/public'
+import { BadgeEnum } from '../../../types/public/enum-type'
 import ProfileCard from '../../components/ui/cards/profile-card'
 import AddressCard from '../../components/ui/cards/address-card'
 import LatestedCard from '../../components/ui/cards/latested-card'
 import TableData from '../../components/ui/table/data'
 import Button from '../../components/ui/buttons/button'
 import Heading from '../../components/ui/common/heading'
+import Carousel from '../../components/ui/carousel'
+import ProductCard from '../../components/ui/cards/product-card'
 
 export default function Dashboard() {
   const navigate = useNavigate()
   const user = customer
   const orders = new Array(10).fill(order)
+  const history = new Array(10).fill(product)
+  const responsive = [
+    {
+      breakpoint: 1280,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 800,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ]
 
   return (
     <section className="flex-grow flex flex-col gap-6">
@@ -73,7 +100,7 @@ export default function Dashboard() {
         data={orders}
       />
       {/* HISTORY */}
-      <div className="flex flex-col gap-6 border border-100 rounded-sm shadow-md py-2">
+      <div className="flex flex-col gap-6 border border-100 rounded-sm shadow-md py-2 overflow-x-auto">
         <Heading
           title="Histórico"
           btn={
@@ -86,9 +113,29 @@ export default function Dashboard() {
             </Button>
           }
         />
-        <span className="text-sm text-gray-600 text-left px-6">
-          Sem resultados
-        </span>
+        {history.length > 0 ? (
+          <div className="w-[1200px] px-6 mx-auto">
+            <Carousel autoplay slidesToShow={4} responsive={responsive}>
+              {() =>
+                history.map((item, i) => (
+                  <ProductCard
+                    key={i}
+                    badge={BadgeEnum.Offer}
+                    badgeValue="18"
+                    cover={item?.productData?.media?.cover}
+                    backCover={item?.productData?.media?.backCover}
+                    name={item.name}
+                    rangePrice={item.rangePrice}
+                  />
+                ))
+              }
+            </Carousel>
+          </div>
+        ) : (
+          <span className="text-sm text-gray-600 text-left px-6">
+            Sem resultados
+          </span>
+        )}
       </div>
     </section>
   )
