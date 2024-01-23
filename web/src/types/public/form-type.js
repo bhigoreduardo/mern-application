@@ -66,6 +66,19 @@ export const generateRecoveryPasswordInitialValues = {
   email: '',
 }
 
+export const recoveryPasswordValidationSchema = yup.object().shape({
+  password: yup.string().required('Senha é obrigatório'),
+  repeatPassword: yup
+    .string()
+    .oneOf([yup.ref('password'), null], 'Senhas devem ser iguais')
+    .required('Repetir senha é obrigatório'),
+})
+export const recoveryPasswordInitialValues = {
+  _type: UserEnum.Customer,
+  password: '',
+  repeatPassword: '',
+}
+
 // TRACKER
 export const trackerValidationSchema = yup.object().shape({
   email: yup
