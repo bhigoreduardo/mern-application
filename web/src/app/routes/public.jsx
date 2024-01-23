@@ -2,6 +2,7 @@ import Layout from '../layouts/public'
 
 import Home from '../pages/public'
 import Auth from '../pages/public/auth'
+import SignUpConfirm from '../pages/public/auth/sign-up-confirm'
 import Cart from '../pages/public/cart'
 import Checkout from '../pages/public/checkout'
 import Compare from '../pages/public/compare'
@@ -50,6 +51,10 @@ const router = [
       {
         path: '/entrar',
         element: <Auth />,
+      },
+      {
+        path: '/confirmar-conta',
+        element: <SignUpConfirm />,
       },
     ],
   },
