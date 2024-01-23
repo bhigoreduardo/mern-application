@@ -59,44 +59,6 @@ export default function History() {
       ) : (
         <span className="text-sm text-gray-600 text-left">Sem resultados</span>
       )}
-      {/* {keys?.length > 0 ? (
-        <>
-          {Object.keys(history)?.map((key) => (
-            <div
-              key={key}
-              className="flex flex-col gap-6 border border-100 rounded-sm shadow-md py-2"
-            >
-              <Heading
-                title={`${new Date(key).toLocaleDateString(
-                  'pt-BR',
-                  optionsFullLocaleDate(false)
-                )}`}
-              />
-              <div className="grid grid-cols-auto-250 gap-4 px-6">
-                {history[key].map((item) => (
-                  <CardProduct
-                    key={item._id}
-                    id={item._id}
-                    name={item.name}
-                    cover={item?.productData?.media?.cover}
-                    backCover={item?.productData?.media?.backCover}
-                    rangePrice={item.rangePrice}
-                    reviewsAvg={item.reviewsAvg}
-                    reviews={item.reviews}
-                  />
-                ))}
-              </div>
-            </div>
-          ))}
-          <Button
-            label="Carregar mais"
-            // onClick={}
-            className="text-orange-500 !border-orange-200 hover:bg-orange-600 hover:text-white w-fit mx-auto"
-          />
-        </>
-      ) : (
-        <span className="text-sm text-gray-600 text-left">Sem resultados</span>
-      )} */}
     </section>
   )
 }
