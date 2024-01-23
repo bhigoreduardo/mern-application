@@ -16,7 +16,7 @@ export default function SignUpConfirm() {
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
-    <Container className="flex items-center justify-center py-[100px]">
+    <Container className="flex items-center justify-center py-16">
       <div className="w-full max-w-[450px] border border-gray-100 bg-white rounded-sm shadow-md">
         <div className="flex flex-col items-center gap-6 px-8 py-6">
           {success ? (

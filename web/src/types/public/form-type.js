@@ -27,6 +27,7 @@ export const signIninitialValues = {
   email: '',
   password: '',
 }
+
 export const signUpvalidationSchema = signInValidationSchema.shape({
   name: yup.string().required('Nome é obrigatório'),
   cpf: yup.string().required('CPF é obrigatório'),
@@ -45,6 +46,14 @@ export const signUpinitialValues = {
   repeatPassword: '',
   terms: false,
 }
+
+export const activatedTokenValidationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .matches(/\S+@\S+\.\S+/, 'Informe email válido')
+    .required('Email é obrigatório'),
+})
+export const activatedTokenInitialValues = { email: '' }
 
 // TRACKER
 export const trackerValidationSchema = yup.object().shape({
