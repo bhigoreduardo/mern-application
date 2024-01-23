@@ -23,6 +23,7 @@ import Dashboard from '../pages/dashboard'
 import Orders from '../pages/dashboard/orders'
 import Order from '../pages/dashboard/order'
 import Address from '../pages/dashboard/address'
+import History from '../pages/dashboard/history'
 
 const router = [
   {
@@ -99,6 +100,10 @@ const router = [
           {
             path: 'endereco',
             element: <Address />,
+          },
+          {
+            path: 'historico',
+            element: <History />,
           },
         ],
       },

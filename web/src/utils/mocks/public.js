@@ -363,6 +363,10 @@ export const compare = { ...product }
 
 export const wishlist = { ...product }
 
+export const history = {
+  [new Date().toISOString().split('T')[0]]: new Array(10).fill(product),
+}
+
 // HOME
 export const hero = {
   slider: [
