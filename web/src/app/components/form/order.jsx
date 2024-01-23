@@ -11,6 +11,7 @@ import {
 
 import {
   currencyPrice,
+  mergeClassName,
   optionsFullLocaleDate,
   optionsShortLocaleDate,
 } from '../../../utils/format'
@@ -19,7 +20,6 @@ import { OrderStatusEnum } from '../../../types/public/enum-type'
 import { cartOrderColumns } from '../../../utils/contants/public'
 import ProcessCard from '../ui/cards/process-card'
 import TableData from '../ui/table/data'
-
 
 const getOrderHistoryStyle = (orderStatus) => {
   const node = { dateTime: orderStatus.dateTime }
@@ -63,7 +63,7 @@ const getOrderHistoryStyle = (orderStatus) => {
   }
 }
 
-export default function Order({ data, isAdmin = false }) {
+export default function Order({ data, isAdmin = false, className }) {
   const status = data?.status?.slice(-1)[0]?.history
   const createdAt = new Date(data?.createdAt)
   const timeDelivery = data?.cart?.reduce(
@@ -79,7 +79,12 @@ export default function Order({ data, isAdmin = false }) {
   const handleReview = () => {}
 
   return (
-    <form className="flex flex-col gap-6 px-6 lg:w-[1000px] w-full">
+    <form
+      className={mergeClassName(
+        'flex flex-col gap-6 px-6 w-full mx-auto',
+        className
+      )}
+    >
       {/* ORDER PROCESS */}
       <div className="flex flex-col gap-6 border-b border-gray-100 pb-6">
         <div className="flex sm:items-center justify-between sm:flex-row flex-col-reverse p-6 bg-yellow-50">

@@ -8,12 +8,17 @@ export const AppContext = createContext({
   isModal: false,
   isFilterSidebar: false,
   cartItems: [],
+  productReview: { order: '', cartItem: '' },
 })
 
 export default function AppContextProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false)
   const [isModal, setIsModal] = useState(false)
   const [isFilterSidebar, setIsFilterSidebar] = useState(false)
+  const [productReview, setProductReview] = useState({
+    order: '',
+    cartItem: '',
+  })
   const { value: cartItems, handleUpdate: handleCartItems } = useLocalStorage(
     'cart-items',
     []
@@ -30,6 +35,8 @@ export default function AppContextProvider({ children }) {
         setIsFilterSidebar,
         cartItems,
         handleCartItems,
+        productReview,
+        setProductReview,
       }}
     >
       {children}

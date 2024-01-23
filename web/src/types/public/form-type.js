@@ -194,3 +194,12 @@ export const checkoutInitialValues = {
   },
   obs: '',
 }
+
+// REVIEW
+export const reviewValidationSchema = yup.object().shape({
+  image: yup.string().optional(),
+  order: yup.string().required('Pedido é obrigatório'),
+  cartItem: yup.string().required('Item é obrigatório'),
+  stars: yup.number().required('Avaliação é obrigatório'),
+  description: yup.string().required('Descrição é obrigatório'),
+})

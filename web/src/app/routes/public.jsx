@@ -21,6 +21,7 @@ import Wishlist from '../pages/public/wishlist'
 // DASHBOARD
 import Dashboard from '../pages/dashboard'
 import Orders from '../pages/dashboard/orders'
+import Order from '../pages/dashboard/order'
 
 const router = [
   {
@@ -91,6 +92,7 @@ const router = [
             path: 'pedidos',
             children: [
               { path: '', element: <Orders /> },
+              { path: ':id', element: <Order /> },
             ],
           },
         ],
