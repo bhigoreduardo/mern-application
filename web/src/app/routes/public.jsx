@@ -22,6 +22,7 @@ import Wishlist from '../pages/public/wishlist'
 import Dashboard from '../pages/dashboard'
 import Orders from '../pages/dashboard/orders'
 import Order from '../pages/dashboard/order'
+import Address from '../pages/dashboard/address'
 
 const router = [
   {
@@ -94,6 +95,10 @@ const router = [
               { path: '', element: <Orders /> },
               { path: ':id', element: <Order /> },
             ],
+          },
+          {
+            path: 'endereco',
+            element: <Address />,
           },
         ],
       },
