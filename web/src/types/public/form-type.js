@@ -55,6 +55,17 @@ export const activatedTokenValidationSchema = yup.object().shape({
 })
 export const activatedTokenInitialValues = { email: '' }
 
+export const generateRecoveryPasswordValidationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .matches(/\S+@\S+\.\S+/, 'Informe email válido')
+    .required('Email é obrigatório'),
+})
+export const generateRecoveryPasswordInitialValues = {
+  _type: UserEnum.Customer,
+  email: '',
+}
+
 // TRACKER
 export const trackerValidationSchema = yup.object().shape({
   email: yup

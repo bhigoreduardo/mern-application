@@ -3,6 +3,7 @@ import Layout from '../layouts/public'
 import Home from '../pages/public'
 import Auth from '../pages/public/auth'
 import ActivatedToken from '../pages/public/auth/activated-token'
+import GenerateRecoveryPassword from '../pages/public/auth/generate-recovery-password'
 import SignUpConfirm from '../pages/public/auth/sign-up-confirm'
 import Cart from '../pages/public/cart'
 import Checkout from '../pages/public/checkout'
@@ -60,6 +61,10 @@ const router = [
       {
         path: '/ativar-conta',
         element: <ActivatedToken />,
+      },
+      {
+        path: '/recuperar-senha',
+        element: <GenerateRecoveryPassword />,
       },
     ],
   },
