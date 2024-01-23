@@ -1,7 +1,7 @@
 import DOMPurify from 'dompurify'
 import truncHtml from 'trunc-html'
 
-import { BadgeEnum } from '../types/public/enum-type'
+import { BadgeEnum, OrderStatusEnum } from '../types/public/enum-type'
 
 export const mergeClassName = (first, last) => `${first} ${last}`
 
@@ -79,4 +79,42 @@ export const optionsShortLocaleDate = {
   day: 'numeric',
   hour: 'numeric',
   minute: 'numeric',
+}
+
+export const getOrderStatusColor = (orderStatus) => {
+  switch (orderStatus) {
+    case OrderStatusEnum.Created:
+      return 'text-blue-500'
+    case OrderStatusEnum.Pending:
+      return 'text-purple-500'
+    case OrderStatusEnum.Paid:
+      return 'text-lime-500'
+    case OrderStatusEnum.Canceled:
+      return 'text-red-500'
+    case OrderStatusEnum.Progress:
+      return 'text-orange-500'
+    case OrderStatusEnum.Traffic:
+      return 'text-fuchsia-500'
+    case OrderStatusEnum.Delivered:
+      return 'text-green-500'
+  }
+}
+
+export const translateOrderStatus = (orderStatus) => {
+  switch (orderStatus) {
+    case OrderStatusEnum.Created:
+      return 'Criado'
+    case OrderStatusEnum.Pending:
+      return 'Pendente'
+    case OrderStatusEnum.Paid:
+      return 'Pago'
+    case OrderStatusEnum.Canceled:
+      return 'Cancelado'
+    case OrderStatusEnum.Progress:
+      return 'Embalando'
+    case OrderStatusEnum.Traffic:
+      return 'Em trânsito'
+    case OrderStatusEnum.Delivered:
+      return 'Entregue'
+  }
 }

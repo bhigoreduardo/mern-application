@@ -24,9 +24,17 @@ import {
   ClockClockwise,
   Gear,
   SignOut,
+  Rocket,
+  Receipt,
+  ArrowRight,
 } from 'phosphor-react'
 
-import { currencyPrice } from '../format'
+import {
+  currencyPrice,
+  getOrderStatusColor,
+  optionsShortLocaleDate,
+  translateOrderStatus,
+} from '../format'
 import { OrderStatusEnum } from '../../types/public/enum-type'
 import Button from '../../app/components/ui/buttons/button'
 import ReviewStar from '../../app/components/ui/common/review-star'
@@ -575,6 +583,69 @@ export const cartColumns = (handleDelete, handleDecrease, handleIncrease) => [
   },
 ]
 
+export const orderColumns = (endpoint) => [
+  {
+    accessorKey: 'code',
+    header: 'Código',
+    cell: ({ row }) => (
+      <span className="font-semibold text-sm text-gray-900">
+        {row?.original?.code}
+      </span>
+    ),
+  },
+  {
+    accessorKey: 'status',
+    header: 'Status',
+    cell: ({ row }) => {
+      const history = row?.original?.status?.slice(-1)[0]?.history
+
+      return (
+        <span
+          className={`font-semibold uppercase ${getOrderStatusColor(history)}`}
+        >
+          {translateOrderStatus(history)}
+        </span>
+      )
+    },
+  },
+  {
+    accessorKey: 'createdAt',
+    header: 'Data',
+    cell: ({ row }) =>
+      new Date(row?.original?.createdAt).toLocaleDateString(
+        'pt-BR',
+        optionsShortLocaleDate
+      ),
+  },
+  {
+    accessorKey: 'amount',
+    header: 'Total',
+    cell: ({ row }) => (
+      <span>
+        {currencyPrice.format(row?.original?.payment?.amount)} (
+        {row?.original?.payment?.cartQuantity})
+      </span>
+    ),
+  },
+  {
+    accessorKey: 'payment',
+    header: 'Forma de pagamento',
+    cell: ({ row }) => row?.original?.payment?.method?.method,
+  },
+  {
+    accessorKey: 'actions',
+    header: 'Ações',
+    cell: ({ row }) => (
+      <Link
+        to={`${endpoint}/${row.original?._id}`}
+        className="flex items-center gap-1 text-sm text-blue-500"
+      >
+        Vê detalhes <ArrowRight size={14} />
+      </Link>
+    ),
+  },
+]
+
 // ACCOUNT
 export const accountPagesItems = [
   {
@@ -626,5 +697,26 @@ export const accountPagesItems = [
     name: 'Sair',
     slug: '/',
     icon: <SignOut size={16} weight="duotone" className="text-red-500" />,
+  },
+]
+
+export const latested = [
+  {
+    icon: <Rocket size={20} className="text-blue-500" />,
+    value: 10,
+    description: 'Total Pedidos',
+    className: 'bg-blue-50',
+  },
+  {
+    icon: <Receipt size={20} className="text-orange-500" />,
+    value: 10,
+    description: 'Pedidos Pendetes',
+    className: 'bg-orange-50',
+  },
+  {
+    icon: <Package size={20} className="text-green-500" />,
+    value: 10,
+    description: 'Pedidos Entregue',
+    className: 'bg-green-50',
   },
 ]

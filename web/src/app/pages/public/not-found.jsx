@@ -20,7 +20,7 @@ export default function NotFound() {
           </span>
           <div className="flex items-center gap-4">
             <Button
-              onClick={() => navigate('/produtos')}
+              onClick={() => navigate('/loja')}
               className="flex-row-reverse bg-orange-500 text-white hover:bg-orange-600 uppercase"
             >
               Loja

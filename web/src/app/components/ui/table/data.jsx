@@ -14,7 +14,7 @@ import {
   TableHeader,
   TableRow,
 } from './'
-import Heading from './heading'
+import Heading from '../common/heading'
 import Pagination from '../common/pagination'
 
 export default function Data({

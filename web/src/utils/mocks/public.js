@@ -562,4 +562,5 @@ export const customer = {
   historyAvailable: true,
   // orders: [],
   amountSpend: 1000,
+  createdAt: '10 Jan 2020',
 }
