@@ -456,6 +456,7 @@ export const payment = [
 
 // ORDER
 export const order = {
+  _id: '659edc43f26a45ceed956d3c',
   customer: {
     user: {
       _id: '659edc43f26a45ceed256d3c',

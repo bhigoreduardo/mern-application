@@ -1,15 +1,15 @@
 import { X } from 'phosphor-react'
 
-import { brands, categories } from '../../../../../../utils/mocks/public'
-import useApp from '../../../../../../hooks/use-app'
-import RadioLabel from '../../../inputs/radio/label'
-import CheckLabel from '../../../inputs/check/label'
-import Text from '../../../inputs/text'
-import { prices } from '../../../../../../types/filter-type'
-import SliderPrice from '../../../slider-price'
-import AdvertisingCard from '../../../cards/advertising-card'
+import { brands, categories } from '../../../../../utils/mocks/public'
+import { prices } from '../../../../../types/filter-type'
+import useApp from '../../../../../hooks/use-app'
+import RadioLabel from '../../../ui/inputs/radio/label'
+import CheckLabel from '../../../ui/inputs/check/label'
+import Text from '../../../ui/inputs/text'
+import SliderPrice from '../../../ui/slider-price'
+import AdvertisingCard from '../../../ui/cards/advertising-card'
 
-export default function FilterSidebar() {
+export default function Sidebar() {
   const { isFilterSidebar, setIsFilterSidebar } = useApp()
 
   return (

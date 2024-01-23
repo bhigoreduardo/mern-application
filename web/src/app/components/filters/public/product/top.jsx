@@ -3,19 +3,19 @@ import { List } from 'phosphor-react'
 import {
   brands as dataBrands,
   categories as dataCategories,
-} from '../../../../../../utils/mocks/public'
+} from '../../../../../utils/mocks/public'
 import {
   perPage as perPageType,
   priority as priorityType,
-} from '../../../../../../types/filter-type'
-import { parsedSelectData } from '../../../../../../utils/format'
-import useApp from '../../../../../../hooks/use-app'
-import useFilter from '../../../../../../hooks/use-filter'
-import SelectLabel from '../../../inputs/select/label'
-import Tag from '../../../buttons/tag'
-import Button from '../../../buttons/button'
+} from '../../../../../types/filter-type'
+import { parsedSelectData } from '../../../../../utils/format'
+import useApp from '../../../../../hooks/use-app'
+import useFilter from '../../../../../hooks/use-filter'
+import SelectLabel from '../../../ui/inputs/select/label'
+import Tag from '../../../ui/buttons/tag'
+import Button from '../../../ui/buttons/button'
 
-export default function FilterTop() {
+export default function Top() {
   const { setIsFilterSidebar } = useApp()
   const {
     perPage,

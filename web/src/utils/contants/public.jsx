@@ -655,7 +655,7 @@ export const accountPagesItems = [
   },
   {
     name: 'Pedidos',
-    slug: '/pedidos',
+    slug: 'pedidos',
     icon: <Storefront size={16} weight="duotone" />,
   },
   {
@@ -680,17 +680,17 @@ export const accountPagesItems = [
   },
   {
     name: 'Endereço',
-    slug: '/endereco',
+    slug: 'endereco',
     icon: <Notebook size={16} weight="duotone" />,
   },
   {
     name: 'Histórico',
-    slug: '/historico',
+    slug: 'historico',
     icon: <ClockClockwise size={16} weight="duotone" />,
   },
   {
     name: 'Configuração',
-    slug: '/configuracao',
+    slug: 'configuracao',
     icon: <Gear size={16} weight="duotone" />,
   },
   {

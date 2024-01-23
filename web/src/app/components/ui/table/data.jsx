@@ -101,7 +101,7 @@ export default function Data({
         </TableBody>
       </Table>
       {typeof total !== 'undefined' && typeof pages !== 'undefined' && (
-        <Pagination total={total} pages={pages} className="mt-6" />
+        <Pagination total={total} pages={pages} className="mt-6 px-6" />
       )}
     </div>
   )

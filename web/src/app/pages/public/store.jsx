@@ -3,8 +3,8 @@ import Breadcrumb from '../../components/ui/breadcrumb'
 import Container from '../../components/ui/common/container'
 import Pagination from '../../components/ui/common/pagination'
 import ProductGrid from '../../components/ui/common/product-grid'
-import FilterSidebar from '../../components/ui/filters/public/filter-product/filter-sidebar'
-import FilterTop from '../../components/ui/filters/public/filter-product/filter-top'
+import FilterSidebar from '../../components/filters/public/product/sidebar'
+import FilterTop from '../../components/filters/public/product/top'
 
 export default function Store() {
   return (
