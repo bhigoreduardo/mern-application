@@ -2,6 +2,7 @@ import Layout from '../layouts/public'
 
 import Home from '../pages/public'
 import Auth from '../pages/public/auth'
+import Cart from '../pages/public/cart'
 import Compare from '../pages/public/compare'
 import Product from '../pages/public/product'
 import Store from '../pages/public/store'
@@ -36,6 +37,10 @@ const router = [
       {
         path: '/favoritos',
         element: <Wishlist />,
+      },
+      {
+        path: '/carrinho',
+        element: <Cart />,
       },
       {
         path: '/entrar',

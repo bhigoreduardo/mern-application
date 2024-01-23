@@ -10,7 +10,7 @@ export default function Store() {
   return (
     <section>
       <Breadcrumb />
-      <Container className="flex items-start gap-6 pt-[50px] pb-[100px]">
+      <Container className="flex items-start gap-6 pb-[100px]">
         <FilterSidebar />
         <section className="flex-grow flex flex-col gap-6">
           <FilterTop />

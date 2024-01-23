@@ -11,7 +11,7 @@ export default function Breadcrumb() {
   const linkClassName = 'flex items-center gap-1 text-sm text-gray-600'
 
   return (
-    <article className="bg-gray-50">
+    <article className="bg-gray-50 mb-[50px]">
       <Container className="flex items-center gap-4 py-6 flex-wrap">
         {/* LINK DEFAULT */}
         <Link to="/" className={linkClassName}>

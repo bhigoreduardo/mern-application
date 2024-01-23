@@ -509,6 +509,20 @@ export const order = {
   createdAt: '10 Jan 2020',
 }
 
+export const cart = {
+  product: '659edb43f26a45ceed256d3a',
+  color: '659edb43f26a45ceed256d3b',
+  cover: 'products/cover.png',
+  name: 'Lorem Ipsum is simply dummy',
+  background: '#1e40af',
+  colorName: 'Azul',
+  stock: 20,
+  price: 350,
+  regularPrice: 400,
+  quantity: 2,
+  fee: 10,
+}
+
 // USER
 export const customer = {
   _id: '659edc43f26a45ceed256d3c',
