@@ -1,16 +1,24 @@
 import { cart } from '../../../utils/mocks/public'
+import useQueries from '../../../hooks/use-queries'
 import Container from '../../components/ui/common/container'
 import FormCheckout from '../../components/form/public/checkout'
 import Empty from '../../components/widget/public/common/empty'
+import CheckoutSuccess from '../../components/widget/public/checkout-sucess'
 
 export default function Checkout() {
+  const successQueries = useQueries().get('sucesso')
+  const checkoutSuccess = successQueries && !!parseInt(successQueries)
   const cartItems = new Array(10).fill(cart)
 
   return (
     <section>
       {cartItems?.length > 0 ? (
         <Container className="py-16">
-          <FormCheckout />
+          {successQueries ? (
+            <CheckoutSuccess isSuccess={checkoutSuccess} />
+          ) : (
+            <FormCheckout />
+          )}
         </Container>
       ) : (
         <Empty
