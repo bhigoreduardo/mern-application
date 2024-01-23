@@ -39,7 +39,7 @@ export default function Newsletter() {
       />
       <Button
         type="submit"
-        className="bg-orange-500 text-white hover:bg-orange-600 uppercase"
+        className="bg-orange-500 text-white hover:bg-orange-600 uppercase sm:w-fit w-full"
       >
         Inscrever
         <ArrowRight size={20} className="text-white" />

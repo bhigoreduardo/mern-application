@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 
-import { brands } from '../../../../utils/mocks/public'
-import Container from './container'
-import NewsletterForm from '../../form/public/newsletter'
-import Carousel from '../carousel'
+import { brands } from '../../../../../utils/mocks/public'
+import Container from '../../../ui/common/container'
+import NewsletterForm from '../../../form/public/newsletter'
+import Carousel from '../../../ui/carousel'
 
 export default function Newsletter() {
   const responsive = [

@@ -1,4 +1,4 @@
-import Newsletter from '../../components/ui/common/newsletter'
+import Newsletter from '../../components/widget/public/common/newsletter'
 import Banner from '../../components/widget/public/home/banner'
 import BestSeller from '../../components/widget/public/home/best-seller'
 import Category from '../../components/widget/public/home/category'

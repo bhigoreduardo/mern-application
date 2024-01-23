@@ -3,6 +3,7 @@ import DashboardLayout from '../layouts/public/dashboard'
 
 // PUBLIC
 import Home from '../pages/public'
+import About from '../pages/public/about'
 import Auth from '../pages/public/auth'
 import ActivatedToken from '../pages/public/auth/activated-token'
 import GenerateRecoveryPassword from '../pages/public/auth/generate-recovery-password'
@@ -50,6 +51,10 @@ const router = [
       {
         path: '/compare',
         element: <Compare />,
+      },
+      {
+        path: '/sobre',
+        element: <About />,
       },
       {
         path: '/favoritos',
