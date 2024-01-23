@@ -77,28 +77,3 @@ export default function Slider({
     </Carousel>
   )
 }
-
-// {
-//   if (isSelected) {
-//     return (
-//       <li
-//         style={{ ...indicatorStyles, background: '#000' }}
-//         aria-label={`Selected: ${label} ${index + 1}`}
-//         title={`Selected: ${label} ${index + 1}`}
-//       />
-//     )
-//   }
-//   return (
-//     <li
-//       style={indicatorStyles}
-//       onClick={onClickHandler}
-//       onKeyDown={onClickHandler}
-//       value={index}
-//       key={index}
-//       role="button"
-//       tabIndex={0}
-//       title={`${label} ${index + 1}`}
-//       aria-label={`${label} ${index + 1}`}
-//     />
-//   )
-// }
