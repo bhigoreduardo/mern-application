@@ -264,3 +264,18 @@ export const passwordInitialValues = {
   newPassword: '',
   repeatPassword: '',
 }
+
+// CONTACT
+export const contactValidationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .matches(/\S+@\S+\.\S+/, 'Informe email válido')
+    .required('Email é obrigatório'),
+  name: yup.string().required('Nome é obrigatório'),
+  message: yup.string().required('Mensagem é obrigatório'),
+})
+export const contactInitialValues = {
+  email: '',
+  name: '',
+  message: '',
+}

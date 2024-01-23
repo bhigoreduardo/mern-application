@@ -27,6 +27,8 @@ import {
   Rocket,
   Receipt,
   ArrowRight,
+  PhoneCall,
+  ChatCircleDots,
 } from 'phosphor-react'
 
 import {
@@ -718,5 +720,43 @@ export const latested = [
     value: 10,
     description: 'Pedidos Entregue',
     className: 'bg-green-50',
+  },
+]
+
+// CONTACT
+export const contactItems = [
+  {
+    _type: 'mobile',
+    icon: (
+      <div className="bg-blue-50 sm:p-6 p-2 h-fit rounded-sm">
+        <PhoneCall size={48} className="text-blue-600" weight="duotone" />
+      </div>
+    ),
+    title: 'Ligue para nós',
+    description: 'nossos horários de funcionamento são das 9h até 17h',
+    contact: '11997533598',
+    button: (
+      <Button className="bg-blue-500 hover:bg-blue-600 text-white uppercase lg:w-fit w-full">
+        Ligar
+        <ArrowRight size={20} />
+      </Button>
+    ),
+  },
+  {
+    _type: 'email',
+    icon: (
+      <div className="bg-green-50 sm:p-6 p-2 h-fit rounded-sm">
+        <ChatCircleDots size={48} className="text-green-600" weight="duotone" />
+      </div>
+    ),
+    title: 'Conversar no WhatsApp',
+    description: 'nossos horários de funcionamento são das 9h até 17h',
+    contact: 'furniture@contato.com',
+    button: (
+      <Button className="bg-green-500 hover:bg-green-600 text-white uppercase lg:w-fit w-full">
+        WhatsApp
+        <ArrowRight size={20} />
+      </Button>
+    ),
   },
 ]

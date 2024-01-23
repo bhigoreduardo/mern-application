@@ -34,7 +34,7 @@ export default function Label({
         id={id}
         placeholder={placeholder}
         icon={icon}
-        className={`${inputClassName} ${error && 'border-red-500'}`}
+        className={`${inputClassName} ${error && '!border-red-500'}`}
         {...props}
       />
       {error && <span className="text-xs text-red-500">{error}</span>}

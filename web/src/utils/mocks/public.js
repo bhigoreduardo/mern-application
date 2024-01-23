@@ -365,7 +365,9 @@ export const wishlist = { ...product }
 
 export const history = {
   [new Date().toISOString().split('T')[0]]: new Array(10).fill(product),
-  [new Date('20 Jan 2020').toISOString().split('T')[0]]: new Array(10).fill(product),
+  [new Date('20 Jan 2020').toISOString().split('T')[0]]: new Array(10).fill(
+    product
+  ),
 }
 
 // HOME
@@ -570,3 +572,63 @@ export const customer = {
   amountSpend: 1000,
   createdAt: '10 Jan 2020',
 }
+
+// CONTACT
+export const faqItems = [
+  {
+    title: 'Suspendisse ultrices pharetra libero sed interdum.',
+    description: `
+    <p>Nulla malesuada iaculis nisi, vitae sagittis lacus laoreet in. Morbi aliquet pulvinar orci non vulputate. Donec aliquet ullamcorper gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed molestie accumsan dui, non iaculis magna mattis id. Ut consectetur massa at viverra euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eget sem purus.</p>
+    <ul>
+      <li>Vivamus sed est non arcu porta aliquet et vitae nulla.</li>
+      <li>Integer et lacus vitae justo fermentum rutrum. In nec ultrices massa.</li>
+      <li>Quisque ut dolor erat.</li>
+    </ul>
+    `,
+  },
+  {
+    title: 'Fusce molestie condimentum facilisis.',
+    description: `
+    <p>Nulla malesuada iaculis nisi, vitae sagittis lacus laoreet in. Morbi aliquet pulvinar orci non vulputate. Donec aliquet ullamcorper gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed molestie accumsan dui, non iaculis magna mattis id. Ut consectetur massa at viverra euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eget sem purus.</p>
+    <ul>
+      <li>Vivamus sed est non arcu porta aliquet et vitae nulla.</li>
+      <li>Integer et lacus vitae justo fermentum rutrum. In nec ultrices massa.</li>
+      <li>Quisque ut dolor erat.</li>
+    </ul>
+    `,
+  },
+  {
+    title: 'Quisque quis nunc quis urna tempor lobortis vel non orci. ',
+    description: `
+    <p>Nulla malesuada iaculis nisi, vitae sagittis lacus laoreet in. Morbi aliquet pulvinar orci non vulputate. Donec aliquet ullamcorper gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed molestie accumsan dui, non iaculis magna mattis id. Ut consectetur massa at viverra euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eget sem purus.</p>
+    <ul>
+      <li>Vivamus sed est non arcu porta aliquet et vitae nulla.</li>
+      <li>Integer et lacus vitae justo fermentum rutrum. In nec ultrices massa.</li>
+      <li>Quisque ut dolor erat.</li>
+    </ul>
+    `,
+  },
+  {
+    title:
+      'Donec rutrum ultrices ante nec malesuada. In accumsan eget nisi a rhoncus.',
+    description: `
+    <p>Nulla malesuada iaculis nisi, vitae sagittis lacus laoreet in. Morbi aliquet pulvinar orci non vulputate. Donec aliquet ullamcorper gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed molestie accumsan dui, non iaculis magna mattis id. Ut consectetur massa at viverra euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eget sem purus.</p>
+    <ul>
+      <li>Vivamus sed est non arcu porta aliquet et vitae nulla.</li>
+      <li>Integer et lacus vitae justo fermentum rutrum. In nec ultrices massa.</li>
+      <li>Quisque ut dolor erat.</li>
+    </ul>
+    `,
+  },
+  {
+    title: 'Nulla sed sapien maximus, faucibus massa vitae.',
+    description: `
+    <p>Nulla malesuada iaculis nisi, vitae sagittis lacus laoreet in. Morbi aliquet pulvinar orci non vulputate. Donec aliquet ullamcorper gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed molestie accumsan dui, non iaculis magna mattis id. Ut consectetur massa at viverra euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eget sem purus.</p>
+    <ul>
+      <li>Vivamus sed est non arcu porta aliquet et vitae nulla.</li>
+      <li>Integer et lacus vitae justo fermentum rutrum. In nec ultrices massa.</li>
+      <li>Quisque ut dolor erat.</li>
+    </ul>
+    `,
+  },
+]

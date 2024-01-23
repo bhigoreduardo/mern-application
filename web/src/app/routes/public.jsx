@@ -26,6 +26,7 @@ import Order from '../pages/dashboard/order'
 import Address from '../pages/dashboard/address'
 import History from '../pages/dashboard/history'
 import Setting from '../pages/dashboard/setting'
+import Contact from '../pages/public/contact'
 
 const router = [
   {
@@ -51,6 +52,10 @@ const router = [
       {
         path: '/compare',
         element: <Compare />,
+      },
+      {
+        path: '/contato',
+        element: <Contact />,
       },
       {
         path: '/sobre',

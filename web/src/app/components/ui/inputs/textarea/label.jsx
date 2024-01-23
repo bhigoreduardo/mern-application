@@ -11,6 +11,7 @@ export default function Label({
   error,
   hint,
   className,
+  inputClassName,
   ...props
 }) {
   return (
@@ -29,7 +30,7 @@ export default function Label({
         id={id}
         placeholder={placeholder}
         name={name}
-        className={`${error && 'border-red-500'}`}
+        className={`${inputClassName} ${error && '!border-red-500'}`}
         {...props}
       />
       {error && <span className="text-xs text-red-500">{error}</span>}

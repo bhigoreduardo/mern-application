@@ -42,7 +42,7 @@ export default function Newsletter() {
         className="bg-orange-500 text-white hover:bg-orange-600 uppercase sm:w-fit w-full"
       >
         Inscrever
-        <ArrowRight size={20} className="text-white" />
+        <ArrowRight size={20} />
       </Button>
     </form>
   )
