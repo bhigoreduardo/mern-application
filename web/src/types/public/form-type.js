@@ -1,6 +1,7 @@
 import * as yup from 'yup'
 
 import { UserEnum } from './enum-type'
+import { checkFileSize, checkImageFormat } from '../../utils/helper'
 
 // NEWSLETTER
 export const newsletterInitialValues = {
@@ -203,3 +204,63 @@ export const reviewValidationSchema = yup.object().shape({
   stars: yup.number().required('Avaliação é obrigatório'),
   description: yup.string().required('Descrição é obrigatório'),
 })
+
+// ACCOUNT
+export const profileSignUpValidationSchema = yup.object().shape({
+  _type: yup.string().required('Usuário tipo é obrigatório'),
+  name: yup.string().required('Nome é obrigatório'),
+  email: yup
+    .string()
+    .matches(/\S+@\S+\.\S+/, 'Informe email válido')
+    .required('Email é obrigatório'),
+  cpf: yup.string().required('CPF é obrigatório'),
+  whatsApp: yup.string().required('Número de telefone é obrigatório'),
+})
+export const profileUpdateValidationSchema =
+  profileSignUpValidationSchema.shape({
+    image: yup
+      .mixed()
+      .optional()
+      .test('fileType', 'Formato inválido', (value) =>
+        checkImageFormat(value, true)
+      )
+      .test('fileSize', 'Máximo 70kb', (value) =>
+        checkFileSize(value, 1024 * 70, true)
+      ),
+  })
+
+export const addressValidationSchema = yup.object().shape({
+  street: yup.string().required('Rua é obrigatório'),
+  neighborhood: yup.string().required('Bairro é obrigatório'),
+  city: yup.string().required('Cidade é obrigatório'),
+  state: yup
+    .string()
+    .max(2, 'Informe somente a UF. Ex.: SP')
+    .required('Estado é obrigatório'),
+  number: yup.string().optional(),
+  zipCode: yup.string().required('CEP é obrigatório'),
+  complement: yup.string().optional(),
+})
+export const addressInitialValues = {
+  street: '',
+  neighborhood: '',
+  city: '',
+  state: '',
+  number: '',
+  zipCode: '',
+  complement: '',
+}
+
+export const passwordValidationSchema = yup.object().shape({
+  password: yup.string().required('Senha atual é obrigatório'),
+  newPassword: yup.string().required('Nova senha é obrigatório'),
+  repeatPassword: yup
+    .string()
+    .oneOf([yup.ref('newPassword'), null], 'Devem ser igual a nova senha')
+    .required('Repetir nova senha é obrigatório'),
+})
+export const passwordInitialValues = {
+  password: '',
+  newPassword: '',
+  repeatPassword: '',
+}

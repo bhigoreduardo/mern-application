@@ -24,6 +24,7 @@ import Orders from '../pages/dashboard/orders'
 import Order from '../pages/dashboard/order'
 import Address from '../pages/dashboard/address'
 import History from '../pages/dashboard/history'
+import Setting from '../pages/dashboard/setting'
 
 const router = [
   {
@@ -104,6 +105,10 @@ const router = [
           {
             path: 'historico',
             element: <History />,
+          },
+          {
+            path: 'configuracao',
+            element: <Setting />,
           },
         ],
       },

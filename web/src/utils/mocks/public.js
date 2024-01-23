@@ -365,6 +365,7 @@ export const wishlist = { ...product }
 
 export const history = {
   [new Date().toISOString().split('T')[0]]: new Array(10).fill(product),
+  [new Date('20 Jan 2020').toISOString().split('T')[0]]: new Array(10).fill(product),
 }
 
 // HOME
