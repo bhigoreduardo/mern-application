@@ -11,7 +11,7 @@ const Categories = ({ isNonCategories = false }) =>
       key={i}
       title={item.name}
       href={item.slug}
-      leftIcon={
+      rigthIcon={
         !isNonCategories && (
           <CaretRight
             size={12}

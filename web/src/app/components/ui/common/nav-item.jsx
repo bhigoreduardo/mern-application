@@ -24,10 +24,10 @@ export default function NavItem({
       {...props}
     >
       <div className="flex items-center gap-3">
-        {rigthIcon && rigthIcon}
+        {leftIcon && leftIcon}
         {isSidebar && <span>{label}</span>}
       </div>
-      {leftIcon && leftIcon}
+      {rigthIcon && rigthIcon}
     </Link>
   )
 }
