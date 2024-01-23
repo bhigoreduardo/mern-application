@@ -3,6 +3,7 @@ import Layout from '../layouts/public'
 import Home from '../pages/public'
 import Auth from '../pages/public/auth'
 import Cart from '../pages/public/cart'
+import Checkout from '../pages/public/checkout'
 import Compare from '../pages/public/compare'
 import Product from '../pages/public/product'
 import Store from '../pages/public/store'
@@ -41,6 +42,10 @@ const router = [
       {
         path: '/carrinho',
         element: <Cart />,
+      },
+      {
+        path: '/finalizar-compra',
+        element: <Checkout />,
       },
       {
         path: '/entrar',

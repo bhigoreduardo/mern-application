@@ -3,7 +3,7 @@ import { ArrowRight } from 'phosphor-react'
 
 import { currencyPrice } from '../../../../utils/format'
 import Button from '../buttons/button'
-import CartItem from '../cart-item'
+import CartItem from '../common/cart-item'
 
 /* eslint-disable react/prop-types */
 export default function CartCard({ cartItems, setOpenCard }) {

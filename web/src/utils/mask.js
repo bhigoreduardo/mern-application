@@ -37,3 +37,12 @@ export const cpfMask = (value) =>
         .replace(/(\d{3})(\d{1,2})/, '$1-$2')
         .replace(/(-\d{2})\d+?$/, '$1')
     : ''
+
+export const creditCardNumberMask = (value) =>
+  value
+    ? value
+        .replace(/\D/g, '')
+        .replace(/(\d{4})/g, '$1 ')
+        .replace(/\.$/, '')
+        .substring(0, 19)
+    : ''

@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { X } from 'phosphor-react'
 
-import { currencyPrice } from '../../../utils/format'
-import useApp from '../../../hooks/use-app'
+import { currencyPrice } from '../../../../utils/format'
+import useApp from '../../../../hooks/use-app'
 
 export default function CartItem({
   product,

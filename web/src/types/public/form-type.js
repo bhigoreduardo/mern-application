@@ -61,3 +61,103 @@ export const trackerInitialValues = {
   email: '',
   code: '',
 }
+
+// CHECKOUT
+export const checkoutValidationSchema = yup.object().shape({
+  name: yup.string().required('Nome é obrigatório'),
+  email: yup
+    .string()
+    .matches(/\S+@\S+\.\S+/, 'Informe email válido')
+    .required('Email é obrigatório'),
+  whatsApp: yup.string().required('Número de telefone é obrigatório'),
+  address: yup
+    .object({
+      street: yup.string().required('Rua é obrigatório'),
+      neighborhood: yup.string().required('Bairro é obrigatório'),
+      city: yup.string().required('Cidade é obrigatório'),
+      state: yup
+        .string()
+        .max(2, 'Informe somente a UF. Ex.: SP')
+        .required('Estado é obrigatório'),
+      number: yup.string().optional(),
+      zipCode: yup.string().required('CEP é obrigatório'),
+      complement: yup.string().optional(),
+    })
+    .required('Endereço é obrigatório'),
+  payment: yup
+    .object({
+      method: yup.string().required('Forma de pagamento é obrigatório'),
+      availableInstallments: yup.bool(),
+      cardName: yup
+        .string()
+        .when('availableInstallments', (value) =>
+          value.includes(true)
+            ? yup.string().required('Nome no cartão é obrigatório')
+            : yup.string().optional()
+        ),
+      cardNumber: yup
+        .string()
+        .when('availableInstallments', (value) =>
+          value.includes(true)
+            ? yup.string().required('Número do cartão é obrigatório')
+            : yup.string().optional()
+        ),
+      cardDate: yup
+        .string()
+        .when('availableInstallments', (value) =>
+          value.includes(true)
+            ? yup.string().required('Data do cartão é obrigatório')
+            : yup.string().optional()
+        ),
+      cardCvv: yup
+        .string()
+        .when('availableInstallments', (value) =>
+          value.includes(true)
+            ? yup.string().required('CVV é obrigatório')
+            : yup.string().optional()
+        ),
+      installments: yup
+        .string()
+        .when('availableInstallments', (value) =>
+          value.includes(true)
+            ? yup.string().required('Parcelas é obrigatório')
+            : yup.string().optional()
+        ),
+    })
+    .required('Pagamento é obrigatório'),
+  obs: yup.string().optional(),
+  cart: yup
+    .array()
+    .of(
+      yup.object({
+        product: yup.string().required('Produto é obrigatório'),
+        color: yup.string().required('Cor é obrigatório'),
+        quantity: yup.number().required('Quantidade é obrigatório'),
+      })
+    )
+    .min(1, 'Pelo menos um produto é obrigatório'),
+})
+export const checkoutInitialValues = {
+  name: '',
+  email: '',
+  whatsApp: '',
+  address: {
+    street: '',
+    neighborhood: '',
+    city: '',
+    state: '',
+    number: '',
+    zipCode: '',
+    complement: '',
+  },
+  payment: {
+    method: '',
+    availableInstallments: false,
+    cardName: '',
+    cardNumber: '',
+    cardDate: '',
+    cardCvv: '',
+    installments: '',
+  },
+  obs: '',
+}
