@@ -19,6 +19,11 @@ import {
   XCircle,
   ShoppingCartSimple,
   Heart,
+  Stack,
+  Notebook,
+  ClockClockwise,
+  Gear,
+  SignOut,
 } from 'phosphor-react'
 
 import { currencyPrice } from '../format'
@@ -567,5 +572,59 @@ export const cartColumns = (handleDelete, handleDecrease, handleIncrease) => [
     header: 'Sub-Total',
     cell: ({ row }) =>
       currencyPrice.format(row?.original?.price * row?.original?.quantity),
+  },
+]
+
+// ACCOUNT
+export const accountPagesItems = [
+  {
+    name: 'Conta',
+    slug: '/conta',
+    icon: <Stack size={16} weight="duotone" />,
+  },
+  {
+    name: 'Pedidos',
+    slug: '/pedidos',
+    icon: <Storefront size={16} weight="duotone" />,
+  },
+  {
+    name: 'Rastrear',
+    slug: '/rastrear',
+    icon: <MapPinLine size={16} weight="duotone" />,
+  },
+  {
+    name: 'Carrinho',
+    slug: '/carrinho',
+    icon: <ShoppingCartSimple size={16} weight="duotone" />,
+  },
+  {
+    name: 'Favoritos',
+    slug: '/favoritos',
+    icon: <Heart size={16} weight="duotone" />,
+  },
+  {
+    name: 'Compare',
+    slug: '/compare',
+    icon: <ArrowsCounterClockwise size={16} weight="duotone" />,
+  },
+  {
+    name: 'Endereço',
+    slug: '/endereco',
+    icon: <Notebook size={16} weight="duotone" />,
+  },
+  {
+    name: 'Histórico',
+    slug: '/historico',
+    icon: <ClockClockwise size={16} weight="duotone" />,
+  },
+  {
+    name: 'Configuração',
+    slug: '/configuracao',
+    icon: <Gear size={16} weight="duotone" />,
+  },
+  {
+    name: 'Sair',
+    slug: '/',
+    icon: <SignOut size={16} weight="duotone" className="text-red-500" />,
   },
 ]

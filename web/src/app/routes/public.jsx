@@ -1,5 +1,7 @@
 import Layout from '../layouts/public'
+import DashboardLayout from '../layouts/public/dashboard'
 
+// PUBLIC
 import Home from '../pages/public'
 import Auth from '../pages/public/auth'
 import ActivatedToken from '../pages/public/auth/activated-token'
@@ -15,6 +17,9 @@ import Product from '../pages/public/product'
 import Store from '../pages/public/store'
 import Tracker from '../pages/public/tracker'
 import Wishlist from '../pages/public/wishlist'
+
+// DASHBOARD
+import Dashboard from '../pages/dashboard'
 
 const router = [
   {
@@ -72,6 +77,16 @@ const router = [
       {
         path: '/redefinir-senha',
         element: <RecoveryPassword />,
+      },
+      {
+        path: '/conta',
+        element: <DashboardLayout />,
+        children: [
+          {
+            path: '',
+            element: <Dashboard />,
+          },
+        ],
       },
       {
         path: '*',
