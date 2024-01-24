@@ -16,7 +16,6 @@ export const categoryValidationSchema = yup.object().shape({
   description: yup.string().optional(),
   product: yup.array().of(yup.string()).optional(),
 })
-
 export const categoryInitalValues = {
   image: '',
   name: '',
@@ -30,9 +29,25 @@ export const colorValidationSchema = yup.object().shape({
   color: yup.string().required('Cor é obrigatório'),
   description: yup.string().optional(),
 })
-
 export const colorInitialValues = {
   name: '',
   color: '',
+  description: '',
+}
+
+export const brandValidationSchema = yup.object().shape({
+  image: yup
+    .mixed()
+    .required('Imagem é obrigatório')
+    .test('fileType', 'Formato inválido', (value) => checkImageFormat(value))
+    .test('fileSize', 'Máximo 70kb', (value) =>
+      checkFileSize(value, 1024 * 70)
+    ),
+  name: yup.string().required('Nome é obrigatório'),
+  description: yup.string().optional(),
+})
+export const brandInitialValues = {
+  image: '',
+  name: '',
   description: '',
 }

@@ -1,6 +1,8 @@
 import Layout from '../layouts/admin'
 
 import Home from '../pages/admin'
+import Brands from '../pages/admin/brands'
+import BrandsForm from '../pages/admin/brands/form'
 import Categories from '../pages/admin/categories'
 import CategoriesForm from '../pages/admin/categories/form'
 import Colors from '../pages/admin/colors'
@@ -42,6 +44,14 @@ const children = [
           { path: '', element: <Colors /> },
           { path: 'cadastrar', element: <ColorsForm /> },
           { path: ':id/editar', element: <ColorsForm /> },
+        ],
+      },
+      {
+        path: 'marcas',
+        children: [
+          { path: '', element: <Brands /> },
+          { path: 'cadastrar', element: <BrandsForm /> },
+          { path: ':id/editar', element: <BrandsForm /> },
         ],
       },
     ],

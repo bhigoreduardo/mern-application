@@ -325,3 +325,53 @@ export const colorColumns = [
     ),
   },
 ]
+
+export const brandColumns = [
+  {
+    accessorKey: 'name',
+    header: 'Nome',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2">
+        <img
+          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+            row?.original?.image
+          }`}
+          alt={row?.original?.name}
+          className="h-12 w-12 rounded-full bg-gray-500 object-contain"
+        />
+        <span>{row?.original.name}</span>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'description',
+    header: 'Descrição',
+  },
+  {
+    accessorKey: 'slug',
+    header: 'Link',
+    cell: ({ row }) => (
+      <Link to={`/${row.original?.slug}`}>{row.original?.slug}</Link>
+    ),
+  },
+  {
+    accessorKey: 'products',
+    header: 'Produtos',
+    cell: ({ row }) =>
+      row?.original?.products?.length > 0
+        ? row?.original?.products?.length
+        : '-',
+  },
+  {
+    accessorKey: 'actions',
+    header: 'Ações',
+    cell: ({ row }) => (
+      <Link
+        to={`${row.original?._id}/editar`}
+        className="flex items-center gap-1 text-sm text-blue-500"
+      >
+        Vê detalhes <ArrowRight size={14} />
+      </Link>
+    ),
+  },
+]
