@@ -8,7 +8,7 @@ export default function NavItem({
   href,
   rigthIcon,
   leftIcon,
-  isSidebar,
+  isSidebar = true,
   label,
   className,
   ...props
@@ -18,7 +18,7 @@ export default function NavItem({
       title={title}
       to={href}
       className={mergeClassName(
-        `flex items-center justify-between gap-4 text-sm text-gray-600 bg-white px-4 py-2 active:text-gray-900 active:bg-gray-50`,
+        `flex items-center justify-between gap-4 text-sm text-gray-600 bg-white px-4 py-2 active:text-gray-900 active:bg-gray-50 hover:bg-orange-500 hover:text-white`,
         className
       )}
       {...props}

@@ -9,9 +9,11 @@ TODO:
   - app/components/form/public/auth:
     -> TextLabel está com problema de controle de valores
 
-
   - app/pages/dashboard:
     -> Consertar o responsivo do carousel de histórico de produtos
+
+  - app/components/navigation/admin/header:
+    -> Consertar bug das páginas renderizadas para cada tipo de usuário
 
   FIXME: (TABELA - app/componensts/ui/table/data)
   - app/components/form/order:

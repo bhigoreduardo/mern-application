@@ -42,7 +42,7 @@ import Button from '../../app/components/ui/buttons/button'
 import ReviewStar from '../../app/components/ui/common/review-star'
 import Count from '../../app/components/ui/buttons/count'
 
-// HOME
+// HEADER
 export const pages = [
   {
     name: 'Início',
@@ -76,6 +76,7 @@ export const pages = [
   },
 ]
 
+// HOME
 export const features = [
   {
     icon: <Package size={40} weight="duotone" className="text-gray-900" />,
