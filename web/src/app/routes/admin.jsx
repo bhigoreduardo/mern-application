@@ -1,6 +1,10 @@
 import Layout from '../layouts/admin'
 
 import Home from '../pages/admin'
+import Customers from '../pages/admin/customers'
+import CustomersForm from '../pages/admin/customers/form'
+import CustomersOrders from '../pages/admin/customers/orders'
+import CustomersProfile from '../pages/admin/customers/profile'
 
 const children = [
   {
@@ -15,7 +19,23 @@ const children = [
   },
 ]
 
-const admin = []
+const admin = [
+  {
+    path: '',
+    element: <Layout />,
+    children: [
+      {
+        path: 'clientes',
+        children: [
+          { path: '', element: <Customers /> },
+          { path: ':id', element: <CustomersProfile /> },
+          { path: ':id/editar', element: <CustomersForm /> },
+          { path: ':id/pedidos', element: <CustomersOrders /> },
+        ],
+      },
+    ],
+  },
+]
 
 const store = []
 
