@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import {
   Stack,
@@ -17,6 +18,7 @@ import {
   SignOut,
   IdentificationBadge,
   ArrowRight,
+  Trash,
 } from 'phosphor-react'
 
 import { mobileMask, zipCodeMask } from '../mask'
@@ -171,6 +173,106 @@ export const customerColumns = [
       >
         Vê detalhes <ArrowRight size={14} />
       </Link>
+    ),
+  },
+]
+
+// PRODUCTS
+export const categoryColumns = [
+  {
+    accessorKey: 'name',
+    header: 'Nome',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2">
+        <img
+          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+            row?.original?.image
+          }`}
+          alt={row?.original?.name}
+          className="h-12 w-12 rounded-full bg-gray-500 object-contain"
+        />
+        <span>{row?.original.name}</span>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'description',
+    header: 'Descrição',
+    cell: ({ row }) => row?.original?.description || '-',
+  },
+  {
+    accessorKey: 'slug',
+    header: 'Link',
+    cell: ({ row }) => (
+      <Link to={`/${row.original?.slug}`}>{row.original?.slug}</Link>
+    ),
+  },
+  {
+    accessorKey: 'products',
+    header: 'Produtos',
+    cell: ({ row }) =>
+      row?.original?.products?.length > 0
+        ? row?.original?.products?.length
+        : '-',
+  },
+  {
+    accessorKey: 'actions',
+    header: 'Ações',
+    cell: ({ row }) => (
+      <Link
+        to={`${row.original?._id}/editar`}
+        className="flex items-center gap-1 text-sm text-blue-500"
+      >
+        Vê detalhes <ArrowRight size={14} />
+      </Link>
+    ),
+  },
+]
+
+export const highlightProductColumns = (handleDelete) => [
+  {
+    accessorKey: 'product',
+    header: 'Produto',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2">
+        <img
+          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+            row?.original?.productData?.media?.cover
+          }`}
+          alt={row?.original?.name}
+          className="h-14 w-14 rounded-full bg-gray-500 object-contain"
+        />
+        <p className="flex flex-col">
+          <span className="font-semibold text-sm text-gray-900 line-clamp-1">
+            {row?.original?.name}
+          </span>
+          <span className="text-xs">
+            Categoria:{' '}
+            {row?.original?.category?.map((item, i) => (
+              <Fragment key={item._id}>
+                {item.name}
+                {row?.original?.category?.length === i + 1 ? '' : '/'}
+              </Fragment>
+            ))}
+          </span>
+        </p>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'actions',
+    header: 'Ações',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2 text-sm text-blue-600">
+        <button
+          type="button"
+          title="Excluir"
+          onClick={() => handleDelete(row?.original?._id)}
+          className="text-red-500"
+        >
+          <Trash size={16} />
+        </button>
+      </div>
     ),
   },
 ]

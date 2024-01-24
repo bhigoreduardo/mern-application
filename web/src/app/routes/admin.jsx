@@ -1,6 +1,8 @@
 import Layout from '../layouts/admin'
 
 import Home from '../pages/admin'
+import Categories from '../pages/admin/categories'
+import CategoriesForm from '../pages/admin/categories/form'
 import Customers from '../pages/admin/customers'
 import CustomersForm from '../pages/admin/customers/form'
 import CustomersOrders from '../pages/admin/customers/orders'
@@ -15,15 +17,6 @@ const children = [
         path: '',
         element: <Home />,
       },
-    ],
-  },
-]
-
-const admin = [
-  {
-    path: '',
-    element: <Layout />,
-    children: [
       {
         path: 'clientes',
         children: [
@@ -33,7 +26,23 @@ const admin = [
           { path: ':id/pedidos', element: <CustomersOrders /> },
         ],
       },
+      {
+        path: 'categorias',
+        children: [
+          { path: '', element: <Categories /> },
+          { path: 'cadastrar', element: <CategoriesForm /> },
+          { path: ':id/editar', element: <CategoriesForm /> },
+        ],
+      },
     ],
+  },
+]
+
+const admin = [
+  {
+    path: '',
+    element: <Layout />,
+    children: [],
   },
 ]
 
