@@ -276,3 +276,52 @@ export const highlightProductColumns = (handleDelete) => [
     ),
   },
 ]
+
+export const colorColumns = [
+  {
+    accessorKey: 'name',
+    header: 'Nome',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2">
+        <span
+          className="w-6 h-6 rounded-full border border-gray-300"
+          style={{ backgroundColor: row.original?.color }}
+        />
+        <span className="font-semibold text-gray-900 text-sm capitalize">
+          {row.original?.name}
+        </span>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'description',
+    header: 'Descrição',
+  },
+  {
+    accessorKey: 'slug',
+    header: 'Link',
+    cell: ({ row }) => (
+      <Link to={`/${row.original?.slug}`}>{row.original?.slug}</Link>
+    ),
+  },
+  {
+    accessorKey: 'products',
+    header: 'Produtos',
+    cell: ({ row }) =>
+      row?.original?.products?.length > 0
+        ? row?.original?.products?.length
+        : '-',
+  },
+  {
+    accessorKey: 'actions',
+    header: 'Ações',
+    cell: ({ row }) => (
+      <Link
+        to={`${row.original?._id}/editar`}
+        className="flex items-center gap-1 text-sm text-blue-500"
+      >
+        Vê detalhes <ArrowRight size={14} />
+      </Link>
+    ),
+  },
+]

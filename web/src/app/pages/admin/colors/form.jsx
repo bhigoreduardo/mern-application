@@ -1,18 +1,18 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { Trash, ArrowLeft } from 'phosphor-react'
 
-import { categories } from '../../../../utils/mocks/public'
+import { colors } from '../../../../utils/mocks/public'
 import useApp from '../../../../hooks/use-app'
 import Button from '../../../components/ui/buttons/button'
 import Heading from '../../../components/ui/common/heading'
 import Alert from '../../../components/ui/modal/alert'
-import FormCategories from '../../../components/form/admin/category'
+import FormColors from '../../../components/form/admin/color'
 
 export default function Form() {
   const navigate = useNavigate()
   const { id } = useParams()
   const { isModal, setIsModal } = useApp()
-  const data = categories[0]
+  const data = colors[0]
 
   return (
     <section className="flex-grow flex flex-col">
@@ -36,12 +36,12 @@ export default function Form() {
                 onClick={() => navigate(-1)}
               >
                 Voltar
-                <ArrowLeft size={16} className="text-white" />
+                <ArrowLeft size={16} />
               </Button>
             </div>
           }
         />
-        <FormCategories data={data} />
+        <FormColors data={data} />
       </div>
     </section>
   )

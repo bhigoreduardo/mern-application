@@ -24,3 +24,15 @@ export const categoryInitalValues = {
   description: '',
   product: [],
 }
+
+export const colorValidationSchema = yup.object().shape({
+  name: yup.string().required('Nome é obrigatório'),
+  color: yup.string().required('Cor é obrigatório'),
+  description: yup.string().optional(),
+})
+
+export const colorInitialValues = {
+  name: '',
+  color: '',
+  description: '',
+}

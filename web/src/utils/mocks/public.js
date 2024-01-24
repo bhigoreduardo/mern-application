@@ -192,7 +192,8 @@ export const colors = [
     name: 'Azul',
     slug: 'azul',
     color: '#1e40af',
-    description: '',
+    description:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
     products: [],
   },
   {
@@ -200,7 +201,8 @@ export const colors = [
     name: 'Preto',
     slug: 'preto',
     color: '#000',
-    description: '',
+    description:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
     products: [],
   },
 ]
