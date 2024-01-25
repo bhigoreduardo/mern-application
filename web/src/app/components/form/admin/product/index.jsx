@@ -12,6 +12,7 @@ import FormAdditional from './additional'
 import FormSpecification from './specification'
 import FormData from './data'
 import FormSeo from './seo'
+import FormPublished from './published'
 
 export default function Product({ data }) {
   const formik = useFormik({
@@ -47,7 +48,8 @@ export default function Product({ data }) {
           <Button className="bg-orange-500 text-white hover:bg-orange-600 !p-2 h-[42px] uppercase">
             Salvar
           </Button>
-          {/* <FormPublished formik={formik} />
+          <FormPublished formik={formik} />
+          {/* 
           <FormCategory formik={formik} wrapper />
           <FormBrand formik={formik} wrapper />
           <FormTag formik={formik} /> */}
