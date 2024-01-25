@@ -293,3 +293,27 @@ export const paymentInitialValues = {
   availableInstallments: false,
   infoInstallments: [],
 }
+
+const urlMatchEncoder = yup
+  .string()
+  .matches(
+    /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+    'Informe um perfil válido'
+  )
+  .optional()
+export const socialValidationSchema = yup.object().shape({
+  facebook: urlMatchEncoder,
+  instagram: urlMatchEncoder,
+  twitter: urlMatchEncoder,
+  linkedin: urlMatchEncoder,
+  pinterest: urlMatchEncoder,
+  youtube: urlMatchEncoder,
+})
+export const socialInitialValues = {
+  facebook: '',
+  instagram: '',
+  twitter: '',
+  linkedin: '',
+  pinterest: '',
+  youtube: '',
+}

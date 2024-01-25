@@ -9,6 +9,7 @@ import FormAddress from '../../components/form/address'
 import FormPassword from '../../components/form/password'
 import FormSetting from '../../components/form/admin/setting'
 import FormPayment from '../../components/form/admin/setting/payment'
+import FormSocial from '../../components/form/admin/setting/social'
 
 const ACTIVE_ITEM = 'bg-orange-500 text-white'
 const INACTIVE_ITEM = 'text-orange-500 !border-orange-200 hover:text-white'
@@ -66,16 +67,16 @@ export default function Setting() {
             <Heading title="Formas de pagamento" />
             <FormPayment />
           </div>
-          {/* 
+
           <div className="flex flex-col gap-6 border border-100 rounded-sm shadow-md py-2">
             <Heading title="Redes sociais" />
-            <FormSocial user={user} _type={user?._type} />
-          </div> */}
+            <FormSocial user={user} />
+          </div>
         </>
       ) : (
         <div className="flex flex-col gap-6 border border-100 rounded-sm shadow-md py-2">
           <Heading title="Segurança" />
-          <FormPassword endPoint={`${user?._type}s`} _type={user?._type} />
+          <FormPassword />
         </div>
       )}
     </section>

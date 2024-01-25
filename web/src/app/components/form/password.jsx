@@ -55,7 +55,7 @@ export default function Password() {
       </div>
       <Button
         type="submit"
-        className="bg-orange-500 text-white hover:bg-orange-600 w-fit !p-2"
+        className="bg-orange-500 text-white hover:bg-orange-600 w-fit !p-2 uppercase"
       >
         Salvar
       </Button>
