@@ -2,6 +2,7 @@
 import { useFormik } from 'formik'
 
 import {
+  profileInitialValus,
   profileSignUpValidationSchema,
   profileUpdateValidationSchema,
 } from '../../../types/public/form-type'
@@ -18,14 +19,7 @@ export default function Profile({ user, _type }) {
       : profileSignUpValidationSchema
   const formik = useFormik({
     enableReinitialize: true,
-    initialValues: {
-      _type,
-      image: user?.image || '',
-      name: user?.name || '',
-      email: user?.email || '',
-      cpf: user?.cpf || '',
-      whatsApp: user?.whatsApp || '',
-    },
+    initialValues: user ? { ...user } : { ...profileInitialValus, _type },
     validationSchema,
     onSubmit: (values) => handleSubmit(values),
   })
@@ -108,7 +102,7 @@ export default function Profile({ user, _type }) {
       </div>
       <Button
         type="submit"
-        className="bg-orange-500 text-white hover:bg-orange-600 w-fit !p-2"
+        className="bg-orange-500 text-white hover:bg-orange-600 w-fit !p-2 uppercase"
       >
         Salvar
       </Button>

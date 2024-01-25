@@ -228,6 +228,13 @@ export const profileUpdateValidationSchema =
         checkFileSize(value, 1024 * 70, true)
       ),
   })
+export const profileInitialValus = {
+  image: '',
+  name: '',
+  email: '',
+  cpf: '',
+  whatsApp: '',
+}
 
 export const addressValidationSchema = yup.object().shape({
   street: yup.string().required('Rua é obrigatório'),

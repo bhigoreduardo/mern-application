@@ -15,6 +15,7 @@ import Orders from '../pages/admin/orders'
 import OrdersDetail from '../pages/admin/orders/detail'
 import Products from '../pages/admin/products'
 import ProductsForm from '../pages/admin/products/form'
+import Profile from '../pages/admin/profile'
 import Setting from '../pages/admin/setting'
 import Users from '../pages/admin/users'
 import UsersForm from '../pages/admin/users/form'
@@ -75,6 +76,10 @@ const children = [
           { path: '', element: <Orders /> },
           { path: ':id', element: <OrdersDetail /> },
         ],
+      },
+      {
+        path: 'perfil',
+        element: <Profile />,
       },
     ],
   },
