@@ -6,7 +6,7 @@ import useApp from '../../../../hooks/use-app'
 import Button from '../../../components/ui/buttons/button'
 import Heading from '../../../components/ui/common/heading'
 import Alert from '../../../components/ui/modal/alert'
-import FormColors from '../../../components/form/admin/color'
+import FormColor from '../../../components/form/admin/color'
 
 export default function Form() {
   const navigate = useNavigate()
@@ -41,7 +41,7 @@ export default function Form() {
             </div>
           }
         />
-        <FormColors data={id && data} />
+        <FormColor data={id && data} />
       </div>
     </section>
   )

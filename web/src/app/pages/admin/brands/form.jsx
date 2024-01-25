@@ -6,7 +6,7 @@ import useApp from '../../../../hooks/use-app'
 import Button from '../../../components/ui/buttons/button'
 import Heading from '../../../components/ui/common/heading'
 import Alert from '../../../components/ui/modal/alert'
-import FormBrands from '../../../components/form/admin/brand'
+import FormBrand from '../../../components/form/admin/brand'
 
 export default function Form() {
   const navigate = useNavigate()
@@ -45,7 +45,7 @@ export default function Form() {
             </div>
           }
         />
-        <FormBrands data={id && data} />
+        <FormBrand data={id && data} />
       </div>
     </section>
   )

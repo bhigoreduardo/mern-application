@@ -6,7 +6,7 @@ import useApp from '../../../../hooks/use-app'
 import Button from '../../../components/ui/buttons/button'
 import Heading from '../../../components/ui/common/heading'
 import Alert from '../../../components/ui/modal/alert'
-import FormCategories from '../../../components/form/admin/category'
+import FormCategory from '../../../components/form/admin/category'
 
 export default function Form() {
   const navigate = useNavigate()
@@ -41,7 +41,7 @@ export default function Form() {
             </div>
           }
         />
-        <FormCategories data={id && data} />
+        <FormCategory data={id && data} />
       </div>
     </section>
   )
