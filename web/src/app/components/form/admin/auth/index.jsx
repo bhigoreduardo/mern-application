@@ -13,6 +13,7 @@ import Button from '../../../ui/buttons/button'
 export default function Auth() {
   const { pathname } = useLocation()
   const path = pathname.split('/')
+  path.pop()
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: signIninitialValues,

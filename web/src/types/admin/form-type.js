@@ -32,6 +32,14 @@ export const signUpInitialValues = {
   repeatPassword: '',
 }
 
+export const generateRecoveryPasswordValidationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .matches(/\S+@\S+\.\S+/, 'Informe email válido')
+    .required('Email é obrigatório'),
+})
+export const generateRecoveryPasswordInitialValues = { email: '' }
+
 // PRODUCT
 export const categoryValidationSchema = yup.object().shape({
   image: yup
