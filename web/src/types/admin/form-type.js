@@ -3,6 +3,19 @@ import * as yup from 'yup'
 import { checkFileSize, checkImageFormat } from '../../utils/helper'
 import { UserEnum } from '../public/enum-type'
 
+// AUTH
+export const signInValidationSchema = yup.object().shape({
+  email: yup
+    .string()
+    .matches(/\S+@\S+\.\S+/, 'Informe email válido')
+    .required('Email é obrigatório'),
+  password: yup.string().required('Senha é obrigatório'),
+})
+export const signIninitialValues = {
+  email: '',
+  password: '',
+}
+
 // PRODUCT
 export const categoryValidationSchema = yup.object().shape({
   image: yup
