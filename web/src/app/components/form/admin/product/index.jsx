@@ -9,6 +9,7 @@ import Button from '../../../ui/buttons/button'
 import FormIdentity from './identity'
 import FormDescription from './description'
 import FormAdditional from './additional'
+import FormSpecification from './specification'
 
 export default function Product({ data }) {
   const formik = useFormik({
@@ -36,8 +37,8 @@ export default function Product({ data }) {
           <FormIdentity formik={formik} />
           <FormDescription formik={formik} />
           <FormAdditional formik={formik} />
-          {/*
           <FormSpecification formik={formik} />
+          {/*
           <FormDataProduct formik={formik} />
           <FormSeo formik={formik} /> */}
         </div>
