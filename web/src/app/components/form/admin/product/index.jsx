@@ -10,6 +10,7 @@ import FormIdentity from './identity'
 import FormDescription from './description'
 import FormAdditional from './additional'
 import FormSpecification from './specification'
+import FormData from './data'
 
 export default function Product({ data }) {
   const formik = useFormik({
@@ -38,8 +39,8 @@ export default function Product({ data }) {
           <FormDescription formik={formik} />
           <FormAdditional formik={formik} />
           <FormSpecification formik={formik} />
+          <FormData formik={formik} />
           {/*
-          <FormDataProduct formik={formik} />
           <FormSeo formik={formik} /> */}
         </div>
         <div className="flex flex-col gap-6 w-[350px] min-w-[350px]">

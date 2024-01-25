@@ -75,6 +75,18 @@ export const inventoryValidationInfoSchema = yup.object().shape({
     .optional(),
   featured: yup.bool().required('Pronta entrega é obrigatório'),
 })
+export const inventoryInitialValues = {
+  color: '',
+  stock: '',
+  price: '',
+  offer: {
+    offerValue: 0,
+    offerType: '',
+    offerPrice: 0,
+    offerPriceDates: [null, null],
+  },
+  featured: true,
+}
 
 const coverValidation = yup
   .mixed()
