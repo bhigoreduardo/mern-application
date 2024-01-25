@@ -45,7 +45,7 @@ export default function Form() {
             </div>
           }
         />
-        <FormBrands data={data} />
+        <FormBrands data={id && data} />
       </div>
     </section>
   )

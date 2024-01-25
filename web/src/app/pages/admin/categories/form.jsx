@@ -41,7 +41,7 @@ export default function Form() {
             </div>
           }
         />
-        <FormCategories data={data} />
+        <FormCategories data={id && data} />
       </div>
     </section>
   )

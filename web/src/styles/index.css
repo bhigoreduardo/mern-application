@@ -85,3 +85,19 @@
   background-color: white;
   border: 3px solid orange;
 }
+
+.ql-toolbar {
+  @apply bg-white;
+}
+
+.ql-toolbar .ql-formats {
+  @apply border border-gray-300 rounded-sm;
+}
+
+.ql-container {
+  @apply border border-red-500 h-[250px];
+}
+
+.ql-container .ql-editor {
+  @apply bg-white;
+}

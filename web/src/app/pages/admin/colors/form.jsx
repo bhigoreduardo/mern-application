@@ -41,7 +41,7 @@ export default function Form() {
             </div>
           }
         />
-        <FormColors data={data} />
+        <FormColors data={id && data} />
       </div>
     </section>
   )
