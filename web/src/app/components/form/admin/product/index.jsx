@@ -11,6 +11,7 @@ import FormDescription from './description'
 import FormAdditional from './additional'
 import FormSpecification from './specification'
 import FormData from './data'
+import FormSeo from './seo'
 
 export default function Product({ data }) {
   const formik = useFormik({
@@ -40,8 +41,7 @@ export default function Product({ data }) {
           <FormAdditional formik={formik} />
           <FormSpecification formik={formik} />
           <FormData formik={formik} />
-          {/*
-          <FormSeo formik={formik} /> */}
+          <FormSeo formik={formik} />
         </div>
         <div className="flex flex-col gap-6 w-[350px] min-w-[350px]">
           <Button className="bg-orange-500 text-white hover:bg-orange-600 !p-2 h-[42px] uppercase">
