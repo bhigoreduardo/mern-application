@@ -11,6 +11,8 @@ import Customers from '../pages/admin/customers'
 import CustomersForm from '../pages/admin/customers/form'
 import CustomersOrders from '../pages/admin/customers/orders'
 import CustomersProfile from '../pages/admin/customers/profile'
+import Offers from '../pages/admin/offers'
+import OffersForm from '../pages/admin/offers/form'
 import Orders from '../pages/admin/orders'
 import OrdersDetail from '../pages/admin/orders/detail'
 import Products from '../pages/admin/products'
@@ -81,6 +83,13 @@ const children = [
         path: 'perfil',
         element: <Profile />,
       },
+      {
+        path: 'ofertas',
+        children: [
+          { path: '', element: <Offers /> },
+          { path: 'cadastrar', element: <OffersForm /> },
+        ],
+      },
     ],
   },
 ]
@@ -129,7 +138,7 @@ const router = [
     children: [
       {
         path: 'loja',
-        children: [...store, ...children, ...admin],
+        children: [...children, ...admin, ...store],
       },
       {
         path: 'admin',

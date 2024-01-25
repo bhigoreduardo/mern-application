@@ -1,4 +1,6 @@
-import { UserEnum } from '../../types/public/enum-type'
+import { brands, categories, product } from './public'
+import { DiscountEnum } from '../../types/admin/enum-type'
+import { OfferEnum, UserEnum } from '../../types/public/enum-type'
 
 // USER
 export const store = {
@@ -38,3 +40,45 @@ export const store = {
   chatStatus: true,
   createdAt: '10 Jan 2020',
 }
+
+// OFFER
+export const offers = [
+  {
+    _id: '659edc43f26a45feed256d3c',
+    name: 'Black Friday',
+    complement: '',
+    discountType: DiscountEnum.Offer,
+    offerType: OfferEnum.Money,
+    offerValue: 10,
+    offerPriceDates: [null, null],
+    status: true,
+    usageLimit: {
+      maxCart: 10,
+      minCart: 1,
+      maxCustomer: 5,
+    },
+    everyOne: true,
+    category: categories,
+    brand: brands,
+    product: new Array(10).fill(product),
+  },
+  {
+    _id: '659edc43f26a45feed256d3c',
+    name: 'Queimão',
+    complement: '',
+    discountType: DiscountEnum.Coupon,
+    offerType: OfferEnum.Percentage,
+    offerValue: 5,
+    offerPriceDates: [null, null],
+    status: true,
+    usageLimit: {
+      maxCart: 10,
+      minCart: 1,
+      maxCustomer: 5,
+    },
+    everyOne: true,
+    category: categories,
+    brand: brands,
+    product: new Array(10).fill(product),
+  },
+]

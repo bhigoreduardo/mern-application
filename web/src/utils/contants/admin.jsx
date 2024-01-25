@@ -31,6 +31,8 @@ import {
   optionsShortLocaleDate,
   translateOrderStatus,
 } from '../format'
+import { OfferEnum } from '../../types/public/enum-type'
+import { DiscountEnum } from '../../types/admin/enum-type'
 
 // SIDEBAR
 export const pages = (isStore, isAdmin, isEmployee) => [
@@ -817,6 +819,131 @@ export const paymentColumns = (handleEdit, handleDelete) => [
         >
           <PencilLine size={16} />
         </button>
+        <button
+          type="button"
+          title="Excluir"
+          onClick={() => handleDelete(row?.original?._id)}
+          className="text-red-500"
+        >
+          <Trash size={16} />
+        </button>
+      </div>
+    ),
+  },
+]
+
+// OFFER
+export const offerColumns = [
+  {
+    accessorKey: 'name',
+    header: 'Nome',
+    cell: ({ row }) => (
+      <span className="font-semibold">{row?.original?.name}</span>
+    ),
+  },
+  {
+    accessorKey: 'status',
+    header: 'Status',
+    cell: ({ row }) =>
+      row?.original?.status ? (
+        <span className="font-semibold text-green-500 uppercase">Ativo</span>
+      ) : (
+        <span className="font-semibold text-red-500 uppercase">Inativo</span>
+      ),
+  },
+  {
+    accessorKey: 'discount',
+    header: 'Tipo Desconto',
+    cell: ({ row }) =>
+      row?.original?.discountType === DiscountEnum.Coupon ? (
+        <span className="font-semibold text-green-500 uppercase">Cupom</span>
+      ) : (
+        <span className="font-semibold text-red-500 uppercase">Oferta</span>
+      ),
+  },
+  {
+    accessorKey: 'offerValue',
+    header: 'Valor desconto',
+    cell: ({ row }) =>
+      row?.original?.offerType === OfferEnum.Percentage
+        ? `${row?.original?.offerValue}%`
+        : currencyPrice.format(row?.original?.offerValue),
+  },
+  {
+    accessorKey: 'expiresIn',
+    header: 'Data limite',
+    cell: ({ row }) => (
+      <div className="flex flex-col">
+        {row?.original?.offerPriceDates[0] && (
+          <p>
+            <span className="font-semibold">Data criação: </span>
+            {new Date(row?.original?.offerPriceDates[0]).toLocaleDateString(
+              'pt-BR',
+              optionsShortLocaleDate
+            )}
+          </p>
+        )}
+        {row?.original?.offerPriceDates[1] && (
+          <p>
+            <span className="font-semibold">Data expiração: </span>
+            {new Date(row?.original?.offerPriceDates[1]).toLocaleDateString(
+              'pt-BR',
+              optionsShortLocaleDate
+            )}
+          </p>
+        )}
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'actions',
+    header: 'Ações',
+    cell: ({ row }) => (
+      <Link
+        to={`editar/${row.original?._id}`}
+        className="flex items-center gap-1 text-sm text-blue-500"
+      >
+        Vê detalhes <ArrowRight size={14} />
+      </Link>
+    ),
+  },
+]
+
+export const offerProductColumns = (handleDelete) => [
+  {
+    accessorKey: 'product',
+    header: 'Produto',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2">
+        <img
+          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+            row?.original?.productData?.media?.cover
+          }`}
+          alt={row?.original?.name}
+          className="h-14 w-14 rounded-full bg-gray-500 object-contain"
+        />
+        <p className="flex flex-col">
+          <span className="font-semibold text-sm text-gray-900 line-clamp-1">
+            {row?.original?.name}
+          </span>
+          <span className="text-xs">
+            Categoria:{' '}
+            {row?.original?.category?.map((item, i) => (
+              <Fragment key={item._id}>
+                {item.name}
+                {row?.original?.category?.length === i + 1 ? '' : '/'}
+              </Fragment>
+            ))}
+          </span>
+        </p>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'actions',
+    header: 'Ações',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2 text-sm text-blue-600">
         <button
           type="button"
           title="Excluir"
