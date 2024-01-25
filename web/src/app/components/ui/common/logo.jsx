@@ -2,8 +2,14 @@
 import { Link } from 'react-router-dom'
 
 import { mergeClassName } from '../../../../utils/format'
+import useAdmin from '../../../../hooks/use-admin'
+import useMediaQuery from '../../../../hooks/use-mediaQuery'
 
-export default function Logo({ href, className }) {
+export default function Logo({ href, isAdmin = false, className }) {
+  const { isAdminSidebar } = useAdmin()
+  const matches = useMediaQuery('(min-width: 1024px)')
+  const isIconSidebar = isAdmin ? !isAdminSidebar && matches : true
+
   return (
     <Link
       className={mergeClassName(
@@ -13,7 +19,11 @@ export default function Logo({ href, className }) {
       to={href}
     >
       <img src="/icons/logo.svg" alt="Furniture" className="w-12 h-12" />
-      <span className="font-bold text-3xl text-white uppercase">Furniture</span>
+      {isIconSidebar && (
+        <span className="font-bold text-3xl text-white uppercase">
+          Furniture
+        </span>
+      )}
     </Link>
   )
 }
