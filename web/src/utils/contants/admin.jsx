@@ -24,7 +24,13 @@ import {
 import ReactStars from 'react-rating-stars-component'
 
 import { mobileMask, zipCodeMask } from '../mask'
-import { createMarkup, currencyPrice, optionsShortLocaleDate } from '../format'
+import {
+  createMarkup,
+  currencyPrice,
+  getOrderStatusColor,
+  optionsShortLocaleDate,
+  translateOrderStatus,
+} from '../format'
 
 // SIDEBAR
 export const pages = (isStore, isAdmin, isEmployee) => [
@@ -601,6 +607,92 @@ export const invetoryProductColumns = (handleEdit, handleDelete) => [
           <Trash size={16} />
         </button>
       </div>
+    ),
+  },
+]
+
+export const orderColumns = [
+  {
+    accessorKey: 'code',
+    header: 'Código',
+    cell: ({ row }) => (
+      <span className="font-semibold text-sm text-gray-900">
+        {row?.original?.code}
+      </span>
+    ),
+  },
+  {
+    accessorKey: 'customer',
+    header: 'Cliente',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2">
+        {row?.original?.image ? (
+          <img
+            src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+              row?.original?.customer?.user?.image
+            }`}
+            alt={row?.original?.customer?.name}
+            className="h-6 w-6 rounded-full bg-gray-500 object-contain"
+          />
+        ) : (
+          <IdentificationBadge size={16} weight="duotone" />
+        )}
+
+        <span className="font-semibold text-sm text-gray-900">
+          {row?.original?.customer?.name}
+        </span>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'status',
+    header: 'Status',
+    cell: ({ row }) => {
+      const history = row?.original?.status?.slice(-1)[0]?.history
+
+      return (
+        <span
+          className={`font-semibold uppercase ${getOrderStatusColor(history)}`}
+        >
+          {translateOrderStatus(history)}
+        </span>
+      )
+    },
+  },
+  {
+    accessorKey: 'createdAt',
+    header: 'Data',
+    cell: ({ row }) =>
+      new Date(row?.original?.createdAt).toLocaleDateString(
+        'pt-BR',
+        optionsShortLocaleDate
+      ),
+  },
+  {
+    accessorKey: 'amount',
+    header: 'Total',
+    cell: ({ row }) => (
+      <span>
+        {currencyPrice.format(row?.original?.payment?.amount)} (
+        {row?.original?.payment?.cartQuantity})
+      </span>
+    ),
+  },
+  {
+    accessorKey: 'payment',
+    header: 'Forma de pagamento',
+    cell: ({ row }) => row?.original?.payment?.method?.method,
+  },
+  {
+    accessorKey: 'actions',
+    header: 'Ações',
+    cell: ({ row }) => (
+      <Link
+        to={`${row.original?._id}`}
+        className="flex items-center gap-1 text-sm text-blue-500"
+      >
+        Vê detalhes <ArrowRight size={14} />
+      </Link>
     ),
   },
 ]
