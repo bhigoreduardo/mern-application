@@ -3,6 +3,7 @@ import Layout from '../layouts/admin'
 import Home from '../pages/admin'
 import Auth from '../pages/admin/auth'
 import GenerateRecoveryPassword from '../pages/admin/auth/generate-recovery-password'
+import RecoveryPassword from '../pages/admin/auth/recovery-password'
 import SignUp from '../pages/admin/auth/sign-up'
 import Brands from '../pages/admin/brands'
 import BrandsForm from '../pages/admin/brands/form'
@@ -37,6 +38,10 @@ const children = [
   {
     path: 'recuperar-senha',
     element: <GenerateRecoveryPassword />,
+  },
+  {
+    path: 'redefinir-senha',
+    element: <RecoveryPassword />,
   },
   {
     path: '',

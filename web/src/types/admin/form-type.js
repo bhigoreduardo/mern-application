@@ -40,6 +40,18 @@ export const generateRecoveryPasswordValidationSchema = yup.object().shape({
 })
 export const generateRecoveryPasswordInitialValues = { email: '' }
 
+export const recoveryPasswordValidationSchema = yup.object().shape({
+  password: yup.string().required('Senha é obrigatório'),
+  repeatPassword: yup
+    .string()
+    .oneOf([yup.ref('password'), null], 'Senhas devem ser iguais')
+    .required('Repetir senha é obrigatório'),
+})
+export const recoveryPasswordInitialValues = {
+  password: '',
+  repeatPassword: '',
+}
+
 // PRODUCT
 export const categoryValidationSchema = yup.object().shape({
   image: yup
