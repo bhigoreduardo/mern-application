@@ -696,3 +696,70 @@ export const orderColumns = [
     ),
   },
 ]
+
+export const userColumns = [
+  {
+    accessorKey: 'name',
+    header: 'Nome',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2">
+        {row?.original?.image ? (
+          <img
+            className="h-6 w-6 rounded-full"
+            src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+              row?.original?.image
+            }`}
+          />
+        ) : (
+          <IdentificationBadge size={16} weight="duotone" />
+        )}
+        <span className="font-semibold text-sm text-gray-900 capitalize">
+          {row?.original?.name}
+        </span>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'email',
+    header: 'Email',
+  },
+  {
+    accessorKey: 'whatsApp',
+    header: 'Contato',
+    cell: ({ row }) => mobileMask(row?.original?.whatsApp),
+  },
+  {
+    accessorKey: 'address',
+    header: 'Endereço',
+    cell: ({ row }) => {
+      return row?.original?.address ? (
+        <div className="flex flex-col text-xs">
+          <span>
+            {row?.original?.address?.street},{' '}
+            {row?.original?.address?.neighborhood} -{' '}
+            {row?.original?.address?.number}
+          </span>
+          <span>
+            {row?.original?.address?.city}/{row?.original?.address?.state},{' '}
+            {zipCodeMask(row?.original?.address?.zipCode)}
+          </span>
+          <span>{row?.original?.address?.complement}</span>
+        </div>
+      ) : (
+        '-'
+      )
+    },
+  },
+  {
+    accessorKey: 'actions',
+    header: 'Ações',
+    cell: ({ row }) => (
+      <Link
+        to={`${row.original?._id}/editar`}
+        className="flex items-center gap-1 text-sm text-blue-500"
+      >
+        Vê detalhes <ArrowRight size={14} />
+      </Link>
+    ),
+  },
+]

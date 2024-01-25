@@ -12,6 +12,9 @@ export const currencyPrice = new Intl.NumberFormat('pt-BR', {
   currency: 'BRL',
 })
 
+export const toCapitalize = (string) =>
+  string.charAt(0).toUpperCase() + string.slice(1)
+
 export const getBadgeClassName = (badge) => {
   switch (badge) {
     case BadgeEnum.Offer:
