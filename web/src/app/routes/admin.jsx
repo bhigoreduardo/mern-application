@@ -15,6 +15,7 @@ import Orders from '../pages/admin/orders'
 import OrdersDetail from '../pages/admin/orders/detail'
 import Products from '../pages/admin/products'
 import ProductsForm from '../pages/admin/products/form'
+import Setting from '../pages/admin/setting'
 import Users from '../pages/admin/users'
 import UsersForm from '../pages/admin/users/form'
 
@@ -108,6 +109,10 @@ const store = [
           { path: 'cadastrar', element: <UsersForm /> },
           { path: ':id/editar', element: <UsersForm /> },
         ],
+      },
+      {
+        path: 'configuracao',
+        element: <Setting />,
       },
     ],
   },

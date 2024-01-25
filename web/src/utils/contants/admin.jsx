@@ -94,7 +94,7 @@ export const pages = (isStore, isAdmin, isEmployee) => [
   ...(isStore && [
     {
       name: 'Loja',
-      slug: 'loja',
+      slug: 'configuracao',
       icon: <Storefront size={16} weight="duotone" />,
     },
     {
@@ -611,6 +611,7 @@ export const invetoryProductColumns = (handleEdit, handleDelete) => [
   },
 ]
 
+// ODERS
 export const orderColumns = [
   {
     accessorKey: 'code',
@@ -697,6 +698,7 @@ export const orderColumns = [
   },
 ]
 
+// USER
 export const userColumns = [
   {
     accessorKey: 'name',
@@ -760,6 +762,70 @@ export const userColumns = [
       >
         Vê detalhes <ArrowRight size={14} />
       </Link>
+    ),
+  },
+]
+
+export const paymentColumns = (handleEdit, handleDelete) => [
+  {
+    accessorKey: 'name',
+    header: 'Nome',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2">
+        <img
+          className="h-6 w-6 rounded-full"
+          src={
+            typeof row?.original?.image === 'string'
+              ? `${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+                  row?.original?.image
+                }`
+              : window.URL.createObjectURL(row?.original?.image)
+          }
+        />
+        <span className="font-semibold text-sm text-gray-900 capitalize">
+          {row?.original?.method}
+        </span>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'description',
+    header: 'Descrição',
+    cell: ({ row }) =>
+      row?.original?.availableInstallments ? (
+        <div className="flex flex-col text-xs">
+          {row?.original?.infoInstallments?.map((item, i) => (
+            <span key={i}>
+              {item.installments}x{' '}
+              {Number(item.fee) !== 0 ? `+ ${item.fee}%a.m.` : 'sem juros'}
+            </span>
+          ))}
+        </div>
+      ) : (
+        'à vista'
+      ),
+  },
+  {
+    accessorKey: 'actions',
+    header: 'Ações',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2 text-sm text-blue-600">
+        <button
+          type="button"
+          title="Editar"
+          onClick={() => handleEdit(row?.index, row?.original?._id)}
+        >
+          <PencilLine size={16} />
+        </button>
+        <button
+          type="button"
+          title="Excluir"
+          onClick={() => handleDelete(row?.original?._id)}
+          className="text-red-500"
+        >
+          <Trash size={16} />
+        </button>
+      </div>
     ),
   },
 ]

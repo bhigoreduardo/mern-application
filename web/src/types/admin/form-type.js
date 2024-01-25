@@ -1,6 +1,7 @@
 import * as yup from 'yup'
 
 import { checkFileSize, checkImageFormat } from '../../utils/helper'
+import { UserEnum } from '../public/enum-type'
 
 // PRODUCT
 export const categoryValidationSchema = yup.object().shape({
@@ -222,4 +223,73 @@ export const productInitialValues = {
   backCover: '',
   gallery: [],
   video: '',
+}
+
+// USER
+export const settingValidationSchema = yup.object().shape({
+  _type: yup.string().required('Usuário tipo é obrigatório'),
+  image: yup
+    .mixed()
+    .required('Imagem é obrigatório')
+    .test('fileType', 'Formato inválido', (value) => checkImageFormat(value))
+    .test('fileSize', 'Máximo 70kb', (value) =>
+      checkFileSize(value, 1024 * 70)
+    ),
+  name: yup.string().required('Nome é obrigatório'),
+  email: yup
+    .string()
+    .matches(/\S+@\S+\.\S+/, 'Informe email válido')
+    .required('Email é obrigatório'),
+  contactEmail: yup
+    .string()
+    .matches(/\S+@\S+\.\S+/, 'Informe email válido')
+    .required('Email de contato é obrigatório'),
+  phone: yup.string().required('Número de telefone é obrigatório'),
+  whatsApp: yup.string().required('Número de telefone é obrigatório'),
+  cnpj: yup.string().required('CNPJ é obrigatório'),
+  ie: yup.string().required('IE é obrigatório'),
+  clockAvailable: yup
+    .string()
+    .required('Horário de funcionamento é obrigatório'),
+  site: yup
+    .string()
+    .matches(
+      /((https?):\/\/)?(www.)?[a-z0-9]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/,
+      'Informe um endereço válido'
+    )
+    .required('Site é obrigatório'),
+  description: yup.string().required('Descrição é obrigatório'),
+})
+export const settingInitialValues = {
+  _type: UserEnum.Store,
+  image: '',
+  name: '',
+  email: '',
+  contactEmail: '',
+  phone: '',
+  whatsApp: '',
+  cnpj: '',
+  ie: '',
+  clockAvailable: '',
+  site: '',
+  description: '',
+}
+
+export const installmentValidationSchema = yup.object().shape({
+  installments: yup.number().required('Quantidade da parcela é obrigatório'),
+  fee: yup.number().required('Taxa da parcela é obrigatório'),
+})
+export const paymentValidationSchema = yup.object().shape({
+  image: yup.string().required('Imagem é obrigatório'),
+  method: yup.string().required('Método é obrigatório'),
+  availableGateway: yup.bool().required('Gateway é obrigatório'),
+  availableInstallments: yup.bool().required('Parcelas é obrigatório'),
+  infoInstallments: yup.array().of(installmentValidationSchema).optional(),
+})
+export const paymentInitialValues = {
+  image: '',
+  method: '',
+  availableGateway: false,
+  availableInstallments: false,
+  infoInstallments: [],
 }
