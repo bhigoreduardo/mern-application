@@ -16,6 +16,22 @@ export const signIninitialValues = {
   password: '',
 }
 
+export const signUpValidationSchema = signInValidationSchema.shape({
+  email: yup
+    .string()
+    .matches(/\S+@\S+\.\S+/, 'Informe email válido')
+    .required('Email é obrigatório'),
+  password: yup.string().required('Senha é obrigatório'),
+  repeatPassword: yup
+    .string()
+    .oneOf([yup.ref('password'), null], 'Senhas devem ser iguais')
+    .required('Repetir senha é obrigatório'),
+})
+export const signUpInitialValues = {
+  ...signIninitialValues,
+  repeatPassword: '',
+}
+
 // PRODUCT
 export const categoryValidationSchema = yup.object().shape({
   image: yup

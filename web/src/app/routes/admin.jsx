@@ -2,6 +2,7 @@ import Layout from '../layouts/admin'
 
 import Home from '../pages/admin'
 import Auth from '../pages/admin/auth'
+import SignUp from '../pages/admin/auth/sign-up'
 import Brands from '../pages/admin/brands'
 import BrandsForm from '../pages/admin/brands/form'
 import Categories from '../pages/admin/categories'
@@ -27,6 +28,10 @@ const children = [
   {
     path: 'entrar',
     element: <Auth />,
+  },
+  {
+    path: 'cadastrar',
+    element: <SignUp />,
   },
   {
     path: '',
