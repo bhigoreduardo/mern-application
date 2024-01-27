@@ -2,8 +2,11 @@
 import { ArrowRight } from 'phosphor-react'
 
 import { currencyPrice, mergeClassName } from '../../../../utils/format'
+import config from '../../../../config'
 import Button from '../buttons/button'
 import Badge from '../common/badge'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function BannerCard({
   category,
@@ -47,7 +50,7 @@ export default function BannerCard({
         </Button>
       </div>
       <img
-        src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${image}`}
+        src={`${serverPublicImages}/${image}`}
         alt={category}
         className={`${smallBanner && 'max-h-[100px] object-contain'}`}
       />

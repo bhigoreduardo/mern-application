@@ -2,9 +2,12 @@
 import { MagnifyingGlass } from 'phosphor-react'
 
 import { mergeClassName, parsedSelectData } from '../../../../../utils/format'
+import config from '../../../../../config'
 import TextLabel from '../../../ui/inputs/text/label'
 import Check from '../../../ui/inputs/check'
 import TableData from '../../../ui/table/data'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function Product(props) {
   const docs = []
@@ -57,9 +60,7 @@ export default function Product(props) {
             />
             <div className="flex flex-grow flex-col items-center justify-center">
               <img
-                src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
-                  item?.productData?.media?.cover
-                }`}
+                src={`${serverPublicImages}/${item?.productData?.media?.cover}`}
                 alt={item.label}
                 className="w-14 h-14 rounded-sm"
               />

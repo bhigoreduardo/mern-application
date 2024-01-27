@@ -2,6 +2,9 @@
 import { ImageSquare, XCircle } from 'phosphor-react'
 
 import { mergeClassName } from '../../../../../utils/format'
+import config from '../../../../../config'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function Image({
   id,
@@ -49,7 +52,7 @@ export default function Image({
             <img
               src={
                 typeof value === 'string'
-                  ? `${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${value}`
+                  ? `${serverPublicImages}/${value}`
                   : window.URL.createObjectURL(value)
               }
               className="object-cover"

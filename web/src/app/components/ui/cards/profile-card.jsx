@@ -4,8 +4,11 @@ import { IdentificationBadge } from 'phosphor-react'
 
 import { cpfMask, mobileMask } from '../../../../utils/mask'
 import { optionsFullLocaleDate } from '../../../../utils/format'
+import config from '../../../../config'
 import Heading from '../common/heading'
 import Button from '../buttons/button'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function ProfileCard({ user, href }) {
   const navigate = useNavigate()
@@ -18,9 +21,7 @@ export default function ProfileCard({ user, href }) {
           <div className="flex items-center gap-4">
             {user.image ? (
               <img
-                src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
-                  user.image
-                }`}
+                src={`${serverPublicImages}/${user.image}`}
                 className="w-10 h-10 rounded-full"
               />
             ) : (

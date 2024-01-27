@@ -2,6 +2,9 @@
 import { Link } from 'react-router-dom'
 
 import { currencyPrice, mergeClassName } from '../../../../utils/format'
+import config from '../../../../config'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function RelatedCard({ className }) {
   return (
@@ -12,7 +15,7 @@ export default function RelatedCard({ className }) {
       )}
     >
       <img
-        src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/products/cover.png`}
+        src={`${serverPublicImages}/products/cover.png`}
         alt=""
         className="inline-block h-[80px] w-[80px]"
       />

@@ -2,9 +2,12 @@
 import { ArrowRight } from 'phosphor-react'
 
 import { currencyPrice } from '../../../../../utils/format'
+import config from '../../../../../config'
 import Badge from '../../../ui/common/badge'
 import Container from '../../../ui/common/container'
 import Button from '../../../ui/buttons/button'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function Promotion({ bagde, title, description, image, offer }) {
   return (
@@ -16,7 +19,9 @@ export default function Promotion({ bagde, title, description, image, offer }) {
             <Badge className="text-white uppercase bg-blue-500 w-fit mx-auto lg:mx-0">
               {bagde}
             </Badge>
-            <h3 className="font-semibold lg:text-5xl text-3xl text-gray-900">{title}</h3>
+            <h3 className="font-semibold lg:text-5xl text-3xl text-gray-900">
+              {title}
+            </h3>
             <p className="font-thin text-base text-gray-700 line-clamp-2">
               {description}
             </p>
@@ -33,7 +38,7 @@ export default function Promotion({ bagde, title, description, image, offer }) {
               </span>
             </div>
             <img
-              src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${image}`}
+              src={`${serverPublicImages}/${image}`}
               alt={title}
               className="max-h-[500px] w-auto"
             />

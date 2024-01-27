@@ -3,16 +3,19 @@ import { MagnifyingGlass } from 'phosphor-react'
 
 import { product } from '../../../../utils/mocks/public'
 import { mergeClassName, parsedSelectData } from '../../../../utils/format'
+import config from '../../../../config'
 import TextLabel from '../../ui/inputs/text/label'
 import Check from '../../ui/inputs/check'
 import TableData from '../../ui/table/data'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function Highlight(props) {
   const docs = new Array(10).fill(product)
   const docsParsed =
     docs && parsedSelectData(docs, '_id', 'name', ['productData'])
   const data = docs
-  
+
   return (
     <div className={mergeClassName('flex flex-col gap-4', props.className)}>
       <div className="flex flex-col gap-2">
@@ -50,9 +53,7 @@ export default function Highlight(props) {
             />
             <div className="flex flex-grow flex-col items-center justify-center">
               <img
-                src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
-                  item?.productData?.media?.cover
-                }`}
+                src={`${serverPublicImages}/${item?.productData?.media?.cover}`}
                 alt={item.label}
                 className="w-14 h-14 rounded-sm"
               />

@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
 
 import { brands } from '../../../../../utils/mocks/public'
+import config from '../../../../../config'
 import Container from '../../../ui/common/container'
 import NewsletterForm from '../../../form/public/newsletter'
 import Carousel from '../../../ui/carousel'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function Newsletter() {
   const responsive = [
@@ -43,9 +46,7 @@ export default function Newsletter() {
               brands.map((item, i) => (
                 <Link key={i} className="px-5">
                   <img
-                    src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
-                      item.image
-                    }`}
+                    src={`${serverPublicImages}/${item.image}`}
                     alt={item.name}
                     className="block max-h-[50px] w-auto mx-auto"
                   />

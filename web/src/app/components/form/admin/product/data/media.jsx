@@ -2,8 +2,11 @@
 /* eslint-disable react/prop-types */
 import { XCircle } from 'phosphor-react'
 
+import config from '../../../../../../config'
 import ImageLabel from '../../../../ui/inputs/image/label'
 import TextLabel from '../../../../ui/inputs/text/label'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function Media(props) {
   return (
@@ -87,9 +90,7 @@ export default function Media(props) {
                     <img
                       src={
                         typeof item === 'string'
-                          ? `${
-                              import.meta.env.VITE_SERVER_PUBLIC_IMAGES
-                            }/${item}`
+                          ? `${serverPublicImages}/${item}`
                           : window.URL.createObjectURL(item)
                       }
                       className="object-cover"

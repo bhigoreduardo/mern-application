@@ -33,6 +33,9 @@ import {
 } from '../format'
 import { OfferEnum } from '../../types/public/enum-type'
 import { DiscountEnum } from '../../types/admin/enum-type'
+import config from '../../config'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 // SIDEBAR
 export const pages = (isStore, isAdmin, isEmployee) => [
@@ -129,7 +132,7 @@ export const customerColumns = [
         {row?.original?.image ? (
           <img
             className="h-6 w-6 rounded-full"
-            src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+            src={`${serverPublicImages}/${
               row?.original?.image
             }`}
           />
@@ -196,7 +199,7 @@ export const categoryColumns = [
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
         <img
-          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+          src={`${serverPublicImages}/${
             row?.original?.image
           }`}
           alt={row?.original?.name}
@@ -247,7 +250,7 @@ export const highlightProductColumns = (handleDelete) => [
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
         <img
-          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+          src={`${serverPublicImages}/${
             row?.original?.productData?.media?.cover
           }`}
           alt={row?.original?.name}
@@ -344,7 +347,7 @@ export const brandColumns = [
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
         <img
-          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+          src={`${serverPublicImages}/${
             row?.original?.image
           }`}
           alt={row?.original?.name}
@@ -394,7 +397,7 @@ export const productColumns = [
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
         <img
-          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+          src={`${serverPublicImages}/${
             row?.original?.productData?.media?.cover
           }`}
           alt={row?.original?.name}
@@ -631,7 +634,7 @@ export const orderColumns = [
       <div className="flex items-center gap-2">
         {row?.original?.image ? (
           <img
-            src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+            src={`${serverPublicImages}/${
               row?.original?.customer?.user?.image
             }`}
             alt={row?.original?.customer?.name}
@@ -710,7 +713,7 @@ export const userColumns = [
         {row?.original?.image ? (
           <img
             className="h-6 w-6 rounded-full"
-            src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+            src={`${serverPublicImages}/${
               row?.original?.image
             }`}
           />
@@ -778,7 +781,7 @@ export const paymentColumns = (handleEdit, handleDelete) => [
           className="h-6 w-6 rounded-full"
           src={
             typeof row?.original?.image === 'string'
-              ? `${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+              ? `${serverPublicImages}/${
                   row?.original?.image
                 }`
               : window.URL.createObjectURL(row?.original?.image)
@@ -916,7 +919,7 @@ export const offerProductColumns = (handleDelete) => [
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
         <img
-          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+          src={`${serverPublicImages}/${
             row?.original?.productData?.media?.cover
           }`}
           alt={row?.original?.name}

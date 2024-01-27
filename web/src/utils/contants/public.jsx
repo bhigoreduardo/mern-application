@@ -38,9 +38,12 @@ import {
   translateOrderStatus,
 } from '../format'
 import { OrderStatusEnum } from '../../types/public/enum-type'
+import config from '../../config'
 import Button from '../../app/components/ui/buttons/button'
 import ReviewStar from '../../app/components/ui/common/review-star'
 import Count from '../../app/components/ui/buttons/count'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 // HEADER
 export const pages = [
@@ -154,7 +157,7 @@ export const compareColumns = (handleProduct, favorits) => [
           <XCircle size={20} weight="duotone" />
         </Button>
         <img
-          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+          src={`${serverPublicImages}/${
             row?.original?.productData?.media?.cover
           }`}
           alt={row?.original?.name}
@@ -291,7 +294,7 @@ export const wishlistColumns = (handleProduct) => [
     cell: ({ row }) => (
       <div className="flex items-center gap-3">
         <img
-          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+          src={`${serverPublicImages}/${
             row?.original?.productData?.media?.cover
           }`}
           alt={row?.original?.name}
@@ -408,7 +411,7 @@ export const cartOrderColumns = (handleReview, isAdmin) => [
     cell: ({ row }) => (
       <div className="flex items-center gap-3">
         <img
-          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+          src={`${serverPublicImages}/${
             row?.original?.cover
           }`}
           alt={row?.original?.name}
@@ -520,7 +523,7 @@ export const cartColumns = (handleDelete, handleDecrease, handleIncrease) => [
           <XCircle size={20} weight="duotone" />
         </button>
         <img
-          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
+          src={`${serverPublicImages}/${
             row?.original?.cover
           }`}
           alt={row?.original?.name}

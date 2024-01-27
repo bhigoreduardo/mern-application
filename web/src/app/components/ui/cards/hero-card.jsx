@@ -3,8 +3,11 @@ import { ArrowRight } from 'phosphor-react'
 import { Link } from 'react-router-dom'
 
 import { currencyPrice, mergeClassName } from '../../../../utils/format'
+import config from '../../../../config'
 import Button from '../buttons/button'
 import Badge from '../common/badge'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function HeroCard({
   title,
@@ -95,7 +98,7 @@ export default function HeroCard({
       </div>
       {/* IMAGE */}
       <img
-        src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${image}`}
+        src={`${serverPublicImages}/${image}`}
         alt={name}
         className={`${
           smallCard ? '!max-w-[170px]' : 'sm:!max-w-[350px] !max-w-[250px]'

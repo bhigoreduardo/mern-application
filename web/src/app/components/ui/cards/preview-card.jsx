@@ -3,12 +3,15 @@ import { Fragment } from 'react'
 import { ShoppingCartSimple, Heart, ArrowsClockwise } from 'phosphor-react'
 
 import { colors, product, payment } from '../../../../utils/mocks/public'
+import config from '../../../../config'
 import Container from '../common/container'
 import Price from '../common/price'
 import Count from '../buttons/count'
 import Button from '../buttons/button'
 import Carousel from '../carousel'
 import RadioGroup from '../inputs/radio/group'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function PreviewCard({
   name,
@@ -27,9 +30,7 @@ export default function PreviewCard({
     return (
       <a className="flex items-center justify-center h-20 w-20 p-1 border rounded-sm duration-300 ease-in-out border-gray-100">
         <img
-          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/products/gallery-${
-            i + 1
-          }.jpg`}
+          src={`${serverPublicImages}/products/gallery-${i + 1}.jpg`}
           className="w-full h-full object-cover"
         />
       </a>
@@ -54,7 +55,7 @@ export default function PreviewCard({
                 className="w-full h-[450px] p-2 border border-gray-100 rounded-sm"
               >
                 <img
-                  src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${item}`}
+                  src={`${serverPublicImages}/${item}`}
                   className="w-ful h-full object-contain"
                 />
               </div>
@@ -171,18 +172,13 @@ export default function PreviewCard({
                 className="group relative h-7 w-10 p-1 bg-white border border-gray-200 rounded-sm cursor-pointer"
               >
                 <img
-                  src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
-                    item.image
-                  }`}
+                  src={`${serverPublicImages}/${item.image}`}
                   className="w-full h-full object-contain"
                 />
                 <div className="hidden absolute top-[calc(100%+10px)] left-0 p-1 bg-white border border-gray-200 group-hover:flex flex-col text-xs text-gray-600">
                   {item?.availableInstallments ? (
                     item.infoInstallments.map((item, i) => (
-                      <span
-                        key={i}
-                        className="inline-block w-[100px]"
-                      >
+                      <span key={i} className="inline-block w-[100px]">
                         {item.installments}x{' '}
                         {Number(item.fee) !== 0
                           ? `+ ${item.fee}%a.m.`

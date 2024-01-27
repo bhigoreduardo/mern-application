@@ -13,6 +13,7 @@ import {
   checkoutInitialValues,
   checkoutValidationSchema,
 } from '../../../../types/public/form-type'
+import config from '../../../../config'
 import TextLabel from '../../ui/inputs/text/label'
 import Radio from '../../ui/inputs/radio'
 import TextAreaLabel from '../../ui/inputs/textarea/label'
@@ -20,6 +21,8 @@ import SelectLabel from '../../ui/inputs/select/label'
 import CartItem from '../../ui/common/cart-item'
 import HintIcon from '../../ui/icons/hint-icon'
 import Button from '../../ui/buttons/button'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function Checkout() {
   const cartItems = new Array(10).fill(cart)
@@ -206,9 +209,7 @@ export default function Checkout() {
                 } px-6`}
               >
                 <img
-                  src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
-                    item.image
-                  }`}
+                  src={`${serverPublicImages}/${item.image}`}
                   alt={item.method}
                   className="w-10 h-10 object-cover"
                 />

@@ -6,9 +6,12 @@ import {
 } from 'phosphor-react'
 
 import { getBadgeClassName, translateBadge } from '../../../../utils/format'
+import config from '../../../../config'
 import Button from '../buttons/button'
 import Badge from '../common/badge'
 import Price from '../common/price'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function ProductCard({
   badge,
@@ -38,12 +41,12 @@ export default function ProductCard({
       <div className="group relative flex items-center justify-center h-[240px] w-full overflow-hidden mb-3">
         {/* IMAGES */}
         <img
-          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${cover}`}
+          src={`${serverPublicImages}/${cover}`}
           alt={name}
           className="absolute left-0 group-hover:-left-[100%] h-full w-full object-cover duration-300 ease-in-out"
         />
         <img
-          src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${backCover}`}
+          src={`${serverPublicImages}/${backCover}`}
           alt={name}
           className="absolute -right-[100%] group-hover:right-0 h-full w-full object-cover duration-300 ease-in-out"
         />

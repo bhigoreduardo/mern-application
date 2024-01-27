@@ -2,7 +2,10 @@
 import { X } from 'phosphor-react'
 
 import { currencyPrice } from '../../../../utils/format'
+import config from '../../../../config'
 import useApp from '../../../../hooks/use-app'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function CartItem({
   product,
@@ -28,7 +31,7 @@ export default function CartItem({
   return (
     <article className="flex items-center gap-4">
       <img
-        src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${cover}`}
+        src={`${serverPublicImages}/${cover}`}
         alt={name}
         className="w-20 h-20 object-cover"
       />

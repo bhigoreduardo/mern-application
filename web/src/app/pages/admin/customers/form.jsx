@@ -19,7 +19,7 @@ export default function Form() {
           title="Dados pessoais"
           btn={
             <Button
-              className="bg-orange-500 text-white hover:bg-orange-600 !py-2 flex-row-reverse"
+              className="bg-orange-500 text-white hover:bg-orange-600 !py-2 flex-row-reverse uppercase"
               onClick={() => navigate(-1)}
             >
               Voltar

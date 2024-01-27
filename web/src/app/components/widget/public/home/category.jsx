@@ -1,9 +1,12 @@
 import { Link } from 'react-router-dom'
 
 import { categories } from '../../../../../utils/mocks/public'
+import config from '../../../../../config'
 import Carousel from '../../../ui/carousel'
 import Container from '../../../ui/common/container'
 import Heading from '../../../ui/common/heading'
+
+const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function Category() {
   const responsive = [
@@ -51,9 +54,7 @@ export default function Category() {
                 className="flex flex-col py-3 border border-gray-100"
               >
                 <img
-                  src={`${import.meta.env.VITE_SERVER_PUBLIC_IMAGES}/${
-                    item.image
-                  }`}
+                  src={`${serverPublicImages}/${item.image}`}
                   alt={item.name}
                   className="block max-h-[150px] w-auto mx-auto mb-2"
                 />
