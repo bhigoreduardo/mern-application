@@ -18,9 +18,8 @@ export default function Brands() {
         title="Marcas"
         btn={
           <Button
-            label=""
             icon={<PlusCircle size={16} className="text-white" />}
-            className="bg-orange-500 text-white hover:bg-orange-600 !py-2"
+            className="bg-orange-500 text-white hover:bg-orange-600 !py-2 uppercase"
             onClick={() => navigate('cadastrar')}
           >
             Adicionar

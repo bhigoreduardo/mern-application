@@ -24,9 +24,8 @@ export default function Form() {
             <div className="flex gap-2">
               {id && (
                 <Button
-                  label=""
                   icon={<Trash size={16} className="text-white" />}
-                  className="bg-red-500 text-white hover:bg-red-600 !py-2"
+                  className="bg-red-500 text-white hover:bg-red-600 !py-2 uppercase"
                   onClick={() => setIsModal(true)}
                 >
                   Excluir
@@ -34,9 +33,8 @@ export default function Form() {
                 </Button>
               )}
               <Button
-                label=""
                 icon={<ArrowLeft size={16} className="text-white" />}
-                className="bg-orange-500 text-white hover:bg-orange-600 !py-2 flex-row-reverse"
+                className="bg-orange-500 text-white hover:bg-orange-600 !py-2 flex-row-reverse uppercase"
                 onClick={() => navigate(-1)}
               >
                 Voltar

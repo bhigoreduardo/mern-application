@@ -903,7 +903,7 @@ export const offerColumns = [
     header: 'Ações',
     cell: ({ row }) => (
       <Link
-        to={`editar/${row.original?._id}`}
+        to={`${row.original?._id}/editar`}
         className="flex items-center gap-1 text-sm text-blue-500"
       >
         Vê detalhes <ArrowRight size={14} />

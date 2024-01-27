@@ -36,9 +36,9 @@ export default function Highlight(props) {
         )} */}
       </div>
       <div className="flex gap-2 overflow-x-auto">
-        {docsParsed?.map((item) => (
+        {docsParsed?.map((item, i) => (
           <label
-            key={item.value}
+            key={i}
             htmlFor={item.value}
             className="p-1 border border-gray-100 rounded-sm w-[100px] h-[100px] flex items-center justify-between"
           >

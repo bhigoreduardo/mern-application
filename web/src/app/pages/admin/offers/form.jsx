@@ -18,7 +18,7 @@ export default function Form() {
             <div className="flex gap-2">
               {id && (
                 <Button
-                  className="bg-red-500 text-white hover:bg-red-600 !py-2"
+                  className="bg-red-500 text-white hover:bg-red-600 !py-2 uppercase"
                   // onClick={handleDelete}
                 >
                   Excluir

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { published, visibility } from '../../../../../types/common-type'
 import Wrapper from '../../../ui/common/wrapper'
 import SelectLabel from '../../../ui/inputs/select/label'
 
@@ -11,7 +12,7 @@ export default function Published(props) {
           label="Status"
           name="published.step"
           placeholder="Selecione"
-          // data={published}
+          data={published}
           error={
             props.formik.touched?.published?.step &&
             props.formik.errors?.published?.step
@@ -26,7 +27,7 @@ export default function Published(props) {
           label="Visibilidade"
           name="published.visibility"
           placeholder="Selecione"
-          // data={visibility}
+          data={visibility}
           error={
             props.formik.touched?.published?.visibility &&
             props.formik.errors?.published?.visibility

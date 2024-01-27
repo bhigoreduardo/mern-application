@@ -91,7 +91,7 @@ export default function Category({ data }) {
           value={formik.values.description}
         />
       </div>
-      {Object.keys(data)?.length !== 0 && (
+      {data && Object.keys(data)?.length !== 0 && (
         <>
           <Heading title="Destaques" />
           <FormHighlight
@@ -102,7 +102,7 @@ export default function Category({ data }) {
       )}
       <Button
         type="submit"
-        className="bg-orange-500 text-white hover:bg-orange-600 w-fit !p-2"
+        className="bg-orange-500 text-white hover:bg-orange-600 w-fit !p-2 uppercase"
       >
         Salvar
       </Button>

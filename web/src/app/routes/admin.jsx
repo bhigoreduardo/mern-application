@@ -108,6 +108,7 @@ const children = [
         children: [
           { path: '', element: <Offers /> },
           { path: 'cadastrar', element: <OffersForm /> },
+          { path: ':id/editar', element: <OffersForm /> },
         ],
       },
     ],

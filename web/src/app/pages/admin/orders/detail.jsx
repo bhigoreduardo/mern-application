@@ -1,7 +1,9 @@
 import { XCircle, Printer } from 'phosphor-react'
 
 import { order } from '../../../../utils/mocks/public'
+import { sanitizeSelectData } from '../../../../utils/format'
 import { OrderStatusEnum } from '../../../../types/public/enum-type'
+import { orderStatus as orderStatusType } from '../../../../types/filter-type'
 import useApp from '../../../../hooks/use-app'
 import Alert from '../../../components/ui/modal/alert'
 import Select from '../../../components/ui/inputs/select'
@@ -13,6 +15,9 @@ export default function Detail() {
   const { isModal, setIsModal } = useApp()
   const data = order
   const orderStatus = data?.status?.slice(-1)[0]?.history
+  const orderStatusTypeParsed = sanitizeSelectData(orderStatusType, [
+    'canceled',
+  ])
 
   return (
     <section className="flex-grow flex flex-col gap-6">
@@ -23,7 +28,7 @@ export default function Detail() {
             id="status"
             name="status"
             placeholder="Status"
-            // data={statusTypeParsed}
+            data={orderStatusTypeParsed}
             value={orderStatus}
             // onChange={(e) => handleStatus(e.target.value)}
             className="w-fit"
