@@ -12,6 +12,7 @@ export const FilterContext = createContext({
   orderStatus: '',
   offer: '',
   discount: '',
+  dateRange: [null, null],
   category: '',
   brand: '',
   categories: [],
@@ -29,6 +30,8 @@ export default function FilterContextProvider({ children }) {
   const [orderStatus, setOrderStatus] = useState('')
   const [offer, setOffer] = useState('')
   const [discount, setDiscount] = useState('')
+  const [dateRange, setDateRange] = useState([null, null])
+  const [startDate, endDate] = dateRange
   const [category, setCategory] = useState('')
   const [brand, setBrand] = useState('')
   const [categories, setCategories] = useState([])
@@ -45,6 +48,7 @@ export default function FilterContextProvider({ children }) {
     setOrderStatus('')
     setOffer('')
     setDiscount('')
+    setDateRange([null, null])
     setCategory('')
     setBrand('')
     setCategories([])
@@ -74,6 +78,9 @@ export default function FilterContextProvider({ children }) {
         setOffer,
         discount,
         setDiscount,
+        startDate,
+        endDate,
+        setDateRange,
         category,
         setCategory,
         brand,

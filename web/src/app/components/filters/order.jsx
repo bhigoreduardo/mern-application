@@ -8,6 +8,7 @@ import useFilter from '../../../hooks/use-filter'
 import Button from '../ui/buttons/button'
 import Text from '../ui/inputs/text'
 import Select from '../ui/inputs/select'
+import DatePickerLabel from '../ui/inputs/datepicker/label'
 
 export default function Order() {
   const {
@@ -18,6 +19,9 @@ export default function Order() {
     perPage,
     setPerPage,
     handleClear,
+    startDate,
+    endDate,
+    setDateRange,
   } = useFilter()
 
   return (
@@ -49,14 +53,14 @@ export default function Order() {
           value={orderStatus}
           onChange={(e) => setOrderStatus(e.target.value)}
         />
-        {/* <DatePickerLabel
+        <DatePickerLabel
           id="rangeDate"
           name="rangeDate"
           placeholder="Selecione a data"
           startDate={startDate}
           endDate={endDate}
           onChange={(update) => setDateRange(update)}
-        /> */}
+        />
         <Select
           id="show"
           name="show"

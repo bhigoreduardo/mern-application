@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import SelectLabel from '../../../ui/inputs/select/label'
 import TextLabel from '../../../ui/inputs/text/label'
+import DatePickerLabel from '../../../ui/inputs/datepicker/label'
 
 export default function Information({ formik }) {
   return (
@@ -66,7 +67,7 @@ export default function Information({ formik }) {
           value={formik.values?.offerValue}
           className="flex-grow flex-1"
         />
-        {/* <DatePickerLabel
+        <DatePickerLabel
           id="expiresIn"
           label="Data limite"
           name="expiresIn"
@@ -83,7 +84,7 @@ export default function Information({ formik }) {
           }
           onChange={(update) => formik.setFieldValue('offerPriceDates', update)}
           className="flex-grow flex-1"
-        /> */}
+        />
       </div>
       <div className="flex gap-4">
         <TextLabel

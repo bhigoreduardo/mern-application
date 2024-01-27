@@ -9,12 +9,13 @@ import {
   inventoryValidationInfoSchema,
 } from '../../../../../../types/admin/form-type'
 import { parsedSelectData } from '../../../../../../utils/format'
+import { invetoryProductColumns } from '../../../../../../utils/contants/admin'
 import ToggleLabel from '../../../../ui/inputs/toggle/label'
 import SelectLabel from '../../../../ui/inputs/select/label'
 import TextLabel from '../../../../ui/inputs/text/label'
 import Button from '../../../../ui/buttons/button'
 import TableData from '../../../../ui/table/data'
-import { invetoryProductColumns } from '../../../../../../utils/contants/admin'
+import DatePickerLabel from '../../../../ui/inputs/datepicker/label'
 
 export default function Stocked(props) {
   const [indexEdit, setIndexEdit] = useState(null)
@@ -162,7 +163,7 @@ export default function Stocked(props) {
         )}
       </div>
       <div className="flex gap-4">
-        {/* {formik.values?.offer?.offerValue !== 0 && (
+        {formik.values?.offer?.offerValue !== 0 && (
           <DatePickerLabel
             id="expiresIn"
             label="Data limite"
@@ -183,7 +184,7 @@ export default function Stocked(props) {
             }
             className="flex-grow flex-1"
           />
-        )} */}
+        )}
         <ToggleLabel
           id="featured"
           name="featured"
