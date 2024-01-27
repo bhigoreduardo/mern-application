@@ -26,3 +26,41 @@ export const prices = [
   { value: '5000-10000', label: 'R$5.000,00 até R$10.000,00' },
   { value: '10000-', label: 'Acima R$10.000,00' },
 ]
+
+export const chatStatus = [
+  { value: 'undefined', label: 'Todos' },
+  { value: 'true', label: 'Online' },
+  { value: 'false', label: 'Offline' },
+]
+
+export const actived = [
+  { value: 'undefined', label: 'Todos' },
+  { value: 'true', label: 'Ativo' },
+  { value: 'false', label: 'Inativo' },
+]
+
+export const featured = [
+  { value: 'undefined', label: 'Todos' },
+  { value: 'true', label: 'Em estoque' },
+  { value: 'false', label: 'Fora de estoque' },
+]
+
+export const orderStatus = [
+  { value: 'created', label: 'Criado' },
+  { value: 'pending', label: 'Pendente' },
+  { value: 'paid', label: 'Pago' },
+  { value: 'progress', label: 'Embalando' },
+  { value: 'traffic', label: 'Em trânsito' },
+  { value: 'delivered', label: 'Entregue' },
+  { value: 'canceled', label: 'Cancelado' },
+]
+
+export const offer = [
+  { value: 'percentage', label: 'Porcentagem' },
+  { value: 'money', label: 'Monetário' },
+]
+
+export const discount = [
+  { value: 'coupon', label: 'Cupom' },
+  { value: 'offer', label: 'Oferta' },
+]

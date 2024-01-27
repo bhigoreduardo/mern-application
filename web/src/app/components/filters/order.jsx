@@ -1,10 +1,25 @@
 import { ArrowsClockwise } from 'phosphor-react'
 
+import {
+  orderStatus as statusType,
+  perPage as perPageType,
+} from '../../../types/filter-type'
+import useFilter from '../../../hooks/use-filter'
 import Button from '../ui/buttons/button'
 import Text from '../ui/inputs/text'
 import Select from '../ui/inputs/select'
 
 export default function Order() {
+  const {
+    search,
+    setSearch,
+    orderStatus,
+    setOrderStatus,
+    perPage,
+    setPerPage,
+    handleClear,
+  } = useFilter()
+
   return (
     <div className="flex justify-between gap-2">
       <div className="flex flex-grow items-center gap-2">
@@ -13,13 +28,13 @@ export default function Order() {
           placeholder="Pesquisar..."
           name="search"
           title="Pesquisar"
-          // value={search}
-          // onChange={(e) => setSearch(e.target.value)}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
           className="w-full max-w-[500px]"
         />
         <Button
           title="Limpar"
-          // onClick={handleClear}
+          onClick={handleClear}
           className="text-orange-500 border !border-orange-500 !p-2 hover:bg-orange-500 hover:text-white "
         >
           <ArrowsClockwise size={18} />
@@ -30,9 +45,9 @@ export default function Order() {
           id="status"
           name="status"
           placeholder="Status"
-          // data={statusType}
-          // value={orderStatus}
-          // onChange={(e) => setOrderStatus(e.target.value)}
+          data={statusType}
+          value={orderStatus}
+          onChange={(e) => setOrderStatus(e.target.value)}
         />
         {/* <DatePickerLabel
           id="rangeDate"
@@ -46,9 +61,9 @@ export default function Order() {
           id="show"
           name="show"
           placeholder="Exibir"
-          // data={perPageType}
-          // value={perPage}
-          // onChange={(e) => setPerPage(e.target.value)}
+          data={perPageType}
+          value={perPage}
+          onChange={(e) => setPerPage(e.target.value)}
         />
       </div>
     </div>
