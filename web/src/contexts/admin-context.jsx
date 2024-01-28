@@ -9,7 +9,12 @@ export default function AdminContextProvider({ children }) {
   const [isAdminSidebar, setIsAdminSidebar] = useState(false)
 
   return (
-    <AdminContext.Provider value={{ isAdminSidebar, setIsAdminSidebar }}>
+    <AdminContext.Provider
+      value={{
+        isAdminSidebar,
+        setIsAdminSidebar,
+      }}
+    >
       {children}
     </AdminContext.Provider>
   )

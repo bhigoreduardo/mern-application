@@ -9,12 +9,14 @@ export const AppContext = createContext({
   isFilterSidebar: false,
   cartItems: [],
   productReview: { order: '', cartItem: '' },
+  chatSelected: null,
 })
 
 export default function AppContextProvider({ children }) {
   const [isLoading, setIsLoading] = useState(false)
   const [isModal, setIsModal] = useState(false)
   const [isFilterSidebar, setIsFilterSidebar] = useState(false)
+  const [chatSelected, setChatSelected] = useState(null)
   const [productReview, setProductReview] = useState({
     order: '',
     cartItem: '',
@@ -35,6 +37,8 @@ export default function AppContextProvider({ children }) {
         setIsFilterSidebar,
         cartItems,
         handleCartItems,
+        chatSelected,
+        setChatSelected,
         productReview,
         setProductReview,
       }}

@@ -9,7 +9,7 @@ import Copyright from '../components/ui/common/copyright'
 export default function Admin() {
   return (
     <AdminProvider>
-      <main className="flex flex-col h-[100vh] gap-10">
+      <main className="flex flex-col min-h-[100vh] gap-10 bg-gray-50">
         <Header />
         <Container className="flex-grow flex items-start gap-6">
           <Sidebar />

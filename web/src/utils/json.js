@@ -278,3 +278,24 @@ export const order = [
       '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
   },
 ]
+
+// MESSAGE
+export const message = [
+  '{{repeat(10)}}',
+  {
+    _id: '{{objectId()}}',
+    userId: '{{objectId()}}',
+    combineId: '{{objectId()}}{{objectId()}}',
+    userInfo: {
+      name: '{{firstName()}} {{surname()}}',
+      image: 'user/user-{{index()+1}}.webp',
+    },
+    lastMessage: '{{lorem(40, "words")}}',
+    viewd: '{{bool()}}',
+    date: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+    createdAt:
+      '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+    updatedAt:
+      '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-ddThh:mm:ss Z")}}',
+  },
+]

@@ -9,6 +9,7 @@ import Brands from '../pages/admin/brands'
 import BrandsForm from '../pages/admin/brands/form'
 import Categories from '../pages/admin/categories'
 import CategoriesForm from '../pages/admin/categories/form'
+import Chat from '../pages/admin/chat'
 import Colors from '../pages/admin/colors'
 import ColorsForm from '../pages/admin/colors/form'
 import Customers from '../pages/admin/customers'
@@ -93,6 +94,10 @@ const children = [
           { path: 'cadastrar', element: <ProductsForm /> },
           { path: ':id/editar', element: <ProductsForm /> },
         ],
+      },
+      {
+        path: 'mensagens',
+        element: <Chat />,
       },
       {
         path: 'pedidos',
