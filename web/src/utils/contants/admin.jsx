@@ -132,9 +132,7 @@ export const customerColumns = [
         {row?.original?.image ? (
           <img
             className="h-6 w-6 rounded-full"
-            src={`${serverPublicImages}/${
-              row?.original?.image
-            }`}
+            src={`${serverPublicImages}/${row?.original?.image}`}
           />
         ) : (
           <IdentificationBadge size={16} weight="duotone" />
@@ -199,9 +197,7 @@ export const categoryColumns = [
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
         <img
-          src={`${serverPublicImages}/${
-            row?.original?.image
-          }`}
+          src={`${serverPublicImages}/${row?.original?.image}`}
           alt={row?.original?.name}
           className="h-12 w-12 rounded-full bg-gray-500 object-contain"
         />
@@ -250,9 +246,7 @@ export const highlightProductColumns = (handleDelete) => [
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
         <img
-          src={`${serverPublicImages}/${
-            row?.original?.productData?.media?.cover
-          }`}
+          src={`${serverPublicImages}/${row?.original?.productData?.media?.cover}`}
           alt={row?.original?.name}
           className="h-14 w-14 rounded-full bg-gray-500 object-contain"
         />
@@ -347,9 +341,7 @@ export const brandColumns = [
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
         <img
-          src={`${serverPublicImages}/${
-            row?.original?.image
-          }`}
+          src={`${serverPublicImages}/${row?.original?.image}`}
           alt={row?.original?.name}
           className="h-12 w-12 rounded-full bg-gray-500 object-contain"
         />
@@ -397,9 +389,7 @@ export const productColumns = [
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
         <img
-          src={`${serverPublicImages}/${
-            row?.original?.productData?.media?.cover
-          }`}
+          src={`${serverPublicImages}/${row?.original?.productData?.media?.cover}`}
           alt={row?.original?.name}
           className="h-14 w-14 rounded-full bg-gray-500 object-contain"
         />
@@ -634,9 +624,7 @@ export const orderColumns = [
       <div className="flex items-center gap-2">
         {row?.original?.image ? (
           <img
-            src={`${serverPublicImages}/${
-              row?.original?.customer?.user?.image
-            }`}
+            src={`${serverPublicImages}/${row?.original?.customer?.user?.image}`}
             alt={row?.original?.customer?.name}
             className="h-6 w-6 rounded-full bg-gray-500 object-contain"
           />
@@ -713,9 +701,7 @@ export const userColumns = [
         {row?.original?.image ? (
           <img
             className="h-6 w-6 rounded-full"
-            src={`${serverPublicImages}/${
-              row?.original?.image
-            }`}
+            src={`${serverPublicImages}/${row?.original?.image}`}
           />
         ) : (
           <IdentificationBadge size={16} weight="duotone" />
@@ -781,9 +767,7 @@ export const paymentColumns = (handleEdit, handleDelete) => [
           className="h-6 w-6 rounded-full"
           src={
             typeof row?.original?.image === 'string'
-              ? `${serverPublicImages}/${
-                  row?.original?.image
-                }`
+              ? `${serverPublicImages}/${row?.original?.image}`
               : window.URL.createObjectURL(row?.original?.image)
           }
         />
@@ -919,9 +903,7 @@ export const offerProductColumns = (handleDelete) => [
     cell: ({ row }) => (
       <div className="flex items-center gap-2">
         <img
-          src={`${serverPublicImages}/${
-            row?.original?.productData?.media?.cover
-          }`}
+          src={`${serverPublicImages}/${row?.original?.productData?.media?.cover}`}
           alt={row?.original?.name}
           className="h-14 w-14 rounded-full bg-gray-500 object-contain"
         />

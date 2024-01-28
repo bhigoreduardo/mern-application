@@ -1,5 +1,5 @@
 import { features } from '../../../../../utils/contants/public'
-import { hero } from '../../../../../utils/mocks/public'
+import { hero } from '../../../../../utils/mock'
 import FeatureCard from '../../../ui/cards/feature-card'
 import HeroCard from '../../../ui/cards/hero-card'
 import Container from '../../../ui/common/container'

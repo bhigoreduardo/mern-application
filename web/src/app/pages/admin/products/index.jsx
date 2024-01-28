@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { PlusCircle } from 'phosphor-react'
 
-import { product } from '../../../../utils/mocks/public'
+import { products } from '../../../../utils/mock'
 import { productColumns } from '../../../../utils/contants/admin'
 import FilterProduct from '../../../components/filters/admin/product'
 import Button from '../../../components/ui/buttons/button'
@@ -9,7 +9,7 @@ import TableData from '../../../components/ui/table/data'
 
 export default function Products() {
   const navigate = useNavigate()
-  const docs = new Array(10).fill(product)
+  const docs = products
 
   return (
     <section className="flex-grow flex flex-col gap-6">

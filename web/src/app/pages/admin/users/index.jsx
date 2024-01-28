@@ -1,7 +1,7 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 import { PlusCircle } from 'phosphor-react'
 
-import { customer } from '../../../../utils/mocks/public'
+import { admins, employees } from '../../../../utils/mock'
 import { toCapitalize } from '../../../../utils/format'
 import { userColumns } from '../../../../utils/contants/admin'
 import FilterUser from '../../../components/filters/admin/user'
@@ -11,7 +11,7 @@ import Button from '../../../components/ui/buttons/button'
 export default function Users() {
   const navigate = useNavigate()
   const { pathname } = useLocation()
-  const docs = new Array(10).fill(customer)
+  const docs = pathname.split('/')[3] === 'administradores' ? admins : employees
 
   return (
     <section className="flex-grow flex flex-col gap-6">

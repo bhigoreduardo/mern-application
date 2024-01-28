@@ -1,18 +1,18 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { Trash, ArrowLeft } from 'phosphor-react'
 
-import { categories } from '../../../../utils/mocks/public'
 import useApp from '../../../../hooks/use-app'
 import Button from '../../../components/ui/buttons/button'
 import Heading from '../../../components/ui/common/heading'
 import Alert from '../../../components/ui/modal/alert'
 import FormCategory from '../../../components/form/admin/category'
+import { categories } from '../../../../utils/mock'
 
 export default function Form() {
   const navigate = useNavigate()
   const { id } = useParams()
   const { isModal, setIsModal } = useApp()
-  const data = categories[0]
+  const data = categories.find((item) => item._id === id)
 
   return (
     <section className="flex-grow flex flex-col">

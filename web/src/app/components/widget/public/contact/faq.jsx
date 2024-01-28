@@ -1,4 +1,4 @@
-import { faqItems } from '../../../../../utils/mocks/public'
+import { faqItems } from '../../../../../utils/mock'
 import FormContact from '../../../form/public/contact'
 import Accordion from '../../../ui/accordion'
 import Container from '../../../ui/common/container'

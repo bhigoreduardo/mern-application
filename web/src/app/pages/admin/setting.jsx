@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, Password, UserGear } from 'phosphor-react'
 
-import { store } from '../../../utils/mocks/admin'
+import { store } from '../../../utils/mock'
 import Button from '../../components/ui/buttons/button'
 import Heading from '../../components/ui/common/heading'
 import FormAddress from '../../components/form/address'

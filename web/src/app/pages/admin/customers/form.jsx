@@ -1,7 +1,7 @@
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft } from 'phosphor-react'
 
-import { customer } from '../../../../utils/mocks/public'
+import { customers } from '../../../../utils/mock'
 import Button from '../../../components/ui/buttons/button'
 import Heading from '../../../components/ui/common/heading'
 import ToogleLabel from '../../../components/ui/inputs/toggle/label'
@@ -10,6 +10,8 @@ import FormAddress from '../../../components/form/address'
 
 export default function Form() {
   const navigate = useNavigate()
+  const { id } = useParams()
+  const customer = customers.find((item) => item._id === id)
 
   return (
     <section className="flex-grow flex flex-col gap-6">

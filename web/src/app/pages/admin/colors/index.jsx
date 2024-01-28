@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { PlusCircle } from 'phosphor-react'
 
-import { colors } from '../../../../utils/mocks/public'
+import { colors } from '../../../../utils/mock'
 import { colorColumns } from '../../../../utils/contants/admin'
 import Filter from '../../../components/filters/admin'
 import Button from '../../../components/ui/buttons/button'

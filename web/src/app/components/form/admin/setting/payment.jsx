@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useFormik } from 'formik'
 import { XCircle } from 'phosphor-react'
 
+import { payments } from '../../../../../utils/mock'
 import {
   installmentValidationSchema,
   paymentInitialValues,
@@ -18,7 +19,6 @@ import TableData from '../../../ui/table/data'
 
 export default function Payment() {
   const [indexEdit, setIndexEdit] = useState(null)
-  const payments = []
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: paymentInitialValues,
@@ -159,7 +159,7 @@ export default function Payment() {
           {indexEdit !== null ? 'Salvar' : 'Adicionar'}
         </Button>
       </div>
-      <div className="flex flex-col gap-3 overflow-y-auto max-[300px]">
+      <div className="flex flex-col gap-3 overflow-y-auto max-h-[300px]">
         {formik.touched?.payments && formik.errors?.payments && (
           <span className="text-xs text-red-500">
             {formik.errors?.payments}

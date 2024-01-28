@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { Trash, ArrowLeft } from 'phosphor-react'
 
-import { product } from '../../../../utils/mocks/public'
+import { products } from '../../../../utils/mock'
 import useApp from '../../../../hooks/use-app'
 import Button from '../../../components/ui/buttons/button'
 import Heading from '../../../components/ui/common/heading'
@@ -12,7 +12,7 @@ export default function Form() {
   const navigate = useNavigate()
   const { id } = useParams()
   const { isModal, setIsModal } = useApp()
-  const data = product
+  const data = products.find((item) => item._id === id)
 
   return (
     <section className="flex-grow flex flex-col">

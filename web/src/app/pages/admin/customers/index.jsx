@@ -1,10 +1,10 @@
-import { customer } from '../../../../utils/mocks/public'
+import { customers } from '../../../../utils/mock'
 import { customerColumns } from '../../../../utils/contants/admin'
 import FilterCustomer from '../../../components/filters/admin/customer'
 import TableData from '../../../components/ui/table/data'
 
 export default function Customers() {
-  const docs = new Array(10).fill(customer)
+  const docs = customers
 
   return (
     <section className="flex-grow flex flex-col gap-6">

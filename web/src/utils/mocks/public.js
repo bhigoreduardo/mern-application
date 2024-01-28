@@ -6,220 +6,10 @@ import {
   VisibilityEnum,
 } from '../../types/public/enum-type'
 
-// PRODUCT
-export const categories = [
-  {
-    _id: '659edb43f26a45ceed256d3d',
-    parent: null,
-    name: 'Mesas',
-    slug: 'mesas',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'categories/mesas.jpg',
-    products: [],
-    spotlights: [],
-    store: null,
-    banner: [
-      {
-        product: null,
-        shortDescription: '',
-        bagde: '',
-      },
-    ],
-  },
-  {
-    _id: '659edb43f26a45ceed256d3f',
-    parent: null,
-    name: 'Cadeiras',
-    slug: 'cadeiras',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'categories/cadeiras.jpg',
-    products: [],
-    spotlights: [],
-    store: null,
-    banner: [
-      {
-        product: null,
-        shortDescription: '',
-        bagde: '',
-      },
-    ],
-  },
-  {
-    _id: '659edb43f26a45ceed256d3g',
-    parent: '659edb43f26a45ceed256d3f',
-    name: 'Sofás',
-    slug: 'sofas',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'categories/sofas.jpg',
-    products: [],
-    spotlights: [],
-    store: null,
-    banner: [
-      {
-        product: null,
-        shortDescription: '',
-        bagde: '',
-      },
-    ],
-  },
-  {
-    _id: '659edb43f26a45ceed256d3q',
-    parent: '659edb43f26a45ceed256d3f',
-    name: 'Poltronas',
-    slug: 'poltronas',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'categories/poltronas.jpg',
-    products: [],
-    spotlights: [],
-    store: null,
-    banner: [
-      {
-        product: null,
-        shortDescription: '',
-        bagde: '',
-      },
-    ],
-  },
-  {
-    _id: '659edb43f26a45ceed256d3h',
-    parent: null,
-    name: 'Armários',
-    slug: 'armarios',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'categories/armarios.jpg',
-    products: [],
-    spotlights: [],
-    store: null,
-    banner: [
-      {
-        product: null,
-        shortDescription: '',
-        bagde: '',
-      },
-    ],
-  },
-  {
-    _id: '659edb43f26a45ceed256d3i',
-    parent: null,
-    name: 'Estantes',
-    slug: 'estantes',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'categories/estantes.jpg',
-    products: [],
-    spotlights: [],
-    store: null,
-    banner: [
-      {
-        product: null,
-        shortDescription: '',
-        bagde: '',
-      },
-    ],
-  },
-  {
-    _id: '659edb43f26a45ceed256d3o',
-    parent: null,
-    name: 'Decorações',
-    slug: 'decoracoes',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'categories/decoracoes.jpg',
-    products: [],
-    spotlights: [],
-    store: null,
-    banner: [
-      {
-        product: null,
-        shortDescription: '',
-        bagde: '',
-      },
-    ],
-  },
-]
-
-export const brands = [
-  {
-    _id: '659edb43f26a45ceed256d3b',
-    name: 'Castor',
-    slug: 'castor',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'brands/castor.webp',
-  },
-  {
-    _id: '659edb43f26a45ceed259d3b',
-    name: 'Rimo',
-    slug: 'rimo',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'brands/rimo.webp',
-  },
-  {
-    _id: '659edb43f26a45ceed250d3b',
-    name: 'Patrimar',
-    slug: 'patrimar',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'brands/patrimar.png',
-  },
-  {
-    _id: '659edb43f26a45ceed270d3b',
-    name: 'Philips',
-    slug: 'philips',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'brands/philips.webp',
-  },
-  {
-    _id: '659edb43f16a45ceed270d3b',
-    name: 'Toshiba',
-    slug: 'toshiba',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    image: 'brands/toshiba.png',
-  },
-]
-
-export const colors = [
-  {
-    _id: '659edb43f26a45ceed256d3b',
-    name: 'Azul',
-    slug: 'azul',
-    color: '#1e40af',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    products: [],
-  },
-  {
-    _id: '659edb43f26a45ceed256d3c',
-    name: 'Preto',
-    slug: 'preto',
-    color: '#000',
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    products: [],
-  },
-]
-
-export const reviews = [
-  {
-    customer: {
-      _id: '659edc43f26a45ceed256d3c',
-      name: 'John Doe',
-      image: 'customer.webp',
-    },
-    stars: 5,
-    description:
-      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
-    createdAt: '10 Jan 2021',
-  },
-]
+export const categories = []
+export const brands = []
+export const colors = []
+export const reviews = []
 
 export const product = {
   _id: '659edb43f26a45ceed256d3a',
@@ -373,58 +163,7 @@ export const history = {
 }
 
 // HOME
-export const hero = {
-  slider: [
-    {
-      title: 'It is a long established fact that a reader',
-      description:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.',
-      product: {
-        _id: '659edb43f26a45ceed256d3a',
-        name: 'Lorem Ipsum is simply dummy',
-        cover: 'products/cover.png',
-        price: 550,
-        offer: 350,
-      },
-    },
-    {
-      title: 'It is a long established fact that a reader',
-      description:
-        'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.',
-      product: {
-        _id: '659edb43f26a45ceed256d3a',
-        name: 'Lorem Ipsum is simply dummy',
-        cover: 'products/cover.png',
-        price: 550,
-        offer: 350,
-      },
-    },
-  ],
-  banner: [
-    {
-      subTitle: 'It is a long established fact',
-      product: {
-        _id: '659edb43f26a45ceed256d3a',
-        name: 'Lorem Ipsum is simply dummy',
-        cover: 'products/cover.png',
-        price: 550,
-        offer: 350,
-      },
-      badge: '20% off',
-    },
-    {
-      subTitle: '',
-      product: {
-        _id: '659edb43f26a45ceed256d3a',
-        name: 'Lorem Ipsum is simply dummy',
-        cover: 'products/cover.png',
-        price: 550,
-        offer: 350,
-      },
-      badge: '',
-    },
-  ],
-}
+export const hero = {}
 
 // STORE
 export const payment = [
@@ -488,9 +227,9 @@ export const order = {
   cart: [
     {
       product,
-      color: colors[0],
-      background: colors[0].color,
-      colorName: colors[0].name,
+      // color: colors[0],
+      // background: colors[0].color,
+      // colorName: colors[0].name,
       name: product.name,
       cover: 'products/cover.png',
       price: 299,
@@ -511,7 +250,7 @@ export const order = {
   },
   status: [
     {
-      history: OrderStatusEnum.Created,
+      history: OrderStatusEnum.Pending,
       dateTime: Date.now(),
     },
   ],
@@ -576,61 +315,4 @@ export const customer = {
 }
 
 // CONTACT
-export const faqItems = [
-  {
-    title: 'Suspendisse ultrices pharetra libero sed interdum.',
-    description: `
-    <p>Nulla malesuada iaculis nisi, vitae sagittis lacus laoreet in. Morbi aliquet pulvinar orci non vulputate. Donec aliquet ullamcorper gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed molestie accumsan dui, non iaculis magna mattis id. Ut consectetur massa at viverra euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eget sem purus.</p>
-    <ul>
-      <li>Vivamus sed est non arcu porta aliquet et vitae nulla.</li>
-      <li>Integer et lacus vitae justo fermentum rutrum. In nec ultrices massa.</li>
-      <li>Quisque ut dolor erat.</li>
-    </ul>
-    `,
-  },
-  {
-    title: 'Fusce molestie condimentum facilisis.',
-    description: `
-    <p>Nulla malesuada iaculis nisi, vitae sagittis lacus laoreet in. Morbi aliquet pulvinar orci non vulputate. Donec aliquet ullamcorper gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed molestie accumsan dui, non iaculis magna mattis id. Ut consectetur massa at viverra euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eget sem purus.</p>
-    <ul>
-      <li>Vivamus sed est non arcu porta aliquet et vitae nulla.</li>
-      <li>Integer et lacus vitae justo fermentum rutrum. In nec ultrices massa.</li>
-      <li>Quisque ut dolor erat.</li>
-    </ul>
-    `,
-  },
-  {
-    title: 'Quisque quis nunc quis urna tempor lobortis vel non orci. ',
-    description: `
-    <p>Nulla malesuada iaculis nisi, vitae sagittis lacus laoreet in. Morbi aliquet pulvinar orci non vulputate. Donec aliquet ullamcorper gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed molestie accumsan dui, non iaculis magna mattis id. Ut consectetur massa at viverra euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eget sem purus.</p>
-    <ul>
-      <li>Vivamus sed est non arcu porta aliquet et vitae nulla.</li>
-      <li>Integer et lacus vitae justo fermentum rutrum. In nec ultrices massa.</li>
-      <li>Quisque ut dolor erat.</li>
-    </ul>
-    `,
-  },
-  {
-    title:
-      'Donec rutrum ultrices ante nec malesuada. In accumsan eget nisi a rhoncus.',
-    description: `
-    <p>Nulla malesuada iaculis nisi, vitae sagittis lacus laoreet in. Morbi aliquet pulvinar orci non vulputate. Donec aliquet ullamcorper gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed molestie accumsan dui, non iaculis magna mattis id. Ut consectetur massa at viverra euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eget sem purus.</p>
-    <ul>
-      <li>Vivamus sed est non arcu porta aliquet et vitae nulla.</li>
-      <li>Integer et lacus vitae justo fermentum rutrum. In nec ultrices massa.</li>
-      <li>Quisque ut dolor erat.</li>
-    </ul>
-    `,
-  },
-  {
-    title: 'Nulla sed sapien maximus, faucibus massa vitae.',
-    description: `
-    <p>Nulla malesuada iaculis nisi, vitae sagittis lacus laoreet in. Morbi aliquet pulvinar orci non vulputate. Donec aliquet ullamcorper gravida. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed molestie accumsan dui, non iaculis magna mattis id. Ut consectetur massa at viverra euismod. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent eget sem purus.</p>
-    <ul>
-      <li>Vivamus sed est non arcu porta aliquet et vitae nulla.</li>
-      <li>Integer et lacus vitae justo fermentum rutrum. In nec ultrices massa.</li>
-      <li>Quisque ut dolor erat.</li>
-    </ul>
-    `,
-  },
-]
+export const faqItems = []
