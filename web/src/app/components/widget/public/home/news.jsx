@@ -1,6 +1,6 @@
 import { ArrowRight } from 'phosphor-react'
 
-import { categories, product } from '../../../../../utils/mocks/public'
+import { categories, products } from '../../../../../utils/mock'
 import Button from '../../../ui/buttons/button'
 import Container from '../../../ui/common/container'
 import Heading from '../../../ui/common/heading'
@@ -20,7 +20,7 @@ export default function News() {
               title="32% Desconto"
               description="Toda linha Cella Carvalho"
               badge="Últimas peças"
-              image="products/cover.png"
+              image="product/product-2-cover.png"
             />
           </div>
           <div className="flex flex-col gap-6 w-full">
@@ -36,7 +36,7 @@ export default function News() {
             </Heading>
             {/* PRODUCTS GRID */}
             <ProductGrid
-              products={new Array(8).fill(product)}
+              products={products.toReversed().filter((_, i) => i < 8)}
               className="gap-4"
             />
           </div>

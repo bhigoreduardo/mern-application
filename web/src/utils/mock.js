@@ -28,7 +28,7 @@ export const hero = {
       product: {
         _id: '659edb43f26a45ceed256d3a',
         name: 'Lorem Ipsum is simply dummy',
-        cover: 'product/product-2-cover.jpg',
+        cover: 'product/product-2-cover.png',
         price: 550,
         offer: 350,
       },
@@ -40,7 +40,7 @@ export const hero = {
       product: {
         _id: '659edb43f26a45ceed256d3a',
         name: 'Lorem Ipsum is simply dummy',
-        cover: 'product/product-3-cover.jpg',
+        cover: 'product/product-3-cover.png',
         price: 550,
         offer: 350,
       },
@@ -51,7 +51,7 @@ export const hero = {
       product: {
         _id: '659edb43f26a45ceed256d3a',
         name: 'Lorem Ipsum is simply dummy',
-        cover: 'product/product-4-cover.jpg',
+        cover: 'product/product-4-cover.png',
         price: 550,
         offer: 350,
       },
@@ -1772,7 +1772,7 @@ export const products = [
     ],
     productData: {
       media: {
-        cover: 'product/product-2-cover.jpg',
+        cover: 'product/product-2-cover.png',
         backCover: 'product/product-2-backCover.jpg',
         gallery: [
           'product/product-2-gallery-1.jpg',
@@ -1965,7 +1965,7 @@ export const products = [
     ],
     productData: {
       media: {
-        cover: 'product/product-3-cover.jpg',
+        cover: 'product/product-3-cover.png',
         backCover: 'product/product-3-backCover.jpg',
         gallery: [
           'product/product-3-gallery-1.jpg',
@@ -2161,7 +2161,7 @@ export const products = [
     ],
     productData: {
       media: {
-        cover: 'product/product-4-cover.jpg',
+        cover: 'product/product-4-cover.png',
         backCover: 'product/product-4-backCover.jpg',
         gallery: [
           'product/product-4-gallery-1.jpg',
@@ -2357,7 +2357,7 @@ export const products = [
     ],
     productData: {
       media: {
-        cover: 'product/product-5-cover.jpg',
+        cover: 'product/product-5-cover.png',
         backCover: 'product/product-5-backCover.jpg',
         gallery: [
           'product/product-5-gallery-1.jpg',
@@ -2554,7 +2554,7 @@ export const products = [
     ],
     productData: {
       media: {
-        cover: 'product/product-6-cover.jpg',
+        cover: 'product/product-6-cover.png',
         backCover: 'product/product-6-backCover.jpg',
         gallery: [
           'product/product-6-gallery-1.jpg',
@@ -2750,7 +2750,7 @@ export const products = [
     ],
     productData: {
       media: {
-        cover: 'product/product-7-cover.jpg',
+        cover: 'product/product-7-cover.png',
         backCover: 'product/product-7-backCover.jpg',
         gallery: [
           'product/product-7-gallery-1.jpg',
@@ -2944,7 +2944,7 @@ export const products = [
     ],
     productData: {
       media: {
-        cover: 'product/product-8-cover.jpg',
+        cover: 'product/product-8-cover.png',
         backCover: 'product/product-8-backCover.jpg',
         gallery: [
           'product/product-8-gallery-1.jpg',
@@ -3142,7 +3142,7 @@ export const products = [
     ],
     productData: {
       media: {
-        cover: 'product/product-9-cover.jpg',
+        cover: 'product/product-9-cover.png',
         backCover: 'product/product-9-backCover.jpg',
         gallery: [
           'product/product-9-gallery-1.jpg',
@@ -3337,7 +3337,7 @@ export const products = [
     ],
     productData: {
       media: {
-        cover: 'product/product-10-cover.jpg',
+        cover: 'product/product-10-cover.png',
         backCover: 'product/product-10-backCover.jpeg',
         gallery: [
           'product/product-10-gallery-1.jpg',

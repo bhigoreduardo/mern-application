@@ -4,7 +4,7 @@ import { ArrowLeft, Password, UserGear } from 'phosphor-react'
 
 import { store } from '../../../utils/mock'
 import Button from '../../components/ui/buttons/button'
-import Heading from '../../components/ui/common/heading'
+import Heading from '../../components/ui/table/heading'
 import FormAddress from '../../components/form/address'
 import FormPassword from '../../components/form/password'
 import FormSetting from '../../components/form/admin/setting'

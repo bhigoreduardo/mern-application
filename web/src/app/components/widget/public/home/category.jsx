@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import { categories } from '../../../../../utils/mocks/public'
+import { categories } from '../../../../../utils/mock'
 import config from '../../../../../config'
 import Carousel from '../../../ui/carousel'
 import Container from '../../../ui/common/container'

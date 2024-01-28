@@ -3,7 +3,7 @@ import { Trash, ArrowLeft } from 'phosphor-react'
 
 import useApp from '../../../../hooks/use-app'
 import Button from '../../../components/ui/buttons/button'
-import Heading from '../../../components/ui/common/heading'
+import Heading from '../../../components/ui/table/heading'
 import Alert from '../../../components/ui/modal/alert'
 import FormCategory from '../../../components/form/admin/category'
 import { categories } from '../../../../utils/mock'

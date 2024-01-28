@@ -1,7 +1,7 @@
 import { history } from '../../../utils/mocks/public'
 import { optionsFullLocaleDate } from '../../../utils/format'
 import { BadgeEnum } from '../../../types/public/enum-type'
-import Heading from '../../components/ui/common/heading'
+import Heading from '../../components/ui/table/heading'
 import FilterHistory from '../../components/filters/history'
 import ToggleLabel from '../../components/ui/inputs/toggle/label'
 import ProductCard from '../../components/ui/cards/product-card'

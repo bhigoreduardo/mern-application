@@ -3,7 +3,7 @@ import { ArrowLeft } from 'phosphor-react'
 
 import { customer } from '../../../../utils/mocks/public'
 import Button from '../../ui/buttons/button'
-import Heading from '../../ui/common/heading'
+import Heading from '../../ui/table/heading'
 import FormProfile from '../../form/profile'
 import FormAddress from '../../form/address'
 import FormPassword from '../../form/password'

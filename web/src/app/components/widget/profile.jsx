@@ -2,7 +2,6 @@
 import { useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'phosphor-react'
 
-import { order, product } from '../../../utils/mocks/public'
 import { BadgeEnum } from '../../../types/public/enum-type'
 import { latested, orderColumns } from '../../../utils/contants/public'
 import Button from '../ui/buttons/button'
@@ -11,12 +10,14 @@ import LatestedCard from '../ui/cards/latested-card'
 import ProductCard from '../ui/cards/product-card'
 import ProfileCard from '../ui/cards/profile-card'
 import Carousel from '../ui/carousel'
-import Heading from '../ui/common/heading'
+import Heading from '../ui/table/heading'
 import TableData from '../ui/table/data'
 
 export default function Profile({
   user,
   address,
+  orders,
+  history,
   hrefProfile,
   hrefAddress,
   hrefOrdersHeader,
@@ -24,8 +25,6 @@ export default function Profile({
   hrefHistory,
 }) {
   const navigate = useNavigate()
-  const orders = new Array(10).fill(order)
-  const history = new Array(10).fill(product)
   const responsive = [
     {
       breakpoint: 1280,
@@ -97,7 +96,7 @@ export default function Profile({
             </Button>
           }
         />
-        {history.length > 0 ? (
+        {history?.length > 0 ? (
           <div className="w-[1200px] px-6 mx-auto">
             <Carousel autoplay slidesToShow={4} responsive={responsive}>
               {() =>

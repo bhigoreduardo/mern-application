@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 
+import { products, orders } from '../../../utils/mock'
 import { customer } from '../../../utils/mocks/public'
 import WidgetProfile from '../../components/widget/profile'
 
@@ -35,6 +36,8 @@ export default function Dashboard() {
       <WidgetProfile
         user={user}
         address={user.address}
+        orders={orders}
+        history={products}
         hrefProfile="configuracao"
         hrefAddress="configuracao"
         hrefOrdersHeader="/conta/pedidos"

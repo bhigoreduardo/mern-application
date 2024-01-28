@@ -1,6 +1,6 @@
 import { ArrowRight } from 'phosphor-react'
 
-import { product } from '../../../../../utils/mocks/public'
+import { products } from '../../../../../utils/mock'
 import { BadgeEnum } from '../../../../../types/public/enum-type'
 import Button from '../../../ui/buttons/button'
 import Container from '../../../ui/common/container'
@@ -9,6 +9,8 @@ import ProductCard from '../../../ui/cards/product-card'
 import ProductGrid from '../../../ui/common/product-grid'
 
 export default function BestSeller() {
+  const product = products[0]
+
   return (
     <section className="py-16">
       <Container className="flex flex-col gap-6">
@@ -34,7 +36,7 @@ export default function BestSeller() {
             />
           </div>
           {/* PRODUCTS GRID */}
-          <ProductGrid products={new Array(8).fill(product)} />
+          <ProductGrid products={products.filter((_, i) => i < 8)} />
         </div>
       </Container>
     </section>

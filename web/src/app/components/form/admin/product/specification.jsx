@@ -8,7 +8,7 @@ import {
   otherInfoValidationsSchema,
 } from '../../../../../types/admin/form-type'
 import Button from '../../../ui/buttons/button'
-import Heading from '../../../ui/common/heading'
+import Heading from '../../../ui/table/heading'
 import Wrapper from '../../../ui/common/wrapper'
 import TextLabel from '../../../ui/inputs/text/label'
 import TextRichLabel from '../../../ui/inputs/textrich/label'

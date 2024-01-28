@@ -1,6 +1,6 @@
 import { useLocation, useParams } from 'react-router-dom'
 
-import { customers } from '../../../../utils/mock'
+import { customers, products, orders } from '../../../../utils/mock'
 import ToggleLabel from '../../../components/ui/inputs/toggle/label'
 import WidgetProfile from '../../../components/widget/profile'
 
@@ -16,6 +16,8 @@ export default function Profile() {
       <WidgetProfile
         user={customer}
         address={customer.address}
+        orders={orders}
+        history={products}
         hrefProfile="editar"
         hrefAddress="editar"
         hrefOrdersHeader={`/acesso/${path}/clientes/${id}/pedidos`}

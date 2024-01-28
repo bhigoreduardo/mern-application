@@ -1,6 +1,6 @@
 import { ArrowRight } from 'phosphor-react'
 
-import { categories, product } from '../../../../../utils/mocks/public'
+import { categories, products } from '../../../../../utils/mock'
 import Button from '../../../ui/buttons/button'
 import Container from '../../../ui/common/container'
 import Heading from '../../../ui/common/heading'
@@ -27,7 +27,7 @@ export default function Lover() {
             </Heading>
             {/* PRODUCTS GRID */}
             <ProductGrid
-              products={new Array(8).fill(product)}
+              products={products.filter((_, i) => i < 8)}
               className="gap-4"
             />
           </div>
@@ -37,7 +37,7 @@ export default function Lover() {
               title="Sofá Reclinável Minas"
               description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
               offer={299.99}
-              image="products/cover.png"
+              image="product/product-10-cover.png"
               smallBanner
               className="h-full"
             />

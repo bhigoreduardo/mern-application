@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { offerProductColumns } from '../../../../../utils/contants/admin'
-import Heading from '../../../ui/common/heading'
+import Heading from '../../../ui/table/heading'
 import ToggleLabel from '../../../ui/inputs/toggle/label'
 import FormCategory from '../product/category'
 import FormBrand from '../product/brand'

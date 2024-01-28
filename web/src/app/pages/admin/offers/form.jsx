@@ -1,7 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { ArrowLeft, Trash } from 'phosphor-react'
 
-import Heading from '../../../components/ui/common/heading'
+import Heading from '../../../components/ui/table/heading'
 import Button from '../../../components/ui/buttons/button'
 import FormOffer from '../../../components/form/admin/offer'
 

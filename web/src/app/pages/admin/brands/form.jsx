@@ -4,7 +4,7 @@ import { Trash, ArrowLeft } from 'phosphor-react'
 import { brands } from '../../../../utils/mock'
 import useApp from '../../../../hooks/use-app'
 import Button from '../../../components/ui/buttons/button'
-import Heading from '../../../components/ui/common/heading'
+import Heading from '../../../components/ui/table/heading'
 import Alert from '../../../components/ui/modal/alert'
 import FormBrand from '../../../components/form/admin/brand'
 

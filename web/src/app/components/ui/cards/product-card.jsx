@@ -87,7 +87,7 @@ export default function ProductCard({
           {/* REVIEWS */}
           <span className="text-xs text-gray-400">Sem avaliações</span>
           {/* CONTENT */}
-          <h3 className="font-semibold text-sm text-gray-900 line-clamp-2">
+          <h3 className="font-semibold text-sm text-gray-900 line-clamp-2 capitalize">
             {name}
           </h3>
           <Price rangePrice={rangePrice} />

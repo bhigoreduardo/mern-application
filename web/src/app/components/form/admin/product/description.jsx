@@ -9,7 +9,7 @@ import {
 } from '../../../../../types/admin/form-type'
 import { infoProductColumns } from '../../../../../utils/contants/admin'
 import Wrapper from '../../../ui/common/wrapper'
-import Heading from '../../../ui/common/heading'
+import Heading from '../../../ui/table/heading'
 import Button from '../../../ui/buttons/button'
 import TextLabel from '../../../ui/inputs/text/label'
 import TableData from '../../../ui/table/data'

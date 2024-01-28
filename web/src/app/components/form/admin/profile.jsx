@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'phosphor-react'
 
 import ToggleLabel from '../../ui/inputs/toggle/label'
-import Heading from '../../ui/common/heading'
+import Heading from '../../ui/table/heading'
 import Button from '../../ui/buttons/button'
 import FormProfile from '../profile'
 import FormAddress from '../address'

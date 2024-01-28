@@ -7,7 +7,7 @@ import { orderStatus as orderStatusType } from '../../../../types/filter-type'
 import useApp from '../../../../hooks/use-app'
 import Alert from '../../../components/ui/modal/alert'
 import Select from '../../../components/ui/inputs/select'
-import Heading from '../../../components/ui/common/heading'
+import Heading from '../../../components/ui/table/heading'
 import Button from '../../../components/ui/buttons/button'
 import FormOrder from '../../../components/form/order'
 

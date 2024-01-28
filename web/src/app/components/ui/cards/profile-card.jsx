@@ -5,7 +5,7 @@ import { IdentificationBadge } from 'phosphor-react'
 import { cpfMask, mobileMask } from '../../../../utils/mask'
 import { optionsFullLocaleDate } from '../../../../utils/format'
 import config from '../../../../config'
-import Heading from '../common/heading'
+import Heading from '../table/heading'
 import Button from '../buttons/button'
 
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES

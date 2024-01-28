@@ -6,7 +6,7 @@ import useApp from '../../../hooks/use-app'
 import Modal from '../../components/ui/modal'
 import FormReview from '../../components/form/public/review'
 import FormOrder from '../../components/form/order'
-import Heading from '../../components/ui/common/heading'
+import Heading from '../../components/ui/table/heading'
 import Button from '../../components/ui/buttons/button'
 
 export default function Order() {

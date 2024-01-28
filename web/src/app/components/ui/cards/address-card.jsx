@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { zipCodeMask } from '../../../../utils/mask'
 import Button from '../buttons/button'
-import Heading from '../common/heading'
+import Heading from '../table/heading'
 
 export default function AddressCard({ address, href }) {
   const navigate = useNavigate()

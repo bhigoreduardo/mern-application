@@ -13,7 +13,7 @@ import ImageLabel from '../../ui/inputs/image/label'
 import TextLabel from '../../ui/inputs/text/label'
 import SelectLabel from '../../ui/inputs/select/label'
 import TextAreaLabel from '../../ui/inputs/textarea/label'
-import Heading from '../../ui/common/heading'
+import Heading from '../../ui/table/heading'
 import Button from '../../ui/buttons/button'
 import FormHighlight from './highlight'
 
