@@ -157,9 +157,7 @@ export const compareColumns = (handleProduct, favorits) => [
           <XCircle size={20} weight="duotone" />
         </Button>
         <img
-          src={`${serverPublicImages}/${
-            row?.original?.productData?.media?.cover
-          }`}
+          src={`${serverPublicImages}/${row?.original?.productData?.media?.cover}`}
           alt={row?.original?.name}
           className="w-64 h-64 object-cover"
         />
@@ -179,9 +177,11 @@ export const compareColumns = (handleProduct, favorits) => [
         </p>
         <div className="flex items-center gap-1">
           <Link
-            to={`/produto/${row.original?._id}`}
+            to={!row?.original?.status ? '' : `/produto/${row.original?._id}`}
             title="Comprar"
-            className="w-full flex items-center justify-center gap-2 font-semibold text-sm text-white bg-orange-500 hover:bg-orange-600 duration-300 ease-in-out py-2 px-3 uppercase rounded-sm"
+            className={`w-full flex items-center justify-center gap-2 font-semibold text-sm text-white bg-orange-500 hover:bg-orange-600 duration-300 ease-in-out py-2 px-3 uppercase rounded-sm ${
+              !row?.original?.status && '!bg-orange-400 cursor-not-allowed'
+            }`}
           >
             Comprar <ShoppingCartSimple size={18} />
           </Link>
@@ -294,9 +294,7 @@ export const wishlistColumns = (handleProduct) => [
     cell: ({ row }) => (
       <div className="flex items-center gap-3">
         <img
-          src={`${serverPublicImages}/${
-            row?.original?.productData?.media?.cover
-          }`}
+          src={`${serverPublicImages}/${row?.original?.productData?.media?.cover}`}
           alt={row?.original?.name}
           className="w-16 h-16 object-cover"
         />
@@ -352,9 +350,11 @@ export const wishlistColumns = (handleProduct) => [
     cell: ({ row }) => (
       <div className="flex items-center gap-1">
         <Link
-          to={`/produto/${row.original?._id}`}
+          to={!row?.original?.status ? '' : `/produto/${row.original?._id}`}
           title="Comprar"
-          className="flex items-center gap-1 font-semibold text-sm text-white bg-orange-500 hover:bg-orange-600 duration-300 ease-in-out py-2 px-3 uppercase rounded-sm"
+          className={`flex items-center gap-1 font-semibold text-sm text-white bg-orange-500 hover:bg-orange-600 duration-300 ease-in-out py-2 px-3 uppercase rounded-sm ${
+            !row?.original?.status && '!bg-orange-400 cursor-not-allowed'
+          }`}
         >
           Comprar <ShoppingCartSimple size={14} />
         </Link>
@@ -411,9 +411,7 @@ export const cartOrderColumns = (handleReview, isAdmin) => [
     cell: ({ row }) => (
       <div className="flex items-center gap-3">
         <img
-          src={`${serverPublicImages}/${
-            row?.original?.cover
-          }`}
+          src={`${serverPublicImages}/${row?.original?.cover}`}
           alt={row?.original?.name}
           className="w-16 h-16 object-cover"
         />
@@ -523,9 +521,7 @@ export const cartColumns = (handleDelete, handleDecrease, handleIncrease) => [
           <XCircle size={20} weight="duotone" />
         </button>
         <img
-          src={`${serverPublicImages}/${
-            row?.original?.cover
-          }`}
+          src={`${serverPublicImages}/${row?.original?.cover}`}
           alt={row?.original?.name}
           className="w-16 h-16 object-cover"
         />

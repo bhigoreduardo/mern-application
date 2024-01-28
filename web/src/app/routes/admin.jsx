@@ -13,6 +13,7 @@ import Colors from '../pages/admin/colors'
 import ColorsForm from '../pages/admin/colors/form'
 import Customers from '../pages/admin/customers'
 import CustomersForm from '../pages/admin/customers/form'
+import CustomersHistory from '../pages/admin/customers/history'
 import CustomersOrders from '../pages/admin/customers/orders'
 import CustomersProfile from '../pages/admin/customers/profile'
 import Offers from '../pages/admin/offers'
@@ -58,6 +59,7 @@ const children = [
           { path: ':id', element: <CustomersProfile /> },
           { path: ':id/editar', element: <CustomersForm /> },
           { path: ':id/pedidos', element: <CustomersOrders /> },
+          { path: ':id/historico', element: <CustomersHistory /> },
         ],
       },
       {

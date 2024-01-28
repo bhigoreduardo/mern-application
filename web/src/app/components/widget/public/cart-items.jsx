@@ -1,7 +1,7 @@
 import { useNavigation } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'phosphor-react'
 
-import { cart } from '../../../../utils/mocks/public'
+import { cart } from '../../../../utils/mock'
 import { cartColumns } from '../../../../utils/contants/public'
 import { cartCalculate } from '../../../../utils/calculate'
 import { currencyPrice } from '../../../../utils/format'
@@ -14,7 +14,7 @@ import TextLabel from '../../ui/inputs/text/label'
 export default function CartItems() {
   const navigate = useNavigation()
   const { handleCartItems } = useApp()
-  const cartItems = new Array(10).fill(cart)
+  const cartItems = cart
   const { subAmount, shippingFee, discount } = cartCalculate(cartItems)
   const handleDelete = () => {}
   const handleDecrease = () => {}

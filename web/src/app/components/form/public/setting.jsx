@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'phosphor-react'
 
-import { customer } from '../../../../utils/mocks/public'
+import { customers } from '../../../../utils/mock'
 import Button from '../../ui/buttons/button'
 import Heading from '../../ui/table/heading'
 import FormProfile from '../../form/profile'
@@ -10,7 +10,7 @@ import FormPassword from '../../form/password'
 
 export default function Setting() {
   const navigate = useNavigate()
-  const user = customer
+  const user = customers[0]
 
   return (
     <div className="flex flex-col gap-6">

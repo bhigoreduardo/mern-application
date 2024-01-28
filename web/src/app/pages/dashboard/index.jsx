@@ -1,11 +1,10 @@
 import { Link } from 'react-router-dom'
 
-import { products, orders } from '../../../utils/mock'
-import { customer } from '../../../utils/mocks/public'
+import { products, orders, customers } from '../../../utils/mock'
 import WidgetProfile from '../../components/widget/profile'
 
 export default function Dashboard() {
-  const user = customer
+  const user = customers[0]
 
   return (
     <section className="flex-grow flex flex-col gap-6">

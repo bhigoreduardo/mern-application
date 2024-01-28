@@ -22,7 +22,7 @@ export default function Profile() {
         hrefAddress="editar"
         hrefOrdersHeader={`/acesso/${path}/clientes/${id}/pedidos`}
         hrefOrders={`/acesso/${path}/pedidos`}
-        hrefHistory="/conta/historico"
+        hrefHistory={`/acesso/${path}/clientes/${id}/historico`}
       />
     </section>
   )

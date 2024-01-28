@@ -3456,6 +3456,12 @@ export const products = [
   },
 ]
 
+export const history = {
+  [new Date().toISOString().split('T')[0]]: products,
+  [new Date('25 Feb 2020').toISOString().split('T')[0]]: products,
+  [new Date('20 Jan 2020').toISOString().split('T')[0]]: products,
+}
+
 export const offers = [
   {
     _id: '65b6685e8e9d1c1e722ba8e9',
@@ -5205,5 +5211,78 @@ export const orders = [
     obs: 'irure voluptate anim fugiat non labore et nisi ut ipsum eiusmod esse irure qui Lorem ut elit irure qui id officia exercitation occaecat eu laborum ipsum consectetur id incididunt nulla elit eu consectetur occaecat ea magna laboris irure magna duis',
     createdAt: '2024-01-13T02:28:55+04:00',
     updatedAt: '2023-02-02T03:11:29+04:00',
+  },
+]
+
+export const cart = [
+  {
+    product: products[0]._id,
+    color: colors[0]._id,
+    cover: products[0].productData.media.cover,
+    name: products[0].name,
+    background: colors[0].color,
+    colorName: colors[0].name,
+    stock: products[0].productData.inventory.info[0].stock,
+    price: products[0].productData.inventory.info[0].offer.offerPrice,
+    regularPrice: products[0].productData.inventory.info[0].price,
+    timeDelivery: products[0].productData.shippingInfo.timeDelivery,
+    quantity: 6,
+    fee: products[0].productData.shippingInfo.fee,
+  },
+  {
+    product: products[1]._id,
+    color: colors[1]._id,
+    cover: products[1].productData.media.cover,
+    name: products[1].name,
+    background: colors[1].color,
+    colorName: colors[1].name,
+    stock: products[1].productData.inventory.info[0].stock,
+    price: products[1].productData.inventory.info[0].offer.offerPrice,
+    regularPrice: products[1].productData.inventory.info[0].price,
+    timeDelivery: products[1].productData.shippingInfo.timeDelivery,
+    quantity: 6,
+    fee: products[1].productData.shippingInfo.fee,
+  },
+  {
+    product: products[2]._id,
+    color: colors[2]._id,
+    cover: products[2].productData.media.cover,
+    name: products[2].name,
+    background: colors[2].color,
+    colorName: colors[2].name,
+    stock: products[2].productData.inventory.info[0].stock,
+    price: products[2].productData.inventory.info[0].offer.offerPrice,
+    regularPrice: products[2].productData.inventory.info[0].price,
+    timeDelivery: products[2].productData.shippingInfo.timeDelivery,
+    quantity: 6,
+    fee: products[2].productData.shippingInfo.fee,
+  },
+  {
+    product: products[3]._id,
+    color: colors[3]._id,
+    cover: products[3].productData.media.cover,
+    name: products[3].name,
+    background: colors[3].color,
+    colorName: colors[3].name,
+    stock: products[3].productData.inventory.info[0].stock,
+    price: products[3].productData.inventory.info[0].offer.offerPrice,
+    regularPrice: products[3].productData.inventory.info[0].price,
+    timeDelivery: products[3].productData.shippingInfo.timeDelivery,
+    quantity: 8,
+    fee: products[3].productData.shippingInfo.fee,
+  },
+  {
+    product: products[4]._id,
+    color: colors[4]._id,
+    cover: products[4].productData.media.cover,
+    name: products[4].name,
+    background: colors[4].color,
+    colorName: colors[4].name,
+    stock: products[4].productData.inventory.info[0].stock,
+    price: products[4].productData.inventory.info[0].offer.offerPrice,
+    regularPrice: products[4].productData.inventory.info[0].price,
+    timeDelivery: products[4].productData.shippingInfo.timeDelivery,
+    quantity: 6,
+    fee: products[4].productData.shippingInfo.fee,
   },
 ]

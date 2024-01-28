@@ -1,11 +1,11 @@
 import { wishlistColumns } from '../../../utils/contants/public'
-import { wishlist } from '../../../utils/mocks/public'
+import { products } from '../../../utils/mock'
 import Container from '../../components/ui/common/container'
 import TableData from '../../components/ui/table/data'
 import Empty from '../../components/widget/public/common/empty'
 
 export default function Wishlist() {
-  const data = new Array(8).fill(wishlist)
+  const data = products
   const handleProduct = () => {}
 
   return (

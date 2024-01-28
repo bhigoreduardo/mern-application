@@ -1,10 +1,10 @@
-import { order } from '../../../utils/mocks/public'
+import { orders } from '../../../utils/mock'
 import { orderColumns } from '../../../utils/contants/public'
 import FitlerOrder from '../../components/filters/order'
 import TableData from '../../components/ui/table/data'
 
 export default function Orders() {
-  const docs = new Array(10).fill(order)
+  const docs = orders
   const total = 10
   const pages = 3
 
