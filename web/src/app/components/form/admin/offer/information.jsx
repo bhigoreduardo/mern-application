@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { discount, offer } from '../../../../../types/filter-type'
 import SelectLabel from '../../../ui/inputs/select/label'
 import TextLabel from '../../../ui/inputs/text/label'
 import DatePickerLabel from '../../../ui/inputs/datepicker/label'
@@ -34,7 +35,7 @@ export default function Information({ formik }) {
           label="Tipo desconto"
           name="discountType"
           placeholder="Selecione"
-          // data={discount}
+          data={discount}
           error={formik.touched?.discountType && formik.errors?.discountType}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}
@@ -48,7 +49,7 @@ export default function Information({ formik }) {
           label="Tipo oferta"
           name="offerType"
           placeholder="Selecione"
-          // data={offer}
+          data={offer}
           error={formik.touched?.offerType && formik.errors?.offerType}
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}

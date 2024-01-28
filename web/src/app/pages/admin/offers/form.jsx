@@ -4,10 +4,12 @@ import { ArrowLeft, Trash } from 'phosphor-react'
 import Heading from '../../../components/ui/table/heading'
 import Button from '../../../components/ui/buttons/button'
 import FormOffer from '../../../components/form/admin/offer'
+import { offers } from '../../../../utils/mock'
 
 export default function Form() {
   const navigate = useNavigate()
   const { id } = useParams()
+  const data = offers.find((item) => item._id === id)
 
   return (
     <section className="flex-grow flex flex-col gap-6">
@@ -35,7 +37,7 @@ export default function Form() {
             </div>
           }
         />
-        <FormOffer />
+        <FormOffer data={data} />
       </div>
     </section>
   )

@@ -675,7 +675,21 @@ export const orderColumns = [
   {
     accessorKey: 'payment',
     header: 'Forma de pagamento',
-    cell: ({ row }) => row?.original?.payment?.method?.method,
+    cell: ({ row }) => (
+      <div className="flex flex-col">
+        <span className="font-semibold line-clamp-1 capitalize">
+          {row?.original?.payment?.method?.method}
+        </span>
+        {row?.original?.payment?.method?.availableInstallments ? (
+          <small>
+            {row?.original?.payment?.installments?.installments}x +{' '}
+            {row?.original?.payment?.installments?.fee}%
+          </small>
+        ) : (
+          <small>à vista</small>
+        )}
+      </div>
+    ),
   },
   {
     accessorKey: 'actions',

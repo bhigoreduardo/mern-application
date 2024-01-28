@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { useFormik } from 'formik'
 
 import {
@@ -9,10 +10,10 @@ import FormInformation from './information'
 import FormSpecification from './specification'
 import Button from '../../../ui/buttons/button'
 
-export default function Offer() {
+export default function Offer({ data }) {
   const formik = useFormik({
     enableReinitialize: true,
-    initialValues: offerInitialValues,
+    initialValues: data ? data : offerInitialValues,
     validationSchema: offerValidationSchema,
     onSubmit: (values) => handleSubmit(values),
   })

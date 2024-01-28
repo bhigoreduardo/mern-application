@@ -154,7 +154,7 @@ export default function Order({ data, isAdmin = false, className }) {
           className="!p-0 !border-none !shadow-none"
         />
       </div>
-      {/* ADDRESS */}
+      {/* ADDRESS/PAYMENT */}
       <div className="flex justify-between sm:flex-row flex-col sm:gap-0 gap-4">
         <div className="flex-1 flex flex-col gap-4 sm:pr-4 sm:border-r sm:border-gray-100">
           <h5 className="font-semibold text-lg text-gray-900">
@@ -197,6 +197,24 @@ export default function Order({ data, isAdmin = false, className }) {
           <p className="text-sm text-gray-600">
             {data.obs ? data.obs : 'Sem observações'}
           </p>
+          <div className="flex gap-2">
+            <h5 className="font-semibold text-lg text-gray-900">
+              Forma de pagamento:
+            </h5>
+            <p className="flex gap-1 items-center text-gray-900">
+              <span className="text-lg capitalize">
+                {data?.payment?.method?.method}
+              </span>
+              {data.payment?.method?.availableInstallments ? (
+                <small>
+                  ({data?.payment?.installments?.installments}x +{' '}
+                  {data?.payment?.installments?.fee}%)
+                </small>
+              ) : (
+                <small>(à vista)</small>
+              )}
+            </p>
+          </div>
         </div>
       </div>
     </form>

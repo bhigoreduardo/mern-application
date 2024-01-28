@@ -274,6 +274,43 @@ export const productInitialValues = {
   video: '',
 }
 
+export const offerValidationSchema = yup.object().shape({
+  status: yup.bool().required('Status é obrigatório'),
+  name: yup.string().required('Nome é obrigatório'),
+  complement: yup.string().optional(),
+  discountType: yup.string().required('Tipo de desconto é obrigatório'),
+  offerType: yup.string().required('Tipo de oferta é obrigatório'),
+  offerValue: yup.number().required('Valor da oferta é obrigatório'),
+  offerPriceDates: yup.array().optional(),
+  usageLimit: yup.object({
+    maxCart: yup.number().optional(),
+    minCart: yup.number().optional(),
+    maxCustomer: yup.number().optional(),
+  }),
+  everyOne: yup.bool().required(),
+  brand: yup.array().of(yup.string()).optional(),
+  category: yup.array().of(yup.string()).optional(),
+  product: yup.array().of(yup.string()).optional(),
+})
+export const offerInitialValues = {
+  status: true,
+  name: '',
+  complement: '',
+  discountType: '',
+  offerType: '',
+  offerValue: '',
+  offerPriceDates: [null, null],
+  usageLimit: {
+    maxCart: 0,
+    minCart: 0,
+    maxCustomer: 0,
+  },
+  everyOne: true,
+  brand: [],
+  category: [],
+  product: [],
+}
+
 // USER
 export const settingValidationSchema = yup.object().shape({
   _type: yup.string().required('Usuário tipo é obrigatório'),
@@ -365,42 +402,4 @@ export const socialInitialValues = {
   linkedin: '',
   pinterest: '',
   youtube: '',
-}
-
-// OFFER
-export const offerValidationSchema = yup.object().shape({
-  status: yup.bool().required('Status é obrigatório'),
-  name: yup.string().required('Nome é obrigatório'),
-  complement: yup.string().optional(),
-  discountType: yup.string().required('Tipo de desconto é obrigatório'),
-  offerType: yup.string().required('Tipo de oferta é obrigatório'),
-  offerValue: yup.number().required('Valor da oferta é obrigatório'),
-  offerPriceDates: yup.array().optional(),
-  usageLimit: yup.object({
-    maxCart: yup.number().optional(),
-    minCart: yup.number().optional(),
-    maxCustomer: yup.number().optional(),
-  }),
-  everyOne: yup.bool().required(),
-  brand: yup.array().of(yup.string()).optional(),
-  category: yup.array().of(yup.string()).optional(),
-  product: yup.array().of(yup.string()).optional(),
-})
-export const offerInitialValues = {
-  status: true,
-  name: '',
-  complement: '',
-  discountType: '',
-  offerType: '',
-  offerValue: '',
-  offerPriceDates: [null, null],
-  usageLimit: {
-    maxCart: 0,
-    minCart: 0,
-    maxCustomer: 0,
-  },
-  everyOne: true,
-  brand: [],
-  category: [],
-  product: [],
 }

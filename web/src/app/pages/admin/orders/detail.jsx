@@ -1,6 +1,7 @@
+import { useParams } from 'react-router-dom'
 import { XCircle, Printer } from 'phosphor-react'
 
-import { order } from '../../../../utils/mocks/public'
+import { orders } from '../../../../utils/mock'
 import { sanitizeSelectData } from '../../../../utils/format'
 import { OrderStatusEnum } from '../../../../types/public/enum-type'
 import { orderStatus as orderStatusType } from '../../../../types/filter-type'
@@ -12,8 +13,9 @@ import Button from '../../../components/ui/buttons/button'
 import FormOrder from '../../../components/form/order'
 
 export default function Detail() {
+  const { id } = useParams()
   const { isModal, setIsModal } = useApp()
-  const data = order
+  const data = orders.filter((item) => item._id === id)[0]
   const orderStatus = data?.status?.slice(-1)[0]?.history
   const orderStatusTypeParsed = sanitizeSelectData(orderStatusType, [
     'canceled',
@@ -30,7 +32,7 @@ export default function Detail() {
             placeholder="Status"
             data={orderStatusTypeParsed}
             value={orderStatus}
-            // onChange={(e) => handleStatus(e.target.value)}
+            onChange={(e) => console.log(e.target.value)}
             className="w-fit"
           />
         )}
