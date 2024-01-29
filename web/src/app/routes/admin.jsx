@@ -17,6 +17,8 @@ import CustomersForm from '../pages/admin/customers/form'
 import CustomersHistory from '../pages/admin/customers/history'
 import CustomersOrders from '../pages/admin/customers/orders'
 import CustomersProfile from '../pages/admin/customers/profile'
+import Layouts from '../pages/admin/layout'
+import LayoutsForm from '../pages/admin/layout/form'
 import Offers from '../pages/admin/offers'
 import OffersForm from '../pages/admin/offers/form'
 import Orders from '../pages/admin/orders'
@@ -98,6 +100,15 @@ const children = [
       {
         path: 'mensagens',
         element: <Chat />,
+      },
+      {
+        path: 'layout',
+        children: [
+          { path: '', element: <Layouts /> },
+          { path: 'pagina-inicial', element: <LayoutsForm /> },
+          { path: 'contato', element: <LayoutsForm /> },
+          { path: 'sobre', element: <LayoutsForm /> },
+        ],
       },
       {
         path: 'pedidos',

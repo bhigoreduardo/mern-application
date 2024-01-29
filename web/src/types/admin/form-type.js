@@ -403,3 +403,48 @@ export const socialInitialValues = {
   pinterest: '',
   youtube: '',
 }
+
+// LAYOUT
+export const homeLayoutValidationSchema = yup.object().shape({})
+export const homeLayoutInitalValues = {}
+
+export const aboutLayoutValidationSchema = yup.object().shape({
+  hero: yup.object({
+    title: yup.string().required('Título é obrigatório'),
+    description: yup.string().required('Descrição é obrigatório'),
+  }),
+  brand: yup.object({
+    title: yup.string().required('Título é obrigatório'),
+    description: yup.string().required('Descrição é obrigatório'),
+  }),
+  banner: yup.object({
+    title: yup.string().required('Título é obrigatório'),
+    description: yup.string().required('Descrição é obrigatório'),
+  }),
+})
+export const aboutLayoutInitialValues = {
+  hero: {
+    title: '',
+    description: '',
+  },
+  brand: {
+    title: '',
+    description: '',
+  },
+  banner: {
+    title: '',
+    description: '',
+  },
+}
+
+export const contactLayoutValidationSchema = yup.object().shape({
+  title: yup.string().required('Título é obrigatório'),
+  items: yup
+    .array()
+    .of(otherInfoValidationsSchema)
+    .min(1, 'Pelo menos 1 FAQ é obrigatório'),
+})
+export const contactLayoutInitialValues = {
+  title: '',
+  items: [],
+}

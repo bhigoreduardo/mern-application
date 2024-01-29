@@ -955,3 +955,35 @@ export const offerProductColumns = (handleDelete) => [
     ),
   },
 ]
+
+// LAYOUT
+export const layoutColumns = [
+  {
+    accessorKey: 'name',
+    header: 'Nome',
+    cell: ({ row }) => (
+      <span className="font-semibold">{row?.original?.name}</span>
+    ),
+  },
+  {
+    accessorKey: 'updatedAt',
+    header: 'Data de atualização',
+    cell: ({ row }) =>
+      new Date(row?.original?.updatedAt).toLocaleDateString(
+        'pt-BR',
+        optionsShortLocaleDate
+      ),
+  },
+  {
+    accessorKey: 'actions',
+    header: 'Ações',
+    cell: ({ row }) => (
+      <Link
+        to={`${row.original?.slug}`}
+        className="flex items-center gap-1 text-sm text-blue-500"
+      >
+        Vê detalhes <ArrowRight size={14} />
+      </Link>
+    ),
+  },
+]

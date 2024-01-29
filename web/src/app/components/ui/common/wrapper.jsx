@@ -3,14 +3,14 @@ import { useState } from 'react'
 import { ArrowsClockwise, CaretDown, CaretUp } from 'phosphor-react'
 
 import Button from '../buttons/button'
-import Heading from './heading'
+import Heading from '../table/heading'
 
 export default function Wrapper({ title, handleClear, children }) {
   const [isVisible, setIsVisible] = useState(true)
   const handleIsVisible = () => setIsVisible((prevState) => !prevState)
 
   return (
-    <div className="flex flex-col gap-4 border border-100 rounded-sm shadow-md pt-2">
+    <div className="flex flex-col gap-4 border border-100 rounded-sm shadow-md bg-white">
       <Heading
         title={title}
         btn={

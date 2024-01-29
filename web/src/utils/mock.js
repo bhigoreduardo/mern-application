@@ -1,5 +1,6 @@
 import {
   DiscountEnum,
+  LayoutEnum,
   OfferEnum,
   OrderStatusEnum,
   StepEnum,
@@ -120,6 +121,11 @@ export const faqItems = [
     `,
   },
 ]
+
+export const contact = {
+  title: 'Perguntas frequentes (FAQ)',
+  items: faqItems,
+}
 
 // USER
 export const customers = [
@@ -6450,5 +6456,33 @@ export const messages = [
         date: '2022-06-15T07:13:59+04:00',
       },
     ],
+  },
+]
+
+// LAYOUT
+export const layout = [
+  {
+    _id: '65b7c9d55a31a03aa3570470',
+    _type: LayoutEnum.Home,
+    name: 'Página inicial',
+    slug: 'pagina-inicial',
+    createdAt: '2017-07-05T08:21:47+04:00',
+    updatedAt: '2023-04-18T04:39:58+04:00',
+  },
+  {
+    _id: '65b7c9d5ab91b5cbd8daf9a3',
+    _type: LayoutEnum.Contact,
+    name: 'Contato',
+    slug: 'contato',
+    createdAt: '2023-08-06T10:09:24+04:00',
+    updatedAt: '2017-01-25T11:17:05+03:00',
+  },
+  {
+    _id: '65b7c9d55cef781e3659c558',
+    _type: LayoutEnum.About,
+    name: 'Sobre',
+    slug: 'sobre',
+    createdAt: '2017-09-27T11:21:06+04:00',
+    updatedAt: '2014-09-22T04:04:36+04:00',
   },
 ]

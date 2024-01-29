@@ -5,7 +5,7 @@ export default function Heading({ title, btn, className }) {
   return (
     <div
       className={mergeClassName(
-        'flex items-center justify-between uppercase px-6 pb-2 border-b border-gray-100',
+        'flex items-center justify-between uppercase px-6 py-2 border-b border-gray-100 bg-white',
         className
       )}
     >

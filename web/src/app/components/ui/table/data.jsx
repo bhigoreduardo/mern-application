@@ -38,7 +38,7 @@ export default function Data({
   return (
     <div
       className={mergeClassName(
-        'flex flex-col border border-100 rounded-sm shadow-md py-2 pb-4',
+        'flex flex-col border border-100 rounded-sm shadow-md py-2 pb-4 bg-white',
         className
       )}
     >

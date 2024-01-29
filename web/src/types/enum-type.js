@@ -46,3 +46,10 @@ export const OrderStatusEnum = {
   Delivered: 'delivered',
   Canceled: 'canceled',
 }
+
+// LAYOUT
+export const LayoutEnum = {
+  Home: 'home',
+  Contact: 'contact',
+  About: 'about',
+}
