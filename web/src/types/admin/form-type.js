@@ -483,6 +483,10 @@ export const loverHomeLayoutInitialValues = {
   product: [],
 }
 
+export const promotionHomeLayoutValidationSchema = yup.object().shape({
+  product: yup.string().required('Produto é obrigatório'),
+})
+
 export const aboutLayoutValidationSchema = yup.object().shape({
   hero: yup.object({
     title: yup.string().required('Título é obrigatório'),

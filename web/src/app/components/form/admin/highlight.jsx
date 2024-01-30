@@ -30,11 +30,11 @@ export default function Highlight(props) {
           icon={<MagnifyingGlass className="text-gray-400" weight="duotone" />}
           className="flex-grow"
         />
-        {/* {props.formik.touched.product && props.formik.errors.product && (
+        {props.formik.touched.product && props.formik.errors.product && (
           <span className="text-xs text-red-500">
             {props.formik.errors.product}
           </span>
-        )} */}
+        )}
       </div>
       <div className="flex gap-2 overflow-x-auto">
         {docsParsed?.map((item, i) => (
