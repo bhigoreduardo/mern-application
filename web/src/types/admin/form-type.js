@@ -408,8 +408,8 @@ export const socialInitialValues = {
 export const heroHomeLayoutValidationSchema = yup.object().shape({
   title: yup.string().required('Títutlo é obrigatório'),
   badge: yup.string().required('Balão suspenso é obrigatório'),
-  description: yup.string().required('Descrição é obirgatório'),
-  product: yup.string().required('Produto é obirgatório'),
+  description: yup.string().required('Descrição é obrigatório'),
+  product: yup.string().required('Produto é obrigatório'),
 })
 export const heroHomeLayoutInitalValues = {
   title: '',
@@ -420,7 +420,7 @@ export const heroHomeLayoutInitalValues = {
 
 export const heroBannerLayoutValidationSchema = yup.object().shape({
   subTitle: yup.string().required('Títutlo é obrigatório'),
-  product: yup.string().required('Produto é obirgatório'),
+  product: yup.string().required('Produto é obrigatório'),
   badge: yup.string().required('Balão suspenso é obrigatório'),
 })
 export const heroBannerLayoutInitialValues = {
@@ -430,8 +430,8 @@ export const heroBannerLayoutInitialValues = {
 }
 
 export const bannerHomeLayoutValitionSchema = yup.object().shape({
-  description: yup.string().required('Descrição é obirgatório'),
-  product: yup.string().required('Produto é obirgatório'),
+  description: yup.string().required('Descrição é obrigatório'),
+  product: yup.string().required('Produto é obrigatório'),
   category: yup.string().required('Categoria é obrigatório'),
   badge: yup.string().required('Balão suspenso é obrigatório'),
 })
@@ -440,6 +440,27 @@ export const bannerHomeLayoutInitialValues = {
   product: '',
   category: '',
   badge: '',
+}
+
+export const newsHomeLayoutValidationSchema = yup.object().shape({
+  category: yup.string().required('Categoria é obrigatório'),
+  title: yup.string().required('Título é obrigatório'),
+  description: yup.string().required('Descrição é obrigatório'),
+  badge: yup.string().required('Balão suspenso é obrigatório'),
+  image: yup
+    .mixed()
+    .required('Imagem é obrigatório')
+    .test('fileType', 'Formato inválido', (value) => checkImageFormat(value))
+    .test('fileSize', 'Máximo 70kb', (value) =>
+      checkFileSize(value, 1024 * 70)
+    ),
+})
+export const newsHomeLayoutInitialValues = {
+  category: '',
+  title: '',
+  description: '',
+  badge: '',
+  image: '',
 }
 
 export const aboutLayoutValidationSchema = yup.object().shape({
