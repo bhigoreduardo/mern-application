@@ -47,6 +47,11 @@ export const OrderStatusEnum = {
   Canceled: 'canceled',
 }
 
+export const IncomeEnum = {
+  Cash: 'cash',
+  Units: 'units',
+}
+
 // LAYOUT
 export const LayoutEnum = {
   Home: 'home',

@@ -20,6 +20,13 @@ import {
   ArrowRight,
   Trash,
   PencilLine,
+  CreditCard,
+  Bag,
+  FacebookLogo,
+  InstagramLogo,
+  TwitterLogo,
+  LinkedinLogo,
+  YoutubeLogo,
 } from 'phosphor-react'
 import ReactStars from 'react-rating-stars-component'
 
@@ -33,6 +40,7 @@ import {
 } from '../format'
 import { OfferEnum } from '../../types/public/enum-type'
 import { DiscountEnum } from '../../types/admin/enum-type'
+import { IncomeEnum } from '../../types/enum-type'
 import config from '../../config'
 
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
@@ -119,6 +127,94 @@ export const pages = (isStore, isAdmin, isEmployee) => [
     name: 'Sair',
     slug: '/',
     icon: <SignOut size={16} weight="duotone" />,
+  },
+]
+
+// HOME
+export const incomes = [
+  {
+    _type: IncomeEnum.Cash,
+    title: 'Vendas do dia',
+    amount: 34152.99,
+    icon: (
+      <CurrencyCircleDollar
+        size={30}
+        weight="duotone"
+        className="text-orange-500"
+      />
+    ),
+  },
+  {
+    _type: IncomeEnum.Cash,
+    title: 'Vendas do mês',
+    amount: 360894.87,
+    icon: <CreditCard size={30} weight="duotone" className="text-orange-500" />,
+  },
+  {
+    _type: IncomeEnum.Units,
+    title: 'Pedidos do dia',
+    amount: 36894,
+    icon: <Bag size={30} weight="duotone" className="text-orange-500" />,
+  },
+  {
+    _type: IncomeEnum.Units,
+    title: 'Produtos vendidos do dia',
+    amount: 4152,
+    icon: <Armchair size={30} weight="duotone" className="text-orange-500" />,
+  },
+]
+
+export const socialTraffic = [
+  {
+    name: 'Facebook',
+    amount: 153100,
+    icon: <FacebookLogo size={16} weight="duotone" className="text-blue-500" />,
+  },
+  {
+    name: 'Instagram',
+    amount: 234100,
+    icon: (
+      <InstagramLogo size={16} weight="duotone" className="text-orange-500" />
+    ),
+  },
+  {
+    name: 'Twitter',
+    amount: 554100,
+    icon: <TwitterLogo size={16} weight="duotone" className="text-blue-500" />,
+  },
+  {
+    name: 'LinkedIn',
+    amount: 134100,
+    icon: <LinkedinLogo size={16} weight="duotone" className="text-blue-500" />,
+  },
+  {
+    name: 'YouTube',
+    amount: 153100,
+    icon: <YoutubeLogo size={16} weight="duotone" className="text-red-500" />,
+  },
+]
+
+export const socialColumns = [
+  {
+    accessorKey: 'source',
+    header: 'Origem',
+    cell: ({ row }) => (
+      <div className="flex items-center gap-2">
+        {row?.original?.icon}
+        <span className="font-thin text-base text-gray-900">
+          {row?.original.name}
+        </span>
+      </div>
+    ),
+  },
+  {
+    accessorKey: 'amount',
+    header: 'Visitantes',
+    cell: ({ row }) => (
+      <span className="font-semibold text-base text-gray-600">
+        {row?.original?.amount}
+      </span>
+    ),
   },
 ]
 
