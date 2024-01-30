@@ -1,6 +1,6 @@
 import { useFormik } from 'formik'
 
-import { customer } from '../../../../utils/mocks/public'
+import { customers } from '../../../../utils/mock'
 import { reviewValidationSchema } from '../../../../types/public/form-type'
 import useApp from '../../../../hooks/use-app'
 import SelectLabel from '../../ui/inputs/select/label'
@@ -9,7 +9,7 @@ import Button from '../../ui/buttons/button'
 
 export default function Review() {
   const { productReview } = useApp()
-  const user = customer
+  const user = customers[0]
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: {

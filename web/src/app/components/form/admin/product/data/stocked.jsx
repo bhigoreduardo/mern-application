@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { useFormik } from 'formik'
 import { PlusCircle } from 'phosphor-react'
 
-import { colors } from '../../../../../../utils/mocks/public'
+import { colors } from '../../../../../../utils/mock'
 import {
   inventoryInitialValues,
   inventoryValidationInfoSchema,

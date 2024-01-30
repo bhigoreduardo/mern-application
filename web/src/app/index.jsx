@@ -1,6 +1,6 @@
 import { RouterProvider } from 'react-router-dom'
 
-import { product } from '../utils/mocks/public'
+import { products } from '../utils/mock'
 import useApp from '../hooks/use-app'
 import router from './routes'
 import Loading from './components/ui/loading'
@@ -9,6 +9,7 @@ import PreviewCard from './components/ui/cards/preview-card'
 
 export default function App() {
   const { isLoading, isModal } = useApp()
+  const product = products[0]
 
   return (
     <>

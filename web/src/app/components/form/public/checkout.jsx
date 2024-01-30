@@ -1,7 +1,7 @@
 import { useFormik } from 'formik'
 import { ArrowRight } from 'phosphor-react'
 
-import { cart, customer, payment } from '../../../../utils/mocks/public'
+import { customers, orders, payments } from '../../../../utils/mock'
 import { cartCalculate } from '../../../../utils/calculate'
 import { currencyPrice } from '../../../../utils/format'
 import {
@@ -25,8 +25,9 @@ import Button from '../../ui/buttons/button'
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function Checkout() {
+  const cart = orders[0].cart
   const cartItems = new Array(10).fill(cart)
-  const user = customer
+  const user = customers[0]
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: { ...checkoutInitialValues, ...user, cart: cartItems },
@@ -200,12 +201,12 @@ export default function Checkout() {
             Método de pagamento
           </h4>
           <div className="flex items-center px-6 py-3">
-            {payment?.map((item, i) => (
+            {payments?.map((item, i) => (
               <label
                 key={item._id}
                 htmlFor={item._id}
                 className={`flex flex-col gap-1 justify-center items-center ${
-                  payment.length !== i + 1 && 'border-r border-gray-200'
+                  payments.length !== i + 1 && 'border-r border-gray-200'
                 } px-6`}
               >
                 <img

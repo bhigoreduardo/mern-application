@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { ArrowLeft } from 'phosphor-react'
 
-import { order } from '../../../utils/mocks/public'
+import { orders } from '../../../utils/mock'
 import useApp from '../../../hooks/use-app'
 import Modal from '../../components/ui/modal'
 import FormReview from '../../components/form/public/review'
@@ -12,7 +12,7 @@ import Button from '../../components/ui/buttons/button'
 export default function Order() {
   const navigate = useNavigate()
   const { isModal, setIsModal } = useApp()
-  const data = order
+  const data = orders[0]
 
   return (
     <section className="flex-grow flex flex-col gap-6">

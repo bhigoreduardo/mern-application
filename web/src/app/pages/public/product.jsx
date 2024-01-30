@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
 
-import { product } from '../../../utils/mocks/public'
+import { products } from '../../../utils/mock'
 import {
   productInformationItems,
   productRelatedItems,
@@ -52,6 +52,7 @@ const Overview = ({ product, tabInformation }) => {
 export default function Product() {
   const [tabInformation, setTabInformation] = useState('description')
   const getActiveTab = (tab) => tab === tabInformation
+  const product = products[0]
 
   return (
     <section>

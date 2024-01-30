@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-import { brands } from '../../../../../utils/mocks/public'
+import { brands } from '../../../../../utils/mock'
 import config from '../../../../../config'
 import Container from '../../../ui/common/container'
 import NewsletterForm from '../../../form/public/newsletter'

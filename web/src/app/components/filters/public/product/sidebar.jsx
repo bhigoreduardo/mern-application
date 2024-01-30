@@ -1,6 +1,6 @@
 import { X } from 'phosphor-react'
 
-import { brands, categories } from '../../../../../utils/mocks/public'
+import { brands, categories } from '../../../../../utils/mock'
 import { prices } from '../../../../../types/filter-type'
 import useApp from '../../../../../hooks/use-app'
 import RadioLabel from '../../../ui/inputs/radio/label'

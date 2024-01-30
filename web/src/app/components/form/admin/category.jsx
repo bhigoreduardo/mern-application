@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useFormik } from 'formik'
 
-import { categories } from '../../../../utils/mocks/public'
+import { categories } from '../../../../utils/mock'
 import {
   categoryInitalValues,
   categoryValidationSchema,

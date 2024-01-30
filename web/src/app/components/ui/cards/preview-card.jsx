@@ -2,7 +2,7 @@
 import { Fragment } from 'react'
 import { ShoppingCartSimple, Heart, ArrowsClockwise } from 'phosphor-react'
 
-import { colors, product, payment } from '../../../../utils/mocks/public'
+import { colors, payments, products } from '../../../../utils/mock'
 import config from '../../../../config'
 import Container from '../common/container'
 import Price from '../common/price'
@@ -49,7 +49,7 @@ export default function PreviewCard({
           responsive={[]}
         >
           {() =>
-            product.productData.media.gallery.map((item, i) => (
+            products[0].productData.media.gallery.map((item, i) => (
               <div
                 key={i}
                 className="w-full h-[450px] p-2 border border-gray-100 rounded-sm"
@@ -165,7 +165,7 @@ export default function PreviewCard({
         <div className="flex flex-col gap-3 border border-gray-100 p-5">
           <span className="text-sm text-gray-900">Formas de pagamento</span>
           <div className="flex items-center gap-1">
-            {payment?.map((item, i) => (
+            {payments?.map((item, i) => (
               <div
                 key={i}
                 title={item.method}

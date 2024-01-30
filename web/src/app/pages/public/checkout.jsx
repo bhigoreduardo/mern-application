@@ -1,4 +1,4 @@
-import { cart } from '../../../utils/mocks/public'
+import { orders } from '../../../utils/mock'
 import useQueries from '../../../hooks/use-queries'
 import Container from '../../components/ui/common/container'
 import FormCheckout from '../../components/form/public/checkout'
@@ -8,7 +8,7 @@ import CheckoutSuccess from '../../components/widget/public/checkout-sucess'
 export default function Checkout() {
   const successQueries = useQueries().get('sucesso')
   const checkoutSuccess = successQueries && !!parseInt(successQueries)
-  const cartItems = new Array(10).fill(cart)
+  const cartItems = orders[0].cart
 
   return (
     <section>

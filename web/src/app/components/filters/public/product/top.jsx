@@ -3,7 +3,7 @@ import { List } from 'phosphor-react'
 import {
   brands as dataBrands,
   categories as dataCategories,
-} from '../../../../../utils/mocks/public'
+} from '../../../../../utils/mock'
 import {
   perPage as perPageType,
   priority as priorityType,
