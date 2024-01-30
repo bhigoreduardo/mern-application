@@ -463,6 +463,26 @@ export const newsHomeLayoutInitialValues = {
   image: '',
 }
 
+export const loverHomeLayoutValidationSchema = yup.object().shape({
+  title: yup.string().required('Título é obrigatório'),
+  description: yup.string().required('Descrição é obrigatório'),
+  badge: yup.string().required('Balão suspenso é obrigatório'),
+  everyOne: yup.bool().required(),
+  brand: yup.array().of(yup.string()).optional(),
+  category: yup.array().of(yup.string()).optional(),
+  product: yup.array().of(yup.string()).optional(),
+})
+
+export const loverHomeLayoutInitialValues = {
+  title: '',
+  description: '',
+  badge: '',
+  everyOne: true,
+  brand: [],
+  category: [],
+  product: [],
+}
+
 export const aboutLayoutValidationSchema = yup.object().shape({
   hero: yup.object({
     title: yup.string().required('Título é obrigatório'),
