@@ -201,7 +201,7 @@ export default function Order({ data, isAdmin = false, className }) {
             <h5 className="font-semibold text-lg text-gray-900">
               Forma de pagamento:
             </h5>
-            <p className="flex gap-1 items-center text-gray-900">
+            <p className="flex flex-col items-center text-gray-900">
               <span className="text-lg capitalize">
                 {data?.payment?.method?.method}
               </span>

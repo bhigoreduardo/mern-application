@@ -114,9 +114,9 @@ export default function Sidebar() {
       {/* BANNER ADVERTISING */}
       <AdvertisingCard
         name="Lorem Ipsum is simply dummy text"
-        image="products/cover.png"
+        image="product/product-1-cover.png"
         brandName="Castor"
-        imageBrand="brands/castor.webp"
+        imageBrand="brand/brand-1.webp"
         offer={299}
       />
     </aside>

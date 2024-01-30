@@ -1,4 +1,4 @@
-import { product } from '../../../utils/mocks/public'
+import { products } from '../../../utils/mock'
 import Breadcrumb from '../../components/ui/breadcrumb'
 import Container from '../../components/ui/common/container'
 import Pagination from '../../components/ui/common/pagination'
@@ -14,7 +14,7 @@ export default function Store() {
         <FilterSidebar />
         <section className="flex-grow flex flex-col gap-6">
           <FilterTop />
-          <ProductGrid products={new Array(8).fill(product)} />
+          <ProductGrid products={products} />
           <Pagination total={10} pages={2} />
         </section>
       </Container>

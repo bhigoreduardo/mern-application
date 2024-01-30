@@ -1,6 +1,6 @@
 import { CaretRight } from 'phosphor-react'
 
-import { categories } from '../../../utils/mocks/public'
+import { categories } from '../../../utils/mock'
 import NavItem from './common/nav-item'
 import BannerCard from './cards/banner-card'
 import RelatedCard from './cards/related-card'
@@ -51,7 +51,7 @@ export default function Dropdown() {
               title="Sofá Reclinável Minas"
               description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
               offer={299.99}
-              image="products/cover.png"
+              image="product/product-1-cover.png"
               smallBanner
             />
           </div>

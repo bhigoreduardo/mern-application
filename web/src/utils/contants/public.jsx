@@ -468,7 +468,7 @@ export const cartOrderColumns = (handleReview, isAdmin) => [
     header: 'Ações',
     cell: ({ row }) =>
       !isAdmin ? (
-        <div className="relative w-full">
+        <div className="w-full">
           <Button
             title="Avaliar"
             className="peer !gap-1 font-semibold text-sm text-orange-500 hover:bg-orange-500 hover:text-white !py-2 disabled:!bg-gray-200 disabled:!text-white"
@@ -482,7 +482,7 @@ export const cartOrderColumns = (handleReview, isAdmin) => [
             Avaliar
           </Button>
           {row?.original?.reviewd && (
-            <div className="absolute hidden peer-hover:block -top-[calc(100%+10px)] border border-gray-100 p-2 shadow-sm rounded-sm w-full bg-white">
+            <div className="absolute hidden peer-hover:block top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-gray-100 p-2 shadow-md rounded-sm bg-white z-20 max-w-[250px]">
               <span className="flex items-center text-xs text-gray-900">
                 <ReactStars
                   count={5}

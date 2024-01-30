@@ -15,7 +15,7 @@ export default function RelatedCard({ className }) {
       )}
     >
       <img
-        src={`${serverPublicImages}/products/cover.png`}
+        src={`${serverPublicImages}/product/product-1-cover.png`}
         alt=""
         className="inline-block h-[80px] w-[80px]"
       />
