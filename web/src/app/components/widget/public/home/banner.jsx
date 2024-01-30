@@ -1,4 +1,4 @@
-import { hero } from '../../../../../utils/mocks/public'
+import { hero } from '../../../../../utils/mock'
 import HeroCard from '../../../ui/cards/hero-card'
 import Container from '../../../ui/common/container'
 

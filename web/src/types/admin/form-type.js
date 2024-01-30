@@ -405,8 +405,42 @@ export const socialInitialValues = {
 }
 
 // LAYOUT
-export const homeLayoutValidationSchema = yup.object().shape({})
-export const homeLayoutInitalValues = {}
+export const heroHomeLayoutValidationSchema = yup.object().shape({
+  title: yup.string().required('Títutlo é obrigatório'),
+  badge: yup.string().required('Balão suspenso é obrigatório'),
+  description: yup.string().required('Descrição é obirgatório'),
+  product: yup.string().required('Produto é obirgatório'),
+})
+export const heroHomeLayoutInitalValues = {
+  title: '',
+  badge: '',
+  description: '',
+  product: '',
+}
+
+export const heroBannerLayoutValidationSchema = yup.object().shape({
+  subTitle: yup.string().required('Títutlo é obrigatório'),
+  product: yup.string().required('Produto é obirgatório'),
+  badge: yup.string().required('Balão suspenso é obrigatório'),
+})
+export const heroBannerLayoutInitialValues = {
+  subTitle: '',
+  product: '',
+  badge: '',
+}
+
+export const bannerHomeLayoutValitionSchema = yup.object().shape({
+  description: yup.string().required('Descrição é obirgatório'),
+  product: yup.string().required('Produto é obirgatório'),
+  category: yup.string().required('Categoria é obrigatório'),
+  badge: yup.string().required('Balão suspenso é obrigatório'),
+})
+export const bannerHomeLayoutInitialValues = {
+  description: '',
+  product: '',
+  category: '',
+  badge: '',
+}
 
 export const aboutLayoutValidationSchema = yup.object().shape({
   hero: yup.object({

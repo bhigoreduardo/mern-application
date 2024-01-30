@@ -1,17 +1,18 @@
 /* eslint-disable react/prop-types */
 import { MagnifyingGlass } from 'phosphor-react'
 
-import { product } from '../../../../utils/mocks/public'
+import { products } from '../../../../utils/mock'
 import { mergeClassName, parsedSelectData } from '../../../../utils/format'
 import config from '../../../../config'
 import TextLabel from '../../ui/inputs/text/label'
+import Radio from '../../ui/inputs/radio'
 import Check from '../../ui/inputs/check'
 import TableData from '../../ui/table/data'
 
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function Highlight(props) {
-  const docs = new Array(10).fill(product)
+  const docs = products
   const docsParsed =
     docs && parsedSelectData(docs, '_id', 'name', ['productData'])
   const data = docs
@@ -42,15 +43,28 @@ export default function Highlight(props) {
             htmlFor={item.value}
             className="p-1 border border-gray-100 rounded-sm w-[100px] h-[100px] flex items-center justify-between"
           >
-            <Check
-              id={item.value}
-              value={item.value}
-              name="product"
-              // onChange={(e) =>
-              //   props.formik.setFieldValue('product', handleProduct(e))
-              // }
-              // checked={props.formik.values?.product?.includes(item.value)}
-            />
+            {props.isUnique ? (
+              <Radio
+                id={item.value}
+                value={item.value}
+                name="product"
+                smallRadio
+                // onChange={(e) =>
+                //   props.formik.setFieldValue('product', handleProduct(e))
+                // }
+                // checked={props.formik.values?.product?.includes(item.value)}
+              />
+            ) : (
+              <Check
+                id={item.value}
+                value={item.value}
+                name="product"
+                // onChange={(e) =>
+                //   props.formik.setFieldValue('product', handleProduct(e))
+                // }
+                // checked={props.formik.values?.product?.includes(item.value)}
+              />
+            )}
             <div className="flex flex-grow flex-col items-center justify-center">
               <img
                 src={`${serverPublicImages}/${item?.productData?.media?.cover}`}
@@ -64,13 +78,15 @@ export default function Highlight(props) {
           </label>
         ))}
       </div>
-      <div className="overflow-y-auto max-h-[400px]">
-        <TableData
-          columns={props.columns}
-          data={data}
-          className="!p-0 !border-none !shadow-none"
-        />
-      </div>
+      {props.columns && (
+        <div className="overflow-y-auto max-h-[400px]">
+          <TableData
+            columns={props.columns}
+            data={data}
+            className="!p-0 !border-none !shadow-none"
+          />
+        </div>
+      )}
     </div>
   )
 }
