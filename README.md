@@ -1,5 +1,18 @@
-# mern-application
-Application Mongo/Express/React/Node project
+# :desktop_computer: Furniture First Release Application
+
+<img src="./assets/cover.png" alt="Cover projeto" />
+
+
+## :fire: Run
+
+- Development (Port 3000): `yarn dev`
+
+## :triangular_flag_on_post: Environment Variables
+
+### Web Variables
+
+- Environment: `VITE_NODE_ENV` ['develop/homolog/production']
+- Bearer Token: `VITE_SERVER_BEARER`
 
 TODO:
   - app/pages/public/store:
