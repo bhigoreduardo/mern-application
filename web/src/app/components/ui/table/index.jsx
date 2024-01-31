@@ -44,7 +44,7 @@ export const TableRow = forwardRef(function TableRow(
     <tr
       ref={ref}
       className={mergeClassName(
-        'flex items-center justify-between gap-1 px-6 py-3',
+        'flex items-center justify-between gap-2 px-6 py-3',
         className
       )}
       {...props}

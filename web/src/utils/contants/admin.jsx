@@ -304,7 +304,9 @@ export const categoryColumns = [
   {
     accessorKey: 'description',
     header: 'Descrição',
-    cell: ({ row }) => row?.original?.description || '-',
+    cell: ({ row }) => (
+      <span className="line-clamp-3">{row?.original?.description || '-'}</span>
+    ),
   },
   {
     accessorKey: 'slug',
@@ -400,6 +402,9 @@ export const colorColumns = [
   {
     accessorKey: 'description',
     header: 'Descrição',
+    cell: ({ row }) => (
+      <span className="line-clamp-3">{row?.original?.description || '-'}</span>
+    ),
   },
   {
     accessorKey: 'slug',
@@ -448,6 +453,9 @@ export const brandColumns = [
   {
     accessorKey: 'description',
     header: 'Descrição',
+    cell: ({ row }) => (
+      <span className="line-clamp-3">{row?.original?.description || '-'}</span>
+    ),
   },
   {
     accessorKey: 'slug',
