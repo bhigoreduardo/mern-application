@@ -1,16 +1,27 @@
 /* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable react/prop-types */
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { MagnifyingGlass } from 'phosphor-react'
 
-import { mergeClassName } from '../../../../../utils/format'
+import { brands } from '../../../../../utils/mock'
+import { mergeClassName, regexCaseIgnore } from '../../../../../utils/format'
 import TextLabel from '../../../ui/inputs/text/label'
 import CheckboxLabel from '../../../ui/inputs/check/label'
 import RadioLabel from '../../../ui/inputs/radio/label'
 import Wrapper from '../../../ui/common/wrapper'
 
 export default function Brand(props) {
+  const [search, setSearch] = useState('')
   const [filter, setFilter] = useState([])
+  const handleSearch = () =>
+    setFilter(() =>
+      search !== ''
+        ? brands.filter((item) => regexCaseIgnore(search, item.name))
+        : brands
+    )
+  useEffect(() => {
+    handleSearch()
+  }, [search, brands]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const Form = () => (
     <div className={mergeClassName('flex flex-col gap-4', props.className)}>
@@ -20,8 +31,8 @@ export default function Brand(props) {
           id="searchBrand"
           placeholder="Pesquisar"
           name="searchBrand"
-          // value={search}
-          // onChange={(e) => setSearch(e.target.value)}
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
           icon={<MagnifyingGlass className="text-gray-400" weight="duotone" />}
           className="flex-grow"
         />

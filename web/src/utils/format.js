@@ -18,6 +18,22 @@ export const toCapitalize = (string) =>
 export const sanitizeSelectData = (parsedData, arr) =>
   parsedData.filter((item) => !arr.includes(item.value))
 
+export const makeArrTree = (arr, parent) => {
+  const node = []
+  arr
+    .filter((item) => item.parent === parent)
+    .forEach((item) =>
+      node.push({ ...item, children: makeArrTree(arr, item._id) })
+    )
+
+  return node
+}
+
+export const regexCaseIgnore = (search, value) => {
+  const regex = new RegExp(search, 'i')
+  return regex.test(value)
+}
+
 export const getBadgeClassName = (badge) => {
   switch (badge) {
     case BadgeEnum.Offer:
