@@ -8,7 +8,7 @@ import NavItem from '../../ui/common/nav-item'
 
 export default function Sidebar() {
   const { pathname } = useLocation()
-  const { isAdminSidebar } = useAdmin()
+  const { isAdminSidebar, setIsAdminSidebar } = useAdmin()
   const matches = useMediaQuery('(min-width: 1280px)')
   const mobileMatches = useMediaQuery('(max-width:768px)')
   const isIconSidebar = matches && !isAdminSidebar
@@ -25,7 +25,7 @@ export default function Sidebar() {
     <aside
       className={`w-[270px] min-w-[270px] absolute -left-[100%] md:static border border-gray-100 bg-white rounded-sm shadow-md py-2 duration-300 ease-in-out z-50 ${
         mobileMatches
-          ? !isAdminSidebar && '!left-2'
+          ? isAdminSidebar && '!left-2'
           : !isIconSidebar && 'max-w-[50px] min-w-[50px]'
       }`}
     >
@@ -35,8 +35,9 @@ export default function Sidebar() {
           title={item.name}
           href={item.slug}
           leftIcon={item.icon}
-          isSidebar={mobileMatches ? !isAdminSidebar : isIconSidebar}
+          isSidebar={mobileMatches ? isAdminSidebar : isIconSidebar}
           label={item.name}
+          onClick={() => setIsAdminSidebar((prevState) => !prevState)}
           className={`${
             i + 1 === renderPages.length && 'text-red-500'
           } ${getClassName(i === 0 ? undefined : item.slug)}`}

@@ -30,7 +30,7 @@ export default function Specification({ formik }) {
         />
         {formik?.values?.everyOne !== true && (
           <>
-            <div className="flex gap-4">
+            <div className="flex gap-4 sm:flex-row flex-col">
               <FormCategory
                 formik={formik}
                 label="Categoria"

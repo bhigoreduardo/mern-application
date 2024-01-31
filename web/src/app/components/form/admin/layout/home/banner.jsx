@@ -51,7 +51,7 @@ export default function Banner() {
           }
           className="!normal-case !px-0"
         />
-        <div className="flex gap-4">
+        <div className="flex gap-4 sm:flex-row flex-col">
           <TextLabel
             id="subTitle"
             placeholder="Infome título"

@@ -2,18 +2,24 @@ import { MagnifyingGlass } from 'phosphor-react'
 
 import { chats } from '../../../../utils/mock'
 import useApp from '../../../../hooks/use-app'
+import useMediaQuery from '../../../../hooks/use-mediaQuery'
 import Badge from '../common/badge'
 import Text from '../inputs/text'
 import Heading from '../table/heading'
 import ChatCard from '../cards/chat-card'
 
 export default function List() {
+  const matches = useMediaQuery('(min-width: 1024px)')
   const { chatSelected, setChatSelected } = useApp()
   const getClassNameChateSelected = (item) =>
     chatSelected !== null && item._id === chatSelected._id && 'bg-orange-100'
 
   return (
-    <article className="flex flex-col gap-6 w-[350px] min-w-[350px] max-w-[350px] bg-white p-4 rounded-sm max-h-[800px] border border-gray-100 shadow-md">
+    <article
+      className={`flex flex-col gap-6 w-full lg:w-[350px] bg-white p-4 rounded-sm max-h-[800px] border border-gray-100 shadow-md ${
+        !matches && chatSelected ? 'hidden' : 'block'
+      }`}
+    >
       <Heading
         title="Mensagens"
         btn={<Badge className="bg-red-500 text-white">+12</Badge>}

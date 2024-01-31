@@ -22,7 +22,7 @@ export default function News() {
   return (
     <Wrapper title="Banner novidades">
       <form className="flex flex-col gap-4" onSubmit={formik.handleSubmit}>
-        <div className="flex gap-4">
+        <div className="flex gap-4 md:flex-row flex-col">
           <ImageLabel
             id="image"
             label="Imagem"
@@ -34,6 +34,7 @@ export default function News() {
             onBlur={formik.handleBlur}
             value={formik.values.image}
             onClear={() => formik.setFieldValue('image', '')}
+            className="mx-auto"
           />
           <TextLabel
             id="title"

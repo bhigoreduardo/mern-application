@@ -20,7 +20,7 @@ export default function Lover() {
   return (
     <Wrapper title="Banner Queridinhos">
       <form className="flex flex-col gap-4" onSubmit={formik.handleSubmit}>
-        <div className="flex gap-4">
+        <div className="flex gap-4 md:flex-row flex-col">
           <TextLabel
             id="title"
             placeholder="Infome título"
