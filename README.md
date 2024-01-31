@@ -27,15 +27,3 @@ TODO:
 
   - app/components/navigation/admin/header:
     -> Consertar bug das páginas renderizadas para cada tipo de usuário
-
-  FIXME: (TABELA - app/componensts/ui/table/data)
-  - app/components/form/order:
-    -> Consertar responsividade da tabela de produtos do carrinho do pedido
-  - app/components/widgets/public/cart-items:
-    -> Consertar responsividade da tabela de produtos do carrinho de compras
-  - app/pages/dashboard:
-    -> Consertar responsividade da tabela da lista de últimos pedidos
-  - app/pages/dashboard/orders:
-    -> Consertar responsividade da tabela da lista de pedidos
-  - app/pages/public/wishlist:
-    -> Consertar responsividade da tabela da lista de produtos favoritos
