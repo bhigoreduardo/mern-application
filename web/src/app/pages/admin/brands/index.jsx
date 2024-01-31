@@ -3,16 +3,18 @@ import { PlusCircle } from 'phosphor-react'
 
 import { brands } from '../../../../utils/mock'
 import { brandColumns } from '../../../../utils/contants/admin'
+import useMediaQuery from '../../../../hooks/use-mediaQuery'
 import Filter from '../../../components/filters/admin'
 import Button from '../../../components/ui/buttons/button'
 import TableData from '../../../components/ui/table/data'
 
 export default function Brands() {
+  const matches = useMediaQuery('(max-width: 768px)')
   const navigate = useNavigate()
   const docs = brands
 
   return (
-    <section className="flex-grow flex flex-col gap-6">
+    <section className="flex-grow flex flex-col gap-6 w-full">
       <Filter />
       <TableData
         title="Marcas"
@@ -30,6 +32,7 @@ export default function Brands() {
         data={docs}
         total={10}
         pages={2}
+        smallTable={matches}
       />
     </section>
   )

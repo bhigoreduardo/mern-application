@@ -3,16 +3,18 @@ import { PlusCircle } from 'phosphor-react'
 
 import { colors } from '../../../../utils/mock'
 import { colorColumns } from '../../../../utils/contants/admin'
+import useMediaQuery from '../../../../hooks/use-mediaQuery'
 import Filter from '../../../components/filters/admin'
 import Button from '../../../components/ui/buttons/button'
 import TableData from '../../../components/ui/table/data'
 
 export default function Colors() {
+  const matches = useMediaQuery('(max-width: 768px)')
   const navigate = useNavigate()
   const docs = colors
 
   return (
-    <section className="flex-grow flex flex-col gap-6">
+    <section className="flex-grow flex flex-col gap-6 w-full">
       <Filter />
       <TableData
         title="Cores"
@@ -29,6 +31,7 @@ export default function Colors() {
         data={docs}
         total={10}
         pages={2}
+        smallTable={matches}
       />
     </section>
   )

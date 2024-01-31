@@ -516,8 +516,12 @@ export const productColumns = [
   },
   {
     accessorKey: 'sku',
-    header: 'SKU',
-    cell: ({ row }) => row?.original?.sku || '-',
+    header: () => <span className="xl:inline-block hidden">SKU</span>,
+    cell: ({ row }) => (
+      <span className="xl:inline-block hidden">
+        {row?.original?.sku || '-'}
+      </span>
+    ),
   },
   {
     accessorKey: 'stock',

@@ -4,6 +4,7 @@ import { ArrowRight } from 'phosphor-react'
 
 import { BadgeEnum } from '../../../types/public/enum-type'
 import { latested, orderColumns } from '../../../utils/contants/public'
+import useMediaQuery from '../../../hooks/use-mediaQuery'
 import Button from '../ui/buttons/button'
 import AddressCard from '../ui/cards/address-card'
 import LatestedCard from '../ui/cards/latested-card'
@@ -25,6 +26,7 @@ export default function Profile({
   hrefHistory,
 }) {
   const navigate = useNavigate()
+  const matches = useMediaQuery('(max-width: 768px)')
   const responsive = [
     {
       breakpoint: 1280,
@@ -79,6 +81,7 @@ export default function Profile({
             <ArrowRight size={14} />
           </Button>
         }
+        smallTable={matches}
         columns={orderColumns(hrefOrders)}
         data={orders}
       />

@@ -13,7 +13,7 @@ export default function Sidebar() {
     comparePathname(path, curr) && 'text-white !bg-orange-500'
 
   return (
-    <aside className="flex md:flex-col w-fit lg:w-full md:max-w-[270px] border border-gray-100 bg-white rounded-sm shadow-md py-2">
+    <aside className="flex md:flex-col w-fit lg:w-full md:max-w-[270px] border border-gray-100 bg-white rounded-sm shadow-md md:py-2 md:px-0 px-2 flex-wrap justify-center">
       {accountPagesItems.map((item, i) => (
         <NavItem
           key={i}

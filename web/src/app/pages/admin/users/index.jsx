@@ -4,17 +4,19 @@ import { PlusCircle } from 'phosphor-react'
 import { admins, employees } from '../../../../utils/mock'
 import { toCapitalize } from '../../../../utils/format'
 import { userColumns } from '../../../../utils/contants/admin'
+import useMediaQuery from '../../../../hooks/use-mediaQuery'
 import FilterUser from '../../../components/filters/admin/user'
 import TableData from '../../../components/ui/table/data'
 import Button from '../../../components/ui/buttons/button'
 
 export default function Users() {
   const navigate = useNavigate()
+  const matches = useMediaQuery('(max-width: 768px)')
   const { pathname } = useLocation()
   const docs = pathname.split('/')[3] === 'administradores' ? admins : employees
 
   return (
-    <section className="flex-grow flex flex-col gap-6">
+    <section className="flex-grow flex flex-col gap-6 w-full">
       <FilterUser />
       <TableData
         title={toCapitalize(pathname.split('/')[3])}
@@ -31,6 +33,7 @@ export default function Users() {
         data={docs}
         total={10}
         pages={2}
+        smallTable={matches}
       />
     </section>
   )

@@ -7,7 +7,7 @@ export default function Dashboard() {
   const user = customers[0]
 
   return (
-    <section className="flex-grow flex flex-col gap-6">
+    <section className="flex-grow flex flex-col gap-6 w-full">
       {/* GREETINGS */}
       <div className="flex flex-col gap-3">
         <h4 className="text-xl text-gray-900">Olá, {user?.name}</h4>
