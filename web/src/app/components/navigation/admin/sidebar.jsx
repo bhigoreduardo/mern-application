@@ -20,6 +20,8 @@ export default function Sidebar() {
   const renderPages = pages(isStore, isAdmin, isEmployee)
   const getClassName = (curr) =>
     comparePathname(path, curr) && 'text-white !bg-orange-500'
+  const handleSidebar = () =>
+    mobileMatches && setIsAdminSidebar((prevState) => !prevState)
 
   return (
     <aside
@@ -37,7 +39,7 @@ export default function Sidebar() {
           leftIcon={item.icon}
           isSidebar={mobileMatches ? isAdminSidebar : isIconSidebar}
           label={item.name}
-          onClick={() => setIsAdminSidebar((prevState) => !prevState)}
+          onClick={handleSidebar}
           className={`${
             i + 1 === renderPages.length && 'text-red-500'
           } ${getClassName(i === 0 ? undefined : item.slug)}`}
