@@ -23,7 +23,7 @@ export default function Tag(props) {
   return (
     <Wrapper title="Tags" handleClear={handleClear}>
       <div className="flex flex-col gap-4">
-        <div className="flex items-start gap-4">
+        <div className="flex items-start gap-4 sm:flex-row flex-col">
           <TextLabel
             id="title"
             placeholder="Informe a tag"
@@ -32,11 +32,11 @@ export default function Tag(props) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.title}
-            className="flex-grow"
+            className="flex-grow w-full"
           />
           <Button
             onClick={formik.handleSubmit}
-            className="bg-orange-500 text-white hover:bg-orange-600 !py-2 h-[37.6px] uppercase"
+            className="bg-orange-500 text-white hover:bg-orange-600 !py-2 sm:h-[37.6px] uppercase"
           >
             Adicionar
           </Button>

@@ -11,7 +11,7 @@ const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 export default function Media(props) {
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex gap-2">
+      <div className="flex gap-2 xl:flex-row flex-col">
         <div className="flex flex-col gap-2">
           <span className="text-sm text-gray-900">Imagem de capa</span>
           <div className="flex gap-2">

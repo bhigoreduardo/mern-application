@@ -9,7 +9,7 @@ import NavItem from '../../ui/common/nav-item'
 export default function Sidebar() {
   const { pathname } = useLocation()
   const { isAdminSidebar } = useAdmin()
-  const matches = useMediaQuery('(min-width: 1024px)')
+  const matches = useMediaQuery('(min-width: 1280px)')
   const mobileMatches = useMediaQuery('(max-width:768px)')
   const isIconSidebar = matches && !isAdminSidebar
   const path = pathname.split('/')[3]

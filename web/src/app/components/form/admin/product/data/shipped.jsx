@@ -5,7 +5,7 @@ import ToggleLabel from '../../../../ui/inputs/toggle/label'
 export default function Shipped(props) {
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex gap-4">
+      <div className="flex gap-4 sm:flex-row flex-col">
         <TextLabel
           id="productData.shippingInfo.weight"
           name="productData.shippingInfo.weight"
@@ -37,7 +37,7 @@ export default function Shipped(props) {
           className="flex-grow flex-1"
         />
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 sm:flex-row flex-col">
         <TextLabel
           id="productData.shippingInfo.width"
           name="productData.shippingInfo.width"
@@ -84,7 +84,7 @@ export default function Shipped(props) {
           className="flex-grow flex-1"
         />
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 sm:flex-row flex-col">
         <ToggleLabel
           id="productData.shippingInfo.isFree"
           name="productData.shippingInfo.isFree"

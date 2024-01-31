@@ -41,7 +41,7 @@ export default function Category({ data }) {
   return (
     <form onSubmit={formik.handleSubmit} className="flex flex-col gap-6 px-6">
       <div className="flex flex-col gap-4">
-        <div className="flex gap-4">
+        <div className="flex gap-4 sm:flex-row flex-col">
           <ImageLabel
             id="image"
             label="Imagem"
@@ -53,6 +53,7 @@ export default function Category({ data }) {
             onBlur={formik.handleBlur}
             value={formik.values.image}
             onClear={() => formik.setFieldValue('image', '')}
+            className="mx-auto"
           />
           <TextLabel
             id="name"

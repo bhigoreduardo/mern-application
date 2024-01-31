@@ -22,7 +22,7 @@ export default function Color({ data }) {
   return (
     <form onSubmit={formik.handleSubmit} className="flex flex-col gap-6 px-6">
       <div className="flex flex-col gap-4">
-        <div className="flex gap-4">
+        <div className="flex gap-4 sm:flex-row flex-col">
           <TextLabel
             id="name"
             label="Nome"

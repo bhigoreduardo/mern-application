@@ -9,7 +9,7 @@ export default function AddressCard({ address, href }) {
   const navigate = useNavigate()
 
   return (
-    <div className="flex-1 flex flex-col gap-6 border border-100 rounded-sm shadow-md py-2">
+    <div className="flex-1 flex flex-col gap-6 border border-100 rounded-sm shadow-md pb-2 bg-white">
       <Heading title="Endereço" />
       <div className="flex flex-col justify-between gap-6 h-full">
         <div className="flex flex-col gap-6 px-6">

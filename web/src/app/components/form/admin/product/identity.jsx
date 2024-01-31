@@ -21,7 +21,7 @@ export default function Identity({ formik }) {
           checked={formik.values.status}
         />
 
-        <div className="flex gap-4">
+        <div className="flex gap-4 sm:flex-row flex-col">
           <TextLabel
             id="name"
             label="Nome"

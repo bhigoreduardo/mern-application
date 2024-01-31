@@ -18,7 +18,7 @@ export default function Form() {
     <section className="flex-grow flex flex-col">
       <Alert isOpen={isModal} onClose={() => setIsModal(false)} />
       <div className="flex flex-col gap-6">
-        <div className="border border-100 rounded-sm shadow-md pt-2">
+        <div className="border border-100 rounded-sm shadow-md">
           <Heading
             title="Informações"
             btn={

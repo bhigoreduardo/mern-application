@@ -23,7 +23,7 @@ const LeftContent = ({ setIsAdminSidebar }) => {
       <button
         type="button"
         onClick={() => setIsAdminSidebar((prevState) => !prevState)}
-        className="lg:inline-block md:hidden inline-block"
+        className="xl:inline-block md:hidden inline-block"
       >
         <List size={20} className="text-white" />
       </button>
@@ -58,7 +58,7 @@ const RightContent = () => (
 
 export default function Header() {
   const { isAdminSidebar, setIsAdminSidebar } = useAdmin()
-  const matches = useMediaQuery('(min-width: 1024px)')
+  const matches = useMediaQuery('(min-width: 1280px)')
 
   return (
     <header className="bg-blue-900 text-white border-b border-gray-600">

@@ -16,7 +16,7 @@ export default function Form() {
   return (
     <section className="flex-grow flex flex-col gap-6">
       <ToogleLabel id="status" name="status" label="Status" />
-      <div className="flex flex-col gap-6 border border-100 rounded-sm shadow-md py-2">
+      <div className="flex flex-col gap-6 border border-100 rounded-sm shadow-md pb-2 bg-white">
         <Heading
           title="Dados pessoais"
           btn={
@@ -31,7 +31,7 @@ export default function Form() {
         />
         <FormProfile user={customer} _type={customer?._type} />
       </div>
-      <div className="flex flex-col gap-6 border border-100 rounded-sm shadow-md py-2">
+      <div className="flex flex-col gap-6 border border-100 rounded-sm shadow-md pb-2 bg-white">
         <Heading title="Endereço" />
         <FormAddress user={customer} _type={customer?._type} />
       </div>

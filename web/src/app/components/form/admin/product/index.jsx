@@ -38,7 +38,7 @@ export default function Product({ data }) {
 
   return (
     <form className="flex flex-col gap-6" onSubmit={formik.handleSubmit}>
-      <div className="flex gap-6 justify-between">
+      <div className="flex gap-6 justify-between lg:flex-row flex-col">
         <div className="flex-grow flex flex-col gap-6">
           <FormIdentity formik={formik} />
           <FormDescription formik={formik} />
@@ -47,8 +47,8 @@ export default function Product({ data }) {
           <FormData formik={formik} />
           <FormSeo formik={formik} />
         </div>
-        <div className="flex flex-col gap-6 w-[350px] min-w-[350px]">
-          <Button className="bg-orange-500 text-white hover:bg-orange-600 !p-2 h-[42px] uppercase">
+        <div className="flex flex-col gap-6 lg:w-[350px] lg:min-w-[350px]">
+          <Button className="bg-orange-500 text-white hover:bg-orange-600 !p-2 lg:h-[42px] uppercase lg:w-full w-fit">
             Salvar
           </Button>
           <FormPublished formik={formik} />

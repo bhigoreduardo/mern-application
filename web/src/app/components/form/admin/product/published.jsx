@@ -6,7 +6,7 @@ import SelectLabel from '../../../ui/inputs/select/label'
 export default function Published(props) {
   return (
     <Wrapper title="Publicação">
-      <div className="flex gap-4">
+      <div className="flex gap-4 sm:flex-row flex-col">
         <SelectLabel
           id="published.step"
           label="Status"

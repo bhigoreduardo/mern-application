@@ -31,7 +31,7 @@ export default function Stocked(props) {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex justify-between gap-4">
+      <div className="flex justify-between gap-4 flex-wrap">
         <ToggleLabel
           id="productData.inventory.manageStock"
           name="productData.inventory.manageStock"
@@ -72,7 +72,7 @@ export default function Stocked(props) {
           checked={props.formik.values?.productData?.inventory?.lowStockWarning}
         />
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 sm:flex-row flex-col">
         <SelectLabel
           id="color"
           label="Cor"
@@ -110,7 +110,7 @@ export default function Stocked(props) {
           className="flex-grow flex-1"
         />
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 sm:flex-row flex-col">
         <TextLabel
           id="offer.offerValue"
           type="number"
@@ -162,7 +162,7 @@ export default function Stocked(props) {
           </>
         )}
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-4 sm:flex-row flex-col">
         {formik.values?.offer?.offerValue !== 0 && (
           <DatePickerLabel
             id="expiresIn"

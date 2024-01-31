@@ -12,26 +12,28 @@ export default function History({ history, isAdmin = false }) {
 
   return (
     <>
-      <Heading
-        title="Histórico de navegação"
-        btn={
-          !isAdmin && (
-            <ToggleLabel
-              id="historyAvailable"
-              name="historyAvailable"
-              label="Ativar/desativar histórico de navegação"
-            />
-          )
-        }
-        className="!border-none !px-0 sm:flex-row flex-col gap-2"
-      />
+      <div className="px-6 bg-white border border-gray-100 rounded-sm shadow-md">
+        <Heading
+          title="Histórico de navegação"
+          btn={
+            !isAdmin && (
+              <ToggleLabel
+                id="historyAvailable"
+                name="historyAvailable"
+                label="Ativar/desativar histórico de navegação"
+              />
+            )
+          }
+          className="!border-none !px-0 sm:flex-row flex-col gap-2"
+        />
+      </div>
       <FilterHistory />
       {keys?.length > 0 ? (
         <>
           {Object.keys(history).map((key, i) => (
             <div
               key={i}
-              className="flex flex-col gap-6 border border-gray-100 rounded-sm shadow-md py-2"
+              className="flex flex-col gap-6 border border-gray-100 rounded-sm shadow-md pb-2 bg-white"
             >
               <Heading
                 title={`${new Date(key).toLocaleDateString(

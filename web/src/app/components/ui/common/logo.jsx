@@ -7,7 +7,7 @@ import useMediaQuery from '../../../../hooks/use-mediaQuery'
 
 export default function Logo({ href, isAdmin = false, className }) {
   const { isAdminSidebar } = useAdmin()
-  const matches = useMediaQuery('(min-width: 1024px)')
+  const matches = useMediaQuery('(min-width: 1280px)')
   const isIconSidebar = isAdmin ? !isAdminSidebar && matches : true
 
   return (

@@ -9,7 +9,7 @@ export default function Seo(props) {
   return (
     <Wrapper title="SEO" handleClear={handleClear}>
       <div className="flex flex-col gap-4">
-        <div className="flex gap-4">
+        <div className="flex gap-4 sm:flex-row flex-col">
           <TextLabel
             id="seoData.metaTitle"
             label="Título"
