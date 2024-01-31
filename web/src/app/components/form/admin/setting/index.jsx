@@ -28,7 +28,7 @@ export default function Setting({ user }) {
 
   return (
     <form className="flex flex-col gap-6 px-6" onSubmit={formik.handleSubmit}>
-      <div className="flex gap-4">
+      <div className="flex gap-4 md:flex-row flex-col">
         <ImageLabel
           id="image"
           label="Imagem"
@@ -40,9 +40,11 @@ export default function Setting({ user }) {
           onBlur={formik.handleBlur}
           value={formik.values.image}
           onClear={() => formik.setFieldValue('image', '')}
+          className="!w-[180px] !h-[180px] !rounded-full mx-auto"
+          isCircle
         />
         <div className="flex-grow flex flex-col gap-4">
-          <div className="flex gap-4">
+          <div className="flex gap-4 md:flex-row flex-col">
             <TextLabel
               id="name"
               label="Nome"
@@ -78,7 +80,7 @@ export default function Setting({ user }) {
               className="flex-grow"
             />
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 md:flex-row flex-col">
             <TextLabel
               id="phone"
               label="Telefone"
@@ -106,7 +108,7 @@ export default function Setting({ user }) {
               className="flex-grow"
             />
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 md:flex-row flex-col">
             <TextLabel
               id="cnpj"
               label="CNPJ"
@@ -134,7 +136,7 @@ export default function Setting({ user }) {
               className="flex-grow"
             />
           </div>
-          <div className="flex gap-4">
+          <div className="flex gap-4 md:flex-row flex-col">
             <TextLabel
               id="clockAvailable"
               label="Horário de funcionamento"

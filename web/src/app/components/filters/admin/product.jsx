@@ -47,7 +47,7 @@ export default function Product() {
         <Button
           title="Limpar"
           onClick={handleClear}
-          className="text-orange-500 border !border-orange-500 !p-2 hover:bg-orange-500 hover:text-white transition-all duration-0"
+          className="text-orange-500 bg-white border !border-orange-500 !p-2 hover:bg-orange-500 hover:text-white transition-all duration-0"
         >
           <ArrowsClockwise size={18} />
         </Button>

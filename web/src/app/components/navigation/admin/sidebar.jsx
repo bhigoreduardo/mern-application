@@ -13,7 +13,7 @@ export default function Sidebar() {
   const mobileMatches = useMediaQuery('(max-width:768px)')
   const isIconSidebar = matches && !isAdminSidebar
   const path = pathname.split('/')[3]
-  console.log(mobileMatches && isAdminSidebar)
+
   const isStore = true
   const isAdmin = true
   const isEmployee = true
@@ -23,10 +23,10 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`w-[270px] absolute -left-[100%] md:static border border-gray-100 bg-white rounded-sm shadow-md py-2 duration-300 ease-in-out z-50 ${
+      className={`w-[270px] min-w-[270px] absolute -left-[100%] md:static border border-gray-100 bg-white rounded-sm shadow-md py-2 duration-300 ease-in-out z-50 ${
         mobileMatches
           ? !isAdminSidebar && '!left-2'
-          : !isIconSidebar && 'max-w-[50px]'
+          : !isIconSidebar && 'max-w-[50px] min-w-[50px]'
       }`}
     >
       {renderPages.map((item, i) => (

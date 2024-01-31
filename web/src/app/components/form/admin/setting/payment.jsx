@@ -45,7 +45,7 @@ export default function Payment() {
   return (
     <form className="flex flex-col gap-6 px-6" onSubmit={formik.handleSubmit}>
       <div className="flex flex-col gap-4">
-        <div className="flex gap-4">
+        <div className="flex gap-4 sm:flex-row flex-col">
           <ImageLabel
             id="image"
             label="Imagem"
@@ -56,9 +56,10 @@ export default function Payment() {
             onBlur={formik.handleBlur}
             value={formik.values.image}
             onClear={() => formik.setFieldValue('image', '')}
+            className="mx-auto"
           />
           <div className="flex-grow flex flex-col gap-4">
-            <div className="flex gap-4">
+            <div className="flex gap-4 md:flex-row flex-col">
               <TextLabel
                 id="method"
                 label="Método"
@@ -91,7 +92,7 @@ export default function Payment() {
             </div>
             {formik.values.availableInstallments && (
               <div className="flex flex-col gap-4">
-                <div className="flex-grow flex-1 flex gap-4">
+                <div className="flex-grow flex-1 flex gap-4 sm:flex-row flex-col">
                   <TextLabel
                     id="installments"
                     label="Parcela"

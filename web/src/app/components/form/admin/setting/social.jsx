@@ -27,7 +27,7 @@ export default function Social({ user }) {
             {info}
           </span>
         )}
-        <div className="flex gap-4">
+        <div className="flex gap-4 sm:flex-row flex-col">
           <TextLabel
             id="facebook"
             label="Facebook"
@@ -51,7 +51,7 @@ export default function Social({ user }) {
             className="flex-grow"
           />
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 sm:flex-row flex-col">
           <TextLabel
             id="twitter"
             label="Twitter"
@@ -75,7 +75,7 @@ export default function Social({ user }) {
             className="flex-grow"
           />
         </div>
-        <div className="flex gap-4">
+        <div className="flex gap-4 sm:flex-row flex-col">
           <TextLabel
             id="pinterest"
             label="Pinterest"

@@ -80,10 +80,10 @@ export default function Home() {
       {/* CHART */}
       <div className="flex flex-col gap-6 bg-white border border-gray-100 rounded-sm shadow-sm">
         <Heading title="Análise da loja" />
-        {/* <Chart /> */}
+        <Chart />
       </div>
       {/* ORDERS */}
-      {/* <TableData
+      <TableData
         title="Pedidos do dia"
         btn={
           <Button
@@ -96,7 +96,7 @@ export default function Home() {
         }
         columns={orderColumns('pedidos')}
         data={orders}
-      /> */}
+      />
       {/* MOST SALES */}
       <div className="flex flex-col gap-6 border border-gray-100 rounded-sm shadow-sm overflow-x-auto bg-white">
         <Heading title="Mais vendidos" />
@@ -128,7 +128,7 @@ export default function Home() {
       <div className="flex md:flex-row flex-col gap-6">
         <div className="flex-1 flex flex-col gap-6 border border-gray-100 rounded-sm shadow-sm bg-white">
           <Heading title="Análise de visitas" />
-          {/* <Chart /> */}
+          <Chart />
         </div>
         <TableData
           title="Tráfego das redes sociais"

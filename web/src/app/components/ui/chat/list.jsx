@@ -13,10 +13,11 @@ export default function List() {
     chatSelected !== null && item._id === chatSelected._id && 'bg-orange-100'
 
   return (
-    <article className="flex flex-col gap-6 w-[350px] min-w-[350px] max-w-[350px] bg-white p-4 rounded-sm max-h-[800px]">
+    <article className="flex flex-col gap-6 w-[350px] min-w-[350px] max-w-[350px] bg-white p-4 rounded-sm max-h-[800px] border border-gray-100 shadow-md">
       <Heading
         title="Mensagens"
         btn={<Badge className="bg-red-500 text-white">+12</Badge>}
+        className="!px-0 !pt-0"
       />
       <Text
         id="search"

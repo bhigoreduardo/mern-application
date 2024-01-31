@@ -13,7 +13,7 @@ export default function Chat({ isAdmin = false }) {
   const ownerMessage = messages[1].messages
 
   return (
-    <article className="bg-white flex-grow rounded-sm p-6 max-h-[800px]">
+    <article className="bg-white flex-grow rounded-sm p-6 max-h-[800px] shadow-md border border-gray-100">
       {isAdmin && !chatSelected && (
         <div className="flex items-center justify-center h-full text-gray-500">
           &larr; Selecione um usuário da barra lateral
