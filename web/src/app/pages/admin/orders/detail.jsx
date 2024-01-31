@@ -22,7 +22,7 @@ export default function Detail() {
   ])
 
   return (
-    <section className="flex-grow flex flex-col gap-6">
+    <section className="flex-grow flex flex-col gap-6 w-full">
       <Alert isOpen={isModal} onClose={() => setIsModal(false)} />
       {orderStatus !== OrderStatusEnum.Delivered &&
         orderStatus !== OrderStatusEnum.Canceled && (
@@ -37,7 +37,7 @@ export default function Detail() {
           />
         )}
 
-      <div className="flex flex-col gap-6 border border-100 rounded-sm shadow-md py-2">
+      <div className="flex flex-col gap-6 border border-100 rounded-sm shadow-md pb-2 bg-white w-full">
         <Heading
           title="Detalhe do pedido"
           btn={

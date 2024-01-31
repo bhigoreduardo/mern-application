@@ -24,7 +24,7 @@ export default function Form() {
   const path = pathname.split('/')[4]
 
   return (
-    <section className="flex-grow flex flex-col">
+    <section className="flex-grow flex flex-col w-full">
       <SwitchForm path={path} />
     </section>
   )

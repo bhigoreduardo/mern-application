@@ -7,16 +7,18 @@ import {
   otherInfoInitialValues,
   otherInfoValidationsSchema,
 } from '../../../../../types/admin/form-type'
+import { infoProductColumns } from '../../../../../utils/contants/admin'
+import useMediaQuery from '../../../../../hooks/use-mediaQuery'
 import Button from '../../../ui/buttons/button'
 import Heading from '../../../ui/table/heading'
 import Wrapper from '../../../ui/common/wrapper'
 import TextLabel from '../../../ui/inputs/text/label'
 import TextRichLabel from '../../../ui/inputs/textrich/label'
 import TableData from '../../../ui/table/data'
-import { infoProductColumns } from '../../../../../utils/contants/admin'
 
 export default function Specification(props) {
   const [indexEdit, setIndexEdit] = useState(null)
+  const matches = useMediaQuery('(max-width: 640px)')
   const formik = useFormik({
     initialValues: otherInfoInitialValues,
     validationSchema: otherInfoValidationsSchema,
@@ -83,6 +85,7 @@ export default function Specification(props) {
           <TableData
             columns={infoProductColumns(handleEdit, handleDelete)}
             data={props.formik.values?.specification}
+            smallTable={matches}
             className="!p-0"
           />
         </div>

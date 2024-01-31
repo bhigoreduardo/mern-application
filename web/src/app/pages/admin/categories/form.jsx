@@ -15,7 +15,7 @@ export default function Form() {
   const data = categories.find((item) => item._id === id)
 
   return (
-    <section className="flex-grow flex flex-col">
+    <section className="flex-grow flex flex-col w-full">
       <Alert isOpen={isModal} onClose={() => setIsModal(false)} />
       <div className="flex flex-col gap-6 border border-100 rounded-sm shadow-md pb-2 bg-white">
         <Heading

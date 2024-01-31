@@ -3,6 +3,7 @@ import { MagnifyingGlass } from 'phosphor-react'
 
 import { mergeClassName, parsedSelectData } from '../../../../../utils/format'
 import config from '../../../../../config'
+import useMediaQuery from '../../../../../hooks/use-mediaQuery'
 import TextLabel from '../../../ui/inputs/text/label'
 import Check from '../../../ui/inputs/check'
 import TableData from '../../../ui/table/data'
@@ -10,6 +11,7 @@ import TableData from '../../../ui/table/data'
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function Product(props) {
+  const matches = useMediaQuery('(max-width: 640px)')
   const docs = []
   const docsParsed =
     docs && parsedSelectData(docs, '_id', 'name', ['productData'])
@@ -75,6 +77,7 @@ export default function Product(props) {
         <TableData
           columns={props.columns}
           data={data}
+          extraSmallTable={matches}
           className="!p-0 !border-none !shadow-none"
         />
       </div>

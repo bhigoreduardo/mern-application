@@ -47,7 +47,7 @@ export default function Media(props) {
 
         <div className="flex flex-col gap-2">
           <span className="text-sm text-gray-900">Galeria</span>
-          <div className="flex items-start gap-2">
+          <div className="flex items-start sm:flex-row flex-col gap-2">
             <ImageLabel
               id="gallery"
               name="gallery"

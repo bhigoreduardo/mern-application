@@ -18,6 +18,7 @@ import {
 import { mobileMask, zipCodeMask } from '../../../utils/mask'
 import { OrderStatusEnum } from '../../../types/public/enum-type'
 import { cartOrderColumns } from '../../../utils/contants/public'
+import useMediaQuery from '../../../hooks/use-mediaQuery'
 import ProcessCard from '../ui/cards/process-card'
 import TableData from '../ui/table/data'
 
@@ -64,6 +65,7 @@ const getOrderHistoryStyle = (orderStatus) => {
 }
 
 export default function Order({ data, isAdmin = false, className }) {
+  const matches = useMediaQuery('(max-width: 768px)')
   const status = data?.status?.slice(-1)[0]?.history
   const createdAt = new Date(data?.createdAt)
   const timeDelivery = data?.cart?.reduce(
@@ -151,7 +153,7 @@ export default function Order({ data, isAdmin = false, className }) {
         <TableData
           columns={cartOrderColumns(handleReview, isAdmin)}
           data={data?.cart}
-          smallTable
+          smallTable={matches}
           className="!p-0 !border-none !shadow-none"
         />
       </div>

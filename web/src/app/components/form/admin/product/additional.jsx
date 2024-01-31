@@ -8,6 +8,7 @@ import {
   otherInfoValidationsSchema,
 } from '../../../../../types/admin/form-type'
 import { infoProductColumns } from '../../../../../utils/contants/admin'
+import useMediaQuery from '../../../../../hooks/use-mediaQuery'
 import Button from '../../../ui/buttons/button'
 import Heading from '../../../ui/table/heading'
 import Wrapper from '../../../ui/common/wrapper'
@@ -17,6 +18,7 @@ import TableData from '../../../ui/table/data'
 
 export default function Additional(props) {
   const [indexEdit, setIndexEdit] = useState(null)
+  const matches = useMediaQuery('(max-width: 640px)')
   const formik = useFormik({
     initialValues: otherInfoInitialValues,
     validationSchema: otherInfoValidationsSchema,
@@ -29,7 +31,7 @@ export default function Additional(props) {
 
   return (
     <Wrapper title="Informações adicionais" handleClear={handleClear}>
-      <div className="flex flex-col gap-6">
+      <div className="flex flex-col gap-6 w-full">
         <TextRichLabel
           id="additional.detail"
           label="Detalhe"
@@ -88,10 +90,11 @@ export default function Additional(props) {
             className="mb-6"
           />
         </div>
-        <div className="flex flex-col gap-3 overflow-y-auto max-[300px]">
+        <div className="flex flex-col gap-3 overflow-y-auto max-[300px] w-full">
           <TableData
             columns={infoProductColumns(handleEdit, handleDelete)}
             data={props.formik.values?.additional?.otherInfos}
+            smallTable={matches}
             className="!p-0"
           />
         </div>

@@ -4,6 +4,7 @@ import { MagnifyingGlass } from 'phosphor-react'
 import { products } from '../../../../utils/mock'
 import { mergeClassName, parsedSelectData } from '../../../../utils/format'
 import config from '../../../../config'
+import useMediaQuery from '../../../../hooks/use-mediaQuery'
 import TextLabel from '../../ui/inputs/text/label'
 import Radio from '../../ui/inputs/radio'
 import Check from '../../ui/inputs/check'
@@ -12,13 +13,16 @@ import TableData from '../../ui/table/data'
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function Highlight(props) {
+  const matches = useMediaQuery('(max-width: 640px)')
   const docs = products
   const docsParsed =
     docs && parsedSelectData(docs, '_id', 'name', ['productData'])
   const data = docs
 
   return (
-    <div className={mergeClassName('flex flex-col gap-4', props.className)}>
+    <div
+      className={mergeClassName('flex flex-col gap-4 w-full', props.className)}
+    >
       <div className="flex flex-col gap-2">
         <TextLabel
           label="Produtos"
@@ -36,7 +40,7 @@ export default function Highlight(props) {
           </span>
         )}
       </div>
-      <div className="flex gap-2 overflow-x-auto">
+      <div className="flex gap-2 overflow-x-auto w-full flex-wrap justify-center items-center max-h-[400px]">
         {docsParsed?.map((item, i) => (
           <label
             key={i}
@@ -79,10 +83,11 @@ export default function Highlight(props) {
         ))}
       </div>
       {props.columns && (
-        <div className="overflow-y-auto max-h-[400px]">
+        <div className="overflow-y-auto max-h-[400px] w-full">
           <TableData
             columns={props.columns}
             data={data}
+            extraSmallTable={matches}
             className="!p-0 !border-none !shadow-none"
           />
         </div>

@@ -11,7 +11,7 @@ export default function Profile() {
   const customer = customers.find((item) => item._id === id)
 
   return (
-    <section className="flex-grow flex flex-col gap-6">
+    <section className="flex-grow flex flex-col gap-6 w-full">
       <ToggleLabel id="status" name="status" label="Status" />
       <WidgetProfile
         user={customer}

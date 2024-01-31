@@ -1,4 +1,5 @@
-import { ArrowsClockwise } from 'phosphor-react'
+import { useState } from 'react'
+import { ArrowsClockwise, Funnel, X } from 'phosphor-react'
 
 import {
   actived as activedType,
@@ -14,6 +15,7 @@ import Text from '../../ui/inputs/text'
 import Select from '../../ui/inputs/select'
 
 export default function Offer() {
+  const [openFilter, setOpenFilter] = useState(false)
   const {
     search,
     setSearch,
@@ -39,7 +41,7 @@ export default function Offer() {
   ])
 
   return (
-    <div className="flex justify-between gap-2">
+    <div className="flex justify-between gap-2 relative w-full">
       <div className="flex flex-grow items-center gap-2">
         <Text
           id="search"
@@ -53,12 +55,30 @@ export default function Offer() {
         <Button
           title="Limpar"
           onClick={handleClear}
-          className="text-orange-500 bg-white border !border-orange-500 !p-2 hover:bg-orange-500 hover:text-white transition-all duration-0"
+          className="text-orange-500 bg-white border !border-orange-500 !p-2 hover:bg-orange-500 hover:text-white"
         >
           <ArrowsClockwise size={18} />
         </Button>
+        <Button
+          onClick={() => setOpenFilter(true)}
+          className="xl:hidden text-orange-500 bg-white border !border-orange-500 !p-2 hover:bg-orange-500 hover:text-white"
+        >
+          <Funnel size={18} />
+        </Button>
       </div>
-      <div className="flex items-center gap-2">
+      <div
+        className={`flex items-center gap-2 xl:flex-row flex-col absolute xl:static -right-[calc(100%+30px)] top-0 max-w-[350px] xl:max-w-fit w-full p-8 px-4 xl:p-0 xl:border-none xl:shadow-none border border-gray-100 bg-white z-20 shadow-md ${
+          openFilter && '!right-0'
+        }`}
+      >
+        {/* CLOSE FILTER MOBILE */}
+        <button
+          type="button"
+          onClick={() => setOpenFilter(false)}
+          className="xl:hidden absolute right-1 top-1 flex items-center justify-center bg-gray-300 text-white rounded-full w-6 h-6"
+        >
+          <X size={12} />
+        </button>
         <Select
           id="order"
           name="order"
@@ -66,6 +86,7 @@ export default function Offer() {
           data={order}
           value={priority}
           onChange={(e) => setPriority(e.target.value)}
+          className="w-full"
         />
         <Select
           id="offer"
@@ -74,6 +95,7 @@ export default function Offer() {
           data={offerType}
           value={offer}
           onChange={(e) => setOffer(e.target.value)}
+          className="w-full"
         />
         <Select
           id="discount"
@@ -82,6 +104,7 @@ export default function Offer() {
           data={discountType}
           value={discount}
           onChange={(e) => setDiscount(e.target.value)}
+          className="w-full"
         />
         <Select
           id="actived"
@@ -90,6 +113,7 @@ export default function Offer() {
           data={activedType}
           value={actived}
           onChange={(e) => setActived(e.target.value)}
+          className="w-full"
         />
         <Select
           id="show"
@@ -98,6 +122,7 @@ export default function Offer() {
           data={perPageType}
           value={perPage}
           onChange={(e) => setPerPage(e.target.value)}
+          className="w-full"
         />
       </div>
     </div>

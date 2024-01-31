@@ -10,6 +10,7 @@ import {
   otherInfoValidationsSchema,
 } from '../../../../../types/admin/form-type'
 import { infoProductColumns } from '../../../../../utils/contants/admin'
+import useMediaQuery from '../../../../../hooks/use-mediaQuery'
 import Button from '../../../ui/buttons/button'
 import Wrapper from '../../../ui/common/wrapper'
 import Heading from '../../../ui/table/heading'
@@ -19,6 +20,7 @@ import TableData from '../../../ui/table/data'
 
 export default function Contact({ data }) {
   const [indexEdit, setIndexEdit] = useState(null)
+  const matches = useMediaQuery('(max-width: 640px)')
   const formik = useFormik({
     initialValues: data ? data : contactLayoutInitialValues,
     validationSchema: contactLayoutValidationSchema,
@@ -118,6 +120,7 @@ export default function Contact({ data }) {
             <TableData
               columns={infoProductColumns(handleEdit, handleDelete)}
               data={formik.values?.items}
+              smallTable={matches}
               className="!p-0"
             />
           </div>

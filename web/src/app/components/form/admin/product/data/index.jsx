@@ -31,7 +31,7 @@ export default function Data(props) {
 
   return (
     <Wrapper title="Dados do produto">
-      <div className="flex gap-3">
+      <div className="flex gap-3 flex-wrap">
         <Button
           className={`${buttonActived('media')} uppercase`}
           onClick={() => setSwitchType('media')}

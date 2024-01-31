@@ -10,6 +10,7 @@ import {
 } from '../../../../../../types/admin/form-type'
 import { parsedSelectData } from '../../../../../../utils/format'
 import { invetoryProductColumns } from '../../../../../../utils/contants/admin'
+import useMediaQuery from '../../../../../../hooks/use-mediaQuery'
 import ToggleLabel from '../../../../ui/inputs/toggle/label'
 import SelectLabel from '../../../../ui/inputs/select/label'
 import TextLabel from '../../../../ui/inputs/text/label'
@@ -19,6 +20,7 @@ import DatePickerLabel from '../../../../ui/inputs/datepicker/label'
 
 export default function Stocked(props) {
   const [indexEdit, setIndexEdit] = useState(null)
+  const matches = useMediaQuery('(max-width: 640px)')
   const parsedColors = colors ? parsedSelectData(colors, '_id', 'name') : []
   const formik = useFormik({
     initialValues: inventoryInitialValues,
@@ -219,6 +221,7 @@ export default function Stocked(props) {
               color: parsedColors.find((i) => i.value === item.color)?.label,
             })
           )}
+          smallTable={matches}
           className="!p-0"
         />
       </div>

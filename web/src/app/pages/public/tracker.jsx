@@ -13,7 +13,10 @@ export default function Tracker() {
         {!data ? (
           <FormTracker />
         ) : (
-          <FormOrder data={data} className="lg:w-[1000px]" />
+          <FormOrder
+            data={data}
+            className="lg:w-[1000px] bg-white border border-gray-100 pt-2 shadow-md rounded-sm"
+          />
         )}
       </Container>
     </section>

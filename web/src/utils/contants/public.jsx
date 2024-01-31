@@ -436,7 +436,7 @@ export const cartOrderColumns = (handleReview, isAdmin) => [
     header: 'Preço',
     cell: ({ row }) => (
       <div className="flex flex-col">
-        <div className="flex items-center gap-1">
+        <div className="flex flex-col">
           {row?.original?.price !== row?.original?.regularPrice && (
             <span className="text-gray-400 line-through">
               {currencyPrice.format(row?.original?.regularPrice)}

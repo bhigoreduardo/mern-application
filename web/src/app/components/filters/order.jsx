@@ -39,7 +39,6 @@ export default function Order() {
           className="w-full max-w-[500px]"
         />
         <Button
-          type="button"
           title="Limpar"
           onClick={handleClear}
           className="text-orange-500 bg-white border !border-orange-500 !p-2 hover:bg-orange-500 hover:text-white"
@@ -47,7 +46,6 @@ export default function Order() {
           <ArrowsClockwise size={18} />
         </Button>
         <Button
-          type="button"
           onClick={() => setOpenFilter(true)}
           className="xl:hidden text-orange-500 bg-white border !border-orange-500 !p-2 hover:bg-orange-500 hover:text-white"
         >
