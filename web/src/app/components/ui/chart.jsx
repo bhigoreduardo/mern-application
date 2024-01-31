@@ -55,7 +55,7 @@ const series = [
 
 export default function Chart() {
   return (
-    <div id="chart">
+    <div>
       <ReactApexChart
         options={options}
         series={series}

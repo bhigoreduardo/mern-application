@@ -72,18 +72,18 @@ export default function Home() {
         </p>
       </div>
       {/* INCOMES */}
-      <div className="flex items-center gap-6">
+      <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6">
         {incomes.map((item, i) => (
           <IncomeCard key={i} {...item} />
         ))}
       </div>
       {/* CHART */}
-      <div className="flex flex-col gap-4 bg-white border border-gray-100 rounded-sm shadow-md">
+      <div className="flex flex-col gap-6 bg-white border border-gray-100 rounded-sm shadow-sm">
         <Heading title="Análise da loja" />
-        <Chart />
+        {/* <Chart /> */}
       </div>
       {/* ORDERS */}
-      <TableData
+      {/* <TableData
         title="Pedidos do dia"
         btn={
           <Button
@@ -96,12 +96,12 @@ export default function Home() {
         }
         columns={orderColumns('pedidos')}
         data={orders}
-      />
+      /> */}
       {/* MOST SALES */}
-      <div className="flex flex-col gap-6 border border-gray-100 rounded-sm shadow-md py-2 overflow-x-auto bg-white">
+      <div className="flex flex-col gap-6 border border-gray-100 rounded-sm shadow-sm overflow-x-auto bg-white">
         <Heading title="Mais vendidos" />
-        {products?.length > 0 ? (
-          <div className="w-[1200px] px-6 mx-auto">
+        {/* {products?.length > 0 ? (
+          <div className="w-[1200px] px-6 mx-auto pb-2">
             <Carousel autoplay slidesToShow={4} responsive={responsive}>
               {() =>
                 products.map((item, i) => (
@@ -122,19 +122,19 @@ export default function Home() {
           <span className="text-sm text-gray-600 text-left px-6">
             Sem resultados
           </span>
-        )}
+        )} */}
       </div>
       {/* TRAFFIC */}
-      <div className="flex gap-6">
-        <div className="flex-1 flex flex-col gap-6 border border-gray-100 rounded-sm shadow-md py-2 bg-white">
+      <div className="flex md:flex-row flex-col gap-6">
+        <div className="flex-1 flex flex-col gap-6 border border-gray-100 rounded-sm shadow-sm bg-white">
           <Heading title="Análise de visitas" />
-          <Chart />
+          {/* <Chart /> */}
         </div>
         <TableData
           title="Tráfego das redes sociais"
           columns={socialColumns}
           data={socialTraffic}
-          className="flex-1"
+          className="flex-1 md:max-w-[300px]"
         />
       </div>
     </section>

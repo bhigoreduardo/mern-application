@@ -38,12 +38,12 @@ export default function Data({
   return (
     <div
       className={mergeClassName(
-        'flex flex-col border border-gray-100 rounded-sm shadow-md py-2 pb-4 bg-white relative',
+        'flex flex-col border border-gray-100 rounded-sm shadow-md pb-2 bg-white relative',
         className
       )}
     >
       {title && <Heading title={title} btn={btn} />}
-      <Table className={`${isColumn && 'flex'}`}>
+      <Table className={`${isColumn && 'flex'} ${title && 'mt-2'}`}>
         {isHeader && (
           <TableHeader>
             {table.getHeaderGroups()?.map((item, i) => (

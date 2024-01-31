@@ -23,7 +23,7 @@ const LeftContent = ({ setIsAdminSidebar }) => {
       <button
         type="button"
         onClick={() => setIsAdminSidebar((prevState) => !prevState)}
-        className="lg:inline-block hidden"
+        className="lg:inline-block md:hidden inline-block"
       >
         <List size={20} className="text-white" />
       </button>
