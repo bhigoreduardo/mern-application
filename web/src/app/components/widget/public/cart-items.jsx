@@ -5,6 +5,7 @@ import { cart } from '../../../../utils/mock'
 import { cartColumns } from '../../../../utils/contants/public'
 import { cartCalculate } from '../../../../utils/calculate'
 import { currencyPrice } from '../../../../utils/format'
+import useMediaQuery from '../../../../hooks/use-mediaQuery'
 import useApp from '../../../../hooks/use-app'
 import Button from '../../ui/buttons/button'
 import Container from '../../ui/common/container'
@@ -13,6 +14,7 @@ import TextLabel from '../../ui/inputs/text/label'
 
 export default function CartItems() {
   const navigate = useNavigation()
+  const matches = useMediaQuery('(max-width: 1024px)')
   const { handleCartItems } = useApp()
   const cartItems = cart
   const { subAmount, shippingFee, discount } = cartCalculate(cartItems)
@@ -31,6 +33,7 @@ export default function CartItems() {
         <TableData
           columns={cartColumns(handleDelete, handleDecrease, handleIncrease)}
           data={cartItems}
+          smallTable={matches}
           className="border-none shadow-none !p-0 rounded-none"
         />
         <div className="flex items-center justify-between sm:flex-row flex-col gap-2 pt-3 px-6 border-t border-gray-200">

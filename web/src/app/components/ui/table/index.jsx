@@ -7,7 +7,7 @@ export const Table = forwardRef(function Table({ className, ...props }, ref) {
     <div className="w-full overflow-x-auto">
       <table
         ref={ref}
-        className={mergeClassName('w-full', className)}
+        className={mergeClassName('w-full table-auto', className)}
         {...props}
       />
     </div>
@@ -21,7 +21,7 @@ export const TableHeader = forwardRef(function TableHeader(
   return (
     <thead
       ref={ref}
-      className={mergeClassName('bg-gray-100', className)}
+      className={mergeClassName('bg-gray-100 [&_tr]:border-b', className)}
       {...props}
     />
   )
@@ -44,7 +44,7 @@ export const TableRow = forwardRef(function TableRow(
     <tr
       ref={ref}
       className={mergeClassName(
-        'flex items-center justify-between gap-2 px-6 py-3',
+        'flex items-center justify-between gap-2 px-6 py-3 border-b border-gray-100 transition-colors hover:bg-slate-200/50',
         className
       )}
       {...props}

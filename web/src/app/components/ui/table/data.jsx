@@ -26,6 +26,8 @@ export default function Data({
   pages,
   isColumn,
   isHeader = true,
+  smallTable = false,
+  extraSmallTable = false,
   className,
 }) {
   const table = useReactTable({
@@ -43,7 +45,7 @@ export default function Data({
       )}
     >
       {title && <Heading title={title} btn={btn} />}
-      <Table className={`${isColumn && 'flex'} ${title && 'mt-2'}`}>
+      <Table className={`${isColumn && 'flex'} ${title && 'mt-2'} ${smallTable && '!min-w-[800px]'} ${extraSmallTable && '!min-w-[300px]'}`}>
         {isHeader && (
           <TableHeader>
             {table.getHeaderGroups()?.map((item, i) => (
@@ -78,7 +80,9 @@ export default function Data({
               <TableRow
                 key={i}
                 data-state={item.getIsSelected() && 'selected'}
-                className={`${isColumn && 'flex flex-col !items-start'}`}
+                className={`${
+                  isColumn && 'flex flex-col !items-start hover:bg-white'
+                }`}
               >
                 {item.getVisibleCells().map((value, key) => (
                   <TableCell

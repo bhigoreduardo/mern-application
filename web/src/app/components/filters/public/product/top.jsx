@@ -1,4 +1,4 @@
-import { List } from 'phosphor-react'
+import { Funnel } from 'phosphor-react'
 
 import {
   brands as dataBrands,
@@ -49,7 +49,7 @@ export default function Top() {
             onClick={() => setIsFilterSidebar((prevState) => !prevState)}
             className="md:hidden text-gray-900 bg-gray-50 hover:bg-orange-500 hover:text-white"
           >
-            <List size={20} />
+            <Funnel size={20} />
           </Button>
           <SelectLabel
             id="show"

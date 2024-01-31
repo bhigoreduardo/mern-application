@@ -16,6 +16,7 @@ export default function Wishlist() {
             title="Favoritos"
             columns={wishlistColumns(handleProduct)}
             data={data}
+            smallTable
             className="w-full"
           />
         </Container>

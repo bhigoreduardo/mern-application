@@ -134,7 +134,8 @@ export default function Home() {
           title="Tráfego das redes sociais"
           columns={socialColumns}
           data={socialTraffic}
-          className="flex-1 md:max-w-[300px]"
+          extraSmallTable
+          className="flex-1 md:max-w-[350px]"
         />
       </div>
     </section>

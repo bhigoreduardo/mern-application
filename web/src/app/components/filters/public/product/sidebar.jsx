@@ -14,7 +14,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={`flex flex-col gap-6 lg:w-[300px] md:w-[200px] w-full max-w-[350px] md:static absolute bg-white transition-all duration-300 ease-in-out md:p-0 p-4 ${
+      className={`flex flex-col gap-6 lg:w-[300px] md:w-[200px] w-full max-w-[350px] md:static absolute bg-white transition-all duration-300 ease-in-out md:p-0 p-4 overflow-y-auto md:max-h-full max-h-[500px] z-20 border md:shadow-none md:border-none shadow-md border-gray-100 ${
         isFilterSidebar ? 'left-0 z-30' : '-left-full'
       }`}
     >

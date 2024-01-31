@@ -96,7 +96,7 @@ export default function Profile({
             </Button>
           }
         />
-        {history?.length > 0 ? (
+        {/* {history?.length > 0 ? (
           <div className="w-[1200px] px-6 mx-auto">
             <Carousel autoplay slidesToShow={4} responsive={responsive}>
               {() =>
@@ -118,7 +118,7 @@ export default function Profile({
           <span className="text-sm text-gray-600 text-left px-6">
             Sem resultados
           </span>
-        )}
+        )} */}
       </div>
     </>
   )

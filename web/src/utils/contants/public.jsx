@@ -162,7 +162,7 @@ export const compareColumns = (handleProduct, favorits) => [
           className="w-64 h-64 object-cover"
         />
         <p className="flex flex-col">
-          <span className="font-semibold text-base text-gray-900">
+          <span className="font-semibold text-base text-gray-900 capitalize">
             {row?.original?.name}
           </span>
           <span className="text-xs">
@@ -482,7 +482,7 @@ export const cartOrderColumns = (handleReview, isAdmin) => [
             Avaliar
           </Button>
           {row?.original?.reviewd && (
-            <div className="absolute hidden peer-hover:block top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-gray-100 p-2 shadow-md rounded-sm bg-white z-20 max-w-[250px]">
+            <div className="absolute hidden peer-hover:block top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-gray-100 p-2 shadow-md rounded-sm bg-white z-20 sm:max-w-[250px] w-full">
               <span className="flex items-center text-xs text-gray-900">
                 <ReactStars
                   count={5}

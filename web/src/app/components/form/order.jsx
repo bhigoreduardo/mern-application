@@ -151,6 +151,7 @@ export default function Order({ data, isAdmin = false, className }) {
         <TableData
           columns={cartOrderColumns(handleReview, isAdmin)}
           data={data?.cart}
+          smallTable
           className="!p-0 !border-none !shadow-none"
         />
       </div>
@@ -197,7 +198,7 @@ export default function Order({ data, isAdmin = false, className }) {
           <p className="text-sm text-gray-600">
             {data.obs ? data.obs : 'Sem observações'}
           </p>
-          <div className="flex gap-2">
+          <div className="flex gap-2 sm:flex-row flex-col">
             <h5 className="font-semibold text-lg text-gray-900">
               Forma de pagamento:
             </h5>
