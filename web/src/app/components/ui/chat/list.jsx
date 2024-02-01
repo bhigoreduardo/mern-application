@@ -16,7 +16,7 @@ export default function List() {
 
   return (
     <article
-      className={`flex flex-col gap-6 w-full lg:w-[350px] bg-white p-4 rounded-sm max-h-[800px] border border-gray-100 shadow-md ${
+      className={`flex flex-col gap-6 w-full lg:max-w-[350px] lg:min-w-[350px] bg-white p-4 rounded-sm max-h-[800px] border border-gray-100 shadow-md ${
         !matches && chatSelected ? 'hidden' : 'block'
       }`}
     >

@@ -409,7 +409,10 @@ export const cartOrderColumns = (handleReview, isAdmin) => [
     accessorKey: 'product',
     header: 'Produto',
     cell: ({ row }) => (
-      <div className="flex items-center gap-3">
+      <Link
+        to={`/produto/${row?.original?.product?._id}`}
+        className="flex items-center gap-3"
+      >
         <img
           src={`${serverPublicImages}/${row?.original?.cover}`}
           alt={row?.original?.name}
@@ -428,7 +431,7 @@ export const cartOrderColumns = (handleReview, isAdmin) => [
             />
           </div>
         </div>
-      </div>
+      </Link>
     ),
   },
   {

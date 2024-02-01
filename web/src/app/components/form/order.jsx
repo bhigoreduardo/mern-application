@@ -79,7 +79,7 @@ export default function Order({ data, isAdmin = false, className }) {
     minute: 'numeric',
   }
   const handleReview = () => {}
-
+console.log(data?.cart)
   return (
     <form
       className={mergeClassName(

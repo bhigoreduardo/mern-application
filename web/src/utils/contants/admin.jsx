@@ -318,7 +318,9 @@ export const categoryColumns = [
     accessorKey: 'slug',
     header: 'Link',
     cell: ({ row }) => (
-      <Link to={`/${row.original?.slug}`}>{row.original?.slug}</Link>
+      <Link to={`/loja?categoria=${row.original?.slug}`}>
+        {row.original?.slug}
+      </Link>
     ),
   },
   {
@@ -416,7 +418,7 @@ export const colorColumns = [
     accessorKey: 'slug',
     header: 'Link',
     cell: ({ row }) => (
-      <Link to={`/${row.original?.slug}`}>{row.original?.slug}</Link>
+      <Link to={`/loja?cor=${row.original?.slug}`}>{row.original?.slug}</Link>
     ),
   },
   {
@@ -467,7 +469,7 @@ export const brandColumns = [
     accessorKey: 'slug',
     header: 'Link',
     cell: ({ row }) => (
-      <Link to={`/${row.original?.slug}`}>{row.original?.slug}</Link>
+      <Link to={`/loja?marca=${row.original?.slug}`}>{row.original?.slug}</Link>
     ),
   },
   {
@@ -497,7 +499,10 @@ export const productColumns = [
     accessorKey: 'product',
     header: 'Produto',
     cell: ({ row }) => (
-      <div className="flex items-center gap-2">
+      <Link
+        to={`/produto/${row?.original?._id}`}
+        className="flex items-center gap-2"
+      >
         <img
           src={`${serverPublicImages}/${row?.original?.productData?.media?.cover}`}
           alt={row?.original?.name}
@@ -517,7 +522,7 @@ export const productColumns = [
             ))}
           </span>
         </p>
-      </div>
+      </Link>
     ),
   },
   {

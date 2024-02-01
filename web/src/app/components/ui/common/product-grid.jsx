@@ -20,6 +20,8 @@ export default function ProductGrid({ products, className }) {
           backCover={item?.productData?.media?.backCover}
           name={item.name}
           rangePrice={item.rangePrice}
+          reviewsAvg={item.reviewsAvg}
+          reviews={item.reviews}
         />
       ))}
     </div>

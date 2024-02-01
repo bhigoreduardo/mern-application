@@ -1,6 +1,6 @@
 import { X } from 'phosphor-react'
 
-import { brands, categories } from '../../../../../utils/mock'
+import { brands, categories, colors } from '../../../../../utils/mock'
 import { prices } from '../../../../../types/filter-type'
 import useApp from '../../../../../hooks/use-app'
 import RadioLabel from '../../../ui/inputs/radio/label'
@@ -107,6 +107,32 @@ export default function Sidebar() {
               //   )
               // }
               // checked={brand.includes(item._id)}
+            />
+          ))}
+        </div>
+      </div>
+      {/* COLOR */}
+      <div className="flex flex-col gap-4 pb-6 border-b border-gray-200">
+        <span className="font-semibold text-base text-gray-900 uppercase">
+          Cor
+        </span>
+        <div className="grid grid-cols-2 gap-3">
+          {colors?.map((item) => (
+            <CheckLabel
+              key={item._id}
+              name="color"
+              label={item.name}
+              value={item._id}
+              // onChange={({ target: { value } }) =>
+              //   setColor((prevState) =>
+              //     prevState?.length > 0 && prevState !== undefined
+              //       ? prevState?.includes(value)
+              //         ? [...prevState?.filter((val) => val !== value)]
+              //         : [...prevState?.push(value)]
+              //       : [value]
+              //   )
+              // }
+              // checked={color.includes(item._id)}
             />
           ))}
         </div>

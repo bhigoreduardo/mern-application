@@ -10,6 +10,7 @@ import {
 } from '../../../../../../types/admin/form-type'
 import { parsedSelectData } from '../../../../../../utils/format'
 import { invetoryProductColumns } from '../../../../../../utils/contants/admin'
+import { offer } from '../../../../../../types/filter-type'
 import useMediaQuery from '../../../../../../hooks/use-mediaQuery'
 import ToggleLabel from '../../../../ui/inputs/toggle/label'
 import SelectLabel from '../../../../ui/inputs/select/label'
@@ -135,7 +136,7 @@ export default function Stocked(props) {
               label="Tipo desconto"
               name="offer.offerType"
               placeholder="Selecione"
-              // data={offer}
+              data={offer}
               error={
                 formik.touched?.offer?.offerType &&
                 formik.errors?.offer?.offerType
@@ -218,7 +219,8 @@ export default function Stocked(props) {
           data={props.formik.values?.productData?.inventory?.info?.map(
             (item) => ({
               ...item,
-              color: parsedColors.find((i) => i.value === item.color)?.label,
+              color: parsedColors.find((i) => i.value === item.color?._id)
+                ?.label,
             })
           )}
           smallTable={matches}

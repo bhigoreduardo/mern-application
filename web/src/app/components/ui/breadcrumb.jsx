@@ -2,6 +2,7 @@ import { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { House, CaretRight } from 'phosphor-react'
 
+import { toCapitalize } from '../../../utils/format'
 import useQueries from '../../../hooks/use-queries'
 import Container from './common/container'
 
@@ -9,7 +10,7 @@ export default function Breadcrumb() {
   const queries = useQueries()
   const queriesCategory = queries.get('categoria')?.split(',')
   const linkClassName = 'flex items-center gap-1 text-sm text-gray-600'
-
+  console.log(queriesCategory)
   return (
     <article className="bg-gray-50 mb-[50px]">
       <Container className="flex items-center gap-4 py-6 flex-wrap">
@@ -38,7 +39,7 @@ export default function Breadcrumb() {
                   i + 1 == queriesCategory.length && '!text-blue-500'
                 }`}
               >
-                {item}
+                {toCapitalize(item)}
               </Link>
             </Fragment>
           ))}

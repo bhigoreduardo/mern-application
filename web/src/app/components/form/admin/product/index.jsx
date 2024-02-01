@@ -47,7 +47,7 @@ export default function Product({ data }) {
           <FormData formik={formik} />
           <FormSeo formik={formik} />
         </div>
-        <div className="flex flex-col gap-6 lg:w-[350px] lg:min-w-[350px]">
+        <div className="flex lg:flex-col flex-col-reverse gap-6 lg:w-[350px] lg:min-w-[350px]">
           <Button className="bg-orange-500 text-white hover:bg-orange-600 !p-2 lg:h-[42px] uppercase lg:w-full w-fit">
             Salvar
           </Button>

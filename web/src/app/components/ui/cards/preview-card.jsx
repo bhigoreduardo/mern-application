@@ -10,6 +10,7 @@ import Count from '../buttons/count'
 import Button from '../buttons/button'
 import Carousel from '../carousel'
 import RadioGroup from '../inputs/radio/group'
+import ReviewStar from '../common/review-star'
 
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
@@ -30,7 +31,8 @@ export default function PreviewCard({
     return (
       <a className="flex items-center justify-center h-20 w-20 p-1 border rounded-sm duration-300 ease-in-out border-gray-100">
         <img
-          src={`${serverPublicImages}/products/gallery-${i + 1}.jpg`}
+          // src={`${serverPublicImages}/products/gallery-${i + 1}.jpg`}
+          src={`${serverPublicImages}/${products[0].productData.media.gallery[i]}`}
           className="w-full h-full object-cover"
         />
       </a>
@@ -67,7 +69,10 @@ export default function PreviewCard({
       <div className="flex-1 flex flex-col gap-6 justify-between">
         {/* TITLE */}
         <div className="flex flex-col gap-1">
-          <span className="text-sm text-gray-400">Sem avaliações</span>
+          <ReviewStar
+            reviewsAvg={products[0].reviewsAvg}
+            reviews={products[0].reviews}
+          />
           <h2 className="font-semibold text-xl text-gray-900">{name}</h2>
         </div>
         <div className="flex flex-col gap-1">
