@@ -13,6 +13,7 @@ export default function Modal({
   description,
   isOpen,
   onClose,
+  inside= false,
   children,
   className,
 }) {
@@ -22,11 +23,14 @@ export default function Modal({
 
   return (
     <Dialog open={isOpen} onOpenChange={onChange}>
-      <DialogContent className={mergeClassName('max-w-[1400px]', className)}>
-        <DialogHeader>
-          <DialogTitle>{title}</DialogTitle>
-          <DialogDescription>{description}</DialogDescription>
-        </DialogHeader>
+      <DialogContent inside={inside} className={mergeClassName('max-w-[1400px]', className)}>
+        {(title || description) && (
+          <DialogHeader>
+            <DialogTitle>{title}</DialogTitle>
+            <DialogDescription>{description}</DialogDescription>
+          </DialogHeader>
+        )}
+
         <div>{children}</div>
       </DialogContent>
     </Dialog>

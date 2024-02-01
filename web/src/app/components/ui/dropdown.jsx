@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { CaretRight } from 'phosphor-react'
 
 import { categories } from '../../../utils/mock'
@@ -5,12 +6,13 @@ import NavItem from './common/nav-item'
 import BannerCard from './cards/banner-card'
 import RelatedCard from './cards/related-card'
 
-const Categories = ({ isNonCategories = false }) =>
+const Categories = ({ setOpenDropdown, isNonCategories = false }) =>
   categories?.map((item, i) => (
     <NavItem
       key={i}
       title={item.name}
-      href={item.slug}
+      onClick={() => setOpenDropdown(false)}
+      href={`/loja?categoria=${item.slug}`}
       rigthIcon={
         !isNonCategories && (
           <CaretRight
@@ -25,17 +27,17 @@ const Categories = ({ isNonCategories = false }) =>
     />
   ))
 
-export default function Dropdown() {
+export default function Dropdown({ setOpenDropdown }) {
   return (
-    <aside className="absolute left-2 lg:left-6 top-[calc(100%+10px)] flex gap-3 duration-300 ease-in-out z-20">
+    <aside className="absolute left-2 lg:left-6 top-[calc(100%+10px)] flex gap-3 duration-300 ease-in-out z-40">
       {/* CATEGORIES */}
-      <nav className="flex flex-col border border-gray-100 bg-white rounded-sm shadow-md py-2 h-fit">
-        <Categories />
+      <nav className="flex flex-col border border-gray-100 bg-white rounded-sm shadow-md py-2 h-fit max-w-[300px] sm:w-auto w-[250px]">
+        <Categories setOpenDropdown={setOpenDropdown} />
       </nav>
       {/* SUB CATEGORIES */}
       <nav className="hidden sm:flex md:flex-row flex-col gap-5 justify-between border border-gray-100 bg-white rounded-sm shadow-md p-2">
         <div className="flex flex-col">
-          <Categories isNonCategories />
+          <Categories isNonCategories setOpenDropdown={setOpenDropdown} />
         </div>
         <div className="flex gap-5 lg:flex-row flex-col">
           <div className="flex flex-col gap-4">

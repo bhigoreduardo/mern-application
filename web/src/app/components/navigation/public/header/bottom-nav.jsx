@@ -5,6 +5,7 @@ import { CaretUp, CaretDown, PhoneCall, List } from 'phosphor-react'
 import { comparePathname } from '../../../../../utils/format'
 import { phoneMask } from '../../../../../utils/mask'
 import { pages } from '../../../../../utils/contants/public'
+import useMediaQuery from '../../../../../hooks/use-mediaQuery'
 import Container from '../../../ui/common/container'
 import Button from '../../../ui/buttons/button'
 import Dropdown from '../../../ui/dropdown'
@@ -22,13 +23,15 @@ const CategoriesButton = () => {
         Todos produtos
         {openDropdown ? <CaretUp size={16} /> : <CaretDown size={16} />}
       </button>
-      {openDropdown && <Dropdown />}
+      {openDropdown && <Dropdown setOpenDropdown={setOpenDropdown} />}
     </div>
   )
 }
 
 export default function BottomNav() {
+  const [openMenu, setOpenMenu] = useState(false)
   const { pathname } = useLocation()
+  const matches = useMediaQuery('(max-width: 1024px)')
   const getClassName = (curr) =>
     `flex items-center gap-1 text-sm ${
       comparePathname(pathname, curr) ? 'text-orange-500' : 'text-gray-600'
@@ -40,6 +43,7 @@ export default function BottomNav() {
         <nav className="flex items-center gap-6">
           <Button
             type="button"
+            onClick={() => setOpenMenu((prevState) => !prevState)}
             className="lg:hidden text-gray-900 bg-gray-50 hover:bg-orange-500 hover:text-white"
           >
             <List size={20} />
@@ -47,9 +51,18 @@ export default function BottomNav() {
 
           <CategoriesButton />
 
-          <div className="hidden lg:flex items-center gap-6">
+          <div
+            className={`flex flex-col lg:flex-row lg:static absolute left-2 lg:left-6 top-[calc(100%+10px)] lg:items-center gap-6 z-40 lg:border-none border border-gray-100 bg-white lg:rounded-none rounded-sm lg:shadow-none shadow-md lg:p-0 p-6 min-w-[250px] ${
+              matches && !openMenu && 'hidden'
+            }`}
+          >
             {pages.map((item, i) => (
-              <Link key={i} to={item.slug} className={getClassName(item.slug)}>
+              <Link
+                key={i}
+                to={item.slug}
+                className={getClassName(item.slug)}
+                onClick={() => setOpenMenu(false)}
+              >
                 {item.icon}
                 {item.name}
               </Link>

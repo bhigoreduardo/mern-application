@@ -33,7 +33,7 @@ const DialogOverlay = forwardRef(function DialogOverlay(
 })
 
 const DialogContent = forwardRef(function DialogContent(
-  { className, children, ...props },
+  { inside, className, children, ...props },
   ref
 ) {
   return (
@@ -48,7 +48,13 @@ const DialogContent = forwardRef(function DialogContent(
         {...props}
       >
         {children}
-        <DialogPrimitive.Close className="absolute -right-8 top-0 rounded-sm text-gray-200 hover:text-orange-500 duration-300 ease-in-out">
+        <DialogPrimitive.Close
+          className={`absolute rounded-sm hover:text-orange-500 duration-300 ease-in-out z-20 ${
+            inside
+              ? 'right-8 top-8 text-gray-600'
+              : '-right-8 top-0 text-gray-300'
+          }`}
+        >
           <XCircle size={24} weight="duotone" />
           <span className="sr-only">Fechar</span>
         </DialogPrimitive.Close>

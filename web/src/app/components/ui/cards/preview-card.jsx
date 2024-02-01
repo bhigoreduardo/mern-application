@@ -3,6 +3,7 @@ import { Fragment } from 'react'
 import { ShoppingCartSimple, Heart, ArrowsClockwise } from 'phosphor-react'
 
 import { colors, payments, products } from '../../../../utils/mock'
+import { mergeClassName } from '../../../../utils/format'
 import config from '../../../../config'
 import Container from '../common/container'
 import Price from '../common/price'
@@ -21,6 +22,7 @@ export default function PreviewCard({
   brand,
   category,
   rangePrice,
+  className,
 }) {
   const isFavorite = true
   const isCompare = false
@@ -40,7 +42,12 @@ export default function PreviewCard({
   }
 
   return (
-    <Container className="grid xl:grid-cols-2 grid-cols-1 gap-10 xl:mb-[90px]">
+    <Container
+      className={mergeClassName(
+        'grid xl:grid-cols-2 grid-cols-1 gap-10 xl:mb-[90px]',
+        className
+      )}
+    >
       {/* IMAGES */}
       <div className="flex flex-col gap-4 h-[calc(100%+90px)] xl:mb-0 mb-[90px]">
         <Carousel

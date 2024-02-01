@@ -3,6 +3,7 @@ import {
   Heart,
   ShoppingCartSimple,
   ArrowsCounterClockwise,
+  Eye,
 } from 'phosphor-react'
 
 import { getBadgeClassName, translateBadge } from '../../../../utils/format'
@@ -57,20 +58,26 @@ export default function ProductCard({
         {!isBanner && (
           <div className="hidden absolute top-0 right-0 left-0 bottom-0 group-hover:flex items-center justify-center gap-2 bg-black w-full h-full bg-opacity-50 duration-300 ease-in-out">
             <Button
+              title="Espiar"
+              className="bg-white hover:bg-orange-500 text-gray-900 hover:text-white !w-8 !h-8 !p-0 !rounded-full"
+            >
+              <Eye size={14} />
+            </Button>
+            <Button
               title="Favoritar"
               className={`${
                 isFavorite
                   ? 'bg-orange-500 text-white'
                   : 'bg-white text-gray-900'
-              } hover:bg-orange-500 hover:text-white !w-10 !h-10 !p-0 !rounded-full`}
+              } hover:bg-orange-500 hover:text-white !w-8 !h-8 !p-0 !rounded-full`}
             >
-              <Heart size={16} />
+              <Heart size={14} />
             </Button>
             <Button
               title="Visualizar"
-              className="bg-white hover:bg-orange-500 text-gray-900 hover:text-white !w-10 !h-10 !p-0 !rounded-full"
+              className="bg-white hover:bg-orange-500 text-gray-900 hover:text-white !w-8 !h-8 !p-0 !rounded-full"
             >
-              <ShoppingCartSimple size={16} />
+              <ShoppingCartSimple size={14} />
             </Button>
             <Button
               title="Comparar"
@@ -78,9 +85,9 @@ export default function ProductCard({
                 isCompare
                   ? 'bg-orange-500 text-white'
                   : 'bg-white text-gray-900'
-              } hover:bg-orange-500 hover:text-white !w-10 !h-10 !p-0 !rounded-full`}
+              } hover:bg-orange-500 hover:text-white !w-8 !h-8 !p-0 !rounded-full`}
             >
-              <ArrowsCounterClockwise size={16} />
+              <ArrowsCounterClockwise size={14} />
             </Button>
           </div>
         )}
