@@ -40,13 +40,13 @@ import {
 } from '../format'
 import { OfferEnum } from '../../types/public/enum-type'
 import { DiscountEnum } from '../../types/admin/enum-type'
-import { IncomeEnum } from '../../types/enum-type'
+import { IncomeEnum, UserEnum } from '../../types/enum-type'
 import config from '../../config'
 
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 // SIDEBAR
-export const pages = (isStore, isAdmin, isEmployee) => [
+export const pages = (_type) => [
   {
     name: 'Painel',
     slug: '',
@@ -97,32 +97,38 @@ export const pages = (isStore, isAdmin, isEmployee) => [
     slug: 'ofertas',
     icon: <CurrencyCircleDollar size={16} weight="duotone" />,
   },
-  ...((isStore || isAdmin) && [
-    {
-      name: 'Colaboradores',
-      slug: 'colaboradores',
-      icon: <UsersThree size={16} weight="duotone" />,
-    },
-  ]),
-  ...(isStore && [
-    {
-      name: 'Loja',
-      slug: 'configuracao',
-      icon: <Storefront size={16} weight="duotone" />,
-    },
-    {
-      name: 'Administradores',
-      slug: 'administradores',
-      icon: <UserCircleGear size={16} weight="duotone" />,
-    },
-  ]),
-  ...((isAdmin || isEmployee) && [
-    {
-      name: 'Perfil',
-      slug: 'perfil',
-      icon: <IdentificationCard size={16} weight="duotone" />,
-    },
-  ]),
+  ...(_type === UserEnum.Store || _type === UserEnum.Admin
+    ? [
+        {
+          name: 'Colaboradores',
+          slug: 'colaboradores',
+          icon: <UsersThree size={16} weight="duotone" />,
+        },
+      ]
+    : []),
+  ...(_type === UserEnum.Store
+    ? [
+        {
+          name: 'Loja',
+          slug: 'configuracao',
+          icon: <Storefront size={16} weight="duotone" />,
+        },
+        {
+          name: 'Administradores',
+          slug: 'administradores',
+          icon: <UserCircleGear size={16} weight="duotone" />,
+        },
+      ]
+    : []),
+  ...(_type === UserEnum.Admin || _type === UserEnum.Employee
+    ? [
+        {
+          name: 'Perfil',
+          slug: 'perfil',
+          icon: <IdentificationCard size={16} weight="duotone" />,
+        },
+      ]
+    : []),
   {
     name: 'Sair',
     slug: '/',

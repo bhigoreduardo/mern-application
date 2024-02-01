@@ -2,6 +2,7 @@ import { useLocation } from 'react-router-dom'
 
 import { pages } from '../../../../utils/contants/admin'
 import { comparePathname } from '../../../../utils/format'
+import { UserEnum } from '../../../../types/enum-type'
 import useAdmin from '../../../../hooks/use-admin'
 import useMediaQuery from '../../../../hooks/use-mediaQuery'
 import NavItem from '../../ui/common/nav-item'
@@ -14,10 +15,7 @@ export default function Sidebar() {
   const isIconSidebar = matches && !isAdminSidebar
   const path = pathname.split('/')[3]
 
-  const isStore = true
-  const isAdmin = true
-  const isEmployee = true
-  const renderPages = pages(isStore, isAdmin, isEmployee)
+  const renderPages = pages(UserEnum.Store)
   const getClassName = (curr) =>
     comparePathname(path, curr) && 'text-white !bg-orange-500'
   const handleSidebar = () =>

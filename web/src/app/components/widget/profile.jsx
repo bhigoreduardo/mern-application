@@ -57,7 +57,7 @@ export default function Profile({
       <div className="flex gap-6 xl:flex-row flex-col">
         <ProfileCard user={user} href={hrefProfile} />
         <AddressCard address={address} href={hrefAddress} />
-        <div className="flex-1 flex flex-col gap-6">
+        <div className="flex-1 flex flex-col gap-6 justify-between">
           {latested.map((item, i) => (
             <LatestedCard
               key={i}
@@ -99,8 +99,8 @@ export default function Profile({
             </Button>
           }
         />
-        {/* {history?.length > 0 ? (
-          <div className="w-[1200px] px-6 mx-auto">
+        {history?.length > 0 ? (
+          <div className="w-full max-w-full px-6 mx-auto">
             <Carousel autoplay slidesToShow={4} responsive={responsive}>
               {() =>
                 history.map((item, i) => (
@@ -121,7 +121,7 @@ export default function Profile({
           <span className="text-sm text-gray-600 text-left px-6">
             Sem resultados
           </span>
-        )} */}
+        )}
       </div>
     </>
   )

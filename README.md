@@ -23,7 +23,4 @@ TODO:
     -> TextLabel está com problema de controle de valores
 
   - app/pages/dashboard:
-    -> Consertar o responsivo do carousel de histórico de produtos
-
-  - app/components/navigation/admin/header:
-    -> Consertar bug das páginas renderizadas para cada tipo de usuário
+    -> Consertar o responsivo do carousel de histórico de produtos (entre 1380-768px)
