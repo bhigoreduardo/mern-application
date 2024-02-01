@@ -12,7 +12,7 @@ export default function SignUpConfirm() {
   const signUpConfirm = async () => console.log('confirm')
   signUpConfirm()
   useEffect(() => {
-    if (queries.has('token')) signUpConfirm()
+    if (queries.has('token')) return () => signUpConfirm()
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (

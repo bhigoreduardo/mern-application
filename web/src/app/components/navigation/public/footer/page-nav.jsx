@@ -7,7 +7,7 @@ export default function PageNav() {
       <h4 className="font-semibold text-white text-base uppercase">Páginas</h4>
       <div className="flex flex-col gap-2">
         {pages?.map((item, i) => (
-          <FooterLink key={i} label={item.name} to={item.slug} />
+          <FooterLink key={i} label={item.name} href={item.slug} />
         ))}
       </div>
     </div>

@@ -4,45 +4,58 @@ import {
   InstagramLogo,
   LinkedinLogo,
   TwitterLogo,
-  WhatsappLogo,
+  PinterestLogo,
   YoutubeLogo,
 } from 'phosphor-react'
 
+import { store } from '../../../../utils/mock'
 import { mergeClassName } from '../../../../utils/format'
 
 export default function SocialIcons({ size = 16, className }) {
   return (
     <>
-      <TwitterLogo
-        size={size}
-        weight="duotone"
-        className={mergeClassName('text-white', className)}
-      />
-      <FacebookLogo
-        size={size}
-        weight="duotone"
-        className={mergeClassName('text-white', className)}
-      />
-      <InstagramLogo
-        size={size}
-        weight="duotone"
-        className={mergeClassName('text-white', className)}
-      />
-      <LinkedinLogo
-        size={size}
-        weight="duotone"
-        className={mergeClassName('text-white', className)}
-      />
-      <YoutubeLogo
-        size={size}
-        weight="duotone"
-        className={mergeClassName('text-white', className)}
-      />
-      <WhatsappLogo
-        size={size}
-        weight="duotone"
-        className={mergeClassName('text-white', className)}
-      />
+      <a href={store.socialMedia.twitter} target="blank">
+        <TwitterLogo
+          size={size}
+          weight="duotone"
+          className={mergeClassName('text-white', className)}
+        />
+      </a>
+      <a href={store.socialMedia.facebook} target="blank">
+        <FacebookLogo
+          size={size}
+          weight="duotone"
+          className={mergeClassName('text-white', className)}
+        />
+      </a>
+      <a href={store.socialMedia.instagram} target="blank">
+        <InstagramLogo
+          size={size}
+          weight="duotone"
+          className={mergeClassName('text-white', className)}
+        />
+      </a>
+      <a href={store.socialMedia.linkedin} target="blank">
+        <LinkedinLogo
+          size={size}
+          weight="duotone"
+          className={mergeClassName('text-white', className)}
+        />
+      </a>
+      <a href={store.socialMedia.youtube} target="blank">
+        <YoutubeLogo
+          size={size}
+          weight="duotone"
+          className={mergeClassName('text-white', className)}
+        />
+      </a>
+      <a href={store.socialMedia.pinterest} target="blank">
+        <PinterestLogo
+          size={size}
+          weight="duotone"
+          className={mergeClassName('text-white', className)}
+        />
+      </a>
     </>
   )
 }

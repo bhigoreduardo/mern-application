@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'phosphor-react'
 
 import { categories, products } from '../../../../../utils/mock'
@@ -9,6 +10,7 @@ import ProductGrid from '../../../ui/common/product-grid'
 import BannerCard from '../../../ui/cards/banner-card'
 
 export default function News() {
+  const navigate = useNavigate()
   return (
     <section className="py-16">
       <Container>
@@ -16,6 +18,7 @@ export default function News() {
           {/* BANNER */}
           <div className="lg:w-[400px]">
             <BannerCard
+              _id="659edb43f26a45ceed256d3b"
               category="Armários"
               title="32% Desconto"
               description="Toda linha Cella Carvalho"
@@ -28,7 +31,10 @@ export default function News() {
             <Heading title="Lançamentos" className="md:flex-row flex-col">
               <div className="flex items-center justify-center flex-wrap gap-4">
                 <HeadingOptions options={categories} max={5} />
-                <Button className="text-orange-500 hover:bg-orange-500 hover:text-white !p-2 !gap-1">
+                <Button
+                  onClick={() => navigate('/loja?ordem=news')}
+                  className="text-orange-500 hover:bg-orange-500 hover:text-white !p-2 !gap-1"
+                >
                   Vê todos
                   <ArrowRight size={16} />
                 </Button>

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'phosphor-react'
 
 import { currencyPrice, mergeClassName } from '../../../../utils/format'
@@ -9,6 +10,7 @@ import Badge from '../common/badge'
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function BannerCard({
+  _id,
   category,
   title,
   description,
@@ -18,6 +20,8 @@ export default function BannerCard({
   smallBanner = false,
   className,
 }) {
+  const navigate = useNavigate()
+
   return (
     <article
       className={mergeClassName(
@@ -42,7 +46,7 @@ export default function BannerCard({
           </Badge>
         </div>
         <Button
-          type="submit"
+          onClick={() => navigate(`/produto/${_id}`)}
           className="bg-orange-500 text-white hover:bg-orange-600 uppercase"
         >
           Comprar

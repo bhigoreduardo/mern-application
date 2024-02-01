@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from 'react-router-dom'
 import {
   Heart,
   ShoppingCartSimple,
@@ -16,6 +17,7 @@ import ReviewStar from '../common/review-star'
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function ProductCard({
+  _id,
   badge,
   badgeValue,
   cover,
@@ -27,8 +29,10 @@ export default function ProductCard({
   reviewsAvg,
   reviews,
 }) {
+  const navigate = useNavigate()
   const isFavorite = true
   const isCompare = false
+  const goProduct = () => navigate(`/produto/${_id}`)
 
   return (
     <article className="relative flex flex-col justify-around gap-1 p-2 border border-gray-200 hover:shadow-md duration-300 ease-in-out h-full">
@@ -75,6 +79,7 @@ export default function ProductCard({
             </Button>
             <Button
               title="Visualizar"
+              onClick={goProduct}
               className="bg-white hover:bg-orange-500 text-gray-900 hover:text-white !w-8 !h-8 !p-0 !rounded-full"
             >
               <ShoppingCartSimple size={14} />
@@ -119,6 +124,7 @@ export default function ProductCard({
             </Button>
             <Button
               title="Visualizar"
+              onClick={goProduct}
               className="bg-orange-500 hover:bg-orange-600 text-white !w-full uppercase"
             >
               <ShoppingCartSimple size={16} /> Comprar

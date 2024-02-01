@@ -14,6 +14,7 @@ export default function ProductGrid({ products, className }) {
       {products.map((item, i) => (
         <ProductCard
           key={i}
+          _id={item._id}
           badge={BadgeEnum.Offer}
           badgeValue="18"
           cover={item?.productData?.media?.cover}

@@ -20,7 +20,7 @@ export default function Hero() {
                   name={item?.product?.name}
                   description={item.description}
                   image={item?.product?.cover}
-                  href={``}
+                  href={`/produto/${item?.product?._id}`}
                   offer={item?.product?.price}
                   className="flex-col-reverse xl:flex-row"
                 />
@@ -36,7 +36,7 @@ export default function Hero() {
                 subTitle={item.subTitle}
                 name={item?.product?.name}
                 image={item?.product?.cover}
-                href={``}
+                href={`/produto/${item?.product?._id}`}
                 badge={item.badge}
                 price={item?.product?.price}
                 smallCard

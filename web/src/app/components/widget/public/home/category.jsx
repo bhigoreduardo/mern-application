@@ -51,6 +51,7 @@ export default function Category() {
             categories.map((item, i) => (
               <Link
                 key={i}
+                to={`/loja?categoria=${item.slug}`}
                 className="flex flex-col py-3 border border-gray-100"
               >
                 <img

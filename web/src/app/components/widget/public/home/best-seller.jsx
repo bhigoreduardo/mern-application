@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'phosphor-react'
 
 import { products } from '../../../../../utils/mock'
@@ -9,6 +10,7 @@ import ProductCard from '../../../ui/cards/product-card'
 import ProductGrid from '../../../ui/common/product-grid'
 
 export default function BestSeller() {
+  const navigate = useNavigate()
   const product = products[0]
 
   return (
@@ -16,7 +18,7 @@ export default function BestSeller() {
       <Container className="flex flex-col gap-6">
         {/* HEADING */}
         <Heading title="Mais vendidos" expiresIn="16d : 21h : 57m : 23s">
-          <Button className="text-blue-500 hover:bg-blue-500 hover:text-white !p-2 !gap-1">
+          <Button onClick={() => navigate('/loja?ordem=sold')} className="text-blue-500 hover:bg-blue-500 hover:text-white !p-2 !gap-1">
             Vê todos
             <ArrowRight size={16} />
           </Button>
@@ -27,6 +29,7 @@ export default function BestSeller() {
           <div className="lg:w-[320px]">
             <ProductCard
               isBanner
+              _id={product._id}
               badge={BadgeEnum.Hot}
               cover={product?.productData?.media?.cover}
               backCover={product?.productData?.media?.backCover}

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'phosphor-react'
 
 import { currencyPrice } from '../../../../../utils/format'
@@ -9,7 +10,16 @@ import Button from '../../../ui/buttons/button'
 
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
-export default function Promotion({ bagde, title, description, image, offer }) {
+export default function Promotion({
+  _id,
+  bagde,
+  title,
+  description,
+  image,
+  offer,
+}) {
+  const navigate = useNavigate()
+
   return (
     <section>
       <Container>
@@ -25,7 +35,10 @@ export default function Promotion({ bagde, title, description, image, offer }) {
             <p className="font-thin text-base text-gray-700 line-clamp-2">
               {description}
             </p>
-            <Button className="bg-orange-500 text-white hover:bg-orange-600 uppercase w-fit mx-auto lg:mx-0">
+            <Button
+              onClick={() => navigate(`/produto/${_id}`)}
+              className="bg-orange-500 text-white hover:bg-orange-600 uppercase w-fit mx-auto lg:mx-0"
+            >
               Comprar
               <ArrowRight size={20} className="text-white" />
             </Button>

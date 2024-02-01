@@ -14,7 +14,7 @@ export default function Banner() {
             name={item?.product?.name}
             description={item.description}
             image={item?.product?.cover}
-            href={``}
+            href={`/produto/${item?.product?._id}`}
             badge={`Cozinha`}
             offer={i === 1 && item?.product?.price}
             className={`flex-col-reverse xl:flex-row ${

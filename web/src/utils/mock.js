@@ -1141,12 +1141,12 @@ export const store = {
   description:
     "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.",
   socialMedia: {
-    facebook: 'facebook.com/furniture',
-    instagram: 'instagram.com/furniture',
-    twitter: 'twitter.com/furniture',
-    linkedin: 'linkedin.com/furniture',
-    pinterest: 'pinterest.com/furniture',
-    youtube: 'youtube.com/furniture',
+    facebook: 'https://facebook.com/furniture',
+    instagram: 'https://instagram.com/furniture',
+    twitter: 'https://twitter.com/furniture',
+    linkedin: 'https://linkedin.com/furniture',
+    pinterest: 'https://pinterest.com/furniture',
+    youtube: 'https://youtube.com/furniture',
   },
   available: true,
   createdAt: '2022-12-21T12:14:48+04:00',

@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from 'react-router-dom'
 import { ArrowRight } from 'phosphor-react'
 
 import Button from '../buttons/button'
 import Badge from '../common/badge'
 
-export default function OfferCard({ badge, title, category }) {
+export default function OfferCard({ badge, title, category, slug }) {
+  const navigate = useNavigate()
+
   return (
     <article className="flex flex-col gap-6 px-6 py-10 rounded-sm bg-sky-950">
       <div className="flex flex-col items-center justify-center gap-3">
@@ -17,7 +20,7 @@ export default function OfferCard({ badge, title, category }) {
         </p>
       </div>
       <Button
-        type="submit"
+        onClick={() => navigate(`/loja?categoria=${slug}`)}
         className="bg-blue-500 text-white hover:bg-blue-600 uppercase"
       >
         Comprar
