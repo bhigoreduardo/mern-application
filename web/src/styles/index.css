@@ -25,8 +25,8 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  margin: auto;
-  width: 100%;
+  /* margin: auto; */
+  /* width: 100%; */
   outline: none;
   appearance: none;
   pointer-events: none;
