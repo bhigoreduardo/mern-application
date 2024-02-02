@@ -34,6 +34,14 @@ export const regexCaseIgnore = (search, value) => {
   return regex.test(value)
 }
 
+export const updateSearchParams = (type, value) => {
+  const searchParams = new URLSearchParams(window.location.search)
+  value?.length > 0 ? searchParams.set(type, value) : searchParams.delete(type)
+  const newPathname = `${window.location.pathname}?${searchParams.toString()}`
+
+  return newPathname
+}
+
 export const getBadgeClassName = (badge) => {
   switch (badge) {
     case BadgeEnum.Offer:

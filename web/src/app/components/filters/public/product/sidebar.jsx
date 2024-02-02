@@ -1,16 +1,81 @@
+/* eslint-disable no-unsafe-optional-chaining */
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useFormik } from 'formik'
 import { X } from 'phosphor-react'
 
-import { brands, categories, colors } from '../../../../../utils/mock'
+import {
+  brands as dataBrands,
+  categories,
+  colors as dataColors,
+} from '../../../../../utils/mock'
 import { prices } from '../../../../../types/filter-type'
+import { makeArrTree, updateSearchParams } from '../../../../../utils/format'
 import useApp from '../../../../../hooks/use-app'
+import useFilter from '../../../../../hooks/use-filter'
+import useQueries from '../../../../../hooks/use-queries'
 import RadioLabel from '../../../ui/inputs/radio/label'
 import CheckLabel from '../../../ui/inputs/check/label'
 import Text from '../../../ui/inputs/text'
 import SliderPrice from '../../../ui/slider-price'
 import AdvertisingCard from '../../../ui/cards/advertising-card'
+import CheckboxFamily from '../../../ui/inputs/check/family'
 
 export default function Sidebar() {
+  const navigate = useNavigate()
+  const queries = useQueries()
   const { isFilterSidebar, setIsFilterSidebar } = useApp()
+  const {
+    brands,
+    setBrands,
+    colors,
+    setColors,
+    priceRange,
+    setPriceRange,
+    setPriority,
+    setPerPage,
+    page,
+    setPage,
+  } = useFilter()
+  
+  const categoriesTree = categories ? makeArrTree(categories, null) : []
+  const formik = useFormik({
+    enableReinitialize: true,
+    initialValues: { category: [] },
+  })
+
+  const contextSearchParams = (prevState, value, type) => {
+    const data =
+      prevState?.length > 0 && prevState !== undefined
+        ? prevState?.includes(value)
+          ? [...prevState?.filter((val) => val !== value)]
+          : [...prevState, value]
+        : [value]
+
+    const newPathname = updateSearchParams(type, data)
+    navigate(newPathname)
+    return data
+  }
+  const searchParams = (value, type) => {
+    const newPathname = updateSearchParams(type, [value])
+    navigate(newPathname)
+    return value
+  }
+  const loadQueryParams = () => {
+    if (queries.has('marca')) setBrands(queries.get('marca')?.split(','))
+    if (queries.has('cor')) setColors(queries.get('cor')?.split(','))
+    if (queries.has('ordem')) setPriority(queries.get('ordem'))
+    if (queries.has('limit')) setPerPage(queries.get('limit'))
+    if (queries.has('preco')) setPriceRange(queries.get('preco'))
+    if (queries.has('page')) setPage(Number(queries.get('page')))
+  }
+  useEffect(() => {
+    window.addEventListener('load', loadQueryParams)
+    return () => window.removeEventListener('load', loadQueryParams)
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
+  useEffect(() => {
+    searchParams(page, 'page')
+  }, [page]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <aside
@@ -32,15 +97,8 @@ export default function Sidebar() {
           Categoria
         </span>
         <div className="flex flex-col gap-3">
-          {categories?.map((item) => (
-            <RadioLabel
-              key={item._id}
-              name="category"
-              value={item._id}
-              label={item.name}
-              // onChange={(e) => setCategory(e.target.value)}
-              // checked={category === item._id}
-            />
+          {categoriesTree?.map((item) => (
+            <CheckboxFamily key={item._id} familyTree={item} formik={formik} />
           ))}
         </div>
       </div>
@@ -56,24 +114,30 @@ export default function Sidebar() {
             placeholder="Minimo"
             name="min"
             title="Preço mínimo"
-            // value={priceRange?.split('-')[0]}
-            // onChange={(e) =>
-            //   setPriceRange(
-            //     `${e.target.value}-${priceRange?.split('-')[1] ?? ''}`
-            //   )
-            // }
+            value={priceRange?.split('-')[0]}
+            onChange={(e) =>
+              setPriceRange(() =>
+                searchParams(
+                  `${e.target.value}-${priceRange?.split('-')[1] ?? ''}`,
+                  'preco'
+                )
+              )
+            }
           />
           <Text
             id="max"
             placeholder="Máximo"
             name="max"
             title="Preço máximo"
-            // value={priceRange?.split('-')[1]}
-            // onChange={(e) =>
-            //   setPriceRange(
-            //     `${priceRange?.split('-')[0] ?? ''}-${e.target.value}`
-            //   )
-            // }
+            value={priceRange?.split('-')[1]}
+            onChange={(e) =>
+              setPriceRange(() =>
+                searchParams(
+                  `${priceRange?.split('-')[0] ?? ''}-${e.target.value}`,
+                  'preco'
+                )
+              )
+            }
           />
         </div>
         {prices.map((item, i) => (
@@ -82,6 +146,10 @@ export default function Sidebar() {
             name="price"
             value={item.value}
             label={item.label}
+            onChange={(e) =>
+              setPriceRange(() => searchParams(e.target.value, 'preco'))
+            }
+            checked={priceRange === item.value}
           />
         ))}
       </div>
@@ -91,22 +159,18 @@ export default function Sidebar() {
           Marca
         </span>
         <div className="grid grid-cols-2 gap-3">
-          {brands?.map((item) => (
+          {dataBrands?.map((item) => (
             <CheckLabel
               key={item._id}
-              name="brand"
+              name={item.name}
               label={item.name}
-              value={item._id}
-              // onChange={({ target: { value } }) =>
-              //   setBrand((prevState) =>
-              //     prevState?.length > 0 && prevState !== undefined
-              //       ? prevState?.includes(value)
-              //         ? [...prevState?.filter((val) => val !== value)]
-              //         : [...prevState?.push(value)]
-              //       : [value]
-              //   )
-              // }
-              // checked={brand.includes(item._id)}
+              value={item.slug}
+              onChange={({ target: { value } }) =>
+                setBrands((prevState) =>
+                  contextSearchParams(prevState, value, 'marca')
+                )
+              }
+              checked={brands?.includes(item.slug)}
             />
           ))}
         </div>
@@ -117,22 +181,18 @@ export default function Sidebar() {
           Cor
         </span>
         <div className="grid grid-cols-2 gap-3">
-          {colors?.map((item) => (
+          {dataColors?.map((item) => (
             <CheckLabel
               key={item._id}
-              name="color"
+              name={item.name}
               label={item.name}
-              value={item._id}
-              // onChange={({ target: { value } }) =>
-              //   setColor((prevState) =>
-              //     prevState?.length > 0 && prevState !== undefined
-              //       ? prevState?.includes(value)
-              //         ? [...prevState?.filter((val) => val !== value)]
-              //         : [...prevState?.push(value)]
-              //       : [value]
-              //   )
-              // }
-              // checked={color.includes(item._id)}
+              value={item.slug}
+              onChange={({ target: { value } }) =>
+                setColors((prevState) =>
+                  contextSearchParams(prevState, value, 'cor')
+                )
+              }
+              checked={colors.includes(item.slug)}
             />
           ))}
         </div>

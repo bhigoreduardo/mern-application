@@ -1665,10 +1665,12 @@ export const products = [
       {
         _id: '659edb43f26a45ceed256d3f',
         name: 'Cadeiras',
+        slug: 'cadeiras',
       },
       {
         _id: '659edb43f26a45ceed256d3q',
         name: 'Poltronas',
+        slug: 'poltronas',
       },
     ],
     brand: {
@@ -1858,10 +1860,12 @@ export const products = [
       {
         _id: '659edb43f26a45ceed256d3f',
         name: 'Cadeiras',
+        slug: 'cadeiras',
       },
       {
         _id: '659edb43f26a45ceed256d3q',
         name: 'Poltronas',
+        slug: 'poltronas',
       },
     ],
     brand: {
@@ -2054,10 +2058,12 @@ export const products = [
       {
         _id: '659edb43f26a45ceed256d3f',
         name: 'Cadeiras',
+        slug: 'cadeiras',
       },
       {
         _id: '659edb43f26a45ceed256d3q',
         name: 'Poltronas',
+        slug: 'poltronas',
       },
     ],
     brand: {
@@ -2250,17 +2256,14 @@ export const products = [
       {
         _id: '659edb43f26a45ceed256d3f',
         name: 'Cadeiras',
+        slug: 'cadeiras',
       },
       {
         _id: '659edb43f26a45ceed256d3q',
         name: 'Poltronas',
+        slug: 'poltronas',
       },
     ],
-    brand: {
-      _id: '659edb43f26a45ceed256d3b',
-      name: 'Castor',
-      image: 'brand/brand-1.webp',
-    },
     tags: ['duis', 'velit', 'commodo', 'ut', 'tempor'],
     rangePrice: {
       min: 226.36,
@@ -2447,10 +2450,12 @@ export const products = [
       {
         _id: '659edb43f26a45ceed256d3f',
         name: 'Cadeiras',
+        slug: 'cadeiras',
       },
       {
         _id: '659edb43f26a45ceed256d3q',
         name: 'Poltronas',
+        slug: 'poltronas',
       },
     ],
     brand: {
@@ -2643,10 +2648,12 @@ export const products = [
       {
         _id: '659edb43f26a45ceed256d3f',
         name: 'Cadeiras',
+        slug: 'cadeiras',
       },
       {
         _id: '659edb43f26a45ceed256d3q',
         name: 'Poltronas',
+        slug: 'poltronas',
       },
     ],
     brand: {
@@ -2837,10 +2844,12 @@ export const products = [
       {
         _id: '659edb43f26a45ceed256d3f',
         name: 'Cadeiras',
+        slug: 'cadeiras',
       },
       {
         _id: '659edb43f26a45ceed256d3q',
         name: 'Poltronas',
+        slug: 'poltronas',
       },
     ],
     brand: {
@@ -3035,10 +3044,12 @@ export const products = [
       {
         _id: '659edb43f26a45ceed256d3f',
         name: 'Cadeiras',
+        slug: 'cadeiras',
       },
       {
         _id: '659edb43f26a45ceed256d3q',
         name: 'Poltronas',
+        slug: 'poltronas',
       },
     ],
     brand: {
@@ -3230,10 +3241,12 @@ export const products = [
       {
         _id: '659edb43f26a45ceed256d3f',
         name: 'Cadeiras',
+        slug: 'cadeiras',
       },
       {
         _id: '659edb43f26a45ceed256d3q',
         name: 'Poltronas',
+        slug: 'poltronas',
       },
     ],
     brand: {
@@ -3425,10 +3438,12 @@ export const products = [
       {
         _id: '659edb43f26a45ceed256d3f',
         name: 'Cadeiras',
+        slug: 'cadeiras',
       },
       {
         _id: '659edb43f26a45ceed256d3q',
         name: 'Poltronas',
+        slug: 'poltronas',
       },
     ],
     brand: {

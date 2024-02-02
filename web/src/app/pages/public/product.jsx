@@ -56,7 +56,7 @@ export default function Product() {
 
   return (
     <section>
-      <Breadcrumb />
+      <Breadcrumb product={product} />
       <PreviewCard
         name={product.name}
         sku={product.sku}

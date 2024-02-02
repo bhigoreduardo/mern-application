@@ -17,6 +17,8 @@ export const FilterContext = createContext({
   brand: '',
   categories: [],
   brands: [],
+  colors: [],
+  priceRange: '-',
 })
 
 export default function FilterContextProvider({ children }) {
@@ -36,6 +38,8 @@ export default function FilterContextProvider({ children }) {
   const [brand, setBrand] = useState('')
   const [categories, setCategories] = useState([])
   const [brands, setBrands] = useState([])
+  const [colors, setColors] = useState([])
+  const [priceRange, setPriceRange] = useState('-')
 
   const handleClear = () => {
     setSearch('')
@@ -53,6 +57,8 @@ export default function FilterContextProvider({ children }) {
     setBrand('')
     setCategories([])
     setBrands([])
+    setColors([])
+    setPriceRange('-')
   }
 
   return (
@@ -89,6 +95,10 @@ export default function FilterContextProvider({ children }) {
         setCategories,
         brands,
         setBrands,
+        colors,
+        setColors,
+        priceRange,
+        setPriceRange,
         // CLEAR
         handleClear,
       }}

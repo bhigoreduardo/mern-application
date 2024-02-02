@@ -11,7 +11,7 @@
 
 ### Web Variables
 
-- Environment: `VITE_NODE_ENV` ['develop/homolog/production']
+- Environment: `VITE_NODE_ENV` ['mock'|'develop'|'production']
 - Bearer Token: `VITE_SERVER_BEARER`
 
 TODO:
