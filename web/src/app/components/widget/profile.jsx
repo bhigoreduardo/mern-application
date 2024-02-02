@@ -101,7 +101,8 @@ export default function Profile({
         />
         {history?.length > 0 ? (
           <div className="w-full max-w-full px-6 mx-auto">
-            <Carousel autoplay slidesToShow={4} responsive={responsive}>
+            Em desenvolvimento
+            {/* <Carousel autoplay slidesToShow={4} responsive={responsive}>
               {() =>
                 history.map((item, i) => (
                   <ProductCard
@@ -115,7 +116,7 @@ export default function Profile({
                   />
                 ))
               }
-            </Carousel>
+            </Carousel> */}
           </div>
         ) : (
           <span className="text-sm text-gray-600 text-left px-6">

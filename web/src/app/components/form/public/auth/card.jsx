@@ -19,7 +19,10 @@ export default function Card({ setOpenCard }) {
     validationSchema: signInValidationSchema,
     onSubmit: (values) => handleSubmit(values),
   })
-  const handleSubmit = async (values) => console.log(values)
+  const handleSubmit = async (values) => {
+    console.log(values)
+    navigate('/conta')
+  }
 
   return (
     <form

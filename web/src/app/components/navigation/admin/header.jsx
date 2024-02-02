@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import {
   List,
   GlobeSimple,
@@ -14,6 +15,9 @@ import Button from '../../ui/buttons/button'
 import Container from '../../ui/common/container'
 import Logo from '../../ui/common/logo'
 import Badge from '../../ui/common/badge'
+import OrdersCard from '../../ui/cards/orders-card'
+import ChatsCard from '../../ui/cards/chats-card'
+import UserCard from '../../ui/cards/user-card'
 
 const LeftContent = ({ setIsAdminSidebar }) => {
   const navigate = useNavigate()
@@ -38,30 +42,70 @@ const LeftContent = ({ setIsAdminSidebar }) => {
   )
 }
 
-const RightContent = () => (
-  <div className="flex items-center gap-8">
-    <button className="relative">
-      <Badge className="absolute -top-4 left-3 bg-red-500 text-white">4</Badge>
-      <ChatTeardropDots size={24} weight="duotone" className="text-white" />
-    </button>
-    <button className="relative">
-      <Badge className="absolute -top-4 left-3 bg-red-500 text-white">
-        +99
-      </Badge>
-      <BellSimpleRinging size={24} weight="duotone" className="text-white" />
-    </button>
-    <button>
-      <User size={20} weight="duotone" className="text-white" />
-    </button>
-  </div>
-)
+const RightContent = () => {
+  const location = useLocation()
+  const [openChatsCard, setOpenChatsCard] = useState(false)
+  const [openOrderCard, setOpenOrderCard] = useState(false)
+  const [openUserCard, setOpenUserCard] = useState(false)
+  useEffect(() => {
+    setOpenChatsCard(false)
+    setOpenOrderCard(false)
+    setOpenUserCard(false)
+  }, [location])
+
+  return (
+    <div className="flex items-center gap-8">
+      {/* CHATS */}
+      <div className="sm:relative">
+        <button
+          type="button"
+          className="relative"
+          onClick={() => setOpenChatsCard((prevState) => !prevState)}
+        >
+          <Badge className="absolute -top-4 left-3 bg-red-500 text-white">
+            4
+          </Badge>
+          <ChatTeardropDots size={24} weight="duotone" className="text-white" />
+        </button>
+        {openChatsCard && <ChatsCard />}
+      </div>
+      {/* ORDERS */}
+      <div className="sm:relative">
+        <button
+          type="button"
+          onClick={() => setOpenOrderCard((prevState) => !prevState)}
+          className="relative"
+        >
+          <Badge className="absolute -top-4 left-3 bg-red-500 text-white">
+            +99
+          </Badge>
+          <BellSimpleRinging
+            size={24}
+            weight="duotone"
+            className="text-white"
+          />
+        </button>
+        {openOrderCard && <OrdersCard />}
+      </div>
+      <div className="sm:relative">
+        <button
+          type="button"
+          onClick={() => setOpenUserCard((prevState) => !prevState)}
+        >
+          <User size={20} weight="duotone" className="text-white" />
+        </button>
+        {openUserCard && <UserCard />}
+      </div>
+    </div>
+  )
+}
 
 export default function Header() {
   const { isAdminSidebar, setIsAdminSidebar } = useAdmin()
   const matches = useMediaQuery('(min-width: 1280px)')
 
   return (
-    <header className="bg-blue-900 text-white border-b border-gray-600">
+    <header className="relative bg-blue-900 text-white border-b border-gray-600">
       <Container className="flex items-center justify-start gap-6 py-3">
         <Logo
           isAdmin

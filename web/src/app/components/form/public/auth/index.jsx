@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import { ArrowRight } from 'phosphor-react'
 
@@ -17,6 +17,7 @@ import CheckLabel from '../../../ui/inputs/check/label'
 import Button from '../../../ui/buttons/button'
 
 export default function Auth() {
+  const navigate = useNavigate()
   const [isNonLogin, setIsNonLogin] = useState(false)
   const [info, setInfo] = useState('')
   const [success, setSuccess] = useState(false)
@@ -28,7 +29,10 @@ export default function Auth() {
       : signInValidationSchema,
     onSubmit: (values) => handleSubmit(values),
   })
-  const handleSubmit = async (values) => console.log(values)
+  const handleSubmit = async (values) => {
+    if (!isNonLogin) navigate('/conta')
+    console.log(values)
+  }
 
   return (
     <form

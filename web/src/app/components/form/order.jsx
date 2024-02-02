@@ -22,7 +22,7 @@ import useMediaQuery from '../../../hooks/use-mediaQuery'
 import ProcessCard from '../ui/cards/process-card'
 import TableData from '../ui/table/data'
 
-const getOrderHistoryStyle = (orderStatus) => {
+export const getOrderHistoryStyle = (orderStatus) => {
   const node = { dateTime: orderStatus.dateTime }
   switch (orderStatus.history) {
     case OrderStatusEnum.Created:
