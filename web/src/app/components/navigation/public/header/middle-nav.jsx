@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import {
   MagnifyingGlass,
   Heart,
@@ -14,11 +14,12 @@ import Text from '../../../ui/inputs/text'
 import AuthCard from '../../../form/public/auth/card'
 import CartCard from '../../../ui/cards/cart-card'
 
-const SearchIcon = () => {
+const SearchIcon = ({ ...props }) => {
   return (
     <button
       type="button"
       className="text-gray-900 hover:text-orange-500 duration-300 ease-in-out"
+      {...props}
     >
       <MagnifyingGlass size={20} weight="duotone" />
     </button>
@@ -73,6 +74,15 @@ const UserButton = () => {
 }
 
 export default function MiddleNav() {
+  const navigate = useNavigate()
+  const location = useLocation()
+  const [searchKeyword, setSearchKeyword] = useState('')
+  const handleSearch = () =>
+    searchKeyword && navigate(`/loja?q=${searchKeyword}`)
+  useEffect(() => {
+    if (location.pathname !== '/loja') setSearchKeyword('')
+  }, [location])
+
   return (
     <div className="bg-blue-900 text-white border-b border-gray-600">
       <Container className="flex flex-col md:flex-row items-center justify-between gap-6 py-5">
@@ -82,7 +92,11 @@ export default function MiddleNav() {
           id="search"
           placeholder="Pesquise qualquer assunto..."
           className="w-full md:w-fit flex-grow md:max-w-[600px]"
-          icon={<SearchIcon />}
+          icon={<SearchIcon onClick={handleSearch} />}
+          value={searchKeyword}
+          onInput={(e) => setSearchKeyword(e.currentTarget.value)}
+          onClick={(e) => e.stopPropagation()}
+          onKeyDown={(e) => (e.key === 'Enter' ? handleSearch() : '')}
         />
         <div className="flex items-center justify-between gap-4">
           <CartButton />
