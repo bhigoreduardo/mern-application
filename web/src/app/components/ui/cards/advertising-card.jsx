@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { useNavigate } from 'react-router-dom'
 import { ShoppingCartSimple, ArrowRight } from 'phosphor-react'
 
 import { currencyPrice } from '../../../../utils/format'
@@ -9,12 +10,15 @@ import Badge from '../common/badge'
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function AdvertisingCard({
+  _id,
   name,
   image,
   brandName,
   imageBrand,
   offer,
 }) {
+  const navigate = useNavigate()
+
   return (
     <article className="flex flex-col gap-6 items-center justify-center border-2 border-orange-100 rounded-sm lg:p-8 p-2">
       {/* IMAGE */}
@@ -42,7 +46,10 @@ export default function AdvertisingCard({
       </div>
       {/* BUTTONS */}
       <div className="flex flex-col gap-3 items-center justify-center w-full">
-        <Button className="bg-orange-500 text-white hover:bg-orange-600 uppercase w-full">
+        <Button
+          onClick={() => navigate(`/produto/${_id}`)}
+          className="bg-orange-500 text-white hover:bg-orange-600 uppercase w-full"
+        >
           Comprar
           <ShoppingCartSimple size={20} />
         </Button>

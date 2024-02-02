@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import { ArrowRight } from 'phosphor-react'
 
@@ -12,6 +12,7 @@ import PasswordLabel from '../../../ui/inputs/password/label'
 import Button from '../../../ui/buttons/button'
 
 export default function Card({ setOpenCard }) {
+  const navigate = useNavigate()
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: signIninitialValues,
@@ -75,7 +76,7 @@ export default function Card({ setOpenCard }) {
           </span>
           <Button
             onClick={() => {
-              // navigate('/entrar')
+              navigate('/entrar')
               setOpenCard(false)
             }}
             className="text-orange-500 !border-orange-200 hover:bg-orange-600 hover:text-white uppercase"

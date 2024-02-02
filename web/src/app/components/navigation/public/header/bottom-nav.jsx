@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { CaretUp, CaretDown, PhoneCall, List } from 'phosphor-react'
 
@@ -11,7 +11,11 @@ import Button from '../../../ui/buttons/button'
 import Dropdown from '../../../ui/dropdown'
 
 const CategoriesButton = () => {
+  const location = useLocation()
   const [openDropdown, setOpenDropdown] = useState(false)
+  useEffect(() => {
+    setOpenDropdown(false)
+  }, [location])
 
   return (
     <div className="flex items-center">

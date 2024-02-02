@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import {
   MagnifyingGlass,
   Heart,
@@ -52,7 +53,11 @@ const CartButton = () => {
 }
 
 const UserButton = () => {
+  const location = useLocation()
   const [openCard, setOpenCard] = useState(false)
+  useEffect(() => {
+    setOpenCard(false)
+  }, [location])
 
   return (
     <div className="relative flex items-center">
@@ -81,9 +86,9 @@ export default function MiddleNav() {
         />
         <div className="flex items-center justify-between gap-4">
           <CartButton />
-          <button type="button">
+          <Link to="/favoritos">
             <Heart size={20} weight="duotone" className="text-white" />
-          </button>
+          </Link>
           <UserButton />
         </div>
       </Container>
