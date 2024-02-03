@@ -19,7 +19,8 @@ import CheckLabel from '../../../ui/inputs/check/label'
 import Text from '../../../ui/inputs/text'
 import SliderPrice from '../../../ui/slider-price'
 import AdvertisingCard from '../../../ui/cards/advertising-card'
-import CheckboxFamily from '../../../ui/inputs/check/family'
+// import CheckboxFamily from '../../../ui/inputs/check/family'
+import RadioFamily from '../../../ui/inputs/radio/family'
 
 export default function Sidebar() {
   const navigate = useNavigate()
@@ -37,7 +38,7 @@ export default function Sidebar() {
     page,
     setPage,
   } = useFilter()
-  
+
   const categoriesTree = categories ? makeArrTree(categories, null) : []
   const formik = useFormik({
     enableReinitialize: true,
@@ -98,7 +99,12 @@ export default function Sidebar() {
         </span>
         <div className="flex flex-col gap-3">
           {categoriesTree?.map((item) => (
-            <CheckboxFamily key={item._id} familyTree={item} formik={formik} />
+            <RadioFamily
+              key={item._id}
+              name="category"
+              familyTree={item}
+              formik={formik}
+            />
           ))}
         </div>
       </div>

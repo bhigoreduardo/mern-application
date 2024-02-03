@@ -3,19 +3,21 @@ import { useEffect, useState } from 'react'
 
 import { currencyPrice } from '../../../utils/format'
 
-const getPercent = (first, last) => (first / last) * 100
+const getPercent = (first, last) => Math.floor((first / last) * 100)
 
 export default function SliderPrice({ min, max }) {
+  const minGap = 5
   const [minValue, setMinValue] = useState(min)
   const [maxValue, setMaxValue] = useState(max)
-  const [minPercent, setMinPercent] = useState(() => getPercent(min, max))
-  const [maxPercent, setMaxPercent] = useState(() => getPercent(max, max))
-  const minGap = 5
 
+  const getMinPercent = () => getPercent(maxValue - minGap, max)
+  const getMaxPercent = () => getPercent(max - minValue - minGap, max)
+  const [minPercent, setMinPercent] = useState(() => getMinPercent())
+  const [maxPercent, setMaxPercent] = useState(() => getMaxPercent())
   useEffect(() => {
-    if (maxValue - minValue <= minGap) return
-    setMinPercent(() => getPercent(minValue, max))
-    setMaxPercent(() => getPercent(maxValue, max))
+    if (maxValue - minValue < minGap) return
+    setMinPercent(() => getMinPercent())
+    setMaxPercent(() => getMaxPercent())
   }, [minValue, maxValue]) // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
@@ -28,7 +30,7 @@ export default function SliderPrice({ min, max }) {
       <div className="flex flex-col gap-1">
         <label className="relative block w-full">
           <div
-            className={`absolute top-0 bottom-0 mx-auto w-full h-[2px] bg-gray-300 rounded-sm bg-gradient-to-r from-gray-300 from-[${minPercent}%] via-yellow-500 via-[${maxPercent}%] to-gray-300 to-[${maxPercent}%]`}
+            className={`absolute top-0 bottom-0 mx-auto w-full h-[2px] bg-gray-300 rounded-sm bg-gradient-to-r from-gray-300 from-[${minPercent}%] via-yellow-500 via-[${minPercent}%, ${maxPercent}%] to-gray-300 to-[${maxPercent}%]`}
           />
           <input
             type="range"
@@ -37,7 +39,7 @@ export default function SliderPrice({ min, max }) {
             max={maxValue - minGap}
             value={minValue}
             onChange={({ target: { value } }) => setMinValue(value)}
-            style={{ width: `${maxPercent - minGap}%` }}
+            style={{ width: `${minPercent}%` }}
             className="input-range left-0"
           />
           <input
@@ -48,11 +50,9 @@ export default function SliderPrice({ min, max }) {
             value={maxValue}
             onChange={({ target: { value } }) => setMaxValue(value)}
             style={{
-              width: `${
-                100 - (minPercent > minGap ? minPercent + minGap : minGap)
-              }%`,
+              width: `${maxPercent}%`,
             }}
-            className="input-range right-0 !bg-green-700 z-50"
+            className="input-range absolute !right-0"
           />
         </label>
 
