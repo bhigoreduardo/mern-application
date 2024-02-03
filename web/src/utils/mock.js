@@ -16,7 +16,7 @@ export const hero = {
       description:
         'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.',
       product: {
-        _id: '659edb43f26a45ceed256d3a',
+        _id: '65b587e2808ac5bf6c58ba7a',
         name: 'Lorem Ipsum is simply dummy',
         cover: 'product/product-1-cover.png',
         price: 550,
@@ -28,7 +28,7 @@ export const hero = {
       description:
         'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution.',
       product: {
-        _id: '659edb43f26a45ceed256d3a',
+        _id: '65b587e2808ac5bf6c58ba7a',
         name: 'Lorem Ipsum is simply dummy',
         cover: 'product/product-2-cover.png',
         price: 550,
@@ -40,7 +40,7 @@ export const hero = {
     {
       subTitle: 'It is a long established fact',
       product: {
-        _id: '659edb43f26a45ceed256d3a',
+        _id: '65b587e2808ac5bf6c58ba7a',
         name: 'Lorem Ipsum is simply dummy',
         cover: 'product/product-3-cover.png',
         price: 550,
@@ -51,7 +51,7 @@ export const hero = {
     {
       subTitle: '',
       product: {
-        _id: '659edb43f26a45ceed256d3a',
+        _id: '65b587e2808ac5bf6c58ba7a',
         name: 'Lorem Ipsum is simply dummy',
         cover: 'product/product-4-cover.png',
         price: 550,
@@ -1622,9 +1622,9 @@ export const products = [
           },
           {
             color: {
-              _id: '659edb43f26a45ceed256d3b',
-              name: 'Azul',
-              color: '#1e40af',
+              _id: '659edb43f26a45ceed256d3c',
+              name: 'Preto',
+              color: '#000',
             },
             stock: 23,
             price: 528.24,

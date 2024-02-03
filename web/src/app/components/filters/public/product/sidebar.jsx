@@ -63,16 +63,19 @@ export default function Sidebar() {
     return value
   }
   const loadQueryParams = () => {
-    if (queries.has('marca')) setBrands(queries.get('marca')?.split(','))
-    if (queries.has('cor')) setColors(queries.get('cor')?.split(','))
-    if (queries.has('ordem')) setPriority(queries.get('ordem'))
-    if (queries.has('limit')) setPerPage(queries.get('limit'))
-    if (queries.has('preco')) setPriceRange(queries.get('preco'))
-    if (queries.has('page')) setPage(Number(queries.get('page')))
+    setBrands(() =>
+      queries.has('marca') ? queries.get('marca')?.split(',') : []
+    )
+    setColors(() => (queries.has('cor') ? queries.get('cor')?.split(',') : []))
+    setPriority(() => (queries.has('ordem') ? queries.get('ordem') : ''))
+    setPerPage(() => (queries.has('limit') ? queries.get('limit') : ''))
+    setPriceRange(() => (queries.has('preco') ? queries.get('preco') : '-'))
+    setPage(() => (queries.has('page') ? Number(queries.get('page')) : 1))
   }
   useEffect(() => {
-    window.addEventListener('load', loadQueryParams)
-    return () => window.removeEventListener('load', loadQueryParams)
+    // window.addEventListener('load', loadQueryParams)
+    // return () => window.removeEventListener('load', loadQueryParams)
+    return () => loadQueryParams()
   }, []) // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => {
     searchParams(page, 'page')

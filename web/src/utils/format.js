@@ -2,6 +2,7 @@ import DOMPurify from 'dompurify'
 import truncHtml from 'trunc-html'
 
 import { BadgeEnum, OrderStatusEnum } from '../types/public/enum-type'
+import { removeMask } from './mask'
 
 export const mergeClassName = (first, last) => `${first} ${last}`
 
@@ -17,6 +18,13 @@ export const toCapitalize = (string) =>
 
 export const sanitizeSelectData = (parsedData, arr) =>
   parsedData.filter((item) => !arr.includes(item.value))
+
+export const removeDataMask = (values, arr) => {
+  arr.forEach((item) => {
+    values[item] = removeMask(values[item])
+  })
+  return values
+}
 
 export const makeArrTree = (arr, parent) => {
   const node = []

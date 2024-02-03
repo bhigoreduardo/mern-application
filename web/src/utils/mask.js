@@ -68,3 +68,5 @@ export const creditCardNumberMask = (value) =>
         .replace(/\.$/, '')
         .substring(0, 19)
     : ''
+
+export const removeMask = (value) => value.replace(/[^0-9]+/g, '')

@@ -14,7 +14,7 @@ export default function CartItem({
   name,
   quantity,
   price,
-  bg,
+  background,
   colorName,
   isCheckout = false,
   cartItems,
@@ -43,7 +43,7 @@ export default function CartItem({
           <span className="text-sm text-gray-400">Cor:</span>
           <span
             className="inline-block w-4 h-4 rounded-full"
-            style={{ backgroundColor: bg }}
+            style={{ backgroundColor: background }}
             title={colorName}
           />
         </div>

@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 import { products } from '../../../utils/mock'
 import {
@@ -50,20 +51,27 @@ const Overview = ({ product, tabInformation }) => {
 }
 
 export default function Product() {
+  const { id } = useParams()
   const [tabInformation, setTabInformation] = useState('description')
   const getActiveTab = (tab) => tab === tabInformation
-  const product = products[0]
+  const product = products.find((item) => item._id === id)
 
   return (
     <section>
       <Breadcrumb product={product} />
       <PreviewCard
+        _id={product._id}
+        media={product.productData.media}
+        reviewsAvg={product.reviewsAvg}
+        reviews={product.reviews}
         name={product.name}
         sku={product.sku}
-        productStatus={product.status}
+        status={product.status}
         brand={product.brand?.name}
         category={product.category}
         rangePrice={product.rangePrice}
+        inventoryInfo={product.productData.inventory.info}
+        shippingInfo={product.productData.shippingInfo}
       />
       <Container className="flex flex-col">
         {/* OVERVIEW */}

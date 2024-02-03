@@ -9,6 +9,7 @@ import {
 
 import { getBadgeClassName, translateBadge } from '../../../../utils/format'
 import config from '../../../../config'
+import useApp from '../../../../hooks/use-app'
 import Button from '../buttons/button'
 import Badge from '../common/badge'
 import Price from '../common/price'
@@ -30,9 +31,14 @@ export default function ProductCard({
   reviews,
 }) {
   const navigate = useNavigate()
+  const { setModalData, setIsModal } = useApp()
   const isFavorite = true
   const isCompare = false
   const goProduct = () => navigate(`/produto/${_id}`)
+  const setPreview = () => {
+    setModalData({ _id })
+    setIsModal(true)
+  }
 
   return (
     <article className="relative flex flex-col justify-around gap-1 p-2 border border-gray-200 hover:shadow-md duration-300 ease-in-out h-full">
@@ -63,6 +69,7 @@ export default function ProductCard({
           <div className="hidden absolute top-0 right-0 left-0 bottom-0 group-hover:flex items-center justify-center gap-2 bg-black w-full h-full bg-opacity-50 duration-300 ease-in-out">
             <Button
               title="Espiar"
+              onClick={setPreview}
               className="bg-white hover:bg-orange-500 text-gray-900 hover:text-white !w-8 !h-8 !p-0 !rounded-full"
             >
               <Eye size={14} />
@@ -102,7 +109,7 @@ export default function ProductCard({
           {/* REVIEWS */}
           <ReviewStar reviewsAvg={reviewsAvg} reviews={reviews} />
           {/* CONTENT */}
-          <h3 className="font-semibold text-sm text-gray-900 line-clamp-2 capitalize">
+          <h3 className="font-semibold text-sm text-gray-900 line-clamp-2">
             {name}
           </h3>
           <Price rangePrice={rangePrice} />

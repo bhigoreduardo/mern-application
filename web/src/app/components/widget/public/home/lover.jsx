@@ -40,7 +40,7 @@ export default function Lover() {
           {/* BANNER */}
           <div className="lg:w-[400px] flex flex-col gap-6">
             <BannerCard
-              _id="659edb43f26a45ceed256d3b"
+              _id="65b587e2808ac5bf6c58ba7a"
               title="Sofá Reclinável Minas"
               description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
               offer={299.99}

@@ -44,7 +44,7 @@ export default function Newsletter() {
           >
             {() =>
               brands.map((item, i) => (
-                <Link key={i} className="px-5">
+                <Link key={i} className="px-5" to={`/loja?marca=${item.slug}`}>
                   <img
                     src={`${serverPublicImages}/${item.image}`}
                     alt={item.name}

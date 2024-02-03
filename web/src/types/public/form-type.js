@@ -286,3 +286,17 @@ export const contactInitialValues = {
   name: '',
   message: '',
 }
+
+// CART
+export const cartValidationSchema = yup
+  .object()
+  .shape({ color: yup.string().required('Cor é obrigatório') })
+export const cartInitialValues = {
+  color: '',
+  background: '',
+  colorName: '',
+  quantity: 1,
+  price: '',
+  regularPrice: '',
+  stock: '',
+}

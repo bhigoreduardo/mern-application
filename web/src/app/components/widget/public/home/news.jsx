@@ -18,7 +18,7 @@ export default function News() {
           {/* BANNER */}
           <div className="lg:w-[400px]">
             <BannerCard
-              _id="659edb43f26a45ceed256d3b"
+              _id="65b587e2808ac5bf6c58ba7a"
               category="Armários"
               title="32% Desconto"
               description="Toda linha Cella Carvalho"

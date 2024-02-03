@@ -1,10 +1,17 @@
 /* eslint-disable react/prop-types */
 import { Fragment } from 'react'
+import { useFormik } from 'formik'
+import { toast } from 'react-toastify'
 import { ShoppingCartSimple, Heart, ArrowsClockwise } from 'phosphor-react'
 
-import { colors, payments, products } from '../../../../utils/mock'
-import { mergeClassName } from '../../../../utils/format'
+import { payments } from '../../../../utils/mock'
+import {
+  cartInitialValues,
+  cartValidationSchema,
+} from '../../../../types/public/form-type'
+import { mergeClassName, parsedSelectData } from '../../../../utils/format'
 import config from '../../../../config'
+import useApp from '../../../../hooks/use-app'
 import Container from '../common/container'
 import Price from '../common/price'
 import Count from '../buttons/count'
@@ -16,25 +23,93 @@ import ReviewStar from '../common/review-star'
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function PreviewCard({
+  _id,
+  media,
+  reviewsAvg,
+  reviews,
   name,
   sku,
-  productStatus,
+  status,
   brand,
   category,
   rangePrice,
+  inventoryInfo,
+  shippingInfo,
   className,
 }) {
+  const { cartItems, handleCartItems } = useApp()
+  const parsedColor =
+    inventoryInfo &&
+    parsedSelectData(
+      inventoryInfo.map((item) => item.color),
+      '_id',
+      'name',
+      ['color']
+    )
   const isFavorite = true
   const isCompare = false
-  const stock = 10
-  const handleDecrease = () => {}
-  const handleIncrease = () => {}
+
+  const formik = useFormik({
+    enableReinitialize: true,
+    initialValues: {
+      product: _id,
+      name,
+      cover: media.cover,
+      fee: shippingInfo?.fee,
+      ...cartInitialValues,
+    },
+    validationSchema: cartValidationSchema,
+    onSubmit: (values) => handleUpdateCart(values),
+  })
+  const inventory = inventoryInfo.find(
+    (item) => item.color._id === formik.values.color
+  )
+  const minPrice = inventory?.offer?.offerPrice
+  const maxPrice = inventory?.price
+  const stock = inventory?.stock
+  const productStatus = stock !== '' && stock !== undefined ? stock : status
+
+  const handleUpdateCart = (values) => {
+    const [price, regularPrice] = [minPrice || maxPrice, maxPrice]
+    values.price = price
+    values.regularPrice = regularPrice
+    values.stock = stock
+    if (!cartItems?.length) {
+      handleCartItems([values])
+    } else {
+      const findIndex = cartItems.findIndex(
+        (item) => item.product === values.product && item.color === values.color
+      )
+
+      if (findIndex !== -1) {
+        const quantity = cartItems[findIndex].quantity
+        if (quantity + values.quantity > stock) {
+          toast.error('Limite de estoque atingido')
+          formik.resetForm()
+          return
+        }
+        cartItems[findIndex].quantity += values.quantity
+      } else cartItems.push(values)
+      handleCartItems([...cartItems])
+    }
+    toast.success('Produto adicionado ao carrinho')
+    formik.resetForm()
+  }
+  const handleDecrease = () => {
+    if (!stock || formik.values.quantity === 1) return
+    formik.values.quantity > 1 &&
+      formik.setFieldValue('quantity', formik.values.quantity - 1)
+  }
+  const handleIncrease = () => {
+    if (!stock || formik.values.quantity === stock) return
+    formik.setFieldValue('quantity', formik.values.quantity + 1)
+  }
   function customPaging(i) {
     return (
       <a className="flex items-center justify-center h-20 w-20 p-1 border rounded-sm duration-300 ease-in-out border-gray-100">
         <img
           // src={`${serverPublicImages}/products/gallery-${i + 1}.jpg`}
-          src={`${serverPublicImages}/${products[0].productData.media.gallery[i]}`}
+          src={`${serverPublicImages}/${media.gallery[i]}`}
           className="w-full h-full object-cover"
         />
       </a>
@@ -58,7 +133,7 @@ export default function PreviewCard({
           responsive={[]}
         >
           {() =>
-            products[0].productData.media.gallery.map((item, i) => (
+            media.gallery.map((item, i) => (
               <div
                 key={i}
                 className="w-full h-[450px] p-2 border border-gray-100 rounded-sm"
@@ -76,10 +151,7 @@ export default function PreviewCard({
       <div className="flex-1 flex flex-col gap-6 justify-between">
         {/* TITLE */}
         <div className="flex flex-col gap-1">
-          <ReviewStar
-            reviewsAvg={products[0].reviewsAvg}
-            reviews={products[0].reviews}
-          />
+          <ReviewStar reviewsAvg={reviewsAvg} reviews={reviews} />
           <h2 className="font-semibold text-xl text-gray-900">{name}</h2>
         </div>
         <div className="flex flex-col gap-1">
@@ -115,7 +187,11 @@ export default function PreviewCard({
         </div>
         {/* PRICE */}
         <Price
-          rangePrice={rangePrice}
+          rangePrice={
+            typeof maxPrice === 'undefined' || typeof minPrice === 'undefined'
+              ? rangePrice
+              : { max: maxPrice, min: minPrice }
+          }
           biggerPrice
           className="border-b border-gray-200 pb-4"
         />
@@ -124,30 +200,36 @@ export default function PreviewCard({
           <RadioGroup
             label="Cor"
             name="color"
-            data={colors}
-            // error={formik.touched?.color && formik.errors?.color}
-            // onChange={({ target: { value } }) => {
-            //   const color = parsedColor?.find((item) => item.value === value)
-            //   formik.setFieldValue('color', value)
-            //   formik.setFieldValue('bg', color?.color)
-            //   formik.setFieldValue('colorName', color?.label)
-            // }}
-            // selectedValue={formik.values.color}
-            // onBlur={formik.handleBlur}
+            data={parsedColor}
+            error={formik.touched?.color && formik.errors?.color}
+            onChange={({ target: { value } }) => {
+              const color = parsedColor?.find((item) => item.value === value)
+              formik.setFieldValue('color', value)
+              formik.setFieldValue('background', color?.color)
+              formik.setFieldValue('colorName', color?.label)
+            }}
+            selectedValue={formik.values.color}
+            onBlur={formik.handleBlur}
           />
-          <p className="text-xs text-gray-600">
-            <span className="font-semibold">Unidades:</span> {stock}
-          </p>
+          {stock !== '' && stock !== undefined && (
+            <p className="text-xs text-gray-600">
+              <span className="font-semibold">Unidades:</span> {stock}
+            </p>
+          )}
         </div>
         {/* BUTTONS */}
         <div className="flex sm:flex-row flex-col gap-4">
           <Count
             handleDecrease={handleDecrease}
             handleIncrease={handleIncrease}
-            value={1}
+            value={formik.values.quantity}
             className="min-w-[160px]"
           />
-          <Button className="bg-orange-500 text-white hover:bg-orange-600 uppercase w-full">
+          <Button
+            onClick={formik.handleSubmit}
+            disabled={!productStatus}
+            className="bg-orange-500 text-white hover:bg-orange-600 uppercase w-full"
+          >
             Adicionar ao carrinho
             <ShoppingCartSimple size={20} className="text-white" />
           </Button>

@@ -1,9 +1,14 @@
+import { useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import { ArrowRight } from 'phosphor-react'
 
-import { customers, orders, payments } from '../../../../utils/mock'
+import { customers, payments } from '../../../../utils/mock'
 import { cartCalculate } from '../../../../utils/calculate'
-import { currencyPrice } from '../../../../utils/format'
+import {
+  currencyPrice,
+  parsedSelectData,
+  removeDataMask,
+} from '../../../../utils/format'
 import {
   creditCardNumberMask,
   mobileMask,
@@ -14,6 +19,7 @@ import {
   checkoutValidationSchema,
 } from '../../../../types/public/form-type'
 import config from '../../../../config'
+import useApp from '../../../../hooks/use-app'
 import TextLabel from '../../ui/inputs/text/label'
 import Radio from '../../ui/inputs/radio'
 import TextAreaLabel from '../../ui/inputs/textarea/label'
@@ -25,20 +31,51 @@ import Button from '../../ui/buttons/button'
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function Checkout() {
-  const cart = orders[0].cart
-  const cartItems = new Array(10).fill(cart)
+  const navigate = useNavigate()
   const user = customers[0]
+  const { cartItems, handleCartItems } = useApp()
+  const { subAmount, shippingFee, discount } = cartCalculate(cartItems)
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: { ...checkoutInitialValues, ...user, cart: cartItems },
     validationSchema: checkoutValidationSchema,
     onSubmit: (values) => handleSubmit(values),
   })
-  const { subAmount, shippingFee, discount } = cartCalculate(cartItems)
-  const parsedInstallments = []
-  const paymentFee = 10
-  const handleSubmit = async (values) => console.log(values)
-  const clearFieldValues = () => {}
+  const parsedPayment =
+    !formik.values?.payment?.availableInstallments ||
+    !formik.values?.payment?.method ||
+    !payments
+      ? null
+      : payments.find((item) => item._id === formik.values?.payment?.method)
+  const parsedInstallments = !parsedPayment
+    ? []
+    : parsedSelectData(
+        parsedPayment.infoInstallments.map((item) => ({
+          _id: item.installments,
+          installments: `${item.installments}x ${
+            Number(item.fee) !== 0 ? `+ ${item.fee}%a.m.` : 'sem juros'
+          }`,
+        })),
+        '_id',
+        'installments'
+      )
+  const infoInstallment = !parsedPayment
+    ? 0
+    : parsedPayment.infoInstallments.find(
+        (item) =>
+          Number(item.installments) ===
+          Number(formik.values.payment.installments)
+      )
+  const paymentFee = !infoInstallment ? 0 : infoInstallment.fee
+  const clearFieldValues = (arr) =>
+    arr.forEach((item) => formik.setFieldValue(item, ''))
+  const handleSubmit = async (values) => {
+    values = checkoutValidationSchema.cast(values, { stripUnknown: true })
+    values = removeDataMask(values, ['whatsApp'])
+    values.address = removeDataMask(values.address, ['zipCode'])
+    handleCartItems([])
+    navigate('?sucesso=1')
+  }
 
   return (
     <form
