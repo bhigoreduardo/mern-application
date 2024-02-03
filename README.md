@@ -21,6 +21,3 @@ TODO:
 
   - app/components/form/public/auth:
     -> TextLabel está com problema de controle de valores
-
-  - app/pages/dashboard:
-    -> Consertar o responsivo do carousel de histórico de produtos (entre 1380-768px)

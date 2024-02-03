@@ -23,6 +23,7 @@ export default function Profile() {
         hrefOrdersHeader={`/acesso/${path}/clientes/${id}/pedidos`}
         hrefOrders={`/acesso/${path}/pedidos`}
         hrefHistory={`/acesso/${path}/clientes/${id}/historico`}
+        isAdmin
       />
     </section>
   )

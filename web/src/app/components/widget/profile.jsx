@@ -24,6 +24,7 @@ export default function Profile({
   hrefOrdersHeader,
   hrefOrders,
   hrefHistory,
+  isAdmin = false,
 }) {
   const navigate = useNavigate()
   const matches = useMediaQuery('(max-width: 768px)')
@@ -100,9 +101,13 @@ export default function Profile({
           }
         />
         {history?.length > 0 ? (
-          <div className="w-full max-w-full px-6 mx-auto">
-            Em desenvolvimento
-            {/* <Carousel autoplay slidesToShow={4} responsive={responsive}>
+          // <div className="w-full mx-auto px-6 max-w-[1170px]"> max-w-[1000px] max-w-[900px] max-w-[680px]
+          <div
+            className={`w-full mx-auto px-6 2xl:max-w-[1170px] 1350:max-w-[1000px] md:max-w-[680px] ${
+              isAdmin ? 'lg:max-w-[900px]' : 'xl:max-w-[900px]'
+            }`}
+          >
+            <Carousel autoplay slidesToShow={4} responsive={responsive}>
               {() =>
                 history.map((item, i) => (
                   <ProductCard
@@ -116,7 +121,7 @@ export default function Profile({
                   />
                 ))
               }
-            </Carousel> */}
+            </Carousel>
           </div>
         ) : (
           <span className="text-sm text-gray-600 text-left px-6">

@@ -11,7 +11,7 @@ export default function Sidebar() {
   const { pathname } = useLocation()
   const { isAdminSidebar, setIsAdminSidebar } = useAdmin()
   const matches = useMediaQuery('(min-width: 1280px)')
-  const mobileMatches = useMediaQuery('(max-width:768px)')
+  const mobileMatches = useMediaQuery('(max-width: 769px)')
   const isIconSidebar = matches && !isAdminSidebar
   const path = pathname.split('/')[3]
 
