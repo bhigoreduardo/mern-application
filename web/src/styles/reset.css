@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600;700;800&family=Rubik:wght@300;400;500;600;700&display=swap');
+
+/* TAILWINDCSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BASE */
+*,
+::before,
+::after {
+  @apply m-0 p-0 box-border;
+}
+
+html,
+body {
+  @apply scroll-smooth scroll-pt-14 font-rubik font-normal;
+}
+
+html {
+  @apply overflow-x-hidden;
+}
+
+a {
+  @apply no-underline;
+}
+
+select,
+button,
+input[type='submit'] {
+  @apply cursor-pointer;
+}
+
+iframe,
+textarea,
+input,
+select {
+  @apply resize-none border-none outline-none;
+}
+
+img {
+  @apply w-full h-auto object-cover align-middle;
+}
+
+ul {
+  @apply list-none;
+}
+
+table {
+  @apply border-collapse border-spacing-0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  @apply font-poppins;
+}
+
+h1 {
+  @apply text-[calc(1.3em+1vw)] font-extrabold;
+}
+
+h2 {
+  @apply text-[2.5em];
+}
+
+h3 {
+  @apply text-[1.2em] font-bold;
+}
+
+h4 {
+  @apply text-[1em] font-semibold;
+}
