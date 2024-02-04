@@ -5,6 +5,7 @@ import {
   Heart,
   ShoppingCartSimple,
   User,
+  Storefront,
 } from 'phosphor-react'
 
 import useApp from '../../../../../hooks/use-app'
@@ -104,6 +105,9 @@ export default function MiddleNav() {
             <Heart size={20} weight="duotone" className="text-white" />
           </Link>
           <UserButton />
+          <Link to="/acesso/loja/entrar">
+            <Storefront size={20} weight="duotone" className="text-white" />
+          </Link>
         </div>
       </Container>
     </div>

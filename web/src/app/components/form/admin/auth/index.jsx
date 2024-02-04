@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useFormik } from 'formik'
 import { ArrowRight } from 'phosphor-react'
 
@@ -11,6 +11,7 @@ import PasswordLabel from '../../../ui/inputs/password/label'
 import Button from '../../../ui/buttons/button'
 
 export default function Auth() {
+  const navigate = useNavigate()
   const { pathname } = useLocation()
   const path = pathname.split('/')
   path.pop()
@@ -20,7 +21,10 @@ export default function Auth() {
     validationSchema: signInValidationSchema,
     onSubmit: (values) => handleSubmit(values),
   })
-  const handleSubmit = async (values) => console.log(values)
+  const handleSubmit = async (values) => {
+    navigate('/acesso/loja')
+    console.log(values)
+  }
 
   return (
     <form
