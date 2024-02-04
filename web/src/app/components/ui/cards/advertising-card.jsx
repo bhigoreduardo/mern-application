@@ -4,6 +4,7 @@ import { ShoppingCartSimple, ArrowRight } from 'phosphor-react'
 
 import { currencyPrice } from '../../../../utils/format'
 import config from '../../../../config'
+import useApp from '../../../../hooks/use-app'
 import Button from '../buttons/button'
 import Badge from '../common/badge'
 
@@ -18,6 +19,11 @@ export default function AdvertisingCard({
   offer,
 }) {
   const navigate = useNavigate()
+  const { setModalData, setIsModal } = useApp()
+  const setPreview = () => {
+    setModalData({ _id })
+    setIsModal(true)
+  }
 
   return (
     <article className="flex flex-col gap-6 items-center justify-center border-2 border-orange-100 rounded-sm lg:p-8 p-2">
@@ -53,7 +59,10 @@ export default function AdvertisingCard({
           Comprar
           <ShoppingCartSimple size={20} />
         </Button>
-        <Button className="text-orange-500 !border-orange-200 hover:bg-orange-600 hover:text-white uppercase w-full">
+        <Button
+          onClick={setPreview}
+          className="text-orange-500 !border-orange-200 hover:bg-orange-600 hover:text-white uppercase w-full"
+        >
           Vê detalhes
           <ArrowRight size={20} />
         </Button>

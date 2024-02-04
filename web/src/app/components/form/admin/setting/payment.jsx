@@ -10,6 +10,7 @@ import {
   paymentValidationSchema,
 } from '../../../../../types/admin/form-type'
 import { paymentColumns } from '../../../../../utils/contants/admin'
+import useMediaQuery from '../../../../../hooks/use-mediaQuery'
 import ImageLabel from '../../../ui/inputs/image/label'
 import TextLabel from '../../../ui/inputs/text/label'
 import ToggleLabel from '../../../ui/inputs/toggle/label'
@@ -19,6 +20,7 @@ import TableData from '../../../ui/table/data'
 
 export default function Payment() {
   const [indexEdit, setIndexEdit] = useState(null)
+  const matches = useMediaQuery('(max-width: 640px)')
   const formik = useFormik({
     enableReinitialize: true,
     initialValues: paymentInitialValues,
@@ -169,6 +171,7 @@ export default function Payment() {
         <TableData
           columns={paymentColumns(handleEdit, handleDelete)}
           data={payments}
+          smallTable={matches}
           className="!p-0"
         />
       </div>

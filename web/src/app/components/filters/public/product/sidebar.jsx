@@ -208,7 +208,7 @@ export default function Sidebar() {
       </div>
       {/* BANNER ADVERTISING */}
       <AdvertisingCard
-        _id="659edb43f26a45ceed256d3b"
+        _id="65b587e2808ac5bf6c58ba7a"
         name="Lorem Ipsum is simply dummy text"
         image="product/product-1-cover.png"
         brandName="Castor"

@@ -9,9 +9,13 @@ import Modal from './components/ui/modal'
 import PreviewCard from './components/ui/cards/preview-card'
 
 export default function App() {
-  const { isLoading, isModal, setIsModal, modalData } = useApp()
+  const { isLoading, isModal, setIsModal, modalData, setModalData } = useApp()
   const matches = useMediaQuery('(max-width: 1024px)')
   const product = products.find((item) => item._id === modalData?._id)
+  const onClose = () => {
+    setModalData(null)
+    setIsModal(false)
+  }
 
   return (
     <>
@@ -20,7 +24,7 @@ export default function App() {
         <Modal
           isOpen={isModal}
           inside={matches}
-          onClose={setIsModal}
+          onClose={onClose}
           className="xl:max-w-[1000px] md:max-w-[800px] max-w-[600px] lg:mt-0 lg:h-fit h-[calc(100%-32px)] lg:overflow-visible overflow-y-auto overflow-x-hidden"
         >
           <PreviewCard

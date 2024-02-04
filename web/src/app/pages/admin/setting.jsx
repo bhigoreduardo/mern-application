@@ -21,8 +21,8 @@ export default function Setting() {
   const getClassName = (status) => (!status ? ACTIVE_ITEM : INACTIVE_ITEM)
 
   return (
-    <section className="flex-grow flex flex-col gap-6">
-      <div className="flex gap-3 flex-wrap">
+    <section className="flex-grow flex flex-col gap-6 w-full">
+      <div className="flex gap-3 sm:flex-row flex-col">
         <Button
           onClick={() => setIsNonAccount(false)}
           className={`bg-white hover:bg-orange-600 !py-2 uppercase ${getClassName(
