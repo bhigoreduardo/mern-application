@@ -14,7 +14,7 @@ export default function CartCard({ cartItems, setOpenCard }) {
   )
 
   return (
-    <article className="absolute right-0 top-[calc(100%+25px)] z-20 w-[400px] border border-gray-100 bg-white rounded-sm shadow-md py-6 px-6">
+    <article className="absolute md:right-0 sm:right-2 right-0 top-[calc(100%+25px)] z-50 w-full md:w-[400px] max-w-[400px] border border-gray-100 bg-white rounded-sm shadow-md py-6 px-6">
       <div className="flex flex-col gap-6">
         <h4 className="font-semibold text-base text-gray-900 border-b border-gray-200 pb-3">
           Carrinho <span className="font-normal">({cartItems?.length})</span>

@@ -32,7 +32,7 @@ const CartButton = () => {
   const { cartItems } = useApp()
 
   return (
-    <div className="relative flex items-center">
+    <div className="md:relative static flex items-center">
       <button
         type="button"
         className="relative"
@@ -62,7 +62,7 @@ const UserButton = () => {
   }, [location])
 
   return (
-    <div className="relative flex items-center">
+    <div className="md:relative static flex items-center">
       <button
         type="button"
         onClick={() => setOpenCard((prevState) => !prevState)}
@@ -86,7 +86,7 @@ export default function MiddleNav() {
 
   return (
     <div className="bg-blue-900 text-white border-b border-gray-600">
-      <Container className="flex flex-col md:flex-row items-center justify-between gap-6 py-5">
+      <Container className="flex flex-col md:flex-row items-center justify-between gap-6 py-5 relative">
         <Logo href="/" />
         <Text
           name="search"

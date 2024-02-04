@@ -26,7 +26,7 @@ export default function Card({ setOpenCard }) {
 
   return (
     <form
-      className="absolute right-0 top-[calc(100%+25px)] z-20 w-[400px] border border-gray-100 bg-white rounded-sm shadow-md py-6 px-6"
+      className="absolute md:right-0 sm:right-2 right-0 top-[calc(100%+25px)] z-50 w-full md:w-[400px] max-w-[400px] border border-gray-100 bg-white rounded-sm shadow-md py-6 px-6"
       onSubmit={formik.handleSubmit}
     >
       <div className="flex flex-col gap-6">
