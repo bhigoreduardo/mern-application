@@ -90,16 +90,27 @@ export default function Product() {
         <Overview product={product} tabInformation={tabInformation} />
         {/* RELATED */}
         <div className="grid lg:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-6 py-16">
-          {productRelatedItems.map((item, i) => (
-            <div key={i} className="flex flex-col gap-4">
-              <h6 className="font-semibold text-base text-gray-900 uppercase">
-                {item.label}
-              </h6>
-              <RelatedCard />
-              <RelatedCard />
-              <RelatedCard />
-            </div>
-          ))}
+          {productRelatedItems
+            .map((item, i) => ({
+              ...item,
+              products: products.slice(i, i + 3),
+            }))
+            .map((item, i) => (
+              <div key={i} className="flex flex-col gap-4">
+                <h6 className="font-semibold text-base text-gray-900 uppercase">
+                  {item.label}
+                </h6>
+                {item.products?.map((value, key) => (
+                  <RelatedCard
+                    key={key}
+                    name={value.name}
+                    brand={value.brand?.name}
+                    image={value.productData.media.cover}
+                    rangePrice={value.rangePrice}
+                  />
+                ))}
+              </div>
+            ))}
         </div>
       </Container>
     </section>

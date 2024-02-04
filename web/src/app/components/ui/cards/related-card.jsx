@@ -6,7 +6,14 @@ import config from '../../../../config'
 
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
-export default function RelatedCard({ className }) {
+export default function RelatedCard({
+  name,
+  image,
+  brand,
+  rangePrice,
+  className,
+}) {
+  const { min, max } = rangePrice
   return (
     <Link
       className={mergeClassName(
@@ -15,16 +22,17 @@ export default function RelatedCard({ className }) {
       )}
     >
       <img
-        src={`${serverPublicImages}/product/product-1-cover.png`}
-        alt=""
+        src={`${serverPublicImages}/${image}`}
+        alt={name}
         className="inline-block h-[80px] w-[80px]"
       />
       <div className="flex flex-col gap-2">
-        <h3 className="text-sm text-gray-900 line-clamp-2">
-          It is a long established fact that a reader will be distracted
-        </h3>
+        <h3 className="text-sm text-gray-900 line-clamp-2">{name}</h3>
+        <span className="text-xs text-gray-600 line-clamp-1">
+          Marca: {brand}
+        </span>
         <span className="font-semibold text-sm text-blue-500">
-          {currencyPrice.format(199.99)}
+          {currencyPrice.format(min || max)}
         </span>
       </div>
     </Link>

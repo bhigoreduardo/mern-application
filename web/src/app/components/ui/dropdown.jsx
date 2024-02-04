@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { CaretRight } from 'phosphor-react'
 
-import { categories } from '../../../utils/mock'
+import { categories, products } from '../../../utils/mock'
 import { makeArrTree } from '../../../utils/format'
 import NavItem from './common/nav-item'
 import BannerCard from './cards/banner-card'
@@ -73,12 +73,20 @@ export default function Dropdown({ setOpenDropdown }) {
                   <h4 className="font-semibold text-gray-900 text-base uppercase mb-5">
                     Lorem Ipsum is simply
                   </h4>
-                  {Array.from({ length: 3 }).map((_, i) => (
-                    <RelatedCard key={i} className="max-w-[300px]" />
+                  {products.slice(0, 3).map((item, i) => (
+                    <RelatedCard
+                      key={i}
+                      name={item.name}
+                      image={item.productData.media.cover}
+                      brand={item.brand?.name}
+                      rangePrice={item.rangePrice}
+                      className="xl:w-[300px] max-w-[300px]"
+                    />
                   ))}
                 </div>
                 <div className="max-w-[300px]">
                   <BannerCard
+                    _id="65b587e2808ac5bf6c58ba7a"
                     title="Sofá Reclinável Minas"
                     description="It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout."
                     offer={299.99}
