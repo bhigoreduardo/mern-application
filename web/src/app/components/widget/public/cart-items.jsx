@@ -1,7 +1,6 @@
-import { useNavigation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ArrowLeft, ArrowRight } from 'phosphor-react'
 
-import { cart } from '../../../../utils/mock'
 import { cartColumns } from '../../../../utils/contants/public'
 import { cartCalculate } from '../../../../utils/calculate'
 import { currencyPrice } from '../../../../utils/format'
@@ -13,14 +12,35 @@ import TableData from '../../ui/table/data'
 import TextLabel from '../../ui/inputs/text/label'
 
 export default function CartItems() {
-  const navigate = useNavigation()
+  const navigate = useNavigate()
   const matches = useMediaQuery('(max-width: 1024px)')
-  const { handleCartItems } = useApp()
-  const cartItems = cart
+  const { cartItems, handleCartItems } = useApp()
   const { subAmount, shippingFee, discount } = cartCalculate(cartItems)
-  const handleDelete = () => {}
-  const handleDecrease = () => {}
-  const handleIncrease = () => {}
+  const handleDelete = (product, color) => {
+    handleCartItems(
+      cartItems.filter(
+        (item) => `${item.product}.${item.color}` !== `${product}.${color}`
+      )
+    )
+  }
+  const handleDecrease = (product, color) => {
+    const findIndex = cartItems.findIndex(
+      (item) => item.product === product && item.color === color
+    )
+
+    if (cartItems[findIndex].quantity === 1) return
+    cartItems[findIndex].quantity -= 1
+    handleCartItems([...cartItems])
+  }
+  const handleIncrease = (product, color) => {
+    const findIndex = cartItems.findIndex(
+      (item) => item.product === product && item.color === color
+    )
+
+    if (cartItems[findIndex].stock === cartItems[findIndex].quantity) return
+    cartItems[findIndex].quantity += 1
+    handleCartItems([...cartItems])
+  }
   const handleClear = () => handleCartItems([])
 
   return (
@@ -38,7 +58,7 @@ export default function CartItems() {
         />
         <div className="flex items-center justify-between sm:flex-row flex-col gap-2 pt-3 px-6 border-t border-gray-200">
           <Button
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/loja')}
             className="flex-row-reverse text-blue-500 !border-blue-200 hover:bg-blue-600 hover:text-white uppercase sm:w-fit w-full"
           >
             Comprar mais

@@ -1,11 +1,9 @@
-// import useApp from '../../../hooks/use-app'
-import { cart } from '../../../utils/mock'
+import useApp from '../../../hooks/use-app'
 import CartItems from '../../components/widget/public/cart-items'
 import Empty from '../../components/widget/public/common/empty'
 
 export default function Cart() {
-  // const { cartItems } = useApp()
-  const cartItems = cart
+  const { cartItems } = useApp()
 
   return (
     <section>

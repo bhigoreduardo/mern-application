@@ -237,7 +237,7 @@ export default function Checkout() {
           <h4 className="font-semibold text-base text-gray-900 border-b border-gray-200 px-6 pb-3">
             Método de pagamento
           </h4>
-          <div className="flex items-center px-6 py-3">
+          <div className="flex items-center px-6 py-3 flex-wrap gap-4">
             {payments?.map((item, i) => (
               <label
                 key={item._id}
@@ -249,7 +249,7 @@ export default function Checkout() {
                 <img
                   src={`${serverPublicImages}/${item.image}`}
                   alt={item.method}
-                  className="w-10 h-10 object-cover"
+                  className="w-10 h-10 object-contain"
                 />
                 <span className="font-semibold text-sm text-gray-900">
                   {item.name}
