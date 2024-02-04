@@ -100,8 +100,8 @@ export default function Home() {
       {/* MOST SALES */}
       <div className="flex flex-col gap-6 border border-gray-100 rounded-sm shadow-sm overflow-x-auto bg-white">
         <Heading title="Mais vendidos" />
-        {/* {products?.length > 0 ? (
-          <div className="w-[1200px] px-6 mx-auto pb-2">
+        {products?.length > 0 ? (
+          <div className="w-full px-6 mx-auto 2xl:max-w-[1170px] 1350:max-w-[1000px] lg:max-w-[900px] md:max-w-[680px] pb-2">
             <Carousel autoplay slidesToShow={4} responsive={responsive}>
               {() =>
                 products.map((item, i) => (
@@ -122,7 +122,7 @@ export default function Home() {
           <span className="text-sm text-gray-600 text-left px-6">
             Sem resultados
           </span>
-        )} */}
+        )}
       </div>
       {/* TRAFFIC */}
       <div className="flex md:flex-row flex-col gap-6">
