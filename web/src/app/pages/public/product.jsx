@@ -103,6 +103,7 @@ export default function Product() {
                 {item.products?.map((value, key) => (
                   <RelatedCard
                     key={key}
+                    _id={value._id}
                     name={value.name}
                     brand={value.brand?.name}
                     image={value.productData.media.cover}

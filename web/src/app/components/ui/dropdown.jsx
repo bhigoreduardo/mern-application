@@ -76,6 +76,7 @@ export default function Dropdown({ setOpenDropdown }) {
                   {products.slice(0, 3).map((item, i) => (
                     <RelatedCard
                       key={i}
+                      _id={item._id}
                       name={item.name}
                       image={item.productData.media.cover}
                       brand={item.brand?.name}

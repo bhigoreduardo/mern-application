@@ -7,6 +7,7 @@ import config from '../../../../config'
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
 export default function RelatedCard({
+  _id,
   name,
   image,
   brand,
@@ -16,6 +17,7 @@ export default function RelatedCard({
   const { min, max } = rangePrice
   return (
     <Link
+      to={`/produto/${_id}`}
       className={mergeClassName(
         'flex gap-3 p-3 border border-gray-200 rounded-sm',
         className
