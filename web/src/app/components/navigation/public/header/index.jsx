@@ -1,3 +1,4 @@
+import MiddleNav from './middle-nav'
 import BottomNav from './bottom-nav'
 import TopNav from './top-nav'
 
@@ -6,8 +7,9 @@ export const CLASSNAME =
 
 export default function Header() {
   return (
-    <header className="relative">
+    <header>
       <TopNav />
+      <MiddleNav />
       <BottomNav />
     </header>
   )
