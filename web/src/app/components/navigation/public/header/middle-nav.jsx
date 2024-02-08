@@ -4,9 +4,11 @@ import { Link } from 'react-router-dom'
 import { categories } from '../../../../../utils/mock'
 import { CLASSNAME } from '.'
 import { currencyPrice, makeArrTree } from '../../../../../utils/format'
+import useApp from '../../../../../hooks/use-app'
 import config from '../../../../../config'
 import Container from '../../../ui/container'
 import Badge from '../../../ui/badge'
+import Logo from '../../../ui/logo'
 
 const serverPublicImages = config.SERVER_PUBLIC_IMAGES
 
@@ -58,11 +60,11 @@ const CategoriesLinks = ({ categories }) => {
             ))}
             <div className="relative flex-1 flex flex-col gap-2">
               <img
-                src={`${serverPublicImages}/${item?.banner?.product?.image}`}
+                src={`${serverPublicImages}/${item?.banner?.image}`}
                 alt={item?.banner?.product?.name}
                 className="h-[400px]"
               />
-              <div className="absolute bottom-14 flex flex-col gap-2 items-center py-4 bg-white bg-opacity-80">
+              <div className="absolute bottom-14 w-full flex flex-col gap-2 items-center py-4 bg-white bg-opacity-80">
                 <h4 className="text-xl text-gray-600 line-clamp-2 text-center uppercase">
                   {item?.banner?.product?.name}
                 </h4>
@@ -82,24 +84,26 @@ const CategoriesLinks = ({ categories }) => {
 }
 
 export default function MiddleNav() {
-  const categoriesTree = makeArrTree(categories, null)
+  const { setOpenSidebar } = useApp()
+  const categoriesTree = makeArrTree(categories, null).slice(0, 3)
 
   return (
     <section className="relative">
-      <Container className="flex items-center gap-5 py-2">
+      <Container className="flex items-center gap-5 py-3">
         {/* MENU */}
-        <button type="button" className="2md:hidden">
+        <button
+          type="button"
+          className="2md:hidden"
+          onClick={() => setOpenSidebar(true)}
+        >
           <i className="ri-menu-2-fill text-xl" />
         </button>
         {/* LOGO */}
-        <Link to="/" className="relative font-poppins text-2xl font-extrabold">
-          <span className="absolute w-10 h-10 rounded-full -top-4 -left-4 -z-10 bg-gray-100 before:absolute before:content-[''] before:w-7 before:h-7 before:rounded-full before:left-1/2 before:top-1/2 before:-translate-x-1/2 before:-translate-y-1/2 before:bg-purple-400" />
-          <span>.</span>Clothes
-        </Link>
+        <Logo />
         {/* NAV */}
-        <nav className="flex items-center justify-between w-full">
+        <nav className="flex items-center 2md:justify-between justify-end w-full">
           {/* LEFT-CONTENT */}
-          <ul className="flex items-center gap-5">
+          <ul className="2md:flex items-center gap-5 hidden">
             <Link to="/" className={CLASSNAME}>
               Início
             </Link>

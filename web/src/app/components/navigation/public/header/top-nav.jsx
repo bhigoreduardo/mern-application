@@ -12,7 +12,7 @@ import { CLASSNAME } from '.'
 import Container from '../../../ui/container'
 
 const Links = ({ arrLinks, className }) => (
-  <ul className="flex items-center gap-8">
+  <ul className="flex 2md:items-center 2md:gap-8 gap-1 2md:flex-row flex-col">
     {arrLinks.map((item, i) => (
       <li key={i}>
         <Link to={item.slug} className={className}>
@@ -68,11 +68,11 @@ const Buttons = ({ arrLinks, initialValue, className }) => {
 
 export default function TopNav() {
   return (
-    <Container className="flex items-center justify-between py-2">
+    <Container className="flex 2md:items-center justify-between py-2 2md:flex-row flex-col gap-2 w-full">
       {/* MAIN LINKS */}
       <Links arrLinks={headerMainLinks} className={CLASSNAME} />
       {/* SECOND LINKS */}
-      <ul className="flex items-center gap-8">
+      <ul className="flex 2md:items-center 2md:gap-8 gap-1 2md:flex-row flex-col 2md:border-none border-y border-gray-100 2md:py-0 py-2">
         <Links arrLinks={headerSecondLinks} className={CLASSNAME} />
         <Buttons
           arrLinks={headerCurrency}
