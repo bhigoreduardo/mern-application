@@ -1,3 +1,5 @@
+import { categories } from '../mock'
+
 // HEADER
 export const headerMainLinks = [
   {
@@ -36,4 +38,81 @@ export const headerLocalce = [
   'English',
   'Portuguese',
   'Spanish',
+]
+
+// FOOTER
+export const footerLinks = [
+  {
+    title: 'Ajuda & contato',
+    children: [
+      {
+        name: 'Conta',
+        slug: '/conta',
+      },
+      {
+        name: 'Pedidos',
+        slug: '/pedidos',
+      },
+      {
+        name: 'Taxas de envio',
+        slug: '/taxas',
+      },
+      {
+        name: 'Devoluções',
+        slug: '/devolucoes',
+      },
+      {
+        name: 'Ajuda',
+        slug: '/ajuda',
+      },
+      {
+        name: 'Contato',
+        slug: '/contato',
+      },
+    ],
+  },
+  {
+    title: 'Categoria de produtos',
+    children: categories.slice(0, 9),
+  },
+  {
+    title: 'Informações de pagamento',
+    children: [
+      {
+        name: 'Cartão de visita',
+      },
+      {
+        name: 'Resgatar pontos',
+      },
+      {
+        name: 'Recarga de saldo',
+      },
+      {
+        name: 'Pagamentos',
+      },
+    ],
+  },
+  {
+    title: 'Sobre nós',
+    children: [
+      {
+        name: 'A empresa',
+      },
+      {
+        name: 'Notícias',
+      },
+      {
+        name: 'Trabalhe conosco',
+      },
+      {
+        name: 'Investidores',
+      },
+      {
+        name: 'Políticas de privacidade',
+      },
+      {
+        name: 'Avaliações',
+      },
+    ],
+  },
 ]

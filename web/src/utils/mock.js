@@ -300,3 +300,31 @@ export const products = [
     },
   },
 ]
+
+export const social = [
+  {
+    name: 'Twitter',
+    slug: '',
+    icon: 'ri-twitter-line',
+  },
+  {
+    name: 'Facebook',
+    slug: '',
+    icon: 'ri-facebook-line',
+  },
+  {
+    name: 'Instagram',
+    slug: '',
+    icon: 'ri-instagram-line',
+  },
+  {
+    name: 'LinkedIn',
+    slug: '',
+    icon: 'ri-linkedin-line',
+  },
+  {
+    name: 'YouTube',
+    slug: '',
+    icon: 'ri-youtube-line',
+  },
+]
