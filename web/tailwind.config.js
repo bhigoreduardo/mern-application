@@ -9,6 +9,8 @@ export default {
       },
       screens: {
         '2md': '992px',
+        xs: '580px',
+        xxs: '480px',
       },
     },
   },

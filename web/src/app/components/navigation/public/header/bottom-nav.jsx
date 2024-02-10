@@ -8,7 +8,7 @@ import config from '../../../../../config'
 import Container from '../../../ui/container'
 import useMediaQuery from '../../../../../hooks/use-mediaQueries'
 
-const serverPublicImages = config.SERVER_PUBLIC_IMAGES
+const SERVER_PUBLIC_IMAGES = config.SERVER_PUBLIC_IMAGES
 
 const CategoriesChildren = ({ setCurrent, item }) => (
   <div
@@ -17,7 +17,7 @@ const CategoriesChildren = ({ setCurrent, item }) => (
   >
     <div className="2md:block hidden absolute w-full min-h-full bg-gradient-to-br from-[rgba(255,255,255,0.6)] from-50% to-[rgba(0,0,0,0.45)] -z-10" />
     <img
-      src={`${serverPublicImages}/${item.background}`}
+      src={`${SERVER_PUBLIC_IMAGES}/${item.background}`}
       className="absolute -z-20 2md:inline-block hidden"
     />
     {item.children.map((value, key) => (
@@ -85,7 +85,7 @@ export default function BottomNav() {
         </div>
 
         {openDropdown && (
-          <ul className="2md:block hidden absolute top-[calc(100%+12px)] w-[calc(100%-64px)]">
+          <ul className="2md:block hidden absolute top-[calc(100%+12px)] w-[calc(100%-64px)] z-20">
             <div className="flex flex-col gap-1 p-2 border border-gray-100 shadow-md rounded-b-sm bg-white w-[300px]">
               <CategoriesLinks />
             </div>

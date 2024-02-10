@@ -10,7 +10,7 @@ import Container from '../../../ui/container'
 import Badge from '../../../ui/badge'
 import Logo from '../../../ui/logo'
 
-const serverPublicImages = config.SERVER_PUBLIC_IMAGES
+const SERVER_PUBLIC_IMAGES = config.SERVER_PUBLIC_IMAGES
 
 const CategoriesLinks = ({ categories }) => {
   const [current, setCurrent] = useState(null)
@@ -60,7 +60,7 @@ const CategoriesLinks = ({ categories }) => {
             ))}
             <div className="relative flex-1 flex flex-col gap-2">
               <img
-                src={`${serverPublicImages}/${item?.banner?.image}`}
+                src={`${SERVER_PUBLIC_IMAGES}/${item?.banner?.image}`}
                 alt={item?.banner?.product?.name}
                 className="h-[400px]"
               />
