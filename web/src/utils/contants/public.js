@@ -40,6 +40,29 @@ export const headerLocalce = [
   'Spanish',
 ]
 
+export const mobileLinks = [
+  {
+    name: 'Início',
+    icon: 'ri-home-4-line',
+  },
+  {
+    name: 'Conta',
+    icon: 'ri-user-line',
+  },
+  {
+    name: 'Favoritos',
+    icon: 'ri-heart-line',
+  },
+  {
+    name: 'Pesquisar',
+    icon: 'ri-search-line',
+  },
+  {
+    name: 'Carrinho',
+    icon: 'ri-shopping-cart-line',
+  },
+]
+
 // FOOTER
 export const footerLinks = [
   {

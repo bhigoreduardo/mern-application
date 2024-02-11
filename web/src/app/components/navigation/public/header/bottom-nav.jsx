@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom'
 import { categories } from '../../../../../utils/mock'
 import { makeArrTree } from '../../../../../utils/format'
 import config from '../../../../../config'
-import Container from '../../../ui/container'
+import useApp from '../../../../../hooks/use-app'
 import useMediaQuery from '../../../../../hooks/use-mediaQueries'
+import Container from '../../../ui/container'
 
 const SERVER_PUBLIC_IMAGES = config.SERVER_PUBLIC_IMAGES
 
@@ -65,9 +66,19 @@ export const CategoriesLinks = () => {
 
 export default function BottomNav() {
   const [openDropdown, setOpenDropdown] = useState(false)
+  const { openSearch } = useApp()
+  const matches = useMediaQuery('(min-width: 992px)')
 
   return (
-    <section className="bg-slate-700">
+    <section
+      className={`bg-slate-700 ${
+        !matches
+          ? openSearch
+            ? 'fixed w-full left-0 right-0 bottom-12 z-50'
+            : 'hidden'
+          : 'block'
+      }`}
+    >
       <Container className="flex items-center gap-5 py-5 relative">
         {/* DEPARTMENTS */}
         <div className="relative 2md:flex hidden flex-col gap-1 py-3 px-6 rounded-t-md -mb-8 bg-red-400 w-[300px]">
