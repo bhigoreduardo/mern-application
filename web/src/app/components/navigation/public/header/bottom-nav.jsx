@@ -91,7 +91,11 @@ export default function BottomNav() {
             className="absolute top-5 right-5 text-white"
             onClick={() => setOpenDropdown((prevState) => !prevState)}
           >
-            <i className="ri-menu-3-line text-xl" />
+            <i
+              className={`${
+                openDropdown ? 'ri-close-line' : 'ri-menu-3-line'
+              } text-xl`}
+            />
           </button>
         </div>
 
