@@ -2,6 +2,7 @@ import Layout from '../layouts/public'
 
 // PUBLIC
 import Home from '../pages/public'
+import Product from '../pages/public/product'
 
 const router = [
   {
@@ -11,6 +12,10 @@ const router = [
       {
         path: '',
         element: <Home />,
+      },
+      {
+        path: '/produto/:id',
+        element: <Product />,
       },
     ],
   },
